@@ -1288,10 +1288,22 @@ section,
   --heading-color: #333;
 }
 
-.features-cards .feature-box {
+
+.features-cards .feature-box { 
   height: 100%;
   padding: 40px 30px;
   border-radius: 10px;
+  /* background-color: #e8f9f2;  */
+}
+.features-cards .feature-box:hover{
+  box-shadow: 3px 3px 15px gray;
+}
+
+.features-cards .feature-box{ 
+  height: 100%;
+  padding: 40px 30px;
+  border-radius: 10px;
+  /* background-color: #e8f9f2;  */
 }
 
 .features-cards .feature-box i {
@@ -1314,7 +1326,8 @@ section,
 }
 
 .features-cards .feature-box.orange {
-  background-color: #fff3e2;
+  background-color: #ffede2;
+  /* background-image: url("assets/img/shopify.png"); */
 }
 
 .features-cards .feature-box.orange i {
@@ -1323,6 +1336,9 @@ section,
 
 .features-cards .feature-box.blue {
   background-color: #deedfd;
+}
+.features-cards .feature-box.purple {
+  background-color: #e2d6f0;
 }
 
 .features-cards .feature-box.blue i {
@@ -2343,3 +2359,6 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
+/* .starter-section {
+  
+} */
