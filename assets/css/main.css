@@ -1732,10 +1732,12 @@ section,
   background: var(--surface-color);
   border-radius: 10px;
   transition: all 0.3s ease;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .services .service-card:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.08); */
+  box-shadow: 5px 5px 10px grey;
 }
 
 .services .service-card:hover .icon {
