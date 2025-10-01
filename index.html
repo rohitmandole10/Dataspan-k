@@ -36,6 +36,48 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+
+  <!--========================================================
+ Marker
+ ============================================================-->
+  <style>
+    /* body {
+    margin: 0;
+    overflow: hidden;
+  } */
+    /*#globeViz {
+      width: 100vw;
+      height: 100vh;
+    } */
+
+    #globe-container {
+      width: 700px;
+      /* fixed width */
+      height: 700px;
+      /* fixed height */
+      margin: 0 auto;
+      /* center horizontally */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* .tippy-box {
+      background: #ffffff;
+      font-family: sans-serif;
+      font-size: 14px;
+      padding: 5px 8px;
+    } */
+
+    .myMarker:hover svg path {
+      fill: #ffcc00;
+    }
+  </style>
+
+  <script src="https://unpkg.com/globe.gl"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
 </head>
 
 <body class="index-page">
@@ -47,7 +89,7 @@
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <img src="assets/img/brand.png" alt="">
+        <img src="assets/img/brand3.png" alt="">
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
@@ -123,13 +165,13 @@
 
               <h1 class="mb-4">
                 <!-- Maecenas Vitae <br> -->
-                Working for Your Success, Every Step of the Way <br>
+                Smarter Connections. Faster Decisions. Seamless Growth. <br>
                 <!-- <span class="accent-text">Vestibulum Ante</span> -->
               </h1>
 
               <p class="mb-4 mb-md-5">
-                We design smart, innovative solutions that help businesses connect better, operate smoother, and stay
-                ahead in a fast-changing world.
+                From AI chatbots to process automation and e-commerce solutions, we build tools that simplify operations
+                and keep your business ahead of the curve.
               </p>
 
               <div class="hero-buttons">
@@ -229,36 +271,32 @@
             <div class="row feature-list-wrapper">
               <div class="col-md-6">
                 <ul class="feature-list">
-                  <li><i class="bi bi-check-circle-fill"></i>Custom Automation Solutions – We design and implement
-                    intelligent automation to streamline workflows, build ETL pipelines, and enable data-driven
-                    decision-making.</li>
-                  <li><i class="bi bi-check-circle-fill"></i>Android App Development – From concept to launch, we create
-                    user-friendly Android applications that deliver seamless experiences and measurable results.
+                  <li><i class="bi bi-check-circle-fill"></i>Custom Automation Solutions – Intelligent workflows and ETL
+                    pipelines, data-driven decisions.</li>
+                  <li><i class="bi bi-check-circle-fill"></i>Android App Development – User-friendly Android apps built
+                    for seamless experiences and results.
                   </li>
-                  <li><i class="bi bi-check-circle-fill"></i>Data Analytics & Intelligence – With expertise in Power BI,
-                    Tableau, and data science, we transform raw data into actionable insights that drive smarter
-                    decisions.
+                  <li><i class="bi bi-check-circle-fill"></i>Data Analytics & Intelligence – Power BI, Tableau, and data
+                    science to turn data into actionable insights.
                   </li>
-                  <li><i class="bi bi-check-circle-fill"></i>UI/UX Design Excellence – We craft intuitive digital
-                    experiences with Figma and Framer development, ensuring user journeys are simple, engaging, and
-                    impactful.
+                  <li><i class="bi bi-check-circle-fill"></i>UI/UX Design Excellence – Intuitive digital journeys
+                    crafted with Figma and Framer.
                   </li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <ul class="feature-list">
-                  <li><i class="bi bi-check-circle-fill"></i>E-commerce Development – From scalable online stores to
-                    seamless ERP and POS integrations, we empower businesses to sell smarter and operate efficiently.
+                  <li><i class="bi bi-check-circle-fill"></i>E-commerce Development –Scalable stores with ERP and POS
+                    integration for efficient operations.
                   </li>
-                  <li><i class="bi bi-check-circle-fill"></i>Seamless Integrations – From ERP to POS systems, we ensure
-                    smooth connectivity across platforms, enabling unified operations and stronger customer engagement.
+                  <li><i class="bi bi-check-circle-fill"></i>Seamless Integrations – Smooth connectivity across systems
+                    for unified business processes.
                   </li>
-                  <li><i class="bi bi-check-circle-fill"></i>Reliable Back-Office Support – Our team provides dependable
-                    operational support to keep your business running smoothly behind the scenes.
+                  <li><i class="bi bi-check-circle-fill"></i>Reliable Back-Office Support –Reliable operational support
+                    to keep business running seamlessly.
                   </li>
-                  <li><i class="bi bi-check-circle-fill"></i>Creative Media & Digital Innovation – From AI-powered video
-                    creation to motion graphics and presentation design, we bring ideas to life through stunning visual
-                    storytelling.
+                  <li><i class="bi bi-check-circle-fill"></i>Creative Media & Digital Innovation – AI-powered videos,
+                    motion graphics, and designs.
                   </li>
                 </ul>
               </div>
@@ -292,7 +330,7 @@
             <div class="image-wrapper">
               <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
                 <img src="assets/img/about-5.webp" alt="Business Meeting" class="img-fluid main-image rounded-4">
-                <img src="assets/img/about-2.webp" alt="Team Discussion" class="img-fluid small-image rounded-4">
+                <!-- <img src="assets/img/about-2.webp" alt="Team Discussion" class="img-fluid small-image rounded-4"> -->
               </div>
               <!-- <div class="experience-badge floating">
                 <h3>15+ <span>Years</span></h3>
@@ -305,6 +343,139 @@
 
     </section><!-- /About Section -->
 
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>AI-Powered Solutions for the Future</h2>
+        <p>“Empowering businesses with cutting-edge AI technologies to drive innovation, efficiency, and growth.”</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="d-flex justify-content-center">
+
+          <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
+
+            <li class="nav-item">
+              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+                <h4>Intelligent AI Workflows & Automation</h4>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link " data-bs-toggle="tab" data-bs-target="#features-tab-2">
+                <h4>Large Language Models (LLM)</h4>
+              </a>
+            </li><!-- End tab nav item -->
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
+                <h4>NLP & Text Analytics </h4>
+              </a><!-- End tab nav item -->
+
+            </li>
+            <!-- End tab nav item -->
+          </ul>
+
+        </div>
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="tab-pane fade active show" id="features-tab-1">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3>Automate and optimize business processes using intelligent AI workflows.</h3>
+                <!-- <p class="fst-italic">Great design is more than visuals — it’s about usability. At Dataspan
+                  Technologies, our detailed UX audit identifies improvements that make digital products seamless and
+                  enjoyable.</p> -->
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Process Automation:</b> Eliminate repetitive tasks with
+                      AI-driven workflows, reducing errors and boosting productivity.
+                    </span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Predictive Analytics:</b> Anticipate trends and behaviors with
+                      data-driven forecasts for smarter decisions.
+                    </span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Seamless Integration:</b> Connect AI workflows with
+                      existing systems to enhance operational efficiency.
+                    </span></li>
+                  <li><i class="bi bi-check2-all"></i><span><b>Scalable Optimization:</b> Continuously improve processes with
+                      adaptive, enterprise-ready AI solutions.
+                    </span></li>
+                </ul>
+
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="assets/img/features-illustration-3.webp" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End tab content item -->
+
+          <div class="tab-pane fade " id="features-tab-2">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3>Unlock the potential of advanced language models to enhance communication and decision-making.</h3>
+                <!-- <p class="fst-italic">
+                  At Dataspan Technologies, we make digital transformation simple and effective. Our team helps you
+                  modernize technology, optimize processes, and build strategies that deliver lasting growth.
+                </p> -->
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Smart Chatbots & Assistants:</b> Build custom conversational AI
+                      with intuitive UI, delivering natural, human-like interactions.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>End-to-End Data Processing:</b> ETL pipelines, sentence case
+                      standardization, data preparation, and Q&A pair generation for clean, training-ready datasets.
+                    </span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Custom LLM Training:</b> Fine-tune and optimize models for
+                      domain-specific needs, ensuring accuracy, context-awareness, and scalability.
+                    </span></li>
+                  <li><i class="bi bi-check2-all"></i><span><b>Seamless Integration:</b> Deploy AI solutions across apps and
+                      workflows to
+                      enhance decision-making and customer engagement.
+                    </span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="assets/img/features-illustration-1.webp" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End tab content item -->
+
+          <div class="tab-pane fade" id="features-tab-3">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3>Transform unstructured text into actionable insights with state-of-the-art NLP techniques.</h3>
+                <!-- <p class="fst-italic">
+                  We go beyond providing services — we partner with you to drive progress. By combining cutting-edge
+                  technology and proven practices, Dataspan Technologies ensures your business continues to evolve.
+                </p> -->
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Unstructured Data to Insights:</b> Transform raw text into
+                      actionable intelligence with cutting-edge NLP techniques.
+                    </span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Text & Sentiment Analysis:</b> Extract key patterns and measure
+                      customer or public sentiment to drive better strategies.
+                    </span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Entity Recognition & Classification:</b> Identify and organize
+                      people, organizations, and keywords to streamline workflows.
+                    </span></li>
+                  <li><i class="bi bi-check2-all"></i><span><b>Scalable AI Solutions:</b> Deploy NLP pipelines that adapt to
+                      diverse domains, enabling faster, data-driven decisions.
+                    </span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="assets/img/features-illustration-2.webp" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End tab content item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Features Section -->
+
     <section id="features-cards" class="features-cards section">
       <!-- Section Title -->
       <!-- <div class="container section-title" data-aos="fade-up">
@@ -315,15 +486,15 @@
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
           <h2>E-commerce Services.</h2>
-          <p>Dataspan Technologies offers expert design and development services for leading eCommerce platforms such as
-            Magento, BigCommerce, Shopify, WordPress, xt:Commerce, WooCommerce, and more.</p>
+          <p>Dataspan Technologies offers expert design and development services for leading E-commerce platforms such as
+            Shopify, WordPress, Magento, WooCommerce, BigCommerce,  and more.</p>
         </div><!-- End Section Title -->
 
         <div class="row gy-4">
           <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
             <div class="feature-box green Shopify">
               <!-- <i class="bi bi-award"></i> -->
-            
+
               <h4><img src="assets/img/shopify.png" alt="" style="width: 50px; height: 55px ;">Shopify</h4>
               <ul>
                 <li>Shopify store setup</li>
@@ -338,7 +509,7 @@
           <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
             <div class="feature-box blue WordPress">
               <!-- <i class="bi bi-patch-check"></i> -->
-              
+
               <h4><img src="assets/img/wordpress.png" alt="" style="width: 50px; height: 55px ;"> WordPress</h4>
               <ul>
                 <li>WordPress website setup & development</li>
@@ -383,115 +554,6 @@
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Features</h2>
-        <p>“Driving success with efficient, modern, and impactful digital solutions.”</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="d-flex justify-content-center">
-
-          <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
-
-            <li class="nav-item">
-              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
-                <h4>Digital Transformation</h4>
-              </a>
-            </li><!-- End tab nav item -->
-
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
-                <h4>Growth Partnership</h4>
-              </a><!-- End tab nav item -->
-
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                <h4>UX Auditing</h4>
-              </a>
-            </li><!-- End tab nav item -->
-          </ul>
-
-        </div>
-
-        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="tab-pane fade active show" id="features-tab-1">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Expert guidance for a smarter future.</h3>
-                <p class="fst-italic">
-                  At Dataspan Technologies, we make digital transformation simple and effective. Our team helps you
-                  modernize technology, optimize processes, and build strategies that deliver lasting growth.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Digital strategy development tailored to your business.
-                    </span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Business model innovation to stay ahead of
-                      competition.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Automation and analytics for smarter decisions.</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-illustration-1.webp" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End tab content item -->
-
-          <div class="tab-pane fade" id="features-tab-2">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Your trusted partner in growth.</h3>
-                <p class="fst-italic">
-                  We go beyond providing services — we partner with you to drive progress. By combining cutting-edge
-                  technology and proven practices, Dataspan Technologies ensures your business continues to evolve.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Customized solutions aligned with your strategy.
-                    </span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Latest technologies to fuel innovation.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Long-term partnership for sustained growth.</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-illustration-2.webp" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End tab content item -->
-
-          <div class="tab-pane fade" id="features-tab-3">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Delivering seamless digital experiences for your customers.</h3>
-                <p class="fst-italic">Great design is more than visuals — it’s about usability. At Dataspan
-                  Technologies, our detailed UX audit identifies improvements that make digital products seamless and
-                  enjoyable.</p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Customer-centric approach that prioritizes your users at
-                      every step.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Exceptional experiences designed to boost business growth
-                      and success.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Expert insights to identify improvements and streamline
-                      digital products for maximum engagement.</span></li>
-                </ul>
-
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-illustration-3.webp" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End tab content item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Features Section -->
 
     <!-- Features Cards Section -->
     <!-- <section id="features-cards" class="features-cards section">
@@ -537,10 +599,13 @@
 
     </section> /Features Cards Section -->
 
-   
+
     <!-- Features 2 Section -->
     <section id="features-2" class="features-2 section">
-
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Application Development</h2>
+      </div><!-- End Section Title -->                                                
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row align-items-center">
@@ -550,12 +615,12 @@
             <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="200">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
-                  <h3>Custom Android App Development</h3>
-                  <p>Turn your idea into a high-performing Android app. Our experts use Java and Kotlin with Android
-                    Studio to build scalable, user-friendly apps ready for the Google Play Store.</p>
+                  <h3>Custom Application Development</h3>
+                  <p>Build scalable, user-friendly Android and iOS apps using Java, Kotlin, React Native, Flutter, and
+                    Xamarin for consistent performance.</p>
                 </div>
                 <div class="feature-icon flex-shrink-0">
-                  <i class="bi bi-display"></i>
+                  <i class="bi-code-slash"></i>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -563,13 +628,12 @@
             <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="300">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
-                  <h3>UI/UX Design</h3>
-                  <p>Create apps that are not only functional but also engaging and intuitive. Our designers conduct
-                    user research, build personas, and craft responsive, navigable, and visually appealing interfaces.
-                  </p>
+                  <h3>QA and Testing</h3>
+                  <p>Ensure your app is secure and bug-free. We perform manual and automated testing to deliver stable,
+                    high-performing Android applications.</p>
                 </div>
                 <div class="feature-icon flex-shrink-0">
-                  <i class="bi bi-palette-fill"></i>
+                  <i class="bi-check-circle"></i>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -577,12 +641,12 @@
             <div class="feature-item text-end" data-aos="fade-right" data-aos-delay="400">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
-                  <h3>Cross-Platform Development</h3>
-                  <p>Speed up development by building apps for both Android and iOS from a single codebase. We use React
-                    Native, Flutter, and Xamarin to deliver consistent performance across devices and platforms.</p>
+                  <h3>Shopify App Development</h3>
+                  <p>Develop seamless e-commerce apps integrated with Shopify stores to enable smooth shopping experiences and efficient product management.
+                  </p>
                 </div>
                 <div class="feature-icon flex-shrink-0">
-                  <i class="bi-columns-gap"></i>
+                  <i class="bi-cart"></i>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -600,12 +664,12 @@
             <div class="feature-item mb-5" data-aos="fade-left" data-aos-delay="200">
               <div class="d-flex align-items-center gap-4">
                 <div class="feature-icon flex-shrink-0">
-                  <i class="bi-diagram-3"></i>
+                  <i class="bi-plug"></i>
                 </div>
                 <div class="feature-content">
                   <h3>Integration Services</h3>
-                  <p>Enhance your app with third-party integrations like payment gateways, maps, and authentication
-                    services. These ready-to-use solutions accelerate development and enrich app functionality.</p>
+                  <p>Enhance your app with third-party integrations like payment gateways, maps, and authentication to
+                    enrich functionality and speed up development.</p>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -613,12 +677,12 @@
             <div class="feature-item mb-5" data-aos="fade-left" data-aos-delay="300">
               <div class="d-flex align-items-center gap-4">
                 <div class="feature-icon flex-shrink-0">
-                  <i class="bi-bug"></i>
+                  <i class="bi-arrow-repeat"></i>
                 </div>
                 <div class="feature-content">
-                  <h3>QA and Testing</h3>
-                  <p>Ensure your app is secure and bug-free. We perform manual and automated testing to deliver stable,
-                    high-performing Android applications.</p>
+                  <h3>App Migration and Updates</h3>
+                  <p>Keep your app up-to-date with the latest Android versions, including feature updates, security
+                    patches, and performance optimizations.</p>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -626,13 +690,12 @@
             <div class="feature-item" data-aos="fade-left" data-aos-delay="400">
               <div class="d-flex align-items-center gap-4">
                 <div class="feature-icon flex-shrink-0">
-                  <i class="bi-cloud-arrow-up"></i>
+                  <i class="bi-palette"></i>
                 </div>
                 <div class="feature-content">
-                  <h3>App Migration and Updates</h3>
-                  <p>Keep your app compatible with the latest Android versions. We handle feature updates, security
-                    patches, and performance optimization using tools like Kotlin Migration Assistant and Android
-                    Studio.</p>
+                  <h3>UI/UX Design</h3>
+                  <p>Create functional, engaging, and intuitive apps. We use user research, personas, and responsive
+                    design to craft seamless, visually appealing interfaces.</p>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -853,7 +916,7 @@
     </section> /Testimonials Section -->
 
     <!-- Stats Section -->
-    <section id="stats" class="stats section">
+    <!-- <section id="stats" class="stats section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -865,7 +928,7 @@
                 class="purecounter"></span>
               <p>Clients</p>
             </div>
-          </div><!-- End Stats Item -->
+          </div>
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
@@ -873,7 +936,7 @@
                 class="purecounter"></span>
               <p>Projects</p>
             </div>
-          </div><!-- End Stats Item -->
+          </div>
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
@@ -881,7 +944,7 @@
                 class="purecounter"></span>
               <p>Hours Of Support</p>
             </div>
-          </div><!-- End Stats Item -->
+          </div>
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
@@ -889,21 +952,75 @@
                 class="purecounter"></span>
               <p>Workers</p>
             </div>
-          </div><!-- End Stats Item -->
+          </div>
 
         </div>
 
       </div>
 
-    </section><!-- /Stats Section -->
+    </section>/Stats Section -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Our Clients</h2>
+    </div>
+    <section id="globe-container" class="container">
+      <div id="globeViz">
+        <script>
+          // Init Globe
+          const globe = Globe()
+            .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-day.jpg')
+            // .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+            .backgroundColor('#ffffff')
+            .htmlElementsData([
+              { lat: 41.8719, lng: 12.5674, tooltip: "Italy" },
+              { lat: 37.0902, lng: -95.7129, tooltip: "USA" },
+              { lat: 51.1657, lng: 10.4515, tooltip: "Germany" },
+              { lat: 20.5937, lng: 78.9629, tooltip: "India" }
+            ])
+            .htmlElement(d => {
+              const el = document.createElement('div');
+              el.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin" width="20" height="20">
+                <path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 1 1 18 0z"></path>
+                <circle fill="white" cx="12" cy="10" r="3"></circle>
+              </svg>`;
+              el.style.color = "red";
+              el.style.width = `40px`;
+              el.className = 'myMarker';
+              el.setAttribute('data-tooltip', d.tooltip);
+              el.style['pointer-events'] = 'auto';
+              el.style.cursor = 'pointer';
+              return el;
+            })
+            .onGlobeReady(() => {
+              // Setup tippy.js tooltips on markers for hover and click
+              document.querySelectorAll('.myMarker').forEach(el => {
+                tippy(el, {
+                  content: el.getAttribute('data-tooltip'),
+                  trigger: 'mouseenter click',
+                  placement: 'right',
+                  arrow: true,
+                  theme: 'light',
+                });
+              });
+            });
+
+          // Mount to container
+          globe(document.getElementById('globeViz'));
+
+          // 👉 Fix: use controls()
+          globe.controls().enableZoom = false;     // disable zoom
+          globe.controls().autoRotate = true;      // enable auto rotation
+          globe.controls().autoRotateSpeed = 0.6;  // control speed
+        </script>
+      </div>
+    </section>
 
     <!-- Services Section -->
     <section id="services" class="services section light-background">
-
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Services</h2>
-        <p>We deliver innovative, reliable, and tailored solutions to help businesses grow, streamline operations, and create lasting customer experiences.</p>
+        <p>We deliver innovative, reliable, and tailored solutions to help businesses grow, streamline operations, and
+          create lasting customer experiences.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -918,9 +1035,12 @@
               </div>
               <div>
                 <h3>Development Services</h3>
-                <p><b>Mobile & Cross-Platform App Development</b> – Engaging mobile apps for iOS, Android, and hybrid platforms to maximize customer reach.</p>
-                <p><b>Automation & Workflow Solutions</b> – Streamline operations with intelligent automation that enhances efficiency and ensures smooth data synchronization.</p>
-                <p><b>Custom Software Development</b> – Tailored software solutions designed to meet unique business needs and drive long-term growth.</p>
+                <p><b>Mobile & Cross-Platform App Development</b> – Engaging mobile apps for iOS, Android, and hybrid
+                  platforms to maximize customer reach.</p>
+                <p><b>Automation & Workflow Solutions</b> – Streamline operations with intelligent automation that
+                  enhances efficiency and ensures smooth data synchronization.</p>
+                <p><b>Custom Software Development</b> – Tailored software solutions designed to meet unique business
+                  needs and drive long-term growth.</p>
                 <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -934,9 +1054,12 @@
               </div>
               <div>
                 <h3>UI/UX & Creative Services</h3>
-                <p><b>UI/UX Design </b>– Intuitive, user-friendly designs crafted using Figma, Framer, and prototyping tools.</p>
-                <p><b>Interaction & Motion Design</b> – Engaging animations and micro-interactions that bring digital products to life.</p>
-                <p><b>Video Editing & Motion Graphics</b> – High-quality marketing and explainer videos to communicate your brand story effectively.</p>
+                <p><b>UI/UX Design </b>– Intuitive, user-friendly designs crafted using Figma, Framer, and prototyping
+                  tools.</p>
+                <p><b>Interaction & Motion Design</b> – Engaging animations and micro-interactions that bring digital
+                  products to life.</p>
+                <p><b>Video Editing & Motion Graphics</b> – High-quality marketing and explainer videos to communicate
+                  your brand story effectively.</p>
                 <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -950,9 +1073,12 @@
               </div>
               <div>
                 <h3>Design & Branding</h3>
-                <p><b>Graphic Design</b> – Creative logos, brand identity, and marketing assets that resonate with your audience.</p>
-                <p><b>Creative Visuals</b> – Eye-catching designs for banners, social media creatives, and impactful presentations.</p>
-                <p><b>User-Centric Design Solutions </b>– Consistent brand experiences designed to engage and retain customers.</p>
+                <p><b>Graphic Design</b> – Creative logos, brand identity, and marketing assets that resonate with your
+                  audience.</p>
+                <p><b>Creative Visuals</b> – Eye-catching designs for banners, social media creatives, and impactful
+                  presentations.</p>
+                <p><b>User-Centric Design Solutions </b>– Consistent brand experiences designed to engage and retain
+                  customers.</p>
                 <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -966,9 +1092,12 @@
               </div>
               <div>
                 <h3>BPO Services</h3>
-                <p><b>Customer Support Services</b> – Reliable multi-channel support (chat, email, voice) to enhance customer satisfaction and retention.</p>
-                <p><b>Back-Office Operations</b> – Efficient management of administrative tasks and processes to free up your core business focus.</p>
-                <p><b>Data Management & Processing</b> – Accurate data cleansing, migration, and reporting to support informed decision-making.</p>
+                <p><b>Customer Support Services</b> – Reliable multi-channel support (chat, email, voice) to enhance
+                  customer satisfaction and retention.</p>
+                <p><b>Back-Office Operations</b> – Efficient management of administrative tasks and processes to free up
+                  your core business focus.</p>
+                <p><b>Data Management & Processing</b> – Accurate data cleansing, migration, and reporting to support
+                  informed decision-making.</p>
                 <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -1207,7 +1336,7 @@
     </section><!-- /Faq Section -->
 
     <!-- Call To Action 2 Section -->
-    <section id="call-to-action-2" class="call-to-action-2 section dark-background">
+    <!-- <section id="call-to-action-2" class="call-to-action-2 section dark-background">
 
       <div class="container">
         <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
@@ -1223,16 +1352,16 @@
         </div>
       </div>
 
-    </section><!-- /Call To Action 2 Section -->
+    </section>/Call To Action 2 Section -->
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section light-background">
+    <!-- <section id="contact" class="contact section light-background">
 
-      <!-- Section Title -->
+      
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <!-- <p>"Let’s connect and turn your ideas into reality."</p> -->
-      </div><!-- End Section Title -->
+        <p>"Let’s connect and turn your ideas into reality."</p>
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -1240,7 +1369,8 @@
           <div class="col-lg-5">
             <div class="info-box" data-aos="fade-up" data-aos-delay="200">
               <h3>Contact Info</h3>
-              <p><b>Reach out to us easily</b> — we’re always here to answer your questions, provide details, and guide you toward the right solution for your needs. </p>
+              <p><b>Reach out to us easily</b> — we’re always here to answer your questions, provide details, and guide
+                you toward the right solution for your needs. </p>
 
               <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
@@ -1248,7 +1378,8 @@
                 </div>
                 <div class="content">
                   <h4>Our Location</h4>
-                  <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp. Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+                  <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp. Euphoria Fitness Club, Manohar Nagar,
+                    Govind Nagar, Nashik, Maharashtra 422001</p>
                 </div>
               </div>
 
@@ -1277,7 +1408,8 @@
           <div class="col-lg-7">
             <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
               <h3>Get In Touch</h3>
-              <p><b>Let’s connect!</b> Share your ideas or requirements, and our team will get back to you promptly with the support you need.</p>
+              <p><b>Let’s connect!</b> Share your ideas or requirements, and our team will get back to you promptly with
+                the support you need.</p>
 
               <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
                 data-aos-delay="200">
@@ -1317,7 +1449,7 @@
 
       </div>
 
-    </section><!-- /Contact Section -->
+    </section>/Contact Section -->
 
   </main>
 
@@ -1327,7 +1459,7 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center ">
-            <img src="assets/img/Dataspan_footer_logo.png" alt="" >
+            <img src="assets/img/footer-logo2.png" alt="">
           </a>
           <div class="footer-contact pt-3">
             <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
@@ -1391,7 +1523,8 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
+          Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
