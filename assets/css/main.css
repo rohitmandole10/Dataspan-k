@@ -168,7 +168,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 40px;
+  max-height:40px;
   margin-right: 8px;
 }
 
@@ -190,10 +190,17 @@ h6 {
   transition: 0.3s;
 }
 
-.header .btn-getstarted:hover,
-.header .btn-getstarted:focus:hover {
+.hero-buttons .btn-getstarted{
   color: var(--contrast-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  background: #036ffd;
+  font-size: 14px;
+  padding: 8px 20px;
+  /* margin: 0 0 0 30px; */
+  border-radius: 50px;
+  transition: 0.3s;
+}
+.hero-buttons .btn-getstarted:hover{
+  background: var(--accent-color);
 }
 
 @media (max-width: 1200px) {
@@ -1736,7 +1743,7 @@ section,
 }
 
 .services .service-card:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08); 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   /* box-shadow: 5px 5px 10px grey; */
 }
 
@@ -1995,9 +2002,16 @@ section,
   opacity: 0;
 }
 
-.faq .faq-container .faq-item .faq-content p {
+.faq .faq-container .faq-item .faq-content p{
   margin-bottom: 0;
   overflow: hidden;
+}
+
+.faq .faq-container .faq-item .faq-content p ul{
+  margin-bottom: 0;
+  overflow: hidden;
+  border: 2px solid red;
+  background-color: #059652;
 }
 
 .faq .faq-container .faq-item .faq-toggle {
