@@ -73,6 +73,35 @@
     .myMarker:hover svg path {
       fill: #ffcc00;
     }
+
+    .hero-title {
+      color: #05386e;
+      font-weight: 700;
+    }
+
+    #typing {
+      /* font-family: "Poppins", sans-serif; */
+      /* font-size: 2em; */
+      color: #227faa;
+      display: inline-block;
+      border-right: 3px solid #969595;
+      /* cursor */
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blinkCursor 0.8s steps(1) infinite;
+      /* border: 2px solid red; */
+      height: 60px;
+      text-align: center;
+      justify-content: center;
+      padding-right: 5px;
+    }
+
+    /* blinking cursor animation */
+    @keyframes blinkCursor {
+      50% {
+        border-color: transparent;
+      }
+    }
   </style>
 
   <script src="https://unpkg.com/globe.gl"></script>
@@ -161,13 +190,15 @@
               <div class="company-badge mb-4">
                 <i class="bi bi-gear-fill me-2"></i>
                 Working for your success
-              </div>
+              </div><br>
 
-              <h1 class="mb-4">
-                <!-- Maecenas Vitae <br> -->
-                Smarter Connections. Faster Decisions. Seamless Growth. <br>
-                <!-- <span class="accent-text">Vestibulum Ante</span> -->
+              <h1 class="mb-4 hero-title"> Empowering Businesses with Intelligent <br>
+                <span id="typing"></span>
               </h1>
+              <!-- <p class="mb-4" id="typing"> -->
+              <!-- Maecenas Vitae <br> -->
+              <!-- <span class="accent-text">Vestibulum Ante</span> -->
+              <!-- </p> -->
 
               <p class="mb-4 mb-md-5">
                 From AI chatbots to process automation and e-commerce solutions, we build tools that simplify operations
@@ -186,7 +217,7 @@
 
           <div class="col-lg-6">
             <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
-              <img src="assets/img/illustration-1.webp" alt="Hero Image" class="img-fluid">
+              <img src="assets/img/Ai icon 01.png" alt="Hero Image" class="img-fluid">
 
               <!-- <div class="customers-badge">
                 <div class="customer-avatars">
@@ -202,6 +233,46 @@
             </div>
           </div>
         </div>
+        <script>
+          const texts = ["AI Solutions.", "Automation Tools.", "Smart Workflows.", "Process Optimization."];
+          let count = 0;
+          let index = 0;
+          let currentText = "";
+          let letter = "";
+          let isDeleting = false;
+
+          function type() {
+            if (count === texts.length) {
+              count = 0;
+            }
+
+            currentText = texts[count];
+
+            if (isDeleting) {
+              letter = currentText.slice(0, --index);
+            } else {
+              letter = currentText.slice(0, ++index);
+            }
+
+            document.getElementById("typing").textContent = letter;
+
+            let speed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && letter.length === currentText.length) {
+              speed = 1500; // pause before deleting
+              isDeleting = true;
+            } else if (isDeleting && letter.length === 0) {
+              isDeleting = false;
+              count++;
+              speed = 500; // pause before typing next
+            }
+
+            setTimeout(type, speed);
+          }
+
+          type();
+
+        </script>
 
         <!-- <div class="row stats-row gy-4 mt-5" data-aos="fade-up" data-aos-delay="500">
           <div class="col-lg-3 col-md-6">
@@ -255,7 +326,7 @@
     </section><!-- /Hero Section -->
 
     <!-- About Section -->
-    <section id="about" class="about section">
+    <!-- <section id="about" class="about section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -285,10 +356,10 @@
                 </ul>
                 <div class="hero-buttons">
                   <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
-                  <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
+                  <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
                     <i class="bi bi-play-circle me-1"></i>
                     Play Video
-                  </a> -->
+                  </a>
                 </div>
               </div>
               <div class="col-md-6">
@@ -309,7 +380,7 @@
               </div>
             </div>
 
-            <!-- <div class="info-wrapper">
+            <div class="info-wrapper">
               <div class="row gy-4">
                 <div class="col-lg-5">
                   <div class="profile d-flex align-items-center gap-3">
@@ -330,25 +401,25 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div>
           </div>
 
           <div class="col-xl-4 " data-aos="fade-up" data-aos-delay="300">
             <div class="image-wrapper">
               <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
                 <img src="assets/img/about-5.webp" alt="Business Meeting" class="img-fluid main-image rounded-4">
-                <!-- <img src="assets/img/about-2.webp" alt="Team Discussion" class="img-fluid small-image rounded-4"> -->
+                <img src="assets/img/about-2.webp" alt="Team Discussion" class="img-fluid small-image rounded-4">
               </div>
-              <!-- <div class="experience-badge floating">
+              <div class="experience-badge floating">
                 <h3>15+ <span>Years</span></h3>
                 <p>Of experience in business service</p>
-              </div> -->
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-    </section><!-- /About Section -->
+    </section> /About Section -->
 
     <!-- Features Section -->
     <section id="features" class="features section">
@@ -512,6 +583,128 @@
       </div>
 
     </section><!-- /Features Section -->
+
+    <!-- Work Flow section -->
+    <section>
+      <div class="container section-title" data-aos="fade-up">
+        <h2>
+          How our <span class="highlight">AI</span> and <span class="highlight">Automation</span> Agency Works
+        </h2>
+        <p class="subheading">
+          AI Automation Agency India works like your Chief AI Officer - providing you a hands-free solution to
+          leveraging
+          AI for business efficiency.
+        </p>
+
+        <div class="steps-container">
+          <div class="step">
+            <div class="circle">1</div>
+            <div class="step-title">Map out</div>
+            <div class="step-description">
+              We understand your systems and recommend solutions to help cut costs and scale revenue.
+            </div>
+          </div>
+          <div class="step">
+            <div class="circle">2</div>
+            <div class="step-title">Integrate</div>
+            <div class="step-description">
+              We implement the solution - custom coding, AI, Zapier, workflows.
+            </div>
+          </div>
+          <div class="step">
+            <div class="circle">3</div>
+            <div class="step-title">Manage</div>
+            <div class="step-description">
+              Enjoy a managed step-by-step journey towards complete business automation.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="container service-page">
+        <div class="section-title" data-aos="fade-up">
+          <h3 class="section-subtitle">OUR SERVICES</h3>
+          <h2 class="section-title">We Deliver Future-Ready IT Solutions</h2>
+
+          <div class="row g-4 gap-2 justify-content-center">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="service-card">
+                <div class="service-image">
+                  <img
+                    src="https://avatars.mds.yandex.net/i?id=628d1d9cf701d07a7eec0c91d78f60c12337c8a8-10311516-images-thumbs&n=13"
+                    alt="eCommerce Solutions" />
+                </div>
+                <h3 class="service-title">eCommerce Solutions</h3>
+                <a href="#" class="learn-more" tabindex="0">Learn More</a>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="service-card">
+                <div class="service-image">
+                  <img
+                    src="https://avatars.mds.yandex.net/i?id=ea4267461d035e09d13fc20d01886fb7bc677559-5246466-images-thumbs&n=13"
+                    alt="Web Development" />
+                </div>
+                <h3 class="service-title">Web Development</h3>
+                <a href="#" class="learn-more" tabindex="0">Learn More</a>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="service-card">
+                <div class="service-image">
+                  <img
+                    src="https://avatars.mds.yandex.net/i?id=e4e0694e5b5b250cb84f3dea4989e88258e03578-10549345-images-thumbs&n=13"
+                    alt="Enterprise Mobile Apps" />
+                </div>
+                <h3 class="service-title">Enterprise Mobile Apps</h3>
+                <a href="#" class="learn-more" tabindex="0">Learn More</a>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="service-card">
+                <div class="service-image">
+                  <img
+                    src="https://avatars.mds.yandex.net/i?id=6f8d1f0ab5d2e8ee3781e4355cda92debdac1a99-4451316-images-thumbs&n=13"
+                    alt="UI/UX Design" />
+                </div>
+                <h3 class="service-title">UI/UX Design</h3>
+                <a href="#" class="learn-more" tabindex="0">Learn More</a>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="service-card">
+                <div class="service-image">
+                  <img
+                    src="https://avatars.mds.yandex.net/i?id=0ae87c7787dc671e8f2cb7128ef568a9ed46c371-16302628-images-thumbs&n=13"
+                    alt="Custom Software Engineering" />
+                </div>
+                <h3 class="service-title">Custom Software Engineering</h3>
+                <a href="#" class="learn-more" tabindex="0">Learn More</a>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="cta-card">
+                <h3 class="cta-title">Do You Have a Project Idea?</h3>
+                <a href="#" class="cta-button" tabindex="0">
+                  Get an Estimate                  
+                </a>
+               
+                <!-- <img class="cta-image"
+                  src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80"
+                  alt="Project Idea" /> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="features-cards" class="features-cards section">
       <!-- Section Title -->
