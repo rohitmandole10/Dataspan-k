@@ -1319,9 +1319,9 @@ p.subheading {
 
 .steps-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 3rem;
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: 0 auto;
   padding: 0 1rem;
   border-top: 1px solid #ddd;
@@ -1411,7 +1411,7 @@ h3.section-subtitle {
   font-weight: 700;
 }
 
-h1.section-title {  
+h1.section-title {
   font-size: 2rem;
   font-weight: 900;
   margin: 0 0 2rem 0;
@@ -1419,7 +1419,7 @@ h1.section-title {
 }
 
 .service-card {
-  background:#0d81fd21;
+  background: #0d81fd21;
   padding: 1rem;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(83, 83, 83, 0.3);
@@ -1429,7 +1429,8 @@ h1.section-title {
   min-height: 360px;
   color: #272626;
 }
-.service-card:hover{
+
+.service-card:hover {
   box-shadow: 3px 3px 15px grey;
 }
 
@@ -1437,7 +1438,7 @@ h1.section-title {
   background: #ffffff;
   border-radius: 4px;
   overflow: hidden;
-  margin-bottom:0px !important;
+  margin-bottom: 0px !important;
   flex-shrink: 0;
   height: 180px;
   display: flex;
@@ -1451,7 +1452,7 @@ h1.section-title {
   max-height: 100%;
   object-fit: cover;
   object-fit: contain;
- 
+
 }
 
 .service-title {
@@ -2013,7 +2014,12 @@ h1.section-title {
   background: var(--surface-color);
   border-radius: 10px;
   transition: all 0.3s ease;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.service-content {
+  height:100px;
+  /* border: 2px solid red; */
 }
 
 .services .service-card:hover {
@@ -2065,6 +2071,7 @@ h1.section-title {
   color: var(--accent-color);
   font-weight: 500;
   transition: all 0.3s ease;
+  /* border: 2px solid pink; */
 }
 
 .services .service-card .read-more i {
