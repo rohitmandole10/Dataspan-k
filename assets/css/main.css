@@ -1389,176 +1389,6 @@ p.subheading {
 }
 
 
-/* --------------------------------------------------------------
-Services Section(New)
------------------------------------------------------------------ */
-
-/* .service-page{
-  background: #184d9136;
-           color: #fff !important ;
-           padding: 2rem 0;
-} */
-
-h3.section-subtitle {
-  /* font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em; */
-  /* color: #cfc9e9 !important; */
-  margin: 0 0 0.5rem 0;
-  text-transform: uppercase;
-  /* color: var(--heading-color); */
-  font-family: var(--heading-font);
-  font-weight: 700;
-}
-
-h1.section-title {
-  font-size: 2rem;
-  font-weight: 900;
-  margin: 0 0 2rem 0;
-  max-width: 700px;
-}
-
-.service-card {
-  background: #0d81fd21;
-  padding: 1rem;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(83, 83, 83, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  min-height: 360px;
-  color: #272626;
-}
-
-.service-card:hover {
-  box-shadow: 3px 3px 15px grey;
-}
-
-.service-image {
-  background: #ffffff;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 0px !important;
-  flex-shrink: 0;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid rgb(255, 255, 255);
-}
-
-.service-image img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  object-fit: contain;
-
-}
-
-.service-title {
-  font-weight: 900;
-  font-size: 1.2rem;
-  margin: 0 0 0.3rem 0;
-  line-height: 1.2;
-  color: #2e2d2d;
-  /* border: 2px solid rgb(136, 255, 0); */
-}
-
-.learn-more {
-  font-size: 0.8rem;
-  color: #42ccf7;
-  text-decoration: underline;
-  cursor: pointer;
-  align-self: center;
-  transition: color 0.3s ease;
-  /* border: 2px solid rgb(255, 251, 0); */
-  margin-top: 0;
-}
-
-.learn-more:hover {
-  color: #5a4fcf;
-}
-
-.cta-card {
-  background: #3085dff3;
-  color: #1a142f;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
-  border-radius: 4px;
-  position: relative;
-  min-height: 360px;
-  box-shadow: 0 0 10px rgb(244 196 48 / 0.5);
-  /* border: 2px solid red; */
-}
-
-.cta-title {
-  font-weight: 900;
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
-  max-width: 220px;
-  color: #fff;
-}
-
-.cta-button {
-  background: #1a142f;
-  color: #f4c430;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-weight: 700;
-  font-size: 0.9rem;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 2px;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-}
-
-.cta-button:hover {
-  background: #5a4fcf;
-  color: #fff;
-}
-
-.cta-image {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: 120px;
-  user-select: none;
-}
-
-@media (max-width: 768px) {
-  body {
-    padding: 1rem 0.5rem;
-  }
-
-  h1.section-title {
-    font-size: 1.5rem;
-    max-width: 100%;
-  }
-
-  .service-card,
-  .cta-card {
-    min-height: auto;
-  }
-
-  .service-image {
-    height: 140px;
-  }
-
-  .cta-image {
-    position: static;
-    width: 100%;
-    margin-top: 1rem;
-    align-self: center;
-  }
-}
 
 /*--------------------------------------------------------------
 # Features Cards Section
@@ -2017,10 +1847,6 @@ h1.section-title {
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
-.service-content {
-  height:100px;
-  /* border: 2px solid red; */
-}
 
 .services .service-card:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
@@ -2083,6 +1909,20 @@ h1.section-title {
   transform: translateX(5px);
 }
 
+.learn-more {
+  font-size: 0.8rem;
+  color: #42ccf7;
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: center;
+  transition: color 0.3s ease;
+  /* border: 2px solid rgb(255, 251, 0); */
+  margin-top: 0;
+}
+
+.service-content{
+  height:fit-content;
+}
 /*--------------------------------------------------------------
 # Pricing Section
 --------------------------------------------------------------*/
