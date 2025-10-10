@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>DATASPAN Technologies</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/brand.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        #globe-container .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            height: fit-content;
+            /* Full viewport height */
+            gap: 2rem;
+            /* Space between columns and globe */
+            padding: 0;
+        }
+
+        .text-column {
+            flex: 1 1 200px;
+            max-width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6rem;
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .heading-number {
+            font-weight: bold;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            line-height: 1.3;
+        }
+
+        #globeContainer {
+            position: relative;
+            /* So globeViz can absolutely fill */
+            flex: 0 1 auto;
+            width: clamp(500px, 40vw, 900px);
+            /* Responsive width */
+            aspect-ratio: 1/1;
+            /* Maintain square shape */
+            margin: auto;
+        }
+
+        #globeViz {
+            position: absolute;
+            /* Fill container */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Make the canvas fill the parent container exactly */
+        #globeViz canvas {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
+
+        /* --- Responsive tweaks --- */
+        @media (max-width: 1024px) {
+            #globe-container .container {
+                gap: 3vw;
+                padding: 1.5rem;
+            }
+
+            .text-column {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #globe-container .container {
+                height: auto;
+                flex-direction: column;
+                gap: 3rem;
+                padding: 1rem;
+            }
+
+            /* .text-column {
+        max-width: 100%;
+        width: 100%;
+        flex: none;
+        gap: 2rem;
+      } */
+
+            #globeContainer {
+                width: 100vw;
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading-number {
+                font-size: clamp(0.9rem, 4vw, 1.25rem);
+            }
+
+            #globeContainer {
+                width: 100vw;
+                max-width: 250px;
+            }
+        }
+    </style>
+
+    <script src="https://unpkg.com/globe.gl"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+</head>
+
+<body>
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div
+            class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <img src="assets/img/brand3.png" alt="">
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li class="dropdown"><a href="#about"><span>About Us</span> <i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="">Company Overview</a></li>
+                            <li><a href="">Mission & Vision</a></li>
+                            <li><a href="">Our Team</a></li>
+                            <li><a href="">Careers</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#features"><span>Development Services</span> <i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li class="dropdown"><span><a href="">Core Development</a></span>
+                                <ul>
+                                    <li><a href="">Web Development</a></li>
+                                    <li><a href="">Software Development</a></li>
+                                    <li><a href="">Mobile App Development</a></li>
+                                    <li><a href="">API Development & Integration</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><span><a href="">E-Commerce Development</a></span>
+                                <ul>
+                                    <li><a href="">Shopify Development</a></li>
+                                    <li><a href="">Magento Development</a></li>
+                                    <li><a href="">WooCommerce Development</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><span><a href="">UI/UX & Product Design</a></span></li>
+                            <ul>
+                                <li><a href="">Website Design</a></li>
+                                <li><a href="">App Prototyping</a></li>
+                                <li><a href="">Brand Identity</a></li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#services"><span>Case Studies</span><i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="">Software Projects</a></li>
+                            <li><a href="">AI/LLM Projects</a></li>
+                            <li><a href="">E-Commerce Solutions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pricing">Blog</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="Clients.html">Clients</a></li>
+                </ul>
+                <!-- <a class="btn-getstarted btn-2" href="index.html#about">Get Started</a> -->
+            </nav>
+            <i class="mobile-nav-toggle bi bi-list"></i>
+            <a class="btn-getstarted btn-1" href="index.html#about">Get Started</a>
+        </div>
+    </header>
+    <div>
+        <!-- <div class="container section-title" data-aos="fade-up">
+            <h2>Our Clients</h2>
+        </div> -->
+        <section id="globe-container">
+            <div class="container">
+                <div class="text-column">
+                    <div class="heading-number">
+                        <div>Add a heading</div>
+                        <div>235.13</div>
+                    </div>
+                    <div class="heading-number">
+                        <div>Add a heading</div>
+                        <div>235.13</div>
+                    </div>
+                    <div class="heading-number">
+                        <div>Add a heading</div>
+                        <div>235.13</div>
+                    </div>
+                </div>
+
+                <div id="globeContainer">
+                    <div id="globeViz"></div>
+                </div>
+
+                <div class="text-column">
+                    <div class="heading-number">
+                        <div>Add a heading</div>
+                        <div>235.13</div>
+                    </div>
+                    <div class="heading-number">
+                        <div>Add a heading</div>
+                        <div>235.13</div>
+                    </div>
+                    <div class="heading-number">
+                        <div>Add a heading</div>
+                        <div>235.13</div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const globeContainer = document.getElementById('globeViz');
+
+                const globe = Globe()
+                    .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-day.jpg')
+                    .backgroundColor('rgba(0,0,0,0)')
+                    .showAtmosphere(false)
+                    .pointOfView({ lat: 20, lng: 0, altitude: 2 })
+                    .htmlElementsData([
+                        { lat: 37.0902, lng: -95.7129, tooltip: "USA" },
+                        { lat: 41.8719, lng: 12.5674, tooltip: "Italy" },
+                        { lat: 51.1657, lng: 10.4515, tooltip: "Germany" },
+                        { lat: 20.5937, lng: 78.9629, tooltip: "India" }
+                    ])
+                    .htmlElement(d => {
+                        const el = document.createElement('div');
+                        el.innerHTML = `
+                    <svg viewBox="-4 0 36 36">
+                      <path fill="currentColor" d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"></path>
+                      <circle fill="white" cx="14" cy="14" r="4"></circle>
+                    </svg>`;
+                        el.style.color = "red";
+                        el.style.width = "20px";
+                        el.className = 'myMarker';
+                        el.setAttribute('data-tooltip', d.tooltip);
+                        el.style.pointerEvents = 'auto';
+                        el.style.cursor = 'pointer';
+                        return el;
+                    })
+                    .onGlobeReady(() => {
+                        document.querySelectorAll('.myMarker').forEach(el => {
+                            tippy(el, {
+                                content: el.getAttribute('data-tooltip'),
+                                trigger: 'mouseenter click',
+                                placement: 'right',
+                                arrow: true,
+                                theme: 'light',
+                            });
+                        });
+                    });
+
+                globe(globeContainer);
+                globe.controls().enableZoom = false;
+                globe.controls().autoRotate = true;
+                globe.controls().autoRotateSpeed = 0.6;
+
+                // Resize globe to always match container
+                function resizeGlobe() {
+                    const rect = globeContainer.getBoundingClientRect();
+                    globe.width(rect.width);
+                    globe.height(rect.height);
+                }
+
+                window.addEventListener('resize', resizeGlobe);
+                resizeGlobe(); // initial sizing
+            </script>
+        </section>
+    </div>
+</body>
+
+</html>
