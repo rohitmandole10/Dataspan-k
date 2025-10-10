@@ -42,39 +42,6 @@
  Marker
  ============================================================-->
   <style>
-    /* body {
-    margin: 0;
-    overflow: hidden;
-  } */
-   
-    /*#globeViz {
-      width: 100vw;
-      height: 100vh;
-    } */
-
-    #globe-container {
-      width: 700px;
-      /* fixed width */
-      height: 700px;
-      /* fixed height */
-      margin: 0 auto;
-      /* center horizontally */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* .tippy-box {
-      background: #ffffff;
-      font-family: sans-serif;
-      font-size: 14px;
-      padding: 5px 8px;
-    } */
-
-    .myMarker:hover svg path {
-      fill: #ffcc00;
-    }
-
     .hero-title {
       color: #05386e;
       font-weight: 700;
@@ -101,6 +68,106 @@
     @keyframes blinkCursor {
       50% {
         border-color: transparent;
+      }
+    }
+
+    #globe-container .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      height: fit-content;
+      /* Full viewport height */
+      gap: 2rem;
+      /* Space between columns and globe */
+      padding: 0;
+    }
+
+    .text-column {
+      flex: 1 1 200px;
+      max-width: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6rem;
+      text-align: center;
+      min-width: 180px;
+    }
+
+    .heading-number {
+      font-weight: bold;
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      line-height: 1.3;
+    }
+
+    #globeContainer {
+      position: relative;
+      /* So globeViz can absolutely fill */
+      flex: 0 1 auto;
+      width: clamp(500px, 40vw, 900px);
+      /* Responsive width */
+      aspect-ratio: 1/1;
+      /* Maintain square shape */
+      margin: auto;
+    }
+
+    #globeViz {
+      position: absolute;
+      /* Fill container */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Make the canvas fill the parent container exactly */
+    #globeViz canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+
+    /* --- Responsive tweaks --- */
+    @media (max-width: 1024px) {
+      #globe-container .container {
+        gap: 3vw;
+        padding: 1.5rem;
+      }
+
+      .text-column {
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #globe-container .container {
+        height: auto;
+        flex-direction: column;
+        gap: 3rem;
+        padding: 1rem;
+      }
+
+      /* .text-column {
+        max-width: 100%;
+        width: 100%;
+        flex: none;
+        gap: 2rem;
+      } */
+
+      #globeContainer {
+        width: 100vw;
+        max-width: 350px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .heading-number {
+        font-size: clamp(0.9rem, 4vw, 1.25rem);
+      }
+
+      #globeContainer {
+        width: 100vw;
+        max-width: 250px;
       }
     }
   </style>
@@ -169,7 +236,7 @@
           </li>
           <li><a href="#pricing">Blog</a></li>
           <li><a href="#contact">Contact Us</a></li>
-          <li><a href="#contact">Clients</a></li>
+          <li><a href="Clients.html">Clients</a></li>
         </ul>
         <!-- <a class="btn-getstarted btn-2" href="index.html#about">Get Started</a> -->
       </nav>
@@ -188,10 +255,10 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
-              <div class="company-badge mb-4">
+              <!-- <div class="company-badge mb-4">
                 <i class="bi bi-gear-fill me-2"></i>
                 Working for your success
-              </div><br>
+              </div><br> -->
 
               <h1 class="mb-4 hero-title"> Empowering Businesses with Intelligent <br>
                 <span id="typing"></span>
@@ -202,8 +269,8 @@
               <!-- </p> -->
 
               <p class="mb-4 mb-md-5">
-                From AI chatbots to process automation and e-commerce solutions, we build tools that simplify operations
-                and keep your business ahead of the curve.
+                Unlock the power of AI and custom software that automate operations, elevate experiences, and keep your
+                business ahead of the curve.
               </p>
 
               <div class="hero-buttons">
@@ -422,13 +489,13 @@
 
     </section> /About Section -->
 
-    <!-- Features Section -->
+    <!-- AI / Core Capabilities Highlight -->
     <section id="features" class="features section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>AI-Powered Solutions for the Future</h2>
-        <p>“Empowering businesses with cutting-edge AI technologies to drive innovation, efficiency, and growth.”</p>
+        <h2>AI-Driven Capabilities Built for Growth</h2>
+        <!-- <p>“Empowering businesses with cutting-edge AI technologies to drive innovation, efficiency, and growth.”</p> -->
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -439,19 +506,20 @@
 
             <li class="nav-item">
               <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+                <!-- <h4>Intelligent AI Workflows & Automation</h4> -->
                 <h4>Intelligent AI Workflows & Automation</h4>
               </a>
             </li>
 
             <li class="nav-item">
               <a class="nav-link " data-bs-toggle="tab" data-bs-target="#features-tab-2">
-                <h4>Large Language Models (LLM)</h4>
+                <h4>Generative AI Solutions(LLM)</h4>
               </a>
             </li><!-- End tab nav item -->
 
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                <h4>NLP & Text Analytics </h4>
+                <h4>NLP & Data Analytics</h4>
               </a><!-- End tab nav item -->
 
             </li>
@@ -470,20 +538,14 @@
                   Technologies, our detailed UX audit identifies improvements that make digital products seamless and
                   enjoyable.</p> -->
                 <ul>
-                  <li><i class="bi bi-check2-all"></i> <span><b>Process Automation:</b> Eliminate repetitive tasks with
-                      AI-driven workflows, reducing errors and boosting productivity.
-                    </span></li>
-                  <li><i class="bi bi-check2-all"></i> <span><b>Predictive Analytics:</b> Anticipate trends and
-                      behaviors with
-                      data-driven forecasts for smarter decisions.
-                    </span></li>
-                  <li><i class="bi bi-check2-all"></i> <span><b>Seamless Integration:</b> Connect AI workflows with
-                      existing systems to enhance operational efficiency.
-                    </span></li>
-                  <li><i class="bi bi-check2-all"></i><span><b>Scalable Optimization:</b> Continuously improve processes
-                      with
-                      adaptive, enterprise-ready AI solutions.
-                    </span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Automate Smarter:</b>Let AI handle the routine processes
+                      so your team can focus on growth.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Predict Faster:</b>Turn data into foresight with
+                      predictive analytics.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Integrate Seamlessly:</b>Connect AI across your tools
+                      for unified efficiency.</span></li>
+                  <li><i class="bi bi-check2-all"></i><span><b>Scale Effortlessly:</b>Evolve processes with adaptive,
+                      growth-ready AI systems</span></li>
                 </ul>
                 <div class="hero-buttons">
                   <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
@@ -494,7 +556,7 @@
                 </div>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-illustration-3.webp" alt="" class="img-fluid">
+                <img src="assets/img/Automation.png" alt="" class="img-fluid">
               </div>
             </div>
           </div><!-- End tab content item -->
@@ -502,28 +564,20 @@
           <div class="tab-pane fade " id="features-tab-2">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Unlock the potential of advanced language models to enhance communication and decision-making.</h3>
+                <h3>Next-gen AI with custom LLMs enabling smarter, scalable business insights</h3>
                 <!-- <p class="fst-italic">
                   At Dataspan Technologies, we make digital transformation simple and effective. Our team helps you
                   modernize technology, optimize processes, and build strategies that deliver lasting growth.
                 </p> -->
                 <ul>
-                  <li><i class="bi bi-check2-all"></i> <span><b>Smart Chatbots & Assistants:</b> Build custom
-                      conversational AI
-                      with intuitive UI, delivering natural, human-like interactions.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span><b>End-to-End Data Processing:</b> ETL pipelines, sentence
-                      case
-                      standardization, data preparation, and Q&A pair generation for clean, training-ready datasets.
-                    </span></li>
-                  <li><i class="bi bi-check2-all"></i> <span><b>Custom LLM Training:</b> Fine-tune and optimize models
-                      for
-                      domain-specific needs, ensuring accuracy, context-awareness, and scalability.
-                    </span></li>
-                  <li><i class="bi bi-check2-all"></i><span><b>Seamless Integration:</b> Deploy AI solutions across apps
-                      and
-                      workflows to
-                      enhance decision-making and customer engagement.
-                    </span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Agentic & Conversational AI:</b>Autonomous chatbots and
+                      AI agents that reason, plan, and act.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Retrieval-Augmented Intelligence:</b>Fuse real-time data
+                      with generative AI for context-aware precision.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Custom LLM Development:</b>Fine-tune and optimize models
+                      for domain-specific accuracy and scalability.</span></li>
+                  <li><i class="bi bi-check2-all"></i><span><b>Seamless Integration:</b>Deploy AI solutions across apps
+                      and workflows to enhance decision-making and customer engagement.</span></li>
                 </ul>
                 <div class="hero-buttons">
                   <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
@@ -534,7 +588,7 @@
                 </div>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-illustration-1.webp" alt="" class="img-fluid">
+                <img src="assets/img/GENAI.png" alt="" class="img-fluid">
               </div>
             </div>
           </div><!-- End tab content item -->
@@ -542,28 +596,22 @@
           <div class="tab-pane fade" id="features-tab-3">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Transform unstructured text into actionable insights with state-of-the-art NLP techniques.</h3>
+                <h3>Turn language data into insights that drive smarter, faster business decisions</h3>
                 <!-- <p class="fst-italic">
                   We go beyond providing services — we partner with you to drive progress. By combining cutting-edge
                   technology and proven practices, Dataspan Technologies ensures your business continues to evolve.
                 </p> -->
                 <ul>
-                  <li><i class="bi bi-check2-all"></i> <span><b>Unstructured Data to Insights:</b> Transform raw text
-                      into
-                      actionable intelligence with cutting-edge NLP techniques.
-                    </span></li>
-                  <li><i class="bi bi-check2-all"></i> <span><b>Text & Sentiment Analysis:</b> Extract key patterns and
-                      measure
-                      customer or public sentiment to drive better strategies.
-                    </span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Text Intelligence:</b>Convert raw, unstructured text
+                      into clear, actionable insights.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span><b>Data Analytics:</b>Extract trends and insights from raw
+                      data to guide decisions.</span></li>
                   <li><i class="bi bi-check2-all"></i> <span><b>Entity Recognition & Classification:</b> Identify and
-                      organize
-                      people, organizations, and keywords to streamline workflows.
-                    </span></li>
-                  <li><i class="bi bi-check2-all"></i><span><b>Scalable AI Solutions:</b> Deploy NLP pipelines that
-                      adapt to
-                      diverse domains, enabling faster, data-driven decisions.
-                    </span></li>
+                      classify key data points for efficient workflows.</span></li>
+                  <li><i class="bi bi-check2-all"></i><span><b>AI-Powered Dashboards:</b>Convert complex data into
+                      interactive, real-time insights.</span></li>
+                  <li><i class="bi bi-check2-all"></i><span><b>Scalable NLP Pipelines:</b>Deploy adaptive AI models
+                      across diverse domains with ease.</span></li>
                 </ul>
                 <div class="hero-buttons">
                   <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
@@ -574,7 +622,7 @@
                 </div>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-illustration-2.webp" alt="" class="img-fluid">
+                <img src="assets/img/NLP_&_Data_Analytics.png" alt="" class="img-fluid">
               </div>
             </div>
           </div><!-- End tab content item -->
@@ -584,138 +632,6 @@
       </div>
 
     </section><!-- /Features Section -->
-
-    <!-- Work Flow section -->
-    <section>
-      <div class="container section-title" data-aos="fade-up">
-        <h2>
-          How our <span class="highlight">AI</span> and <span class="highlight">Automation</span> Agency Works
-        </h2>
-        <p class="subheading">
-          AI Automation Agency India works like your Chief AI Officer - providing you a hands-free solution to
-          leveraging
-          AI for business efficiency.
-        </p>
-
-        <div class="steps-container">
-          <div class="step">
-            <div class="circle">1</div>
-            <div class="step-title">Map out</div>
-            <div class="step-description">
-              We understand your systems and recommend solutions to help cut costs and scale revenue.
-            </div>
-          </div>
-          <div class="step">
-            <div class="circle">2</div>
-            <div class="step-title">Integrate</div>
-            <div class="step-description">
-              We implement the solution - custom coding, AI, Zapier, workflows.
-            </div>
-          </div>
-          <div class="step">
-            <div class="circle">3</div>
-            <div class="step-title">Manage</div>
-            <div class="step-description">
-              Enjoy a managed step-by-step journey towards complete business automation.
-            </div>
-          </div>
-          <div class="step">
-            <div class="circle">4</div>
-            <div class="step-title">Map out</div>
-            <div class="step-description">
-              We understand your systems and recommend solutions to help cut costs and scale revenue.
-            </div>
-          </div>
-          <div class="step">
-            <div class="circle">5</div>
-            <div class="step-title">Map out</div>
-            <div class="step-description">
-              We understand your systems and recommend solutions to help cut costs and scale revenue.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- <section id="service">
-      <div class="container service-page">
-        <div class="section-title" data-aos="fade-up">
-          <h3 class="section-subtitle">OUR SERVICES</h3>
-          <h2 class="section-title">We Deliver Future-Ready IT Solutions</h2>
-
-          <div class="row g-4 gap-2 justify-content-center">
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="service-card">
-                <div class="service-image">
-                  <img
-                    src="https://avatars.mds.yandex.net/i?id=628d1d9cf701d07a7eec0c91d78f60c12337c8a8-10311516-images-thumbs&n=13"
-                    alt="eCommerce Solutions" />
-                </div>
-                <h3 class="service-title">eCommerce Solutions</h3>
-                <a href="#" class="learn-more" tabindex="0">Learn More</a>
-              </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="service-card">
-                <div class="service-image">
-                  <img
-                    src="https://avatars.mds.yandex.net/i?id=ea4267461d035e09d13fc20d01886fb7bc677559-5246466-images-thumbs&n=13"
-                    alt="Web Development" />
-                </div>
-                <h3 class="service-title">Web Development</h3>
-                <a href="#" class="learn-more" tabindex="0">Learn More</a>
-              </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="service-card">
-                <div class="service-image">
-                  <img
-                    src="https://avatars.mds.yandex.net/i?id=e4e0694e5b5b250cb84f3dea4989e88258e03578-10549345-images-thumbs&n=13"
-                    alt="Enterprise Mobile Apps" />
-                </div>
-                <h3 class="service-title">Enterprise Mobile Apps</h3>
-                <a href="#" class="learn-more" tabindex="0">Learn More</a>
-              </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="service-card">
-                <div class="service-image">
-                  <img
-                    src="https://avatars.mds.yandex.net/i?id=6f8d1f0ab5d2e8ee3781e4355cda92debdac1a99-4451316-images-thumbs&n=13"
-                    alt="UI/UX Design" />
-                </div>
-                <h3 class="service-title">UI/UX Design</h3>
-                <a href="#" class="learn-more" tabindex="0">Learn More</a>
-              </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="service-card">
-                <div class="service-image">
-                  <img
-                    src="https://avatars.mds.yandex.net/i?id=0ae87c7787dc671e8f2cb7128ef568a9ed46c371-16302628-images-thumbs&n=13"
-                    alt="Custom Software Engineering" />
-                </div>
-                <h3 class="service-title">Custom Software Engineering</h3>
-                <a href="#" class="learn-more" tabindex="0">Learn More</a>
-              </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="cta-card">
-                <h3 class="cta-title">Do You Have a Project Idea?</h3>
-                <a href="#" class="cta-button" tabindex="0">
-                  Get an Estimate
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
     <!-- <section id="features-cards" class="features-cards section">
 
@@ -837,8 +753,117 @@
 
     </section> /Features Cards Section -->
 
+    <!-- Services Section -->
+    <section id="services" class="services section light-background">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>We deliver innovative, reliable, and tailored solutions to help businesses grow, streamline operations, and
+          create lasting customer experiences.</p>
+      </div><!-- End Section Title -->
 
-    <!-- Features 2 Section -->
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card ">
+              <div class="icon flex-shrink-0">
+                <!-- <i class="bi bi-activity"></i> -->
+                <i class="bi bi-laptop"></i>
+              </div>
+              <div class="service-content">
+                <h3>Software & App Development</h3>
+                <p>We develop and maintain intelligent web and mobile apps using AI to optimize performance and uptime.</p>
+              </div>
+              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Card -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card ">
+              <div class="icon flex-shrink-0">
+                <!-- <i class="bi bi-diagram-3"></i> -->
+                <i class="bi bi-diagram-3"></i>
+
+              </div>
+              <div class="service-content">
+                <h3>System Integration Services</h3>
+                <p>We connect software, APIs, and AI systems seamlessly for unified, automated digital operations.</p>
+              </div>
+              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Card -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card ">
+              <div class="icon flex-shrink-0">
+                <!-- <i class="bi bi-easel"></i> -->
+                <i class="bi bi-globe"></i>
+              </div>
+              <div class="service-content">
+                <h3>Website Development</h3>
+                <p>We build and manage responsive, SEO-friendly websites powered by AI for speed and stability.</p>
+              </div>
+              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Card -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card ">
+              <div class="icon flex-shrink-0">
+                <!-- <i class="bi bi-clipboard-data"></i> -->
+                <i class="bi bi-palette"></i>
+              </div>
+              <div class="service-content">
+                <h3>UI/UX Design & Prototyping</h3>
+                <p>We design adaptive, AI-enhanced interfaces that improve usability, engagement, and conversion outcomes.</p>
+              </div>
+              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Card -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card">
+              <div class="icon flex-shrink-0">
+                <!-- <i class="bi bi-clipboard-data"></i> -->
+                <i class="bi bi-cart-check"></i>
+              </div>
+              <div class="service-content">
+                <h3>BPO & E-commerce Solutions</h3>
+                <p>We automate operations, manage customer interactions, and ensure 24/7 reliability through AI-driven workflows.</p>
+              </div>
+              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Card -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card ">
+              <div class="icon flex-shrink-0">
+                <!-- <i class="bi bi-clipboard-data"></i> -->
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <div class="service-content">
+                <h3>Branding & Creative Strategy</h3>
+                <p>We craft data-informed brand strategies using AI insights for precision, consistency, and impact.</p>
+              </div>
+              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Card -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Application development -->
     <section id="features-2" class="features-2 section">
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -853,9 +878,9 @@
             <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="200">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
-                  <h3>Custom Application Development</h3>
-                  <p>Build scalable, user-friendly Android and iOS apps using Java, Kotlin, React Native, Flutter, and
-                    Xamarin for consistent performance.</p>
+                  <h3>Custom App Development</h3>
+                  <p>Develop high-performance Android and iOS apps using Flutter, React Native, and Kotlin — built for
+                    scalability and growth.</p>
                 </div>
                 <div class="feature-icon flex-shrink-0">
                   <i class="bi-code-slash"></i>
@@ -866,9 +891,9 @@
             <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="300">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
-                  <h3>QA and Testing</h3>
-                  <p>Ensure your app is secure and bug-free. We perform manual and automated testing to deliver stable,
-                    high-performing Android applications.</p>
+                  <h3>QA & Testing</h3>
+                  <p>Deliver flawless user experiences with manual and automated testing that ensures security,
+                    stability, and speed.</p>
                 </div>
                 <div class="feature-icon flex-shrink-0">
                   <i class="bi-check-circle"></i>
@@ -879,10 +904,9 @@
             <div class="feature-item text-end" data-aos="fade-right" data-aos-delay="400">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
-                  <h3>Shopify App Development</h3>
-                  <p>Develop seamless e-commerce apps integrated with Shopify stores to enable smooth shopping
-                    experiences and efficient product management.
-                  </p>
+                  <h3>Shopify App Solutions</h3>
+                  <p>Create seamless eCommerce apps integrated with Shopify to boost conversions and simplify store
+                    management.</p>
                 </div>
                 <div class="feature-icon flex-shrink-0">
                   <i class="bi-cart"></i>
@@ -907,8 +931,9 @@
                 </div>
                 <div class="feature-content">
                   <h3>Integration Services</h3>
-                  <p>Enhance your app with third-party integrations like payment gateways, maps, and authentication to
-                    enrich functionality and speed up development.</p>
+                  <p>Connect apps with payment gateways, APIs, analytics, and AI tools for smarter, faster, feature-rich
+                    performance.
+                  </p>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -919,9 +944,9 @@
                   <i class="bi-arrow-repeat"></i>
                 </div>
                 <div class="feature-content">
-                  <h3>App Migration and Updates</h3>
-                  <p>Keep your app up-to-date with the latest Android versions, including feature updates, security
-                    patches, and performance optimizations.</p>
+                  <h3>App Migration & Upgrades</h3>
+                  <p>Modernize legacy apps with version upgrades, new features, and performance optimizations — without
+                    downtime.</p>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -933,8 +958,7 @@
                 </div>
                 <div class="feature-content">
                   <h3>UI/UX Design</h3>
-                  <p>Create functional, engaging, and intuitive apps. We use user research, personas, and responsive
-                    design to craft seamless, visually appealing interfaces.</p>
+                  <p>Design with precision — where every pixel enhances clarity, engagement, and flow.</p>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -946,213 +970,61 @@
 
     </section><!-- /Features 2 Section -->
 
-    <!-- Call To Action Section -->
-    <!-- <section id="call-to-action" class="call-to-action section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row content justify-content-center align-items-center position-relative">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="display-4 mb-4">Maecenas tempus tellus eget condimentum</h2>
-            <p class="mb-4">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-              Donec velit neque, auctor sit amet aliquam vel</p>
-            <a href="#" class="btn btn-cta">Call To Action</a>
-          </div>
-
-          
-          <div class="shape shape-1">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M47.1,-57.1C59.9,-45.6,68.5,-28.9,71.4,-10.9C74.2,7.1,71.3,26.3,61.5,41.1C51.7,55.9,35,66.2,16.9,69.2C-1.3,72.2,-21,67.8,-36.9,57.9C-52.8,48,-64.9,32.6,-69.1,15.1C-73.3,-2.4,-69.5,-22,-59.4,-37.1C-49.3,-52.2,-32.8,-62.9,-15.7,-64.9C1.5,-67,34.3,-68.5,47.1,-57.1Z"
-                transform="translate(100 100)"></path>
-            </svg>
-          </div>
-
-          <div class="shape shape-2">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M41.3,-49.1C54.4,-39.3,66.6,-27.2,71.1,-12.1C75.6,3,72.4,20.9,63.3,34.4C54.2,47.9,39.2,56.9,23.2,62.3C7.1,67.7,-10,69.4,-24.8,64.1C-39.7,58.8,-52.3,46.5,-60.1,31.5C-67.9,16.4,-70.9,-1.4,-66.3,-16.6C-61.8,-31.8,-49.7,-44.3,-36.3,-54C-22.9,-63.7,-8.2,-70.6,3.6,-75.1C15.4,-79.6,28.2,-58.9,41.3,-49.1Z"
-                transform="translate(100 100)"></path>
-            </svg>
-          </div>
-
-          
-          <div class="dots dots-1">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <pattern id="dot-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
-              </pattern>
-              <rect width="100" height="100" fill="url(#dot-pattern)"></rect>
-            </svg>
-          </div>
-
-          <div class="dots dots-2">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <pattern id="dot-pattern-2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
-              </pattern>
-              <rect width="100" height="100" fill="url(#dot-pattern-2)"></rect>
-            </svg>
-          </div>
-
-          <div class="shape shape-3">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M43.3,-57.1C57.4,-46.5,71.1,-32.6,75.3,-16.2C79.5,0.2,74.2,19.1,65.1,35.3C56,51.5,43.1,65,27.4,71.7C11.7,78.4,-6.8,78.3,-23.9,72.4C-41,66.5,-56.7,54.8,-65.4,39.2C-74.1,23.6,-75.8,4,-71.7,-13.2C-67.6,-30.4,-57.7,-45.2,-44.3,-56.1C-30.9,-67,-15.5,-74,0.7,-74.9C16.8,-75.8,33.7,-70.7,43.3,-57.1Z"
-                transform="translate(100 100)"></path>
-            </svg>
-          </div>
-        </div>
-
-      </div>
-
-    </section>/Call To Action Section -->
-
-    <!-- Clients Section -->
-    <!-- <section id="clients" class="clients section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section>/Clients Section -->
-
-    <!-- Testimonials Section -->
-    <!-- <section id="testimonials" class="testimonials section light-background">
-
-     
+    <!-- Work Flow section -->
+    <section>
       <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div>
+        <h2>
+          How Our <span class="highlight">AI-Driven</span> Process Works
+        </h2>
+        <p class="subheading">
+          Transforming your business with AI innovation — turning challenges into opportunities with autonomous
+          intelligence.
+        </p>
 
-      <div class="container">
-
-        <div class="row g-5">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
-                  Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
+        <div class="steps-container">
+          <div class="step">
+            <div class="circle">1</div>
+            <div class="step-title">Discover & Understand</div>
+            <div class="step-description">
+              We assess business workflows, identify gaps, and analyze documentation to uncover automation and
+              improvement opportunities.
             </div>
           </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-              <h3>Sara Wilsson</h3>
-              <h4>Designer</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram
-                  malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
+          <div class="step">
+            <div class="circle">2</div>
+            <div class="step-title">Strategize & Design</div>
+            <div class="step-description">
+              We define tailored AI roadmaps, architecture, and technologies that align with business objectives and
+              maximize efficiency.
             </div>
           </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-              <h3>Jena Karlis</h3>
-              <h4>Store Owner</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
-                  tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
+          <div class="step">
+            <div class="circle">3</div>
+            <div class="step-title">Develop & Integrate</div>
+            <div class="step-description">
+              We build and integrate AI-driven software solutions that automate processes and connect seamlessly with
+              existing systems.
             </div>
           </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
-              <div class="stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
-                  minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
+          <div class="step">
+            <div class="circle">4</div>
+            <div class="step-title">Test & Optimize</div>
+            <div class="step-description">
+              We rigorously test and fine-tune solutions to ensure performance, security, and consistent, data-driven
+              optimization.
             </div>
           </div>
-
+          <div class="step">
+            <div class="circle">5</div>
+            <div class="step-title">Scale & Evolve</div>
+            <div class="step-description">
+              We monitor, enhance, and expand AI systems to support scalability, continuous improvement, and long-term
+              innovation.
+            </div>
+          </div>
         </div>
-
       </div>
-
-    </section> /Testimonials Section -->
+    </section>
 
     <!-- Stats Section -->
     <!-- <section id="stats" class="stats section">
@@ -1198,324 +1070,19 @@
       </div>
 
     </section>/Stats Section -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Our Clients</h2>
-    </div>
-    <section id="globe-container" class="container">
-      <div id="globeViz">
-        <script>
-          // Init Globe
-          const globe = Globe()
-            .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-day.jpg')
-            // .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
-            .backgroundColor('#ffffff')
-            .htmlElementsData([
-              { lat: 41.8719, lng: 12.5674, tooltip: "Italy" },
-              { lat: 37.0902, lng: -95.7129, tooltip: "USA" },
-              { lat: 51.1657, lng: 10.4515, tooltip: "Germany" },
-              { lat: 20.5937, lng: 78.9629, tooltip: "India" }
-            ])
-            .htmlElement(d => {
-              const el = document.createElement('div');
-              el.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin" width="20" height="20">
-                <path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 1 1 18 0z"></path>
-                <circle fill="white" cx="12" cy="10" r="3"></circle>
-              </svg>`;
-              el.style.color = "red";
-              el.style.width = `40px`;
-              el.className = 'myMarker';
-              el.setAttribute('data-tooltip', d.tooltip);
-              el.style['pointer-events'] = 'auto';
-              el.style.cursor = 'pointer';
-              return el;
-            })
-            .onGlobeReady(() => {
-              // Setup tippy.js tooltips on markers for hover and click
-              document.querySelectorAll('.myMarker').forEach(el => {
-                tippy(el, {
-                  content: el.getAttribute('data-tooltip'),
-                  trigger: 'mouseenter click',
-                  placement: 'right',
-                  arrow: true,
-                  theme: 'light',
-                });
-              });
-            });
-
-          // Mount to container
-          globe(document.getElementById('globeViz'));
-
-          // 👉 Fix: use controls()
-          globe.controls().enableZoom = false;     // disable zoom
-          globe.controls().autoRotate = true;      // enable auto rotation
-          globe.controls().autoRotateSpeed = 0.6;  // control speed
-        </script>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services section light-background">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>We deliver innovative, reliable, and tailored solutions to help businesses grow, streamline operations, and
-          create lasting customer experiences.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-4">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card d-flex">
-              <div class="icon flex-shrink-0">
-                <!-- <i class="bi bi-activity"></i> -->
-                <i class="bi bi-laptop"></i>
-              </div>
-              <div class="service-content">
-                <h3>Development Services</h3>
-                <p><b>Mobile & Cross-Platform App Development</b> – Engaging mobile apps for iOS, Android, and hybrid
-                  platforms to maximize customer reach.</p>
-              </div>
-              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-card d-flex">
-              <div class="icon flex-shrink-0">
-                <!-- <i class="bi bi-diagram-3"></i> -->
-                <i class="bi bi-palette"></i>
-                
-              </div>
-              <div class="service-content">
-                <h3>UI/UX & Creative Services</h3>
-                <p><b>UI/UX Design </b>– Intuitive, user-friendly designs crafted using Figma, Framer, and prototyping
-                  tools.</p>
-              </div>
-              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-card d-flex">
-              <div class="icon flex-shrink-0">
-                <!-- <i class="bi bi-easel"></i> -->
-                <i class="bi bi-brush"></i>
-              </div>
-              <div class="service-content">
-                <h3>Design & Branding</h3>
-                <p><b>Graphic Design</b> – Creative logos, brand identity, and marketing assets that resonate with your
-                  audience.</p>
-              </div>
-              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-card d-flex">
-              <div class="icon flex-shrink-0">
-                <!-- <i class="bi bi-clipboard-data"></i> -->
-                <i class="bi bi-people"></i>
-              </div>
-              <div class="service-content">
-                <h3>BPO Services</h3>
-                <p><b>Customer Support Services</b> – Reliable multi-channel support (chat, email, voice) to enhance
-                  customer satisfaction and retention.</p>
-              </div>
-              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-card d-flex">
-              <div class="icon flex-shrink-0">
-                <!-- <i class="bi bi-clipboard-data"></i> -->
-                <i class="bi bi-people"></i>
-              </div>
-              <div class="service-content">
-                <h3>BPO Services</h3>
-                <p><b>Customer Support Services</b> – Reliable multi-channel support (chat, email, voice) to enhance
-                  customer satisfaction and retention.</p>
-              </div>
-              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-card d-flex">
-              <div class="icon flex-shrink-0">
-                <!-- <i class="bi bi-clipboard-data"></i> -->
-                <i class="bi bi-people"></i>
-              </div>
-              <div class="service-content">
-                <h3>BPO Services</h3>
-                <p><b>Customer Support Services</b> – Reliable multi-channel support (chat, email, voice) to enhance
-                  customer satisfaction and retention.</p>
-              </div>
-              <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Pricing Section -->
-    <!-- <section id="pricing" class="pricing section light-background">
-
-      
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Pricing</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-4 justify-content-center">
-
-          
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="pricing-card">
-              <h3>Basic Plan</h3>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="amount">9.9</span>
-                <span class="period">/ month</span>
-              </div>
-              <p class="description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                doloremque laudantium totam.</p>
-
-              <h4>Featured Included:</h4>
-              <ul class="features-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Duis aute irure dolor
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Excepteur sint occaecat
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Nemo enim ipsam voluptatem
-                </li>
-              </ul>
-
-              <a href="#" class="btn btn-primary">
-                Buy Now
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-         
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="pricing-card popular">
-              <div class="popular-badge">Most Popular</div>
-              <h3>Standard Plan</h3>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="amount">19.9</span>
-                <span class="period">/ month</span>
-              </div>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                praesentium voluptatum.</p>
-
-              <h4>Featured Included:</h4>
-              <ul class="features-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Lorem ipsum dolor sit amet
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Consectetur adipiscing elit
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Sed do eiusmod tempor
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Ut labore et dolore magna
-                </li>
-              </ul>
-
-              <a href="#" class="btn btn-light">
-                Buy Now
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="pricing-card">
-              <h3>Premium Plan</h3>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="amount">39.9</span>
-                <span class="period">/ month</span>
-              </div>
-              <p class="description">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
-                molestiae.</p>
-
-              <h4>Featured Included:</h4>
-              <ul class="features-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Temporibus autem quibusdam
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Saepe eveniet ut et voluptates
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Nam libero tempore soluta
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Cumque nihil impedit quo
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Maxime placeat facere possimus
-                </li>
-              </ul>
-
-              <a href="#" class="btn btn-primary">
-                Buy Now
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>/Pricing Section -->
 
     <!-- Faq Section -->
-    <section class="faq-9 faq section light-background" id="faq">
+    <!-- <section class="faq-9 faq section light-background" id="faq">
 
       <div class="container">
         <div class="row">
 
           <div class="col-lg-5" data-aos="fade-up">
             <h2 class="faq-title">Have a question? Check out the FAQ</h2>
-            <p class="faq-description">Get quick answers about Dataspan Technologies, our AI-driven solutions, software
-              development, and how we empower businesses to scale with smart technology.</p>
+            <p class="faq-description">Get quick answers about Dataspan Technologies, our AI-powered solutions, software
+              development services, and how we help businesses automate, innovate, and scale with intelligent
+              technology.
+            </p>
             <div class="faq-arrow d-none d-lg-block" data-aos="fade-up" data-aos-delay="200">
               <svg class="faq-arrow" width="200" height="211" viewBox="0 0 200 211" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -1532,67 +1099,71 @@
               <div class="faq-item faq-active">
                 <h3>What is Dataspan Technologies and what do you specialize in?</h3>
                 <div class="faq-content">
-                  <p>Dataspan Technologies is a tech firm focused on AI, software development, and digital solutions. We
-                    build intelligent systems—especially in computer vision, generative AI, automation, and custom
-                    software—for industries looking to modernize and grow.</p>
+                  <p>Dataspan Technologies is a tech-driven company specializing in AI solutions, software development,
+                    and digital transformation. We create intelligent systems using generative AI, automation, and
+                    custom software to help businesses modernize operations and accelerate growth.
+                  </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div>
 
               <div class="faq-item">
                 <h3>Which services does Dataspan offer?</h3>
                 <div class="faq-content">
-                  <p>We provide services such as AI and machine learning solutions, software and app development,
-                    synthetic data generation, cloud integration, and digital transformation consulting—tailored to
-                    client needs.</p>
+                  <p>We provide comprehensive services including AI and machine learning development, app and web
+                    solutions, data analytics, cloud integration, and digital transformation consulting—tailored to fit
+                    every client’s needs.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div>
 
               <div class="faq-item">
                 <h3>How does Dataspan use synthetic data or generative AI?</h3>
                 <div class="faq-content">
-                  <p>We create synthetic datasets using generative AI to train computer vision models where real data is
-                    scarce or costly. This reduces development time, improves accuracy, and makes AI adoption faster and
-                    more affordable.</p>
+                  <p>We leverage generative AI to produce synthetic datasets that train and validate AI models where
+                    real data is limited or costly. This approach improves model accuracy, speeds up development, and
+                    reduces implementation costs.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div>
 
               <div class="faq-item">
                 <h3>How does the development process at Dataspan work?</h3>
                 <div class="faq-content">
-                  <p>We start by understanding client goals, then design and prototype solutions. Using an agile
-                    approach, we develop and test in iterations before deployment, and continue providing updates and
-                    support.</p>
+                  <p>Our process starts with understanding your business goals and identifying challenges. We then
+                    design, prototype, and iteratively test solutions using an agile approach, followed by deployment,
+                    optimization, and continuous support.
+                  </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div>
 
               <div class="faq-item">
                 <h3>What makes Dataspan’s solutions reliable and scalable?</h3>
                 <div class="faq-content">
-                  <p>Our systems are built with modular architecture, cloud-native infrastructure, and security in mind.
-                    They adapt over time, ensuring reliability today and scalability for future growth.</p>
+                  <p>Our systems are built using modular architecture, cloud-native infrastructure, and advanced
+                    security frameworks. They’re designed to adapt seamlessly, ensuring long-term reliability,
+                    scalability, and performance.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div>
 
               <div class="faq-item">
                 <h3>How can I get started with Dataspan Technologies?</h3>
                 <div class="faq-content">
-                  <p>You can reach us through our website or GitHub. Our team will review your needs and provide a
-                    customized roadmap to deliver the right solution for your business.</p>
+                  <p>You can easily reach out through our website or GitHub. Our experts will review your needs and
+                    craft a customized AI roadmap to deliver the right solution and accelerate your digital
+                    transformation.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div>
 
             </div>
           </div>
 
         </div>
       </div>
-    </section><!-- /Faq Section -->
+    </section>  -->
 
     <!-- Call To Action 2 Section -->
     <!-- <section id="call-to-action-2" class="call-to-action-2 section dark-background">
@@ -1740,34 +1311,39 @@
             <li><a href="#">Home</a></li>
             <li><a href="#">About us</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Terms of Service</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4>Our Solutions</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">AI & Automation Solutions</a></li>
+            <li><a href="#">Software & App Development</a></li>
+            <li><a href="#">Data Analytics & Visualization</a></li>
+            <li><a href="#">NLP & Language Models</a></li>
+            <li><a href="#">BPO & E-commerce Services</a></li>
+            <li><a href="">UI/UX Design & Prototyping</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Hic solutasetp</h4>
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4> Industries We Serve</h4>
           <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
+            <li><a href="#">E-commerce & Retail</a></li>
+            <li><a href="#">Fintech & Banking</a></li>
+            <li><a href="#">Healthcare & MedTech</a></li>
+            <li><a href="#">Manufacturing & Supply Chain</a></li>
+            <li><a href="#">Education & EdTech</a></li>
+            <li><a href="">Real Estate & Smart Systems</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <!-- <div class="col-lg-2 col-md-3 footer-links">
           <h4>Nobis illum</h4>
           <ul>
             <li><a href="#">Ipsam</a></li>
@@ -1776,7 +1352,7 @@
             <li><a href="#">Trodelas</a></li>
             <li><a href="#">Flexo</a></li>
           </ul>
-        </div>
+        </div> -->
 
       </div>
     </div>
