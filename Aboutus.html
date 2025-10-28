@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>DATASPAN Technologies</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/brand.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        /* Section 1 */
+        body {
+            margin: 0;
+            font-family: "Inter", Arial, sans-serif;
+            /* background: rgba(219, 248, 255, 0.521); */
+            /* Soft background color like screenshot */
+            color: #0A1B3A;
+            height: 100vh;
+        }
+
+        /* Section 1 */
+        .wrapper {
+            height: fit-content;
+            /* border: 5px solid red; */
+        }
+
+        .wrapper .section-wrapper {
+            background: #ffffff;
+            padding: 60px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            /* margin-bottom: 60px; */
+            margin-top: 50px;
+        }
+
+        /* Section 3 */
+        .wrapper .section-wrapper2 {
+            background: #e7e5e5bb;
+        }
+
+        .wrapper .section-wrapper3 {
+            padding: 80px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .wrapper small {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #8A8FA3;
+        }
+
+        .wrapper h2 {
+            font-size: 2rem;
+            margin: 8px 0;
+            color: #0B1C47;
+            font-weight: 900;
+        }
+
+        .wrapper p {
+            color: #444B58;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .wrapper .text-box {
+            flex: 1 1 48%;
+        }
+
+        .wrapper .image-box {
+            flex: 1 1 48%;
+        }
+
+        .wrapper .image-box img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        /* Feature list */
+        .wrapper .features {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .wrapper .features li {
+            margin: 12px 0;
+            font-size: 1rem;
+            display: flex;
+            gap: 10px;
+            color: #1B2142;
+            position: relative;
+        }
+
+        .wrapper .features li::before {
+            content: "✔";
+            color: #0066FF;
+            font-weight: bold;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 850px) {
+            .wrapper .section-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .wrapper .text-box,
+            .image-box {
+                flex: 1 1 100%;
+            }
+        }
+
+        /* section two -------------------------------------------------------------*/
+        .valuessection {
+            padding: 0px;
+            margin-bottom:50px;
+            height: fit-content;
+            /* border: 5px solid red; */
+        }
+
+        .values-section {
+            width: 90%;
+            max-width: 60%;
+            margin: auto;
+            text-align: center;
+            /* border: 5px solid red; */
+            /* border: 5px solid red; */
+        }
+
+        .values-section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1E1E1E;
+            font-weight: 900;
+        }
+
+        .values-section p.top-desc {
+            font-size: 1rem;
+            color: #4A4A4A;
+            max-width: 750px;
+            margin: 0 auto 30px;
+
+        }
+
+        .values-section .values-card {
+            background: #F2EDE5;
+            /* Beige card background */
+            padding: 50px 40px;
+            border-radius: 18px;
+
+        }
+
+        .values-section .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px 50px;
+            text-align: left;
+
+        }
+
+        .values-section .value-item i {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .values-section .value-item h4 {
+            font-size: 1.15rem;
+            margin: 10px 0 6px;
+            font-weight: 600;
+            color: #1C1C1C;
+        }
+
+        .values-section .value-item p {
+            font-size: 0.95rem;
+            color: #505050;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .values-section .values-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* section three ---------------------------------------------------*/
+        .people-section {
+            background: #101010;
+            padding: 70px 8%;
+            text-align: center;
+            color: #fff;
+        }
+
+        .people-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .people-section p.subtext {
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.55;
+            color: #E5E5E5;
+        }
+
+        .people-section .cards-row {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .people-section .people-card {
+            background: #007AFF;
+            width: 230px;
+            padding: 25px 18px 40px;
+            border-radius: 120px 120px 10px 10px;
+            position: relative;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* The pointed cut at the bottom */
+        .people-section .people-card::after {
+            content: "";
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 25px solid #007AFF;
+        }
+
+        .people-section .card1 {
+            background: #0097FF;
+        }
+
+        .people-section .card1::after {
+            border-top-color: #0097FF;
+        }
+
+        .people-section .card2 {
+            background: #005DFF;
+        }
+
+        .people-section .card2::after {
+            border-top-color: #005DFF;
+        }
+
+        .people-section .card3 {
+            background: #00A4FF;
+        }
+
+        .people-section .card3::after {
+            border-top-color: #00A4FF;
+        }
+
+        .people-section .card4 {
+            background: #006BFF;
+        }
+
+        .people-section .card4::after {
+            border-top-color: #006BFF;
+        }
+
+        .people-section .people-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .people-section .people-card p {
+            font-size: 0.9rem;
+            line-height: 1.35;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .people-section .people-card {
+                width: 85%;
+            }
+        }
+
+        /* section four -----------------------------------------------------------*/
+        .talent-section {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            padding-left: 8%;
+            overflow: hidden;
+            background: linear-gradient(180deg, #F9F9F7 0%, #EEF0F7 100%);
+        }
+
+       .talent-section .talent-content {
+            z-index: 5;
+        }
+
+        .talent-section .talent-content h2 {
+            font-size: 2.2rem;
+            color: #111;
+            margin: 0 0 10px;
+            font-weight: 600;
+        }
+
+       .talent-section .talent-content p {
+            font-size: 1.05rem;
+            color: #333;
+            margin-bottom: 22px;
+        }
+
+       .talent-section .join-btn {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.25s ease;
+        }
+
+       .talent-section .join-btn:hover {
+            background: #333;
+        }
+
+        /* Abstract Shapes */
+       .talent-section .shapes {
+            position: absolute;
+            bottom: -20px;
+            right: -60px;
+            display: flex;
+            gap: 40px;
+            z-index: 1;
+        }
+
+       .talent-section .shape {
+            width: 250px;
+            height: 280px;
+            background: rgba(157, 175, 255, 0.35);
+            backdrop-filter: blur(5px);
+            transform: rotate(-12deg);
+            border-radius: 30px;
+        }
+
+       .talent-section .shape2 {
+            background: rgba(120, 150, 255, 0.4);
+            width: 290px;
+            height: 330px;
+            transform: rotate(-5deg);
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+           .talent-section .talent-section {
+                height: auto;
+                padding: 40px 8% 120px;
+            }
+
+           .talent-section .shapes {
+                right: -150px;
+            }
+        }
+    </style>
+</head>
+
+<body class="services">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div
+            class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <img src="assets/img/brand3.png" alt="">
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li class="dropdown"><a href="#features"><span>Development Services</span> <i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li class="dropdown"><span><a href="">Core Development</a></span>
+                                <ul>
+                                    <li><a href="service.html">Web Development</a></li>
+                                    <li><a href="">Software Development</a></li>
+                                    <li><a href="">Mobile App Development</a></li>
+                                    <li><a href="">API Development & Integration</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><span><a href="">E-Commerce Development</a></span>
+                                <ul>
+                                    <li><a href="">Shopify Development</a></li>
+                                    <li><a href="">Magento Development</a></li>
+                                    <li><a href="">WooCommerce Development</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><span><a href="">UI/UX & Product Design</a></span></li>
+                            <ul>
+                                <li><a href="">Website Design</a></li>
+                                <li><a href="">App Prototyping</a></li>
+                                <li><a href="">Brand Identity</a></li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#services"><span>Case Studies</span><i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="">Software Projects</a></li>
+                            <li><a href="">AI/LLM Projects</a></li>
+                            <li><a href="">E-Commerce Solutions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pricing">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="Clients.html">Clients</a></li>
+                    <li class="dropdown"><a href="Aboutus.html"><span>About Us</span> <i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="">Company Overview</a></li>
+                            <li><a href="">Mission & Vision</a></li>
+                            <li><a href="">Our Team</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- <a class="btn-getstarted btn-2" href="index.html#about">Get Started</a> -->
+            </nav>
+            <i class="mobile-nav-toggle bi bi-list"></i>
+            <a class="btn-getstarted btn-1" href="index.html#about">Get Started</a>
+        </div>
+    </header>
+    <div class="main">
+
+        <section class="wrapper ">
+            <div class="section-wrapper container">
+                <div class="text-box">
+                    <small>Why Us</small> <br><br>
+                    <h2>About Us</h2>
+                    <p>
+                        We deliver innovative solutions that address some of the world's most dynamic
+                        security issues. Our dedication to solving identity and security challenges
+                        continues to lead us forward.
+                    </p>
+                </div>
+
+                <div class="image-box">
+                    <img src="" alt="Office">
+                </div>
+            </div>
+
+            <div class="section-wrapper2">
+                <div class="container section-wrapper3">
+                    <div class="image-box">
+                        <img src="" alt="Dashboard UI">
+                    </div>
+
+                    <div class="text-box">
+                        <h2>Hybrid Observability and AI that Transforms IT Operations</h2>
+                        <p>
+                            Ensuring hospitals stay online, factories keep producing, and retailers stay
+                            connected to customers. Thriving IT systems mean thriving businesses.
+                        </p>
+
+                        <ul class="features">
+                            <li>Unified real-time visibility.</li>
+                            <li>AI-driven proactive automation.</li>
+                            <li>Trusted by thousands globally.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="valuessection">
+            <div class="values-section">
+                <div class="values-card">
+                    <h2>Values that underpin our actions</h2>
+                    <p class="top-desc">
+                        These values are the building blocks of our culture. They shape how we innovate and engage with
+                        our
+                        customers, our partners, and one another.
+                    </p>
+                    <div class="values-grid">
+
+                        <div class="value-item">
+                            <i class="bi bi-heart"></i>
+                            <h4>1. Love our customers.</h4>
+                            <p>Our customers are our number one priority, and we know if they're successful, so are we.
+                            </p>
+                        </div>
+
+                        <div class="value-item">
+                            <i class="bi bi-shield-check"></i>
+                            <h4>2. Always secure. Always on.</h4>
+                            <p>We build, educate, and advocate for a safer world with pride and commitment to our
+                                mission-critical role.</p>
+                        </div>
+
+                        <div class="value-item">
+                            <i class="bi bi-gear-wide"></i>
+                            <h4>3. Build and own it.</h4>
+                            <p>We are builders who care deeply about what we build and who we build it with.</p>
+                        </div>
+
+                        <div class="value-item">
+                            <i class="bi bi-lightning-charge"></i>
+                            <h4>4. Drive what's next.</h4>
+                            <p>We are The World's Identity Company, delivering the future of identity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="people-section">
+
+            <h2>Our People Make It Possible</h2>
+            <p class="subtext">
+                We don’t just ship products. We build systems that change how commerce is run. We move fast.<br>
+                We learn across functions. We celebrate hard problems and the people who solve them.
+            </p>
+
+            <div class="cards-row">
+
+                <div class="people-card card1">
+                    <h4>Lean & Learn</h4>
+                    <p>Cross-skill sessions led by peers to grow together.</p>
+                </div>
+
+                <div class="people-card card2">
+                    <h4>Healthy Habits</h4>
+                    <p>Wellness programs designed around overall well-being.</p>
+                </div>
+
+                <div class="people-card card3">
+                    <h4>No Doors Policy</h4>
+                    <p>No cabins. No silos. No politics. Just shared momentum.</p>
+                </div>
+
+                <div class="people-card card4">
+                    <h4>Honors Club</h4>
+                    <p>Monthly shoutouts across engineering, marketing & design.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="talent-section">
+            <div class="talent-content">
+                <h2>A world of talent</h2>
+                <p>Ready to shape the future of Identity?</p>
+                <a href="#" class="join-btn">Join us</a>
+            </div>
+
+            <!-- Decorative abstract shapes -->
+            <div class="shapes">
+                <div class="shape shape1"></div>
+                <div class="shape shape2"></div>
+            </div>
+        </section>
+
+
+        <footer id="footer" class="footer section light-background"
+            style="background-image: url('assets/img/gradient_DT_light_1880x694.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div class="container mt-4 mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <p>Ready to transform your business with AI and automation? Let's talk!</p>
+                        <a href="#contact" class="btn btn-outline-dark rounded-pill">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container footer-top">
+
+                <!-- <div class="row justify-content-center pb-5">
+                <div class="col-lg-6 text-center">
+                    <p>Ready to transform your business with AI and automation? Let's talk!</p>
+                    <a href="#contact" class="btn btn-primary">Contact Us</a>
+                </div>
+            </div> -->
+
+                <div class="row gy-4">
+                    <div class="col-lg-4 col-md-6 footer-about">
+                        <a href="index.html" class="logo d-flex align-items-center ">
+                            <img src="assets/img/footer-logo2.png" alt="">
+                        </a>
+                        <div class="footer-contact pt-3">
+                            <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+                            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+                            <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+                            <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+                        </div>
+                        <div class="social-links d-flex mt-4">
+                            <a href=""><i class="bi bi-twitter-x"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="">Contact Us</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Terms of Service</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 footer-links">
+                        <h4>Our Solutions</h4>
+                        <ul>
+                            <li><a href="#">AI & Automation Solutions</a></li>
+                            <li><a href="#">Software & App Development</a></li>
+                            <li><a href="#">Data Analytics & Visualization</a></li>
+                            <li><a href="#">NLP & Language Models</a></li>
+                            <li><a href="#">BPO & E-commerce Services</a></li>
+                            <li><a href="">UI/UX Design & Prototyping</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 footer-links">
+                        <h4> Industries We Serve</h4>
+                        <ul>
+                            <li><a href="#">E-commerce & Retail</a></li>
+                            <li><a href="#">Fintech & Banking</a></li>
+                            <li><a href="#">Healthcare & MedTech</a></li>
+                            <li><a href="#">Manufacturing & Supply Chain</a></li>
+                            <li><a href="#">Education & EdTech</a></li>
+                            <li><a href="">Real Estate & Smart Systems</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Nobis illum</h4>
+              <ul>
+                <li><a href="#">Ipsam</a></li>
+                <li><a href="#">Laudantium dolorum</a></li>
+                <li><a href="#">Dinera</a></li>
+                <li><a href="#">Trodelas</a></li>
+                <li><a href="#">Flexo</a></li>
+              </ul>
+            </div> -->
+
+                </div>
+            </div>
+
+            <div class="container copyright text-center mt-4">
+                <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All
+                        Rights
+                        Reserved</span></p>
+                <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you've purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                    <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
+              href="https://themewagon.com">ThemeWagon</a> -->
+                </div>
+            </div>
+
+        </footer>
+
+        <!-- Scroll Top -->
+        <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="assets/vendor/aos/aos.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+        <!-- Main JS File -->
+        <script src="assets/js/main.js"></script>
+
+</body>

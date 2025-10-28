@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>DATASPAN Technologies</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/brand.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        .hero-title {
+            color: #05386e;
+            font-weight: 700;
+        }
+
+        #typing {
+            /* font-family: "Poppins", sans-serif; */
+            /* font-size: 2em; */
+            color: #227faa;
+            display: inline-block;
+            border-right: 3px solid #969595;
+            /* cursor */
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blinkCursor 0.8s steps(1) infinite;
+            /* border: 2px solid red; */
+            height: 60px;
+            text-align: center;
+            justify-content: center;
+            padding-right: 5px;
+        }
+
+        /* blinking cursor animation */
+        @keyframes blinkCursor {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* second section */
+        .second .main-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+            padding: 50px 50px;
+        }
+
+        .second .section-title {
+            font-weight: 800;
+            font-size: 40px;
+            background: linear-gradient(to right, #030561, #09bef5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .second .section-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .second .text-gradient {
+            background: linear-gradient(to right, #030561, #09bef5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .second .info-card {
+            background-color: #f9fafc;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 transparent;
+        }
+
+        .second .info-card:hover {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .second .step-circle {
+            background: linear-gradient(to bottom right, #011363, #08cafa);
+            color: white;
+            font-weight: bold;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .second .step-content .title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        @media (max-width: 767px) {
+            .second .info-card {
+                flex-direction: row;
+            }
+        }
+
+
+        /* third section ------------------------------------------------------------------------------------------> */
+        .third {
+            position: relative;
+            width: 100%;
+            padding: 120px 0;
+            overflow: visible;
+            background: #ffffff;
+        }
+
+        .third .wrap {
+            width: 90%;
+            max-width: 1320px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap:50px;
+        }
+
+        .third .left {
+            width: 45%;
+        }
+
+        .third .left h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #000;
+        }
+
+        .third .left p {
+            margin: 20px 0 30px;
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .third .cta {
+            padding: 14px 32px;
+            background: #5c2fa6;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .third .cta:hover {
+            background: #4a2285;
+        }
+
+        .third .cards-wrap {
+            width: 55%;
+            position: relative;
+            height: 500px;
+        }
+
+        .third .cards-inner {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .third .card {
+            background: linear-gradient(to bottom, #dfe6ee, #f8fafc);
+            border-radius: 32px;
+            padding: 30px 35px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-family: 'Inter', sans-serif;
+            width: 540px;
+            min-height: 180px;
+        }
+
+        .third .card h3 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #001a26;
+            margin-bottom: 15px;
+        }
+
+        .third .card p {
+            font-size: 18px;
+            color: #303030;
+            line-height: 1.5;
+        }
+
+
+
+
+        /* ✅ Responsive */
+        @media (max-width: 1024px) {
+            .third .wrap {
+                flex-direction: column;
+                gap: 60px;
+            }
+
+            .third .left,
+            .cards-wrap {
+                width: 100%;
+            }
+
+            .cards-wrap {
+                height: 580px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .third .left h1 {
+                font-size: 38px;
+            }
+
+            .third .cards-wrap {
+                height: 780px;
+            }
+        }
+
+        /* 4th section ----------------------------------------------------------------------- */
+        .section4 {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            /* background: #f4f6fa; */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .section4 .wrapper {
+            display: flex;
+            height: 70vh;
+            width: 80%;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgb(255, 255, 255), rgba(53, 53, 53, 0.486));
+        }
+
+        /* LEFT SIDE – Scrollable */
+        .section4 .scroll-container {
+            height: 100%;
+            width: 55%;
+            overflow-y: scroll;
+            padding: 0 10%;
+            scroll-snap-type: y mandatory;
+
+        }
+
+        .section4 .scroll-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .section4 .scroll-container::-webkit-scrollbar-thumb {
+            background: #b5c6d5;
+            border-radius: 6px;
+        }
+
+        .panel {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            scroll-snap-align: start;
+            opacity: 0.15;
+            transform: translateX(50px);
+            transition: all .4s ease-out;
+            background: none;
+        }
+
+        .section4 .panel.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .section4 .text-block {
+            max-width: 520px;
+        }
+
+        .section4 h2 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .section4 p {
+            font-size: 1.05rem;
+            color: #333;
+            line-height: 1.65;
+        }
+
+        /* RIGHT SIDE – Fixed Number */
+        .section4 .number-box {
+            width: 45%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, rgb(255, 255, 255), rgba(53, 53, 53, 0.486));
+            position: relative;
+        }
+
+        .section4 .number {
+            font-size: 12rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(90deg, #007bff, #00f2c3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            transform-origin: center;
+            display: inline-block;
+            will-change: transform;
+        }
+
+        @media(max-width: 900px) {
+            .section4 .wrapper {
+                flex-direction: column;
+            }
+
+            .section4 .scroll-container,
+            .number-box {
+                width: 100%;
+                height: 50vh;
+            }
+
+            .section4 .number {
+                font-size: 6rem;
+            }
+
+            .section4 .panel {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+
+<body class="services">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div
+            class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <img src="assets/img/brand3.png" alt="">
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li class="dropdown"><a href="#features"><span>Development Services</span> <i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li class="dropdown"><span><a href="">Core Development</a></span>
+                                <ul>
+                                    <li><a href="service.html">Web Development</a></li>
+                                    <li><a href="">Software Development</a></li>
+                                    <li><a href="">Mobile App Development</a></li>
+                                    <li><a href="">API Development & Integration</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><span><a href="">E-Commerce Development</a></span>
+                                <ul>
+                                    <li><a href="">Shopify Development</a></li>
+                                    <li><a href="">Magento Development</a></li>
+                                    <li><a href="">WooCommerce Development</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><span><a href="">UI/UX & Product Design</a></span></li>
+                            <ul>
+                                <li><a href="">Website Design</a></li>
+                                <li><a href="">App Prototyping</a></li>
+                                <li><a href="">Brand Identity</a></li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#services"><span>Case Studies</span><i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="">Software Projects</a></li>
+                            <li><a href="">AI/LLM Projects</a></li>
+                            <li><a href="">E-Commerce Solutions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pricing">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="Clients.html">Clients</a></li>
+                    <li class="dropdown"><a href="Aboutus.html"><span>About Us</span> <i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="">Company Overview</a></li>
+                            <li><a href="">Mission & Vision</a></li>
+                            <li><a href="">Our Team</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- <a class="btn-getstarted btn-2" href="index.html#about">Get Started</a> -->
+            </nav>
+            <i class="mobile-nav-toggle bi bi-list"></i>
+            <a class="btn-getstarted btn-1" href="index.html#about">Get Started</a>
+        </div>
+    </header>
+    <div class="main">
+        <!-- hero section -->
+        <section id="hero" class="hero section">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row align-items-center">
+
+                    <div class="col-lg-6">
+                        <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+                            <!-- <div class="company-badge mb-4">
+                  <i class="bi bi-gear-fill me-2"></i>
+                  Working for your success
+                </div><br> -->
+
+                            <h1 class="mb-4 hero-title"> Empowering Businesses with Intelligent <br>
+                                <span id="typing"></span>
+                            </h1>
+                            <!-- <p class="mb-4" id="typing"> -->
+                            <!-- Maecenas Vitae <br> -->
+                            <!-- <span class="accent-text">Vestibulum Ante</span> -->
+                            <!-- </p> -->
+
+                            <p class="mb-4 mb-md-5">
+                                Unlock the power of AI and custom software that automate operations, elevate
+                                experiences,
+                                and keep your
+                                business ahead of the curve.
+                            </p>
+
+                            <div class="hero-buttons">
+                                <a href="#about" class="btn btn-primary me-0 me-sm-2 mx-1">Grow With Us</a>
+                                <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
+                    <i class="bi bi-play-circle me-1"></i>
+                    Play Video
+                  </a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
+                            <img src="assets/img/Ai icon 01.png" alt="Hero Image" class="img-fluid">
+
+                            <!-- <div class="customers-badge">
+                  <div class="customer-avatars">
+                    <img src="assets/img/avatar-1.webp" alt="Customer 1" class="avatar">
+                    <img src="assets/img/avatar-2.webp" alt="Customer 2" class="avatar">
+                    <img src="assets/img/avatar-3.webp" alt="Customer 3" class="avatar">
+                    <img src="assets/img/avatar-4.webp" alt="Customer 4" class="avatar">
+                    <img src="assets/img/avatar-5.webp" alt="Customer 5" class="avatar">
+                    <span class="avatar more">12+</span>
+                  </div>
+                  <p class="mb-0 mt-2">12,000+ lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                </div> -->
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    const texts = ["AI Solutions.", "Automation Tools.", "Smart Workflows.", "Process Optimization."];
+                    let count = 0;
+                    let index = 0;
+                    let currentText = "";
+                    let letter = "";
+                    let isDeleting = false;
+
+                    function type() {
+                        if (count === texts.length) {
+                            count = 0;
+                        }
+
+                        currentText = texts[count];
+
+                        if (isDeleting) {
+                            letter = currentText.slice(0, --index);
+                        } else {
+                            letter = currentText.slice(0, ++index);
+                        }
+
+                        document.getElementById("typing").textContent = letter;
+
+                        let speed = isDeleting ? 50 : 100;
+
+                        if (!isDeleting && letter.length === currentText.length) {
+                            speed = 1500; // pause before deleting
+                            isDeleting = true;
+                        } else if (isDeleting && letter.length === 0) {
+                            isDeleting = false;
+                            count++;
+                            speed = 500; // pause before typing next
+                        }
+
+                        setTimeout(type, speed);
+                    }
+
+                    type();
+
+                </script>
+
+
+            </div>
+
+        </section>
+
+        <!-- second section -->
+        <section class="second">
+            <div class="main-section text-center">
+                <h2 class="section-title">How KriraAI Powers AI Development</h2>
+                <p class="section-subtitle mt-2">
+                    From strategy to deployment, our AI experts build
+                    <span class="text-gradient">custom solutions</span> that drive real business impact.
+                </p>
+
+                <div class="row mt-5 g-4">
+                    <!-- CARD 1 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100">
+                            <div class="step-circle">1</div>
+                            <div class="step-content text-start">
+                                <div class="title">Strategic Consultation</div>
+                                <div>We define your AI goals and use cases.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100">
+                            <div class="step-circle">2</div>
+                            <div class="step-content text-start">
+                                <div class="title">Data Preparation</div>
+                                <div>We collect, clean, and organize your data.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100">
+                            <div class="step-circle">3</div>
+                            <div class="step-content text-start">
+                                <div class="title">Model Development</div>
+                                <div>We design and train the right AI models.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 4 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100">
+                            <div class="step-circle">4</div>
+                            <div class="step-content text-start">
+                                <div class="title">Integration & Deployment</div>
+                                <div>We integrate AI into your existing systems.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 5 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100">
+                            <div class="step-circle">5</div>
+                            <div class="step-content text-start">
+                                <div class="title">Performance Optimization</div>
+                                <div>We monitor and improve the solution over time.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 6 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100">
+                            <div class="step-circle">6</div>
+                            <div class="step-content text-start">
+                                <div class="title">Training & Support</div>
+                                <div>Complete know-how sharing with 24/7 assistance.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- third section -->
+        <!-- ===== REPLACE your entire <section class="third"> with this block ===== -->
+        <section class="third" id="ai-services">
+            <div class="wrap">
+
+                <!-- ✅ Left Content -->
+                <div class="left">
+                    <h1>Our AI Services</h1>
+                    <p>
+                        KriraAI delivers scalable AI solutions across industries — from predictive analytics
+                        and deep learning to chat automation and intelligent decision systems.
+                    </p>
+                    <button class="cta">Explore Work</button>
+                </div>
+
+                <!-- ✅ Animated Stack Cards -->
+                <div class="cards-wrap">
+                    <div class="cards-inner">
+                        <div class="card">
+                            <h3>Machine Learning</h3>
+                            <p>KriraAI builds bespoke ML models that have the potential to expose latent patterns and enhance predictions. The aim is to streamline workflows, maximize performance, and assist in strategy formulation, without guessing.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Deep Learning</h3>
+                            <p>Our deep learning specializations attempt to solve complex problems while exhibiting advanced human-like reasoning. Hence, these high-end models prove to be a boon, providing accuracy and agility to sift through heaps of dynamic data.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Natural Language Processing (NLP)</h3>
+                            <p>KriraAI applies the NLP skill set to genuinely understand and generate human language. We improve search, analysis, and communication, making them more relevant and efficient for your business.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Computer Vision</h3>
+                            <p>We develop intelligent vision systems that accurately interpret visual data. These solutions enable real-time analysis and recognition, supporting applications in healthcare, security, and beyond.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Chatbot Development</h3>
+                            <p>KriraAI develops chatbots that remain dynamic and engage users effectively. Solutions we offer automate interactions and maintain impeccable support, which ultimately enhance user experience and reduce operational hindrances.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Data Science</h3>
+                            <p>Our data science services focus on generating meaningful, data-driven outcomes based on statistical advancements. We turn complex information into clear, and concise strategies that go with your organizational goals and challenges.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ✅ GSAP Scripts -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+                <script>
+                    gsap.registerPlugin(ScrollTrigger);
+
+                    const cards = gsap.utils.toArray(".card");
+                    const section = document.querySelector('.third');
+
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top top",
+                            end: "+=2500",
+                            pin: true,
+                            scrub: 1,
+                            snap: 1 / (cards.length - 1)
+                        }
+                    });
+
+                    // stacking animation with fixed offset for consistency
+                    cards.forEach((card, i) => {
+                        const body = card.querySelector('p');
+                        const title = card.querySelector('h3');
+
+                        tl.to(card, {
+                            y: -(i * 140), // fixed offset for consistent movement
+                            duration: 1,
+                            ease: "elastic.out(0.5, 0.4)"
+                        }, i)
+
+                            // keep title and body visible
+                            .to(title, {
+                                opacity: 1,
+                                duration: 0.3,
+                            }, i);
+                    });
+
+                    // final overlapping compression
+                    // tl.to(cards, {
+                    //     y: -((cards.length - 1) * 140),
+                    //     stagger: 0.06,
+                    //     duration: 1.2,
+                    //     ease: "elastic.out(0.4, 0.35)"
+                    // }, cards.length);
+                </script>
+
+            </div>
+        </section>
+
+        <!-- 4th section  -->
+        <section class="section4">
+            <div class="wrapper">
+                <div class="scroll-container">
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Expertise</h2>
+                            <p>Our team comprises experienced AI professionals with expertise in machine learning, deep
+                                learning, computer vision, and natural language processing.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Customized Solutions</h2>
+                            <p>We design AI solutions to meet your organization's specific needs and objectives,
+                                automating processes & enhancing user experience.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Scalability</h2>
+                            <p>Our AI solutions grow with your business—whether early-stage startup or enterprise
+                                deployment.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Innovation Focus</h2>
+                            <p>We push boundaries—new algorithms, frameworks & R&D to deliver cutting-edge AI.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Ethical AI</h2>
+                            <p>Transparency, fairness & accountability are built into every AI solution we create.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Collaborative Partnership</h2>
+                            <p>We align with your goals—working closely with your team at every milestone.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Results-Driven Approach</h2>
+                            <p>We deliver measurable outcomes—efficiency, cost reduction & high user satisfaction.</p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="number-box">
+                    <div class="number">01</div>
+                </div>
+            </div>
+
+            <!-- GSAP -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+            <script>
+                gsap.registerPlugin(ScrollTrigger);
+
+                const panels = gsap.utils.toArray(".panel");
+                const numberEl = document.querySelector(".number");
+
+                panels.forEach((panel, index) => {
+                    ScrollTrigger.create({
+                        trigger: panel,
+                        scroller: ".scroll-container",
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                        onEnter: () => changeNumber(index),
+                        onEnterBack: () => changeNumber(index),
+                        onToggle: (self) => {
+                            self.isActive ? panel.classList.add("active") : panel.classList.remove("active");
+                        }
+                    });
+                });
+
+                function changeNumber(index) {
+                    const newNum = String(index + 1).padStart(2, "0");
+
+                    gsap.fromTo(numberEl,
+                        { rotateX: 0 },
+                        {
+                            rotateX: 360,
+                            scale: 1.1,
+                            duration: 1.0,
+                            ease: "elastic.out(1, 0.4)",
+                            onStart: () => { numberEl.textContent = newNum; }
+                        }
+                    );
+                }
+            </script>
+        </section>
+
+        <!-- 5th section -->
+        <section class="bg-blue-600 relative overflow-hidden"
+            style="clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);">
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col-reverse lg:flex-row items-center justify-between">
+                <!-- Text Content -->
+                <div class="text-center lg:text-left lg:max-w-lg">
+                    <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        No matter what you’re trying to dream up,<br>
+                        Jira helps you get it done
+                    </h1>
+                    <a href="#"
+                        class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-md transition">
+                        Get Jira free
+                    </a>
+                </div>
+
+                <!-- Image / Graphic -->
+                <div class="mb-10 lg:mb-0 flex justify-center lg:justify-end">
+                    <div class="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72">
+                        <!-- Placeholder for hand holding card -->
+                        <div
+                            class="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 bg-white transform rotate-12 rounded shadow-lg">
+                            <!-- Sparkles -->
+                            <div class="absolute top-4 left-4 space-y-1">
+                                <div class="w-1 h-1 bg-blue-600 rounded-full"></div>
+                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                <div class="w-1 h-1 bg-blue-600 rounded-full"></div>
+                            </div>
+                        </div>
+                        <!-- Hand placeholder -->
+                        <div
+                            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gray-200 rounded-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer id="footer" class="footer section light-background"
+        style="background-image: url('assets/img/gradient_DT_light_1880x694.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <div class="container mt-4 mb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <p>Ready to transform your business with AI and automation? Let's talk!</p>
+                    <a href="#contact" class="btn btn-outline-dark rounded-pill">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-top">
+
+            <!-- <div class="row justify-content-center pb-5">
+                <div class="col-lg-6 text-center">
+                    <p>Ready to transform your business with AI and automation? Let's talk!</p>
+                    <a href="#contact" class="btn btn-primary">Contact Us</a>
+                </div>
+            </div> -->
+
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center ">
+                        <img src="assets/img/footer-logo2.png" alt="">
+                    </a>
+                    <div class="footer-contact pt-3">
+                        <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+                        <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+                        <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+                    </div>
+                    <div class="social-links d-flex mt-4">
+                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4>Our Solutions</h4>
+                    <ul>
+                        <li><a href="#">AI & Automation Solutions</a></li>
+                        <li><a href="#">Software & App Development</a></li>
+                        <li><a href="#">Data Analytics & Visualization</a></li>
+                        <li><a href="#">NLP & Language Models</a></li>
+                        <li><a href="#">BPO & E-commerce Services</a></li>
+                        <li><a href="">UI/UX Design & Prototyping</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4> Industries We Serve</h4>
+                    <ul>
+                        <li><a href="#">E-commerce & Retail</a></li>
+                        <li><a href="#">Fintech & Banking</a></li>
+                        <li><a href="#">Healthcare & MedTech</a></li>
+                        <li><a href="#">Manufacturing & Supply Chain</a></li>
+                        <li><a href="#">Education & EdTech</a></li>
+                        <li><a href="">Real Estate & Smart Systems</a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Nobis illum</h4>
+              <ul>
+                <li><a href="#">Ipsam</a></li>
+                <li><a href="#">Laudantium dolorum</a></li>
+                <li><a href="#">Dinera</a></li>
+                <li><a href="#">Trodelas</a></li>
+                <li><a href="#">Flexo</a></li>
+              </ul>
+            </div> -->
+
+            </div>
+        </div>
+
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
+                    Reserved</span></p>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you've purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
+              href="https://themewagon.com">ThemeWagon</a> -->
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
