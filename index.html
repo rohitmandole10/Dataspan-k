@@ -25,6 +25,7 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -39,9 +40,100 @@
 
 
   <!--========================================================
- Marker
- ============================================================-->
+Marker
+============================================================-->
   <style>
+    /* Continuous Background Animations - Similar to Aboutus */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(50px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes floatParticle2 {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(0) translateX(-30px) rotate(-360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes floatParticle3 {
+      0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      33% {
+        transform: translate(30px, -30px) rotate(120deg);
+      }
+      66% {
+        transform: translate(-20px, -60px) rotate(240deg);
+      }
+    }
+
+    @keyframes waveAnimation {
+      0% {
+        transform: translateX(0) translateY(0);
+      }
+      50% {
+        transform: translateX(-25px) translateY(15px);
+      }
+      100% {
+        transform: translateX(0) translateY(0);
+      }
+    }
+
+    @keyframes rotateShape {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .hero-title {
       color: #05386e;
       font-weight: 700;
@@ -127,6 +219,206 @@
       display: block;
     }
 
+    /* Hero Section Animations */
+    #hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(-45deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(0, 180, 255, 0.08) 25%, 
+        rgba(13, 131, 253, 0.1) 50%, 
+        rgba(0, 112, 255, 0.08) 75%, 
+        rgba(255, 255, 255, 0.1) 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Floating Particles for Hero */
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      right: 15%;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 180, 255, 0.15) 0%, transparent 70%);
+      animation: floatParticle3 8s ease-in-out infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Additional floating particles container for hero */
+    .hero-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-particles .particle {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 112, 255, 0.12) 0%, transparent 70%);
+      animation: floatParticle 25s linear infinite;
+      z-index: 1;
+    }
+
+    .hero-particles .particle:nth-of-type(1) {
+      top: 10%;
+      right: 20%;
+      width: 60px;
+      height: 60px;
+      animation-delay: 0s;
+      animation-duration: 18s;
+    }
+
+    .hero-particles .particle:nth-of-type(2) {
+      bottom: 20%;
+      right: 10%;
+      width: 90px;
+      height: 90px;
+      animation-delay: 3s;
+      animation-duration: 22s;
+      background: radial-gradient(circle, rgba(0, 180, 255, 0.1) 0%, transparent 70%);
+    }
+
+    .hero-particles .particle:nth-of-type(3) {
+      top: 50%;
+      right: 30%;
+      width: 70px;
+      height: 70px;
+      animation-delay: 6s;
+      animation-duration: 20s;
+      background: radial-gradient(circle, rgba(13, 131, 253, 0.15) 0%, transparent 70%);
+    }
+
+    /* Rotating geometric shape for hero */
+    .hero-shape {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      top: 10%;
+      right: 5%;
+      background: linear-gradient(45deg, rgba(0, 180, 255, 0.08), rgba(13, 131, 253, 0.12));
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      animation: rotateShape 30s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Features Section Animations */
+    #features {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #features::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(-45deg, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(0, 180, 255, 0.06) 25%, 
+        rgba(13, 131, 253, 0.08) 50%, 
+        rgba(0, 112, 255, 0.06) 75%, 
+        rgba(255, 255, 255, 0.05) 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 18s ease infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #features .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Services Section Animations */
+    #services {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #services::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(-45deg, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(0, 180, 255, 0.06) 25%, 
+        rgba(13, 131, 253, 0.08) 50%, 
+        rgba(0, 112, 255, 0.06) 75%, 
+        rgba(255, 255, 255, 0.05) 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #services .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Features-2 Section Animations */
+    #features-2 {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #features-2::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(-45deg, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(0, 180, 255, 0.06) 25%, 
+        rgba(13, 131, 253, 0.08) 50%, 
+        rgba(0, 112, 255, 0.06) 75%, 
+        rgba(255, 255, 255, 0.05) 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 22s ease infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #features-2 .container {
+      position: relative;
+      z-index: 2;
+    }
+
     /* --- Responsive tweaks --- */
     @media (max-width: 1024px) {
       #globe-container .container {
@@ -179,76 +471,154 @@
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div
-      class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <a href="index.html" class="logo">
+          <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+        </a>
+      </div>
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <img src="assets/img/brand3.png" alt="">
-      </a>
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li class="dropdown"><a href="#features"><span>Development Services</span> <i
-                class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li class="dropdown"><span><a href="">Core Development</a></span>
-                <ul>
-                  <li><a href="service.html">Web Development</a></li>
-                  <li><a href="">Software Development</a></li>
-                  <li><a href="">Mobile App Development</a></li>
-                  <li><a href="">API Development & Integration</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><span><a href="">E-Commerce Development</a></span>
-                <ul>
-                  <li><a href="">Shopify Development</a></li>
-                  <li><a href="">Magento Development</a></li>
-                  <li><a href="">WooCommerce Development</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><span><a href="">UI/UX & Product Design</a></span></li>
-              <ul>
-                <li><a href="">Website Design</a></li>
-                <li><a href="">App Prototyping</a></li>
-                <li><a href="">Brand Identity</a></li>
-              </ul>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#services"><span>Case Studies</span><i
-                class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="">Software Projects</a></li>
-              <li><a href="">AI/LLM Projects</a></li>
-              <li><a href="">E-Commerce Solutions</a></li>
-            </ul>
-          </li>
-          <li><a href="#pricing">Blog</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="Clients.html">Clients</a></li>
-          <li class="dropdown"><a href="Aboutus.html"><span>About Us</span> <i
-                class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="">Company Overview</a></li>
-              <li><a href="">Mission & Vision</a></li>
-              <li><a href="">Our Team</a></li>
-              <li><a href="careers.html">Careers</a></li>
-            </ul>
-          </li>
-        </ul>
-        <!-- <a class="btn-getstarted btn-2" href="index.html#about">Get Started</a> -->
-      </nav>
-      <i class="mobile-nav-toggle bi bi-list"></i>
-      <a class="btn-getstarted btn-1" href="index.html#about">Get Started</a>
+      <!-- Main Navigation -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#hero" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="Aboutus.html" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
+            Services
+            <!-- <i class="fas fa-chevron-down"></i> -->
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="Clients.html" class="nav-link">Clients</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">Contact Us</a>
+        </li>
+      </ul>
+
+      <!-- Action Button 
+            <div class="nav-action">
+                <button class="start-project-btn">Start Project</button>
+            </div>-->
     </div>
-  </header>
+
+    <!-- Services Dropdown Menu -->
+    <div class="dropdown-menu" id="services-dropdown">
+      <div class="dropdown-container">
+        <div class="dropdown-content">
+          <!-- Service Categories -->
+          <div class="service-categories">
+            <div class="category-column">
+              <div class="category-item active" data-submenu="ai-automation">
+                <a href="service.html" class="category-link">AI & Automation</a>
+              </div>
+              <div class="category-item" data-submenu="development-technology">
+                <a href="#" class="category-link">Development & Technology</a>
+              </div>
+              <div class="category-item" data-submenu="design-branding">
+                <a href="#" class="category-link">Design & Branding</a>
+              </div>
+              <div class="category-item" data-submenu="cloud-infrastructure">
+                <a href="#" class="category-link">Cloud & Infrastructure</a>
+              </div>
+              <div class="category-item" data-submenu="data-operations">
+                <a href="#" class="category-link">Data & Operations</a>
+              </div>
+            </div>
+
+            <!-- AI & Automation Subcategories -->
+            <div class="subcategory-column" id="ai-automation-submenu">
+              <div class="subcategory-item">
+                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+              </div>
+            </div>
+
+            <!-- Development & Technology Subcategories -->
+            <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Shopify Development & Services</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Web & Mobile Development</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Software Development & Consulting</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+              </div>
+            </div>
+
+            <!-- Design & Branding Subcategories -->
+            <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Design & Branding</a>
+              </div>
+            </div>
+
+            <!-- Cloud & Infrastructure Subcategories -->
+            <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+              </div>
+            </div>
+
+            <!-- Data & Operations Subcategories -->
+            <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Reporting & Analytics</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 
   <main class="main">
 
     <!-- Hero Section -->
     <section id="hero" class="hero section">
+      <!-- Animated Background Elements -->
+      <div class="hero-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+      <div class="hero-shape"></div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -392,102 +762,6 @@
       </div>
 
     </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <!-- <section id="about" class="about section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 align-items-center justify-content-between ">
-
-          <div class="col-xl-8 " data-aos="fade-up" data-aos-delay="200">
-            <span class="about-meta">ABOUT US</span>
-            <h2 class="about-title">Trusted Digital Solutions for Growing Businesses</h2>
-            <p class="about-description">❝ At Dataspan Technologies, we empower businesses worldwide with innovative
-              digital
-              solutions that drive growth, streamline operations, and elevate customer experiences ❞</p>
-
-            <div class="row feature-list-wrapper">
-              <div class="col-md-6">
-                <ul class="feature-list">
-                  <li><i class="bi bi-check-circle-fill"></i>Custom Automation Solutions – Intelligent workflows and ETL
-                    pipelines, data-driven decisions.</li>
-                  <li><i class="bi bi-check-circle-fill"></i>Android App Development – User-friendly Android apps built
-                    for seamless experiences and results.
-                  </li>
-                  <li><i class="bi bi-check-circle-fill"></i>Data Analytics & Intelligence – Power BI, Tableau, and data
-                    science to turn data into actionable insights.
-                  </li>
-                  <li><i class="bi bi-check-circle-fill"></i>UI/UX Design Excellence – Intuitive digital journeys
-                    crafted with Figma and Framer.
-                  </li>
-                </ul>
-                <div class="hero-buttons">
-                  <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
-                  <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
-                    <i class="bi bi-play-circle me-1"></i>
-                    Play Video
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <ul class="feature-list">
-                  <li><i class="bi bi-check-circle-fill"></i>E-commerce Development –Scalable stores with ERP and POS
-                    integration for efficient operations.
-                  </li>
-                  <li><i class="bi bi-check-circle-fill"></i>Seamless Integrations – Smooth connectivity across systems
-                    for unified business processes.
-                  </li>
-                  <li><i class="bi bi-check-circle-fill"></i>Reliable Back-Office Support –Reliable operational support
-                    to keep business running seamlessly.
-                  </li>
-                  <li><i class="bi bi-check-circle-fill"></i>Creative Media & Digital Innovation – AI-powered videos,
-                    motion graphics, and designs.
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="info-wrapper">
-              <div class="row gy-4">
-                <div class="col-lg-5">
-                  <div class="profile d-flex align-items-center gap-3">
-                    <img src="assets/img/avatar-1.webp" alt="CEO Profile" class="profile-image">
-                    <div>
-                      <h4 class="profile-name">Mario Smith</h4>
-                      <p class="profile-position">CEO &amp; Founder</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-7">
-                  <div class="contact-info d-flex align-items-center gap-2">
-                    <i class="bi bi-telephone-fill"></i>
-                    <div>
-                      <p class="contact-label">Call us anytime</p>
-                      <p class="contact-number">+123 456-789</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-4 " data-aos="fade-up" data-aos-delay="300">
-            <div class="image-wrapper">
-              <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
-                <img src="assets/img/about-5.webp" alt="Business Meeting" class="img-fluid main-image rounded-4">
-                <img src="assets/img/about-2.webp" alt="Team Discussion" class="img-fluid small-image rounded-4">
-              </div>
-              <div class="experience-badge floating">
-                <h3>15+ <span>Years</span></h3>
-                <p>Of experience in business service</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </section> /About Section -->
 
     <!-- AI / Core Capabilities Highlight -->
     <section id="features" class="features section">
@@ -634,125 +908,6 @@
 
     </section><!-- /Features Section -->
 
-    <!-- <section id="features-cards" class="features-cards section">
-
-      <div class="container">
-
-        <div class="container section-title" data-aos="fade-up">
-          <h2>E-commerce Services.</h2>
-          <p>Dataspan Technologies offers expert design and development services for leading E-commerce platforms such
-            as
-            Shopify, WordPress, Magento, WooCommerce, BigCommerce, and more.</p>
-
-
-          <div class="row gy-4">
-            <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-              <div class="feature-box green Shopify">
-
-
-                <h4><img src="assets/img/shopify.png" alt="" style="width: 50px; height: 55px ;">Shopify</h4>
-                <ul>
-                  <li>Shopify store setup</li>
-                  <li> Theme design & development</li>
-                  <li>API integration, plug-ins & modules</li>
-                  <li>Shopify product listing</li>
-                  <li>Support & maintenance services</li>
-                  <li>Performance optimization</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-              <div class="feature-box blue WordPress">
-
-
-                <h4><img src="assets/img/wordpress.png" alt="" style="width: 50px; height: 55px ;"> WordPress</h4>
-                <ul>
-                  <li>WordPress website setup & development</li>
-                  <li>Custom theme design & responsive layouts</li>
-                  <li>Plug-in installation & customization</li>
-                  <li>Blog & content management solutions</li>
-                  <li>Migration, upgrades & maintenance</li>
-
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-              <div class="feature-box orange Magento">
-
-                <h4><img src="assets/img/magento.png" alt="" style="width: 50px; height: 55px ;"> Magento</h4>
-                <ul>
-                  <li>Magento store setup & development</li>
-                  <li>Theme design & customization</li>
-                  <li>Module development & plug-ins</li>
-                  <li>Migration & maintenance services</li>
-                  <li>Performance optimization</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-              <div class="feature-box purple WooCommerce">
-
-                <h4><img src="assets/img/woocommerce2.png" alt="" style="width: 50px; height: 55px ;"> WooCommerce</h4>
-                <ul>
-                  <li>WooCommerce store setup & configuration</li>
-                  <li>Custom theme design for online stores</li>
-                  <li>Product listing & catalog management</li>
-                  <li>Payment gateway & shipping integration</li>
-                  <li>Plug-in & extension development</li>
-
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-    </section> -->
-
-
-    <!-- Features Cards Section -->
-    <!-- <section id="features-cards" class="features-cards section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="feature-box orange">
-              <i class="bi bi-award"></i>
-              <h4>Corporis voluptates</h4>
-              <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="feature-box blue">
-              <i class="bi bi-patch-check"></i>
-              <h4>Explicabo consectetur</h4>
-              <p>Est autem dicta beatae suscipit. Sint veritatis et sit quasi ab aut inventore</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="feature-box green">
-              <i class="bi bi-sunrise"></i>
-              <h4>Ullamco laboris</h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="feature-box red">
-              <i class="bi bi-shield-check"></i>
-              <h4>Labore consequatur</h4>
-              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section> /Features Cards Section -->
 
     <!-- Services Section -->
     <section id="services" class="services section light-background">
@@ -1034,223 +1189,26 @@
         </div>
       </div>
     </section>
-
-    <!-- Faq Section -->
-    <!-- <section class="faq-9 faq section light-background" id="faq">
-
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-5" data-aos="fade-up">
-            <h2 class="faq-title">Have a question? Check out the FAQ</h2>
-            <p class="faq-description">Get quick answers about Dataspan Technologies, our AI-powered solutions, software
-              development services, and how we help businesses automate, innovate, and scale with intelligent
-              technology.
-            </p>
-            <div class="faq-arrow d-none d-lg-block" data-aos="fade-up" data-aos-delay="200">
-              <svg class="faq-arrow" width="200" height="211" viewBox="0 0 200 211" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M198.804 194.488C189.279 189.596 179.529 185.52 169.407 182.07L169.384 182.049C169.227 181.994 169.07 181.939 168.912 181.884C166.669 181.139 165.906 184.546 167.669 185.615C174.053 189.473 182.761 191.837 189.146 195.695C156.603 195.912 119.781 196.591 91.266 179.049C62.5221 161.368 48.1094 130.695 56.934 98.891C84.5539 98.7247 112.556 84.0176 129.508 62.667C136.396 53.9724 146.193 35.1448 129.773 30.2717C114.292 25.6624 93.7109 41.8875 83.1971 51.3147C70.1109 63.039 59.63 78.433 54.2039 95.0087C52.1221 94.9842 50.0776 94.8683 48.0703 94.6608C30.1803 92.8027 11.2197 83.6338 5.44902 65.1074C-1.88449 41.5699 14.4994 19.0183 27.9202 1.56641C28.6411 0.625793 27.2862 -0.561638 26.5419 0.358501C13.4588 16.4098 -0.221091 34.5242 0.896608 56.5659C1.8218 74.6941 14.221 87.9401 30.4121 94.2058C37.7076 97.0203 45.3454 98.5003 53.0334 98.8449C47.8679 117.532 49.2961 137.487 60.7729 155.283C87.7615 197.081 139.616 201.147 184.786 201.155L174.332 206.827C172.119 208.033 174.345 211.287 176.537 210.105C182.06 207.125 187.582 204.122 193.084 201.144C193.346 201.147 195.161 199.887 195.423 199.868C197.08 198.548 193.084 201.144 195.528 199.81C196.688 199.192 197.846 198.552 199.006 197.935C200.397 197.167 200.007 195.087 198.804 194.488ZM60.8213 88.0427C67.6894 72.648 78.8538 59.1566 92.1207 49.0388C98.8475 43.9065 106.334 39.2953 114.188 36.1439C117.295 34.8947 120.798 33.6609 124.168 33.635C134.365 33.5511 136.354 42.9911 132.638 51.031C120.47 77.4222 86.8639 93.9837 58.0983 94.9666C58.8971 92.6666 59.783 90.3603 60.8213 88.0427Z"
-                  fill="currentColor"></path>
-              </svg>
-            </div>
-          </div>
-
-          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="300">
-            <div class="faq-container">
-
-              <div class="faq-item faq-active">
-                <h3>What is Dataspan Technologies and what do you specialize in?</h3>
-                <div class="faq-content">
-                  <p>Dataspan Technologies is a tech-driven company specializing in AI solutions, software development,
-                    and digital transformation. We create intelligent systems using generative AI, automation, and
-                    custom software to help businesses modernize operations and accelerate growth.
-                  </p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-              <div class="faq-item">
-                <h3>Which services does Dataspan offer?</h3>
-                <div class="faq-content">
-                  <p>We provide comprehensive services including AI and machine learning development, app and web
-                    solutions, data analytics, cloud integration, and digital transformation consulting—tailored to fit
-                    every client’s needs.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-              <div class="faq-item">
-                <h3>How does Dataspan use synthetic data or generative AI?</h3>
-                <div class="faq-content">
-                  <p>We leverage generative AI to produce synthetic datasets that train and validate AI models where
-                    real data is limited or costly. This approach improves model accuracy, speeds up development, and
-                    reduces implementation costs.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-              <div class="faq-item">
-                <h3>How does the development process at Dataspan work?</h3>
-                <div class="faq-content">
-                  <p>Our process starts with understanding your business goals and identifying challenges. We then
-                    design, prototype, and iteratively test solutions using an agile approach, followed by deployment,
-                    optimization, and continuous support.
-                  </p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-              <div class="faq-item">
-                <h3>What makes Dataspan’s solutions reliable and scalable?</h3>
-                <div class="faq-content">
-                  <p>Our systems are built using modular architecture, cloud-native infrastructure, and advanced
-                    security frameworks. They’re designed to adapt seamlessly, ensuring long-term reliability,
-                    scalability, and performance.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-              <div class="faq-item">
-                <h3>How can I get started with Dataspan Technologies?</h3>
-                <div class="faq-content">
-                  <p>You can easily reach out through our website or GitHub. Our experts will review your needs and
-                    craft a customized AI roadmap to deliver the right solution and accelerate your digital
-                    transformation.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>  -->
-
-    <!-- Call To Action 2 Section -->
-    <!-- <section id="call-to-action-2" class="call-to-action-2 section dark-background">
-
-      <div class="container">
-        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-10">
-            <div class="text-center">
-              <h3>Call To Action</h3>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                laborum.</p>
-              <a class="cta-btn" href="#">Call To Action</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </section>/Call To Action 2 Section -->
-
-    <!-- Contact Section -->
-    <!-- <section id="contact" class="contact section light-background">
-
-      
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>"Let’s connect and turn your ideas into reality."</p>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-4 g-lg-5">
-          <div class="col-lg-5">
-            <div class="info-box" data-aos="fade-up" data-aos-delay="200">
-              <h3>Contact Info</h3>
-              <p><b>Reach out to us easily</b> — we’re always here to answer your questions, provide details, and guide
-                you toward the right solution for your needs. </p>
-
-              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon-box">
-                  <i class="bi bi-geo-alt"></i>
-                </div>
-                <div class="content">
-                  <h4>Our Location</h4>
-                  <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp. Euphoria Fitness Club, Manohar Nagar,
-                    Govind Nagar, Nashik, Maharashtra 422001</p>
-                </div>
-              </div>
-
-              <div class="info-item" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon-box">
-                  <i class="bi bi-telephone"></i>
-                </div>
-                <div class="content">
-                  <h4>Phone Number</h4>
-                  <p>+91 97649 97022</p>
-                </div>
-              </div>
-
-              <div class="info-item" data-aos="fade-up" data-aos-delay="500">
-                <div class="icon-box">
-                  <i class="bi bi-envelope"></i>
-                </div>
-                <div class="content">
-                  <h4>Email Address</h4>
-                  <p>info@dataspantechnologies.com</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-              <h3>Get In Touch</h3>
-              <p><b>Let’s connect!</b> Share your ideas or requirements, and our team will get back to you promptly with
-                the support you need.</p>
-
-              <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-                data-aos-delay="200">
-                <div class="row gy-4">
-
-                  <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                  </div>
-
-                  <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                  </div>
-
-                  <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                  </div>
-
-                  <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                  </div>
-
-                  <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                    <button type="submit" class="btn">Send Message</button>
-                  </div>
-
-                </div>
-              </form>
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>/Contact Section -->
-
   </main>
 
-  <footer id="footer" class="footer section light-background">
+  <footer id="footer" class="footer section light-background"
+    style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- CTA Above Footer -->
+    <div class="container mb-5" style="width: 50%;">
+      <div class="row justify-content-center" data-aos="fade-up">
+        <div class="col-lg-10">
+          <div class="text-center">
+            <h2 style="font-weight: 700; color: #0b0b0b;">
+              Believe in possibilities and navigate
+              beyond the expected with us !
+            </h2>
+            <!-- <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact Us</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="container footer-top">
-      
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center ">
@@ -1336,7 +1294,6 @@
     </div>
 
   </footer>
-
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
