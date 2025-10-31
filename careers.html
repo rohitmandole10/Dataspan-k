@@ -25,6 +25,7 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -542,71 +543,136 @@
 
 <body class="careers-page">
 
-    <header id="header" class="header d-flex align-items-center fixed-top">
-        <div
-          class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-    
-          <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <!-- <img src="assets/img/logo.png" alt=""> -->
-            <img src="assets/img/brand3.png" alt="">
-          </a>
-          <nav id="navmenu" class="navmenu">
-            <ul>
-              <li><a href="#hero" class="active">Home</a></li>
-              <li class="dropdown"><a href="#features"><span>Development Services</span> <i
-                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li class="dropdown"><span><a href="">Core Development</a></span>
-                    <ul>
-                      <li><a href="service.html">Web Development</a></li>
-                      <li><a href="">Software Development</a></li>
-                      <li><a href="">Mobile App Development</a></li>
-                      <li><a href="">API Development & Integration</a></li>
-                    </ul>
+  <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+                </a>
+            </div>
+
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#hero" class="nav-link">Home</a>
                   </li>
-                  <li class="dropdown"><span><a href="">E-Commerce Development</a></span>
-                    <ul>
-                      <li><a href="">Shopify Development</a></li>
-                      <li><a href="">Magento Development</a></li>
-                      <li><a href="">WooCommerce Development</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a href="Aboutus.html" class="nav-link">About Us</a>
                   </li>
-                  <li class="dropdown"><span><a href="">UI/UX & Product Design</a></span></li>
-                  <ul>
-                    <li><a href="">Website Design</a></li>
-                    <li><a href="">App Prototyping</a></li>
-                    <li><a href="">Brand Identity</a></li>
-                  </ul>
-                </ul>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
+                        Services
+                    </a>
               </li>
-              <li class="dropdown"><a href="#services"><span>Case Studies</span><i
-                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="">Software Projects</a></li>
-                  <li><a href="">AI/LLM Projects</a></li>
-                  <li><a href="">E-Commerce Solutions</a></li>
-                </ul>
+                <li class="nav-item">
+                    <a href="Clients.html" class="nav-link">Clients</a>
               </li>
-              <li><a href="#pricing">Blog</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
-              <li><a href="Clients.html">Clients</a></li>
-              <li class="dropdown"><a href="Aboutus.html"><span>About Us</span> <i
-                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="">Company Overview</a></li>
-                  <li><a href="">Mission & Vision</a></li>
-                  <li><a href="">Our Team</a></li>
-                  <li><a href="careers.html">Careers</a></li>
-                </ul>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
               </li>
             </ul>
-            <!-- <a class="btn-getstarted btn-2" href="index.html#about">Get Started</a> -->
-          </nav>
-          <i class="mobile-nav-toggle bi bi-list"></i>
-          <a class="btn-getstarted btn-1" href="index.html#about">Get Started</a>
         </div>
-      </header>
+
+        <!-- Services Dropdown Menu -->
+        <div class="dropdown-menu" id="services-dropdown">
+            <div class="dropdown-container">
+                <div class="dropdown-content">
+                    <!-- Service Categories -->
+                    <div class="service-categories">
+                        <div class="category-column">
+                            <div class="category-item active" data-submenu="ai-automation">
+                                <a href="#" class="category-link">AI & Automation</a>
+                            </div>
+                            <div class="category-item" data-submenu="development-technology">
+                                <a href="#" class="category-link">Development & Technology</a>
+                            </div>
+                            <div class="category-item" data-submenu="design-branding">
+                                <a href="#" class="category-link">Design & Branding</a>
+                            </div>
+                            <div class="category-item" data-submenu="cloud-infrastructure">
+                                <a href="#" class="category-link">Cloud & Infrastructure</a>
+                            </div>
+                            <div class="category-item" data-submenu="data-operations">
+                                <a href="#" class="category-link">Data & Operations</a>
+                            </div>
+                        </div>
+
+                        <!-- AI & Automation Subcategories -->
+                        <div class="subcategory-column" id="ai-automation-submenu">
+                            <div class="subcategory-item">
+                                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+                            </div>
+                        </div>
+
+                        <!-- Development & Technology Subcategories -->
+                        <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Shopify Development & Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Web & Mobile Development</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Software Development & Consulting</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+                            </div>
+                        </div>
+
+                        <!-- Design & Branding Subcategories -->
+                        <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Design & Branding</a>
+                            </div>
+                        </div>
+
+                        <!-- Cloud & Infrastructure Subcategories -->
+                        <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+                            </div>
+                        </div>
+
+                        <!-- Data & Operations Subcategories -->
+                        <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Reporting & Analytics</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
   <main class="main">
 
@@ -769,13 +835,27 @@
 
   </main>
 
-  <footer id="footer" class="footer section light-background">
+  <footer id="footer" class="footer section light-background" style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- CTA Above Footer -->
+    <div class="container mb-5" style="width: 50%;">
+      <div class="row justify-content-center" data-aos="fade-up">
+        <div class="col-lg-10">
+          <div class="text-center">
+            <h2 style="font-weight: 700; color: #0b0b0b;">
+              Believe in possibilities and navigate
+              beyond the expected with us !
+            </h2>
+            <!-- <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact Us</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center ">
-            <img src="assets/img/footer-logo2.png" alt="DATASPAN Technologies">
+            <img src="assets/img/footer-logo2.png" alt="">
           </a>
           <div class="footer-contact pt-3">
             <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
@@ -794,12 +874,12 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">About us</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="index.html#services">Case Studies</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="">Contact Us</a></li>
             <li><a href="">Privacy Policy</a></li>
             <li><a href="">Terms of Service</a></li>
           </ul>
@@ -808,26 +888,37 @@
         <div class="col-lg-3 col-md-3 footer-links">
           <h4>Our Solutions</h4>
           <ul>
-            <li><a href="index.html#features">AI & Automation Solutions</a></li>
-            <li><a href="index.html#services">Software & App Development</a></li>
-            <li><a href="index.html#features">Data Analytics & Visualization</a></li>
-            <li><a href="index.html#features">NLP & Language Models</a></li>
-            <li><a href="index.html#services">BPO & E-commerce Services</a></li>
-            <li><a href="index.html#services">UI/UX Design & Prototyping</a></li>
+            <li><a href="#">AI & Automation Solutions</a></li>
+            <li><a href="#">Software & App Development</a></li>
+            <li><a href="#">Data Analytics & Visualization</a></li>
+            <li><a href="#">NLP & Language Models</a></li>
+            <li><a href="#">BPO & E-commerce Services</a></li>
+            <li><a href="">UI/UX Design & Prototyping</a></li>
           </ul>
         </div>
 
         <div class="col-lg-3 col-md-3 footer-links">
-          <h4>Industries We Serve</h4>
+          <h4> Industries We Serve</h4>
           <ul>
-            <li><a href="">E-commerce & Retail</a></li>
-            <li><a href="">Fintech & Banking</a></li>
-            <li><a href="">Healthcare & MedTech</a></li>
-            <li><a href="">Manufacturing & Supply Chain</a></li>
-            <li><a href="">Education & EdTech</a></li>
+            <li><a href="#">E-commerce & Retail</a></li>
+            <li><a href="#">Fintech & Banking</a></li>
+            <li><a href="#">Healthcare & MedTech</a></li>
+            <li><a href="#">Manufacturing & Supply Chain</a></li>
+            <li><a href="#">Education & EdTech</a></li>
             <li><a href="">Real Estate & Smart Systems</a></li>
           </ul>
         </div>
+
+        <!-- <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nobis illum</h4>
+          <ul>
+            <li><a href="#">Ipsam</a></li>
+            <li><a href="#">Laudantium dolorum</a></li>
+            <li><a href="#">Dinera</a></li>
+            <li><a href="#">Trodelas</a></li>
+            <li><a href="#">Flexo</a></li>
+          </ul>
+        </div> -->
 
       </div>
     </div>
@@ -840,6 +931,8 @@
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
+          href="https://themewagon.com">ThemeWagon</a> -->
       </div>
     </div>
 
