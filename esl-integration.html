@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ESL (Electronic Shelf Labels) Integration Services - DATASPAN Technologies</title>
+    <meta name="description" content="ESL (Electronic Shelf Labels) Integration Services by DATASPAN Technologies">
+    <meta name="keywords" content="ESL, Electronic Shelf Labels, Retail Automation, Price Management, Label Integration">
+
+    <!-- Favicons -->
+    <link href="assets/img/brand.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        /* Enhanced Hero Section */
+        .hero-title {
+            color: #05386e;
+            font-weight: 700;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #05386e 0%, #227faa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        #typing {
+            color: #227faa;
+            display: inline-block;
+            border-right: 3px solid #227faa;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blinkCursor 0.8s steps(1) infinite, fadeInUp 1.2s ease-out 0.5s both;
+            height: 60px;
+            text-align: center;
+            justify-content: center;
+            padding-right: 5px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #227faa 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Enhanced animations */
+        @keyframes blinkCursor {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Hero section enhancements */
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-image img {
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .hero-buttons .btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(5, 56, 110, 0.2);
+        }
+
+        .hero-buttons .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(5, 56, 110, 0.3);
+        }
+
+        .hero-buttons .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-buttons .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Enhanced second section */
+        .second {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .second::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .second .main-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .second .section-title {
+            font-weight: 800;
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .second .section-subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .second .text-gradient {
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .second .info-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: flex-start;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out calc(var(--delay, 0) * 0.1s) both;
+        }
+
+        .second .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #030561, #09bef5);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .second .info-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .second .info-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .second .step-circle {
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            color: white;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(3, 5, 97, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .second .info-card:hover .step-circle {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(3, 5, 97, 0.4);
+        }
+
+        .second .step-content .title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1e293b;
+            font-size: 1.1rem;
+        }
+
+        .second .step-content div:last-child {
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 767px) {
+            .second .main-section {
+                padding: 40px 30px;
+            }
+            
+            .second .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .second .info-card {
+                flex-direction: row;
+                padding: 25px;
+            }
+        }
+
+
+        /* Enhanced third section */
+        .third {
+            position: relative;
+            width: 100%;
+            padding: 120px 0;
+            overflow: visible;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+        }
+
+        .third::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(3, 5, 97, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(9, 190, 245, 0.05) 0%, transparent 50%);
+        }
+
+        .third .wrap {
+            width: 90%;
+            max-width: 1320px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .third .left {
+            width: 45%;
+        }
+
+        .third .left h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .third .left p {
+            margin: 20px 0 40px;
+            font-size: 1.2rem;
+            color: #64748b;
+            line-height: 1.7;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .third .cta {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(3, 5, 97, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .third .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(3, 5, 97, 0.4);
+        }
+
+        .third .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .third .cta:hover::before {
+            left: 100%;
+        }
+
+        .third .cards-wrap {
+            width: 55%;
+            position: relative;
+            height: 500px;
+        }
+
+        .third .cards-inner {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .third .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 24px;
+            padding: 35px 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            font-family: 'Inter', sans-serif;
+            width: 540px;
+            min-height: 180px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .third .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #030561, #09bef5);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .third .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .third .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .third .card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .third .card p {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+
+
+
+        /* ✅ Responsive */
+        @media (max-width: 1024px) {
+            .third .wrap {
+                flex-direction: column;
+                gap: 60px;
+            }
+
+            .third .left,
+            .cards-wrap {
+                width: 100%;
+            }
+
+            .cards-wrap {
+                height: 580px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .third .left h1 {
+                font-size: 38px;
+            }
+
+            .third .cards-wrap {
+                height: 780px;
+            }
+        }
+
+        /* Enhanced 4th section */
+        .section4 {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .section4::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(3, 5, 97, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(9, 190, 245, 0.03) 0%, transparent 50%);
+        }
+
+        .section4 .wrapper {
+            display: flex;
+            height: 70vh;
+            width: 80%;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.8));
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* LEFT SIDE – Enhanced Scrollable */
+        .section4 .scroll-container {
+            height: 100%;
+            width: 55%;
+            overflow-y: scroll;
+            padding: 0 10%;
+            scroll-snap-type: y mandatory;
+        }
+
+        .section4 .scroll-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .section4 .scroll-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+
+        .section4 .scroll-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #030561, #09bef5);
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .section4 .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #02043a, #0788c7);
+        }
+
+        .section4 .panel {
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            scroll-snap-align: start;
+            opacity: 0.2;
+            transform: translateX(50px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: none;
+        }
+
+        .section4 .panel.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .section4 .text-block {
+            max-width: 520px;
+        }
+
+        .section4 h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section4 p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* RIGHT SIDE – Enhanced Fixed Number */
+        .section4 .number-box {
+            width: 45%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.8));
+            position: relative;
+        }
+
+        .section4 .number {
+            font-size: 12rem;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            transform-origin: center;
+            display: inline-block;
+            will-change: transform;
+            text-shadow: 0 0 30px rgba(3, 5, 97, 0.3);
+        }
+
+        /* Enhanced 5th section */
+        .section5 {
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+            padding: 100px 0;
+        }
+
+        .section5::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .section5 .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section5 h1 {
+            color: #ffffff;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section5 .btn {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #000000;
+            font-weight: 700;
+            padding: 15px 35px;
+            border-radius: 12px;
+            border: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .section5 .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(251, 191, 36, 0.4);
+        }
+
+        .section5 .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .section5 .btn:hover::before {
+            left: 100%;
+        }
+
+        .section5 .graphic-container {
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .section5 .card-graphic {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: rotate(12deg);
+            transition: transform 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .section5 .card-graphic:hover {
+            transform: rotate(15deg) scale(1.05);
+        }
+
+        .section5 .sparkle {
+            position: absolute;
+            background: linear-gradient(135deg, #030561, #09bef5);
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Additional modern UI enhancements */
+        .modern-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .modern-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Enhanced Responsive Design */
+        @media(max-width: 1200px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .third .left h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section4 h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media(max-width: 900px) {
+            .section4 .wrapper {
+                flex-direction: column;
+                height: 80vh;
+            }
+
+            .section4 .scroll-container,
+            .number-box {
+                width: 100%;
+                height: 50vh;
+            }
+
+            .section4 .number {
+                font-size: 6rem;
+            }
+
+            .section4 .panel {
+                height: 50vh;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .third .left h1 {
+                font-size: 3rem;
+            }
+            
+            .section5 h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .second .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .third .left h1 {
+                font-size: 2.5rem;
+            }
+            
+            .third .card {
+                width: 100%;
+                padding: 25px 30px;
+            }
+            
+            .section4 h2 {
+                font-size: 2rem;
+            }
+            
+            .section5 h1 {
+                font-size: 2rem;
+            }
+            
+            .section5 .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        @media(max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .second .main-section {
+                padding: 30px 20px;
+            }
+            
+            .second .section-title {
+                font-size: 2rem;
+            }
+            
+            .third .left h1 {
+                font-size: 2rem;
+            }
+            
+            .third .card {
+                padding: 20px 25px;
+            }
+            
+            .section4 h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section4 p {
+                font-size: 1rem;
+            }
+            
+            .section5 h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section5 .card-graphic {
+                padding: 20px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="services">
+  <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+                </a>
+            </div>
+
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#hero" class="nav-link">Home</a>
+                            </li>
+                <li class="nav-item">
+                    <a href="Aboutus.html" class="nav-link">About Us</a>
+                            </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
+                        Services
+                    </a>
+                    </li>
+                <li class="nav-item">
+                    <a href="Clients.html" class="nav-link">Clients</a>
+                    </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                    </li>
+                </ul>
+        </div>
+
+        <!-- Services Dropdown Menu -->
+        <div class="dropdown-menu" id="services-dropdown">
+            <div class="dropdown-container">
+                <div class="dropdown-content">
+                    <!-- Service Categories -->
+                    <div class="service-categories">
+                        <div class="category-column">
+                            <div class="category-item active" data-submenu="ai-automation">
+                                <a href="#" class="category-link">AI & Automation</a>
+                            </div>
+                            <div class="category-item" data-submenu="development-technology">
+                                <a href="#" class="category-link">Development & Technology</a>
+                            </div>
+                            <div class="category-item" data-submenu="design-branding">
+                                <a href="#" class="category-link">Design & Branding</a>
+                            </div>
+                            <div class="category-item" data-submenu="cloud-infrastructure">
+                                <a href="#" class="category-link">Cloud & Infrastructure</a>
+                            </div>
+                            <div class="category-item" data-submenu="data-operations">
+                                <a href="#" class="category-link">Data & Operations</a>
+                            </div>
+                        </div>
+
+                        <!-- AI & Automation Subcategories -->
+                        <div class="subcategory-column" id="ai-automation-submenu">
+                            <div class="subcategory-item">
+                                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+                            </div>
+                        </div>
+
+                        <!-- Development & Technology Subcategories -->
+                        <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Shopify Development & Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Web & Mobile Development</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Software Development & Consulting</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+                            </div>
+                        </div>
+
+                        <!-- Design & Branding Subcategories -->
+                        <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Design & Branding</a>
+                            </div>
+                        </div>
+
+                        <!-- Cloud & Infrastructure Subcategories -->
+                        <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+                            </div>
+                        </div>
+
+                        <!-- Data & Operations Subcategories -->
+                        <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Reporting & Analytics</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="main">
+        <!-- hero section -->
+        <section id="hero" class="hero section">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row align-items-center">
+
+                    <div class="col-lg-6">
+                        <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+
+                            <h1 class="mb-4 hero-title"> Modernize Retail Pricing with <br>
+                                <span id="typing"></span>
+                            </h1>
+
+                            <p class="mb-4 mb-md-5">
+                                Integrate Electronic Shelf Labels with your retail management systems. 
+                                Automate price updates, inventory sync, and in-store pricing management seamlessly.
+                            </p>
+
+                            <div class="hero-buttons">
+                                <a href="#about" class="btn btn-primary me-0 me-sm-2 mx-1">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
+                            <img src="assets/img/Ai icon 01.png" alt="ESL Integration Services" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    const texts = ["Price Automation.", "Retail Integration.", "Label Management.", "Smart Pricing."];
+                    let count = 0;
+                    let index = 0;
+                    let currentText = "";
+                    let letter = "";
+                    let isDeleting = false;
+
+                    function type() {
+                        if (count === texts.length) {
+                            count = 0;
+                        }
+
+                        currentText = texts[count];
+
+                        if (isDeleting) {
+                            letter = currentText.slice(0, --index);
+                        } else {
+                            letter = currentText.slice(0, ++index);
+                        }
+
+                        document.getElementById("typing").textContent = letter;
+
+                        let speed = isDeleting ? 50 : 100;
+
+                        if (!isDeleting && letter.length === currentText.length) {
+                            speed = 1500;
+                            isDeleting = true;
+                        } else if (isDeleting && letter.length === 0) {
+                            isDeleting = false;
+                            count++;
+                            speed = 500;
+                        }
+
+                        setTimeout(type, speed);
+                    }
+
+                    type();
+
+                </script>
+
+
+            </div>
+
+        </section>
+
+        <!-- second section -->
+        <section class="second">
+            <div class="main-section text-center">
+                <h2 class="section-title">How Our ESL Integration Works</h2>
+                <p class="section-subtitle mt-2">
+                    From system integration to automation, we deliver
+                    <span class="text-gradient">seamless ESL solutions</span> that modernize your retail operations.
+                </p>
+
+                <div class="row mt-5 g-4">
+                    <!-- CARD 1 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100" style="--delay: 0;">
+                            <div class="step-circle">1</div>
+                            <div class="step-content text-start">
+                                <div class="title">System Assessment</div>
+                                <div>We assess your ESL infrastructure and integration needs.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100" style="--delay: 1;">
+                            <div class="step-circle">2</div>
+                            <div class="step-content text-start">
+                                <div class="title">API Integration</div>
+                                <div>We integrate ESL APIs with your retail management systems.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100" style="--delay: 2;">
+                            <div class="step-circle">3</div>
+                            <div class="step-content text-start">
+                                <div class="title">Price Synchronization</div>
+                                <div>We set up automated price updates from your POS or ERP system.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 4 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100" style="--delay: 3;">
+                            <div class="step-circle">4</div>
+                            <div class="step-content text-start">
+                                <div class="title">Inventory Sync</div>
+                                <div>We synchronize inventory data with shelf labels automatically.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 5 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100" style="--delay: 4;">
+                            <div class="step-circle">5</div>
+                            <div class="step-content text-start">
+                                <div class="title">Testing & Deployment</div>
+                                <div>We test integrations thoroughly and deploy to your stores.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 6 -->
+                    <div class="col-lg-4 col-md-6 d-flex">
+                        <div class="info-card w-100" style="--delay: 5;">
+                            <div class="step-circle">6</div>
+                            <div class="step-content text-start">
+                                <div class="title">Monitoring & Support</div>
+                                <div>We provide ongoing monitoring and support for your ESL system.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- third section -->
+        <section class="third" id="esl-services">
+            <div class="wrap">
+
+                <!-- ✅ Left Content -->
+                <div class="left">
+                    <h1>Our ESL Integration Services</h1>
+                    <p>
+                        DATASPAN delivers comprehensive ESL integration solutions that connect Electronic Shelf Labels 
+                        with retail management systems, POS systems, and inventory databases for automated pricing.
+                    </p>
+                    <button class="cta">Explore Work</button>
+                </div>
+
+                <!-- ✅ Animated Stack Cards -->
+                <div class="cards-wrap">
+                    <div class="cards-inner">
+                        <div class="card">
+                            <h3>POS System Integration</h3>
+                            <p>Connect ESL with Point of Sale systems for real-time price updates. Automatically sync prices from POS to shelf labels across all store locations.</p>
+                        </div>
+                        <div class="card">
+                            <h3>ERP Integration</h3>
+                            <p>Integrate ESL with ERP systems like SAP, Oracle, and Microsoft Dynamics. Sync pricing, inventory, and product information automatically.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Inventory Management</h3>
+                            <p>Automate inventory synchronization with ESL systems. Update product availability, stock levels, and pricing information on shelf labels in real-time.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Promotion Management</h3>
+                            <p>Automate promotional pricing updates. Schedule sales, discounts, and special offers to display on ESL labels automatically.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Multi-Store Management</h3>
+                            <p>Manage ESL labels across multiple store locations from a central system. Update prices, promotions, and inventory data across all stores simultaneously.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Label Management System</h3>
+                            <p>Develop custom label management interfaces for bulk updates, scheduling, and monitoring of ESL displays across your retail network.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ✅ GSAP Scripts -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+                <script>
+                    gsap.registerPlugin(ScrollTrigger);
+
+                    const cards = gsap.utils.toArray(".card");
+                    const section = document.querySelector('.third');
+
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top top",
+                            end: "+=2500",
+                            pin: true,
+                            scrub: 1,
+                            snap: 1 / (cards.length - 1)
+                        }
+                    });
+
+                    cards.forEach((card, i) => {
+                        const body = card.querySelector('p');
+                        const title = card.querySelector('h3');
+
+                        tl.to(card, {
+                            y: -(i * 140),
+                            duration: 1,
+                            ease: "elastic.out(0.5, 0.4)"
+                        }, i)
+
+                            .to(title, {
+                                opacity: 1,
+                                duration: 0.3,
+                            }, i);
+                    });
+                </script>
+
+            </div>
+        </section>
+
+        <!-- 4th section  -->
+        <section class="section4">
+            <div class="wrapper">
+                <div class="scroll-container">
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>ESL Expertise</h2>
+                            <p>Our team has extensive experience with ESL systems from leading vendors including SES-imagotag, Pricer, and other major ESL manufacturers.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Real-time Updates</h2>
+                            <p>Enable real-time price and inventory updates across all ESL labels instantly. Update prices across thousands of labels in seconds.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Multi-Store Support</h2>
+                            <p>Manage ESL labels across multiple retail locations from a centralized system. Update prices, promotions, and inventory for all stores simultaneously.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Error Reduction</h2>
+                            <p>Eliminate pricing errors and inconsistencies with automated ESL updates. Ensure accurate pricing across all store locations.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Scalable Architecture</h2>
+                            <p>Build integrations that scale from single stores to enterprise retail chains with thousands of ESL labels.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>24/7 Monitoring</h2>
+                            <p>Monitor ESL system health, detect synchronization failures, and receive alerts to ensure continuous price accuracy.</p>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="text-block">
+                            <h2>Cost Savings</h2>
+                            <p>Reduce labor costs for manual price updates, eliminate pricing errors, and improve operational efficiency in retail operations.</p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="number-box">
+                    <div class="number">01</div>
+                </div>
+            </div>
+
+            <!-- GSAP -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+            <script>
+                gsap.registerPlugin(ScrollTrigger);
+
+                const panels = gsap.utils.toArray(".panel");
+                const numberEl = document.querySelector(".number");
+
+                panels.forEach((panel, index) => {
+                    ScrollTrigger.create({
+                        trigger: panel,
+                        scroller: ".scroll-container",
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true,
+                        onEnter: () => changeNumber(index),
+                        onEnterBack: () => changeNumber(index),
+                        onToggle: (self) => {
+                            self.isActive ? panel.classList.add("active") : panel.classList.remove("active");
+                        }
+                    });
+                });
+
+                function changeNumber(index) {
+                    const newNum = String(index + 1).padStart(2, "0");
+
+                    gsap.fromTo(numberEl,
+                        { rotateX: 0 },
+                        {
+                            rotateX: 360,
+                            scale: 1.1,
+                            duration: 1.0,
+                            ease: "elastic.out(1, 0.4)",
+                            onStart: () => { numberEl.textContent = newNum; }
+                        }
+                    );
+                }
+            </script>
+        </section>
+
+        <!-- Enhanced 5th section -->
+        <section class="section5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="text-center text-lg-start">
+                            <h1 class="mb-4">
+                                Ready to automate pricing with<br>
+                                <span class="gradient-text">Electronic Shelf Label integration?</span>
+                            </h1>
+                            <p class="text-white-50 mb-4 fs-5">
+                                Connect your ESL system with retail management software. Get started with our ESL integration services today and modernize your pricing operations.
+                            </p>
+                            <a href="contact.html" class="btn btn-lg">
+                                Get Started Today
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="graphic-container text-center">
+                            <div class="position-relative d-inline-block">
+                                <div class="card-graphic p-4">
+                                    <div class="text-center">
+                                        <i class="bi bi-tags text-primary" style="font-size: 4rem;"></i>
+                                        <h4 class="mt-3 mb-2">ESL Integration</h4>
+                                        <p class="text-muted mb-0">Automate pricing</p>
+                                    </div>
+                                </div>
+                                <!-- Sparkles -->
+                                <div class="sparkle" style="top: 20px; right: 20px; width: 8px; height: 8px; animation-delay: 0s;"></div>
+                                <div class="sparkle" style="top: 60px; left: 20px; width: 6px; height: 6px; animation-delay: 0.5s;"></div>
+                                <div class="sparkle" style="bottom: 40px; right: 40px; width: 10px; height: 10px; animation-delay: 1s;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer id="footer" class="footer section light-background" style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- CTA Above Footer -->
+    <div class="container mb-5" style="width: 50%;">
+      <div class="row justify-content-center" data-aos="fade-up">
+        <div class="col-lg-10">
+          <div class="text-center">
+            <h2 style="font-weight: 700; color: #0b0b0b;">
+              Believe in possibilities and navigate
+              beyond the expected with us !
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center ">
+            <img src="assets/img/footer-logo2.png" alt="">
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+            <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4>Our Solutions</h4>
+          <ul>
+            <li><a href="#">AI & Automation Solutions</a></li>
+            <li><a href="#">Software & App Development</a></li>
+            <li><a href="#">Data Analytics & Visualization</a></li>
+            <li><a href="#">NLP & Language Models</a></li>
+            <li><a href="#">BPO & E-commerce Services</a></li>
+            <li><a href="">UI/UX Design & Prototyping</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4> Industries We Serve</h4>
+          <ul>
+            <li><a href="#">E-commerce & Retail</a></li>
+            <li><a href="#">Fintech & Banking</a></li>
+            <li><a href="#">Healthcare & MedTech</a></li>
+            <li><a href="#">Manufacturing & Supply Chain</a></li>
+            <li><a href="#">Education & EdTech</a></li>
+            <li><a href="">Real Estate & Smart Systems</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
+          Reserved</span></p>
+      <div class="credits">
+      </div>
+    </div>
+
+  </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
+
