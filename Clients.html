@@ -25,108 +25,520 @@
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
     <style>
-        #globe-container .container {
+        body {
+            margin: 0;
+            font-family: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+            background: #ffffff;
+            color: #212529;
+            overflow-x: hidden;
+        }
+
+        .global-reach-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* padding: 100px 8%; */
+            background: #ffffff;
+            /* border:5px solid red */
+        }
+
+        .main-content {
+            text-align: center;
+            margin-bottom: -130px;
+            max-width: 500px;
+            width: 50%;
+            margin-top:100px
+        }
+
+        .main-content h1 {
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: #2d465e;
+            /* margin-bottom: 40px; */
+            font-family: "Nunito", sans-serif;
+            line-height: 1.1;
+        }
+
+        .main-content p {
+            font-size: 0.9rem;
+            color: #212529;
+            line-height: 1.6;
+            /* margin-bottom: 50px; */
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .know-more-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #8A5CF6 0%, #6B46C1 100%);
+            color: white;
+            padding:7px 18px;
+            border-radius:30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(138, 92, 246, 0.2);
+        }
+
+        .know-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(138, 92, 246, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .globe-stats-container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            height: fit-content;
-            /* Full viewport height */
             gap: 2rem;
-            /* Space between columns and globe */
-            padding: 0;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            perspective: 1000px;
         }
 
-        .text-column {
-            flex: 1 1 200px;
-            max-width: 250px;
+        .stats-column {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            flex: 0 0 auto;
+            width: 160px;
+            align-items: center;
+            margin-bottom: 300px;
+        }
+
+        .stats-column .left {
+            margin-left: 170px;
+            margin-top: 30px;
+        }
+
+        .stats-column .right {
+            margin-left: -170px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: #F0E8FF;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 6rem;
+            align-items: center;
             text-align: center;
-            min-width: 180px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+            opacity: 0;
+            transform: scale(0.3) translateZ(-300px) rotateY(20deg);
+            transform-style: preserve-3d;
+            z-index: 1;
+            will-change: transform, opacity;
         }
 
-        .heading-number {
-            font-weight: bold;
-            font-size: clamp(1rem, 2vw, 1.5rem);
+        .stat-card.green {
+            background: #E8FFEC;
+        }
+
+        .stat-card.animate-in {
+            opacity: 1;
+            transform: scale(1) translateZ(0) rotateY(0deg);
+            transition: opacity 0.9s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .stat-card {
+                transform: scale(0.8) translateZ(0) rotateY(0deg);
+            }
+            
+            .stat-card.animate-in {
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+        }
+
+        .stat-card:hover {
+            transform: scale(1.08) translateZ(0);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-number {
+            font-size:1.5rem;
+            font-weight: 900;
+            color: #2d465e;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .stat-text {
+            font-size: 0.85rem;
+            color: #2d465e;
+            font-weight: 500;
             line-height: 1.3;
         }
 
         #globeContainer {
             position: relative;
-            /* So globeViz can absolutely fill */
-            flex: 0 1 auto;
-            width: clamp(500px, 40vw, 900px);
-            /* Responsive width */
-            aspect-ratio: 1/1;
-            /* Maintain square shape */
-            margin: auto;
+            width: 550px;
+            height: 550px;
+            margin: 0 4rem;
+            flex-shrink: 0;
+            z-index: 2;
         }
 
         #globeViz {
             position: absolute;
-            /* Fill container */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
         }
 
-        /* Make the canvas fill the parent container exactly */
         #globeViz canvas {
             width: 100% !important;
             height: 100% !important;
             display: block;
         }
 
-        /* --- Responsive tweaks --- */
-        @media (max-width: 1024px) {
-            #globe-container .container {
-                gap: 3vw;
-                padding: 1.5rem;
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            .globe-stats-container {
+                gap: 1.5rem;
+                max-width: 1400px;
+                perspective: 900px;
             }
 
-            .text-column {
-                gap: 1rem;
+            .stats-column {
+                width: 160px;
+            }
 
+            .stat-card {
+                width: 160px;
+                height: 160px;
+                padding: 20px;
+                transform: scale(0.35) translateZ(-250px) rotateY(20deg);
+            }
+
+            .stat-card.animate-in {
+                transform: scale(1) translateZ(0) rotateY(0deg);
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-text {
+                font-size: 0.8rem;
+            }
+
+            #globeContainer {
+                width: 450px;
+                height: 450px;
+                margin: 0 3rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .global-reach-section {
+                padding: 80px 6%;
+            }
+
+            .globe-stats-container {
+                gap: 1rem;
+                max-width: 1200px;
+                perspective: 800px;
+            }
+
+            .stats-column {
+                width: 160px;
+                gap: 2.5rem;
+            }
+
+            .stats-column .left {
+                margin-left: 120px;
+            }
+
+            .stats-column .right {
+                margin-left: -120px;
+            }
+
+            .stat-card {
+                width: 160px;
+                height: 160px;
+                padding: 20px;
+                transform: scale(0.4) translateZ(-200px) rotateY(15deg);
+            }
+
+            .stat-card.animate-in {
+                transform: scale(1) translateZ(0) rotateY(0deg);
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .stat-text {
+                font-size: 0.75rem;
+            }
+
+            #globeContainer {
+                width: 400px;
+                height: 400px;
+                margin: 0 2.5rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .global-reach-section {
+                padding: 70px 5%;
+            }
+
+            .main-content {
+                margin-bottom: 70px;
+            }
+
+            .main-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .main-content p {
+                font-size: 1rem;
+            }
+
+            .globe-stats-container {
+                gap: 0.8rem;
+                perspective: 700px;
+            }
+
+            .stats-column {
+                width: 150px;
+                gap: 2rem;
+            }
+
+            .stats-column .left {
+                margin-left: 100px;
+            }
+
+            .stats-column .right {
+                margin-left: -100px;
+            }
+
+            .stat-card {
+                width: 150px;
+                height: 150px;
+                padding: 18px;
+                transform: scale(0.4) translateZ(-180px) rotateY(15deg);
+            }
+
+            .stat-card.animate-in {
+                transform: scale(1) translateZ(0) rotateY(0deg);
+            }
+
+            .stat-number {
+                font-size: 1.6rem;
+            }
+
+            .stat-text {
+                font-size: 0.7rem;
+            }
+
+            #globeContainer {
+                width: 350px;
+                height: 350px;
+                margin: 0 2rem;
             }
         }
 
         @media (max-width: 768px) {
-            #globe-container .container {
-                height: auto;
-                flex-direction: column;
-                gap: 3rem;
-                padding: 1rem;
+            .global-reach-section {
+                padding: 60px 4%;
             }
 
-            /* .text-column {
-        max-width: 100%;
-        width: 100%;
-        flex: none;
-        gap: 2rem;
-      } */
+            .main-content {
+                margin-bottom: 60px;
+            }
+
+            .main-content h1 {
+                font-size: 2.25rem;
+                margin-bottom: 30px;
+            }
+
+            .main-content p {
+                font-size: 0.95rem;
+                margin-bottom: 40px;
+            }
+
+            .know-more-btn {
+                padding: 12px 28px;
+                font-size: 0.95rem;
+            }
+
+            .globe-stats-container {
+                flex-direction: column;
+                gap: 3rem;
+                max-width: 100%;
+                perspective: 600px;
+            }
+
+            .stats-column {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+                max-width: 100%;
+                width: auto;
+            }
+
+            .stats-column .left,
+            .stats-column .right {
+                margin-left: 0;
+                margin-top: 0;
+            }
+
+            .stat-card {
+                width: 140px;
+                height: 140px;
+                padding: 16px;
+                transform: scale(0.5) translateZ(-150px) rotateY(10deg);
+            }
+
+            .stat-card.animate-in {
+                transform: scale(1) translateZ(0) rotateY(0deg);
+            }
+
+            .stat-number {
+                font-size: 1.4rem;
+                margin-bottom: 8px;
+            }
+
+            .stat-text {
+                font-size: 0.65rem;
+            }
 
             #globeContainer {
-                width: 100vw;
-                max-width: 350px;
+                width: 280px;
+                height: 280px;
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .global-reach-section {
+                padding: 50px 3%;
+            }
+
+            .main-content h1 {
+                font-size: 2rem;
+            }
+
+            .main-content p {
+                font-size: 0.9rem;
+            }
+
+            .stats-column {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+            }
+
+            .stats-column .left,
+            .stats-column .right {
+                margin-left: 0;
+                margin-top: 0;
+            }
+
+            .stat-card {
+                width: 130px;
+                height: 130px;
+                padding: 14px;
+                transform: scale(0.5) translateZ(-120px) rotateY(10deg);
+            }
+
+            .stat-card.animate-in {
+                transform: scale(1) translateZ(0) rotateY(0deg);
+            }
+
+            .stat-number {
+                font-size: 1.2rem;
+            }
+
+            .stat-text {
+                font-size: 0.6rem;
+            }
+
+            #globeContainer {
+                width: 250px;
+                height: 250px;
             }
         }
 
         @media (max-width: 480px) {
-            .heading-number {
-                font-size: clamp(0.9rem, 4vw, 1.25rem);
+            .global-reach-section {
+                padding: 40px 2%;
+            }
+
+            .main-content h1 {
+                font-size: 1.75rem;
+            }
+
+            .main-content p {
+                font-size: 0.85rem;
+            }
+
+            .know-more-btn {
+                padding: 12px 26px;
+                font-size: 0.9rem;
+            }
+
+            .globe-stats-container {
+                perspective: 500px;
+            }
+
+            .stats-column .left,
+            .stats-column .right {
+                margin-left: 0;
+                margin-top: 0;
+            }
+
+            .stat-card {
+                width: 120px;
+                height: 120px;
+                padding: 12px;
+                transform: scale(0.5) translateZ(-100px) rotateY(10deg);
+            }
+
+            .stat-card.animate-in {
+                transform: scale(1) translateZ(0) rotateY(0deg);
+            }
+
+            .stat-number {
+                font-size: 1rem;
+                margin-bottom: 6px;
+            }
+
+            .stat-text {
+                font-size: 0.55rem;
             }
 
             #globeContainer {
-                width: 100vw;
-                max-width: 250px;
+                width: 220px;
+                height: 220px;
             }
         }
     </style>
@@ -137,89 +549,155 @@
 </head>
 
 <body>
-    <header id="header" class="header d-flex align-items-center fixed-top">
-        <div
-            class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+                </a>
+            </div>
 
-            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <img src="assets/img/brand3.png" alt="">
-            </a>
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="#hero" class="active">Home</a></li>
-                    <li class="dropdown"><a href="#features"><span>Development Services</span> <i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li class="dropdown"><span><a href="">Core Development</a></span>
-                                <ul>
-                                    <li><a href="service.html">Web Development</a></li>
-                                    <li><a href="">Software Development</a></li>
-                                    <li><a href="">Mobile App Development</a></li>
-                                    <li><a href="">API Development & Integration</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><span><a href="">E-Commerce Development</a></span>
-                                <ul>
-                                    <li><a href="">Shopify Development</a></li>
-                                    <li><a href="">Magento Development</a></li>
-                                    <li><a href="">WooCommerce Development</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><span><a href="">UI/UX & Product Design</a></span></li>
-                            <ul>
-                                <li><a href="">Website Design</a></li>
-                                <li><a href="">App Prototyping</a></li>
-                                <li><a href="">Brand Identity</a></li>
-                            </ul>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#services"><span>Case Studies</span><i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li><a href="">Software Projects</a></li>
-                            <li><a href="">AI/LLM Projects</a></li>
-                            <li><a href="">E-Commerce Solutions</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#pricing">Blog</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="Clients.html">Clients</a></li>
-                    <li class="dropdown"><a href="Aboutus.html"><span>About Us</span> <i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li><a href="">Company Overview</a></li>
-                            <li><a href="">Mission & Vision</a></li>
-                            <li><a href="">Our Team</a></li>
-                            <li><a href="careers.html">Careers</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- <a class="btn-getstarted btn-2" href="index.html#about">Get Started</a> -->
-            </nav>
-            <i class="mobile-nav-toggle bi bi-list"></i>
-            <a class="btn-getstarted btn-1" href="index.html#about">Get Started</a>
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#hero" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Aboutus.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
+                        Services
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="Clients.html" class="nav-link">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
         </div>
-    </header>
+
+        <!-- Services Dropdown Menu -->
+        <div class="dropdown-menu" id="services-dropdown">
+            <div class="dropdown-container">
+                <div class="dropdown-content">
+                    <!-- Service Categories -->
+                    <div class="service-categories">
+                        <div class="category-column">
+                            <div class="category-item active" data-submenu="ai-automation">
+                                <a href="#" class="category-link">AI & Automation</a>
+                            </div>
+                            <div class="category-item" data-submenu="development-technology">
+                                <a href="#" class="category-link">Development & Technology</a>
+                            </div>
+                            <div class="category-item" data-submenu="design-branding">
+                                <a href="#" class="category-link">Design & Branding</a>
+                            </div>
+                            <div class="category-item" data-submenu="cloud-infrastructure">
+                                <a href="#" class="category-link">Cloud & Infrastructure</a>
+                            </div>
+                            <div class="category-item" data-submenu="data-operations">
+                                <a href="#" class="category-link">Data & Operations</a>
+                            </div>
+                        </div>
+
+                        <!-- AI & Automation Subcategories -->
+                        <div class="subcategory-column" id="ai-automation-submenu">
+                            <div class="subcategory-item">
+                                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+                            </div>
+                        </div>
+
+                        <!-- Development & Technology Subcategories -->
+                        <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Shopify Development & Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Web & Mobile Development</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Software Development & Consulting</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+                            </div>
+                        </div>
+
+                        <!-- Design & Branding Subcategories -->
+                        <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Design & Branding</a>
+                            </div>
+                        </div>
+
+                        <!-- Cloud & Infrastructure Subcategories -->
+                        <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+                            </div>
+                        </div>
+
+                        <!-- Data & Operations Subcategories -->
+                        <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Reporting & Analytics</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div>
-        <!-- <div class="container section-title" data-aos="fade-up">
-            <h2>Our Clients</h2>
-        </div> -->
-        <section id="globe-container">
-            <div class="container">
-                <div class="text-column">
-                    <div class="heading-number">
-                        <div>Add a heading</div>
-                        <div>235.13</div>
+        <section class="global-reach-section">
+            <div class="main-content">
+                <h1>We Have A Global Reach</h1>
+                <p>DATASPAN's software and systems are spearheading transformation in the global technology industry,
+                    paving the way for next-generation solutions that promise a smarter, more efficient, and connected
+                    world.</p>
+                <a href="#contact" class="know-more-btn">Know More ></a>
+            </div>
+
+            <div class="globe-stats-container">
+                <div class="stats-column">
+                    <div class="stat-card ">
+                        <div class="stat-number">20MN+</div>
+                        <div class="stat-text">Projects Delivered Successfully</div>
                     </div>
-                    <div class="heading-number">
-                        <div>Add a heading</div>
-                        <div>235.13</div>
-                    </div>
-                    <div class="heading-number">
-                        <div>Add a heading</div>
-                        <div>235.13</div>
+                    <div class="stat-card green left">
+                        <div class="stat-number">14+</div>
+                        <div class="stat-text">Development Centers Globally</div>
                     </div>
                 </div>
 
@@ -227,18 +705,14 @@
                     <div id="globeViz"></div>
                 </div>
 
-                <div class="text-column">
-                    <div class="heading-number">
-                        <div>Add a heading</div>
-                        <div>235.13</div>
+                <div class="stats-column">
+                    <div class="stat-card green ">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-text">Years Focus On Technology</div>
                     </div>
-                    <div class="heading-number">
-                        <div>Add a heading</div>
-                        <div>235.13</div>
-                    </div>
-                    <div class="heading-number">
-                        <div>Add a heading</div>
-                        <div>235.13</div>
+                    <div class="stat-card right">
+                        <div class="stat-number">13K+</div>
+                        <div class="stat-text">Software Experts Passionate About Innovation</div>
                     </div>
                 </div>
             </div>
@@ -255,7 +729,11 @@
                         { lat: 37.0902, lng: -95.7129, tooltip: "USA" },
                         { lat: 41.8719, lng: 12.5674, tooltip: "Italy" },
                         { lat: 51.1657, lng: 10.4515, tooltip: "Germany" },
-                        { lat: 20.5937, lng: 78.9629, tooltip: "India" }
+                        { lat: 20.5937, lng: 78.9629, tooltip: "India" },
+                        { lat: 35.6762, lng: 139.6503, tooltip: "Japan" },
+                        { lat: -33.8688, lng: 151.2093, tooltip: "Australia" },
+                        { lat: 55.7558, lng: 37.6176, tooltip: "Russia" },
+                        { lat: -22.9068, lng: -43.1729, tooltip: "Brazil" }
                     ])
                     .htmlElement(d => {
                         const el = document.createElement('div');
@@ -264,7 +742,7 @@
                       <path fill="currentColor" d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"></path>
                       <circle fill="white" cx="14" cy="14" r="4"></circle>
                     </svg>`;
-                        el.style.color = "red";
+                        el.style.color = "#8A5CF6";
                         el.style.width = "20px";
                         el.className = 'myMarker';
                         el.setAttribute('data-tooltip', d.tooltip);
@@ -298,9 +776,184 @@
 
                 window.addEventListener('resize', resizeGlobe);
                 resizeGlobe(); // initial sizing
+
+                // Scroll animation for stat cards
+                function animateCardsOnScroll() {
+                    const statCards = document.querySelectorAll('.stat-card');
+                    const globeSection = document.querySelector('.global-reach-section');
+                    
+                    if (!globeSection || statCards.length === 0) return;
+
+                    // Check if device prefers reduced motion
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    
+                    // Adjust threshold based on screen size for better mobile experience
+                    const isMobile = window.innerWidth <= 768;
+                    const threshold = isMobile ? 0.1 : 0.2;
+                    
+                    const observerOptions = {
+                        root: null,
+                        rootMargin: isMobile ? '50px' : '0px',
+                        threshold: threshold
+                    };
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const delay = prefersReducedMotion ? 0 : (isMobile ? 100 : 150);
+                                statCards.forEach((card, index) => {
+                                    setTimeout(() => {
+                                        card.classList.add('animate-in');
+                                    }, prefersReducedMotion ? 0 : index * delay);
+                                });
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, observerOptions);
+
+                    observer.observe(globeSection);
+                }
+
+                // Initialize animations when DOM is ready
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', animateCardsOnScroll);
+                } else {
+                    animateCardsOnScroll();
+                }
+
+                // Re-initialize animations on window resize to adjust for screen size changes
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        const statCards = document.querySelectorAll('.stat-card');
+                        const hasAnimated = Array.from(statCards).some(card => card.classList.contains('animate-in'));
+                        if (!hasAnimated) {
+                            animateCardsOnScroll();
+                        }
+                    }, 250);
+                });
             </script>
         </section>
     </div>
+
+  <footer id="footer" class="footer section light-background" style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- CTA Above Footer -->
+    <div class="container mb-5" style="width: 50%;">
+      <div class="row justify-content-center" data-aos="fade-up">
+        <div class="col-lg-10">
+          <div class="text-center">
+            <h2 style="font-weight: 700; color: #0b0b0b;">
+              Believe in possibilities and navigate
+              beyond the expected with us !
+            </h2>
+            <!-- <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact Us</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center ">
+            <img src="assets/img/footer-logo2.png" alt="">
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+            <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4>Our Solutions</h4>
+          <ul>
+            <li><a href="#">AI & Automation Solutions</a></li>
+            <li><a href="#">Software & App Development</a></li>
+            <li><a href="#">Data Analytics & Visualization</a></li>
+            <li><a href="#">NLP & Language Models</a></li>
+            <li><a href="#">BPO & E-commerce Services</a></li>
+            <li><a href="">UI/UX Design & Prototyping</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4> Industries We Serve</h4>
+          <ul>
+            <li><a href="#">E-commerce & Retail</a></li>
+            <li><a href="#">Fintech & Banking</a></li>
+            <li><a href="#">Healthcare & MedTech</a></li>
+            <li><a href="#">Manufacturing & Supply Chain</a></li>
+            <li><a href="#">Education & EdTech</a></li>
+            <li><a href="">Real Estate & Smart Systems</a></li>
+          </ul>
+        </div>
+
+        <!-- <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nobis illum</h4>
+          <ul>
+            <li><a href="#">Ipsam</a></li>
+            <li><a href="#">Laudantium dolorum</a></li>
+            <li><a href="#">Dinera</a></li>
+            <li><a href="#">Trodelas</a></li>
+            <li><a href="#">Flexo</a></li>
+          </ul>
+        </div> -->
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
+          Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
+          href="https://themewagon.com">ThemeWagon</a> -->
+      </div>
+    </div>
+
+  </footer>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
