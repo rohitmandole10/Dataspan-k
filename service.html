@@ -26,117 +26,284 @@
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
     <style>
+        /* Enhanced Hero Section */
         .hero-title {
             color: #05386e;
             font-weight: 700;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #05386e 0%, #227faa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
         }
 
         #typing {
-            /* font-family: "Poppins", sans-serif; */
-            /* font-size: 2em; */
             color: #227faa;
             display: inline-block;
-            border-right: 3px solid #969595;
-            /* cursor */
+            border-right: 3px solid #227faa;
             white-space: nowrap;
             overflow: hidden;
-            animation: blinkCursor 0.8s steps(1) infinite;
-            /* border: 2px solid red; */
+            animation: blinkCursor 0.8s steps(1) infinite, fadeInUp 1.2s ease-out 0.5s both;
             height: 60px;
             text-align: center;
             justify-content: center;
             padding-right: 5px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #227faa 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* blinking cursor animation */
+        /* Enhanced animations */
         @keyframes blinkCursor {
             50% {
                 border-color: transparent;
             }
         }
 
-        /* second section */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Hero section enhancements */
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-image img {
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .hero-buttons .btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(5, 56, 110, 0.2);
+        }
+
+        .hero-buttons .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(5, 56, 110, 0.3);
+        }
+
+        .hero-buttons .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-buttons .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Enhanced second section */
+        .second {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .second::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
         .second .main-section {
             max-width: 1200px;
-            margin: 60px auto;
-            padding: 40px;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
-            padding: 50px 50px;
+            margin: 0 auto;
+            padding: 60px 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
         }
 
         .second .section-title {
             font-weight: 800;
-            font-size: 40px;
-            background: linear-gradient(to right, #030561, #09bef5);
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
         }
 
         .second .section-subtitle {
-            font-size: 1.1rem;
-            color: #555;
+            font-size: 1.2rem;
+            color: #64748b;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .second .text-gradient {
-            background: linear-gradient(to right, #030561, #09bef5);
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 600;
+            background-clip: text;
+            font-weight: 700;
         }
 
         .second .info-card {
-            background-color: #f9fafc;
-            border-radius: 12px;
-            padding: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 16px;
+            padding: 30px;
             display: flex;
             align-items: flex-start;
             height: 100%;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 0 transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out calc(var(--delay, 0) * 0.1s) both;
+        }
+
+        .second .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #030561, #09bef5);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .second .info-card:hover {
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .second .info-card:hover::before {
+            transform: scaleX(1);
         }
 
         .second .step-circle {
-            background: linear-gradient(to bottom right, #011363, #08cafa);
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
             color: white;
             font-weight: bold;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             text-align: center;
-            line-height: 40px;
+            line-height: 50px;
             border-radius: 50%;
-            margin-right: 15px;
+            margin-right: 20px;
             flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(3, 5, 97, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .second .info-card:hover .step-circle {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(3, 5, 97, 0.4);
         }
 
         .second .step-content .title {
-            font-weight: 600;
-            margin-bottom: 4px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1e293b;
+            font-size: 1.1rem;
+        }
+
+        .second .step-content div:last-child {
+            color: #64748b;
+            line-height: 1.5;
         }
 
         @media (max-width: 767px) {
+            .second .main-section {
+                padding: 40px 30px;
+            }
+            
+            .second .section-title {
+                font-size: 2.5rem;
+            }
+            
             .second .info-card {
                 flex-direction: row;
+                padding: 25px;
             }
         }
 
 
-        /* third section ------------------------------------------------------------------------------------------> */
+        /* Enhanced third section */
         .third {
             position: relative;
             width: 100%;
             padding: 120px 0;
             overflow: visible;
-            background: #ffffff;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+        }
+
+        .third::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(3, 5, 97, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(9, 190, 245, 0.05) 0%, transparent 50%);
         }
 
         .third .wrap {
@@ -146,7 +313,9 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            gap:50px;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
         }
 
         .third .left {
@@ -154,32 +323,59 @@
         }
 
         .third .left h1 {
-            font-size: 56px;
-            font-weight: 700;
-            line-height: 1.2;
-            color: #000;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
         }
 
         .third .left p {
-            margin: 20px 0 30px;
-            font-size: 18px;
-            color: #555;
-            line-height: 1.6;
+            margin: 20px 0 40px;
+            font-size: 1.2rem;
+            color: #64748b;
+            line-height: 1.7;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .third .cta {
-            padding: 14px 32px;
-            background: #5c2fa6;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
             color: #fff;
             border: none;
-            border-radius: 8px;
-            font-size: 17px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: .2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(3, 5, 97, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .third .cta:hover {
-            background: #4a2285;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(3, 5, 97, 0.4);
+        }
+
+        .third .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .third .cta:hover::before {
+            left: 100%;
         }
 
         .third .cards-wrap {
@@ -197,26 +393,54 @@
         }
 
         .third .card {
-            background: linear-gradient(to bottom, #dfe6ee, #f8fafc);
-            border-radius: 32px;
-            padding: 30px 35px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 24px;
+            padding: 35px 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             font-family: 'Inter', sans-serif;
             width: 540px;
             min-height: 180px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .third .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #030561, #09bef5);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .third .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .third .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
         .third .card h3 {
-            font-size: 26px;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: #001a26;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 15px;
         }
 
         .third .card p {
-            font-size: 18px;
-            color: #303030;
-            line-height: 1.5;
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
         }
 
 
@@ -249,16 +473,28 @@
             }
         }
 
-        /* 4th section ----------------------------------------------------------------------- */
+        /* Enhanced 4th section */
         .section4 {
             margin: 0;
             font-family: "Inter", sans-serif;
-            /* background: #f4f6fa; */
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative;
+        }
+
+        .section4::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(3, 5, 97, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(9, 190, 245, 0.03) 0%, transparent 50%);
         }
 
         .section4 .wrapper {
@@ -266,36 +502,51 @@
             height: 70vh;
             width: 80%;
             overflow: hidden;
-            background: linear-gradient(180deg, rgb(255, 255, 255), rgba(53, 53, 53, 0.486));
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.8));
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
         }
 
-        /* LEFT SIDE – Scrollable */
+        /* LEFT SIDE – Enhanced Scrollable */
         .section4 .scroll-container {
             height: 100%;
             width: 55%;
             overflow-y: scroll;
             padding: 0 10%;
             scroll-snap-type: y mandatory;
-
         }
 
         .section4 .scroll-container::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
+        }
+
+        .section4 .scroll-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
         }
 
         .section4 .scroll-container::-webkit-scrollbar-thumb {
-            background: #b5c6d5;
-            border-radius: 6px;
+            background: linear-gradient(135deg, #030561, #09bef5);
+            border-radius: 4px;
+            transition: background 0.3s ease;
         }
 
-        .panel {
-            height: 50vh;
+        .section4 .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #02043a, #0788c7);
+        }
+
+        .section4 .panel {
+            height: 40vh;
             display: flex;
             align-items: center;
             scroll-snap-align: start;
-            opacity: 0.15;
+            opacity: 0.2;
             transform: translateX(50px);
-            transition: all .4s ease-out;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: none;
         }
 
@@ -309,34 +560,37 @@
         }
 
         .section4 h2 {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-            font-weight: 700;
-            color: #1a1a1a;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .section4 p {
-            font-size: 1.05rem;
-            color: #333;
-            line-height: 1.65;
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.7;
         }
 
-        /* RIGHT SIDE – Fixed Number */
+        /* RIGHT SIDE – Enhanced Fixed Number */
         .section4 .number-box {
             width: 45%;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(180deg, rgb(255, 255, 255), rgba(53, 53, 53, 0.486));
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.8));
             position: relative;
         }
 
         .section4 .number {
             font-size: 12rem;
-            font-weight: 800;
+            font-weight: 900;
             line-height: 1;
-            background: linear-gradient(90deg, #007bff, #00f2c3);
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -344,11 +598,162 @@
             transform-origin: center;
             display: inline-block;
             will-change: transform;
+            text-shadow: 0 0 30px rgba(3, 5, 97, 0.3);
+        }
+
+        /* Enhanced 5th section */
+        .section5 {
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+            padding: 100px 0;
+        }
+
+        .section5::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .section5 .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section5 h1 {
+            color: #ffffff;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section5 .btn {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #000000;
+            font-weight: 700;
+            padding: 15px 35px;
+            border-radius: 12px;
+            border: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .section5 .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(251, 191, 36, 0.4);
+        }
+
+        .section5 .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .section5 .btn:hover::before {
+            left: 100%;
+        }
+
+        .section5 .graphic-container {
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .section5 .card-graphic {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: rotate(12deg);
+            transition: transform 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .section5 .card-graphic:hover {
+            transform: rotate(15deg) scale(1.05);
+        }
+
+        .section5 .sparkle {
+            position: absolute;
+            background: linear-gradient(135deg, #030561, #09bef5);
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Additional modern UI enhancements */
+        .modern-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .modern-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Enhanced Responsive Design */
+        @media(max-width: 1200px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .third .left h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section4 h2 {
+                font-size: 2.2rem;
+            }
         }
 
         @media(max-width: 900px) {
             .section4 .wrapper {
                 flex-direction: column;
+                height: 80vh;
             }
 
             .section4 .scroll-container,
@@ -364,76 +769,223 @@
             .section4 .panel {
                 height: 50vh;
             }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .third .left h1 {
+                font-size: 3rem;
+            }
+            
+            .section5 h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .second .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .third .left h1 {
+                font-size: 2.5rem;
+            }
+            
+            .third .card {
+                width: 100%;
+                padding: 25px 30px;
+            }
+            
+            .section4 h2 {
+                font-size: 2rem;
+            }
+            
+            .section5 h1 {
+                font-size: 2rem;
+            }
+            
+            .section5 .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        @media(max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .second .main-section {
+                padding: 30px 20px;
+            }
+            
+            .second .section-title {
+                font-size: 2rem;
+            }
+            
+            .third .left h1 {
+                font-size: 2rem;
+            }
+            
+            .third .card {
+                padding: 20px 25px;
+            }
+            
+            .section4 h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section4 p {
+                font-size: 1rem;
+            }
+            
+            .section5 h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section5 .card-graphic {
+                padding: 20px !important;
+            }
         }
     </style>
 </head>
 
 <body class="services">
-    <header id="header" class="header d-flex align-items-center fixed-top">
-        <div
-            class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+                </a>
+            </div>
 
-            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <img src="assets/img/brand3.png" alt="">
-            </a>
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="#hero" class="active">Home</a></li>
-                    <li class="dropdown"><a href="#features"><span>Development Services</span> <i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li class="dropdown"><span><a href="">Core Development</a></span>
-                                <ul>
-                                    <li><a href="service.html">Web Development</a></li>
-                                    <li><a href="">Software Development</a></li>
-                                    <li><a href="">Mobile App Development</a></li>
-                                    <li><a href="">API Development & Integration</a></li>
-                                </ul>
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#hero" class="nav-link">Home</a>
                             </li>
-                            <li class="dropdown"><span><a href="">E-Commerce Development</a></span>
-                                <ul>
-                                    <li><a href="">Shopify Development</a></li>
-                                    <li><a href="">Magento Development</a></li>
-                                    <li><a href="">WooCommerce Development</a></li>
-                                </ul>
+                <li class="nav-item">
+                    <a href="Aboutus.html" class="nav-link">About Us</a>
                             </li>
-                            <li class="dropdown"><span><a href="">UI/UX & Product Design</a></span></li>
-                            <ul>
-                                <li><a href="">Website Design</a></li>
-                                <li><a href="">App Prototyping</a></li>
-                                <li><a href="">Brand Identity</a></li>
-                            </ul>
-                        </ul>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
+                        Services
+                    </a>
                     </li>
-                    <li class="dropdown"><a href="#services"><span>Case Studies</span><i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li><a href="">Software Projects</a></li>
-                            <li><a href="">AI/LLM Projects</a></li>
-                            <li><a href="">E-Commerce Solutions</a></li>
-                        </ul>
+                <li class="nav-item">
+                    <a href="Clients.html" class="nav-link">Clients</a>
                     </li>
-                    <li><a href="#pricing">Blog</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="Clients.html">Clients</a></li>
-                    <li class="dropdown"><a href="Aboutus.html"><span>About Us</span> <i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li><a href="">Company Overview</a></li>
-                            <li><a href="">Mission & Vision</a></li>
-                            <li><a href="">Our Team</a></li>
-                            <li><a href="careers.html">Careers</a></li>
-                        </ul>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
                     </li>
                 </ul>
-                <!-- <a class="btn-getstarted btn-2" href="index.html#about">Get Started</a> -->
-            </nav>
-            <i class="mobile-nav-toggle bi bi-list"></i>
-            <a class="btn-getstarted btn-1" href="index.html#about">Get Started</a>
         </div>
-    </header>
+
+        <!-- Services Dropdown Menu -->
+        <div class="dropdown-menu" id="services-dropdown">
+            <div class="dropdown-container">
+                <div class="dropdown-content">
+                    <!-- Service Categories -->
+                    <div class="service-categories">
+                        <div class="category-column">
+                            <div class="category-item active" data-submenu="ai-automation">
+                                <a href="#" class="category-link">AI & Automation</a>
+                            </div>
+                            <div class="category-item" data-submenu="development-technology">
+                                <a href="#" class="category-link">Development & Technology</a>
+                            </div>
+                            <div class="category-item" data-submenu="design-branding">
+                                <a href="#" class="category-link">Design & Branding</a>
+                            </div>
+                            <div class="category-item" data-submenu="cloud-infrastructure">
+                                <a href="#" class="category-link">Cloud & Infrastructure</a>
+                            </div>
+                            <div class="category-item" data-submenu="data-operations">
+                                <a href="#" class="category-link">Data & Operations</a>
+                            </div>
+                        </div>
+
+                        <!-- AI & Automation Subcategories -->
+                        <div class="subcategory-column" id="ai-automation-submenu">
+                            <div class="subcategory-item">
+                                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+                            </div>
+                        </div>
+
+                        <!-- Development & Technology Subcategories -->
+                        <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Shopify Development & Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Web & Mobile Development</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Software Development & Consulting</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+                            </div>
+                        </div>
+
+                        <!-- Design & Branding Subcategories -->
+                        <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Design & Branding</a>
+                            </div>
+                        </div>
+
+                        <!-- Cloud & Infrastructure Subcategories -->
+                        <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+                            </div>
+                        </div>
+
+                        <!-- Data & Operations Subcategories -->
+                        <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Reporting & Analytics</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="main">
         <!-- hero section -->
         <section id="hero" class="hero section">
@@ -550,7 +1102,7 @@
                 <div class="row mt-5 g-4">
                     <!-- CARD 1 -->
                     <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100">
+                        <div class="info-card w-100" style="--delay: 0;">
                             <div class="step-circle">1</div>
                             <div class="step-content text-start">
                                 <div class="title">Strategic Consultation</div>
@@ -561,7 +1113,7 @@
 
                     <!-- CARD 2 -->
                     <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100">
+                        <div class="info-card w-100" style="--delay: 1;">
                             <div class="step-circle">2</div>
                             <div class="step-content text-start">
                                 <div class="title">Data Preparation</div>
@@ -572,7 +1124,7 @@
 
                     <!-- CARD 3 -->
                     <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100">
+                        <div class="info-card w-100" style="--delay: 2;">
                             <div class="step-circle">3</div>
                             <div class="step-content text-start">
                                 <div class="title">Model Development</div>
@@ -583,7 +1135,7 @@
 
                     <!-- CARD 4 -->
                     <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100">
+                        <div class="info-card w-100" style="--delay: 3;">
                             <div class="step-circle">4</div>
                             <div class="step-content text-start">
                                 <div class="title">Integration & Deployment</div>
@@ -594,7 +1146,7 @@
 
                     <!-- CARD 5 -->
                     <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100">
+                        <div class="info-card w-100" style="--delay: 4;">
                             <div class="step-circle">5</div>
                             <div class="step-content text-start">
                                 <div class="title">Performance Optimization</div>
@@ -605,7 +1157,7 @@
 
                     <!-- CARD 6 -->
                     <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100">
+                        <div class="info-card w-100" style="--delay: 5;">
                             <div class="step-circle">6</div>
                             <div class="step-content text-start">
                                 <div class="title">Training & Support</div>
@@ -811,39 +1363,39 @@
             </script>
         </section>
 
-        <!-- 5th section -->
-        <section class="bg-blue-600 relative overflow-hidden"
-            style="clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);">
-            <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col-reverse lg:flex-row items-center justify-between">
-                <!-- Text Content -->
-                <div class="text-center lg:text-left lg:max-w-lg">
-                    <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-                        No matter what you’re trying to dream up,<br>
-                        Jira helps you get it done
-                    </h1>
-                    <a href="#"
-                        class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-md transition">
-                        Get Jira free
-                    </a>
-                </div>
-
-                <!-- Image / Graphic -->
-                <div class="mb-10 lg:mb-0 flex justify-center lg:justify-end">
-                    <div class="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72">
-                        <!-- Placeholder for hand holding card -->
-                        <div
-                            class="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 bg-white transform rotate-12 rounded shadow-lg">
-                            <!-- Sparkles -->
-                            <div class="absolute top-4 left-4 space-y-1">
-                                <div class="w-1 h-1 bg-blue-600 rounded-full"></div>
-                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                <div class="w-1 h-1 bg-blue-600 rounded-full"></div>
-                            </div>
+        <!-- Enhanced 5th section -->
+        <section class="section5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="text-center text-lg-start">
+                            <h1 class="mb-4">
+                                Ready to transform your business with<br>
+                                <span class="gradient-text">AI-powered solutions?</span>
+                            </h1>
+                            <p class="text-white-50 mb-4 fs-5">
+                                Join thousands of businesses already leveraging our cutting-edge AI technology to automate processes, enhance customer experiences, and drive growth.
+                            </p>
+                            <a href="contact.html" class="btn btn-lg">
+                                Get Started Today
+                            </a>
                         </div>
-                        <!-- Hand placeholder -->
-                        <div
-                            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gray-200 rounded-full">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="graphic-container text-center">
+                            <div class="position-relative d-inline-block">
+                                <div class="card-graphic p-4">
+                                    <div class="text-center">
+                                        <i class="bi bi-robot text-primary" style="font-size: 4rem;"></i>
+                                        <h4 class="mt-3 mb-2">AI Solutions</h4>
+                                        <p class="text-muted mb-0">Transform your business</p>
+                                    </div>
+                                </div>
+                                <!-- Sparkles -->
+                                <div class="sparkle" style="top: 20px; right: 20px; width: 8px; height: 8px; animation-delay: 0s;"></div>
+                                <div class="sparkle" style="top: 60px; left: 20px; width: 6px; height: 6px; animation-delay: 0.5s;"></div>
+                                <div class="sparkle" style="bottom: 40px; right: 40px; width: 10px; height: 10px; animation-delay: 1s;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -852,111 +1404,108 @@
 
     </div>
 
-    <footer id="footer" class="footer section light-background"
-        style="background-image: url('assets/img/gradient_DT_light_1880x694.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div class="container mt-4 mb-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 text-center">
-                    <p>Ready to transform your business with AI and automation? Let's talk!</p>
-                    <a href="#contact" class="btn btn-outline-dark rounded-pill">Contact Us</a>
-                </div>
-            </div>
+  <footer id="footer" class="footer section light-background" style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- CTA Above Footer -->
+    <div class="container mb-5" style="width: 50%;">
+      <div class="row justify-content-center" data-aos="fade-up">
+        <div class="col-lg-10">
+          <div class="text-center">
+            <h2 style="font-weight: 700; color: #0b0b0b;">
+              Believe in possibilities and navigate
+              beyond the expected with us !
+            </h2>
+            <!-- <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact Us</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center ">
+            <img src="assets/img/footer-logo2.png" alt="">
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+            <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
         </div>
 
-        <div class="container footer-top">
-
-            <!-- <div class="row justify-content-center pb-5">
-                <div class="col-lg-6 text-center">
-                    <p>Ready to transform your business with AI and automation? Let's talk!</p>
-                    <a href="#contact" class="btn btn-primary">Contact Us</a>
-                </div>
-            </div> -->
-
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center ">
-                        <img src="assets/img/footer-logo2.png" alt="">
-                    </a>
-                    <div class="footer-contact pt-3">
-                        <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
-                        <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
-                        <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
-                    </div>
-                    <div class="social-links d-flex mt-4">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="">Contact Us</a></li>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Terms of Service</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-3 footer-links">
-                    <h4>Our Solutions</h4>
-                    <ul>
-                        <li><a href="#">AI & Automation Solutions</a></li>
-                        <li><a href="#">Software & App Development</a></li>
-                        <li><a href="#">Data Analytics & Visualization</a></li>
-                        <li><a href="#">NLP & Language Models</a></li>
-                        <li><a href="#">BPO & E-commerce Services</a></li>
-                        <li><a href="">UI/UX Design & Prototyping</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-3 footer-links">
-                    <h4> Industries We Serve</h4>
-                    <ul>
-                        <li><a href="#">E-commerce & Retail</a></li>
-                        <li><a href="#">Fintech & Banking</a></li>
-                        <li><a href="#">Healthcare & MedTech</a></li>
-                        <li><a href="#">Manufacturing & Supply Chain</a></li>
-                        <li><a href="#">Education & EdTech</a></li>
-                        <li><a href="">Real Estate & Smart Systems</a></li>
-                    </ul>
-                </div>
-
-                <!-- <div class="col-lg-2 col-md-3 footer-links">
-              <h4>Nobis illum</h4>
-              <ul>
-                <li><a href="#">Ipsam</a></li>
-                <li><a href="#">Laudantium dolorum</a></li>
-                <li><a href="#">Dinera</a></li>
-                <li><a href="#">Trodelas</a></li>
-                <li><a href="#">Flexo</a></li>
-              </ul>
-            </div> -->
-
-            </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Terms of Service</a></li>
+          </ul>
         </div>
 
-        <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
-                    Reserved</span></p>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
-              href="https://themewagon.com">ThemeWagon</a> -->
-            </div>
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4>Our Solutions</h4>
+          <ul>
+            <li><a href="#">AI & Automation Solutions</a></li>
+            <li><a href="#">Software & App Development</a></li>
+            <li><a href="#">Data Analytics & Visualization</a></li>
+            <li><a href="#">NLP & Language Models</a></li>
+            <li><a href="#">BPO & E-commerce Services</a></li>
+            <li><a href="">UI/UX Design & Prototyping</a></li>
+          </ul>
         </div>
 
-    </footer>
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4> Industries We Serve</h4>
+          <ul>
+            <li><a href="#">E-commerce & Retail</a></li>
+            <li><a href="#">Fintech & Banking</a></li>
+            <li><a href="#">Healthcare & MedTech</a></li>
+            <li><a href="#">Manufacturing & Supply Chain</a></li>
+            <li><a href="#">Education & EdTech</a></li>
+            <li><a href="">Real Estate & Smart Systems</a></li>
+          </ul>
+        </div>
+
+        <!-- <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nobis illum</h4>
+          <ul>
+            <li><a href="#">Ipsam</a></li>
+            <li><a href="#">Laudantium dolorum</a></li>
+            <li><a href="#">Dinera</a></li>
+            <li><a href="#">Trodelas</a></li>
+            <li><a href="#">Flexo</a></li>
+          </ul>
+        </div> -->
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
+          Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
+          href="https://themewagon.com">ThemeWagon</a> -->
+      </div>
+    </div>
+
+  </footer>
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
