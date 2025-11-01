@@ -75,6 +75,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -82,9 +83,12 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px);
             }
+
             50% {
                 transform: translateY(-10px);
             }
@@ -94,9 +98,11 @@
             0% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
+
             100% {
                 transform: scale(1);
             }
@@ -135,7 +141,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
 
@@ -274,11 +280,11 @@
             .second .main-section {
                 padding: 40px 30px;
             }
-            
+
             .second .section-title {
                 font-size: 2.5rem;
             }
-            
+
             .second .info-card {
                 flex-direction: row;
                 padding: 25px;
@@ -303,7 +309,7 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at 20% 80%, rgba(3, 5, 97, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(9, 190, 245, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 80% 20%, rgba(9, 190, 245, 0.05) 0%, transparent 50%);
         }
 
         .third .wrap {
@@ -370,7 +376,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
 
@@ -494,7 +500,7 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at 30% 70%, rgba(3, 5, 97, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(9, 190, 245, 0.03) 0%, transparent 50%);
+                radial-gradient(circle at 70% 30%, rgba(9, 190, 245, 0.03) 0%, transparent 50%);
         }
 
         .section4 .wrapper {
@@ -663,7 +669,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
 
@@ -697,10 +703,13 @@
         }
 
         @keyframes sparkle {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0;
                 transform: scale(0);
             }
+
             50% {
                 opacity: 1;
                 transform: scale(1);
@@ -740,11 +749,11 @@
             .hero-title {
                 font-size: 3rem;
             }
-            
+
             .third .left h1 {
                 font-size: 3.5rem;
             }
-            
+
             .section4 h2 {
                 font-size: 2.2rem;
             }
@@ -769,15 +778,15 @@
             .section4 .panel {
                 height: 50vh;
             }
-            
+
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             .third .left h1 {
                 font-size: 3rem;
             }
-            
+
             .section5 h1 {
                 font-size: 2.5rem;
             }
@@ -787,28 +796,28 @@
             .hero-title {
                 font-size: 2rem;
             }
-            
+
             .second .section-title {
                 font-size: 2.5rem;
             }
-            
+
             .third .left h1 {
                 font-size: 2.5rem;
             }
-            
+
             .third .card {
                 width: 100%;
                 padding: 25px 30px;
             }
-            
+
             .section4 h2 {
                 font-size: 2rem;
             }
-            
+
             .section5 h1 {
                 font-size: 2rem;
             }
-            
+
             .section5 .btn {
                 padding: 12px 25px;
                 font-size: 1rem;
@@ -819,35 +828,35 @@
             .hero-title {
                 font-size: 1.8rem;
             }
-            
+
             .second .main-section {
                 padding: 30px 20px;
             }
-            
+
             .second .section-title {
                 font-size: 2rem;
             }
-            
+
             .third .left h1 {
                 font-size: 2rem;
             }
-            
+
             .third .card {
                 padding: 20px 25px;
             }
-            
+
             .section4 h2 {
                 font-size: 1.8rem;
             }
-            
+
             .section4 p {
                 font-size: 1rem;
             }
-            
+
             .section5 h1 {
                 font-size: 1.8rem;
             }
-            
+
             .section5 .card-graphic {
                 padding: 20px !important;
             }
@@ -856,7 +865,7 @@
 </head>
 
 <body class="services">
-  <nav class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
             <!-- Logo -->
             <div class="nav-logo">
@@ -869,22 +878,29 @@
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="index.html#hero" class="nav-link">Home</a>
-                            </li>
+                </li>
                 <li class="nav-item">
                     <a href="Aboutus.html" class="nav-link">About Us</a>
-                            </li>
+                </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
                         Services
                     </a>
-                    </li>
+                </li>
                 <li class="nav-item">
                     <a href="Clients.html" class="nav-link">Clients</a>
-                    </li>
+                </li>
                 <li class="nav-item">
                     <a href="contact.html" class="nav-link">Contact Us</a>
-                    </li>
-                </ul>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
 
         <!-- Services Dropdown Menu -->
@@ -923,10 +939,12 @@
                                 <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
                             </div>
                             <div class="subcategory-item">
-                                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
+                                <a href="navision-integration-automation.html" class="subcategory-link">Navision
+                                    Integration & Automation</a>
                             </div>
                             <div class="subcategory-item">
-                                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+                                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels)
+                                    Integration</a>
                             </div>
                         </div>
 
@@ -1090,6 +1108,167 @@
 
         </section>
 
+        <section id="features" class="features section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>AI-Driven Capabilities Built for Growth</h2>
+                <!-- <p>“Empowering businesses with cutting-edge AI technologies to drive innovation, efficiency, and growth.”</p> -->
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="d-flex justify-content-center">
+
+                    <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
+
+                        <li class="nav-item">
+                            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+                                <!-- <h4>Intelligent AI Workflows & Automation</h4> -->
+                                <h4>Intelligent AI Workflows & Automation</h4>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " data-bs-toggle="tab" data-bs-target="#features-tab-2">
+                                <h4>Generative AI Solutions(LLM)</h4>
+                            </a>
+                        </li><!-- End tab nav item -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
+                                <h4>NLP & Data Analytics</h4>
+                            </a><!-- End tab nav item -->
+
+                        </li>
+                        <!-- End tab nav item -->
+                    </ul>
+
+                </div>
+
+                <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+                    <div class="tab-pane fade active show" id="features-tab-1">
+                        <div class="row">
+                            <div
+                                class="col-lg-6 order-2 order-lg-1  mt-lg-0 d-flex flex-column justify-content-center align-top">
+                                <h3>Automate and optimize business processes using intelligent AI workflows.</h3>
+                                <!-- <p class="fst-italic">Great design is more than visuals — it’s about usability. At Dataspan
+                        Technologies, our detailed UX audit identifies improvements that make digital products seamless and
+                        enjoyable.</p> -->
+                                <ul>
+                                    <li><i class="bi bi-check2-all"></i> <span><b>Automate Smarter:</b> Let AI handle
+                                            the routine
+                                            processes so your team can focus on growth.</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span><b>Predict Faster:</b>Leverage AI-powered
+                                            analytics to
+                                            anticipate trends and drive smarter business strategies.</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span><b>Integrate Seamlessly:</b> Connect
+                                            systems and workflows
+                                            effortlessly with intelligent, automated AI integration.</span></li>
+                                    <li><i class="bi bi-check2-all"></i><span><b>Scale Effortlessly:</b>Transform
+                                            operations with
+                                            intelligent, future-ready AI systems that continuously drive growth.
+                                        </span></li>
+                                </ul>
+                                <div class="hero-buttons">
+                                    <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
+                                    <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
+                          <i class="bi bi-play-circle me-1"></i>
+                          Play Video
+                        </a> -->
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center ">
+                                <img src="assets/img/automation-2.jfif" alt="" class="img-fluid ">
+                            </div>
+                        </div>
+                    </div><!-- End tab content item -->
+
+                    <div class="tab-pane fade " id="features-tab-2">
+                        <div class="row">
+                            <div
+                                class="col-lg-6 order-2 order-lg-1  mt-lg-0 d-flex flex-column justify-content-center align-top">
+                                <h3>Next-gen AI with custom LLMs enabling smarter, scalable business insights</h3>
+                                <!-- <p class="fst-italic">
+                        At Dataspan Technologies, we make digital transformation simple and effective. Our team helps you
+                        modernize technology, optimize processes, and build strategies that deliver lasting growth.
+                      </p> -->
+                                <ul>
+                                    <li><i class="bi bi-check2-all"></i> <span><b>Agentic & Conversational AI:</b>
+                                            Autonomous chatbots and
+                                            AI agents that reason, plan, and act.</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span><b>Retrieval-Augmented Intelligence:</b>
+                                            Fuse real-time
+                                            data with generative AI for context-aware precision.</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span><b>Custom LLM Development:</b> Finetune
+                                            AI models for
+                                            precise, scalable, domain-driven accuracy.</span></li>
+                                    <li><i class="bi bi-check2-all"></i><span><b>Seamless Integration:</b> Deploy AI
+                                            solutions across apps
+                                            and workflows to enhance decision-making and customer engagement.</span>
+                                    </li>
+                                </ul>
+                                <div class="hero-buttons">
+                                    <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
+                                    <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
+                          <i class="bi bi-play-circle me-1"></i>
+                          Play Video
+                        </a> -->
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center ">
+                                <img src="assets/img/llm-2.jfif" alt="" class="img-fluid ">
+                            </div>
+                        </div>
+                    </div><!-- End tab content item -->
+
+                    <div class="tab-pane fade" id="features-tab-3">
+                        <div class="row">
+                            <div
+                                class="col-lg-6 order-2 order-lg-1  mt-lg-0 d-flex flex-column justify-content-center align-top">
+                                <h3>Turn language data into insights that drive smarter, faster business decisions</h3>
+                                <!-- <p class="fst-italic">
+                        We go beyond providing services — we partner with you to drive progress. By combining cutting-edge
+                        technology and proven practices, Dataspan Technologies ensures your business continues to evolve.
+                      </p> -->
+                                <ul>
+                                    <li><i class="bi bi-check2-all"></i> <span><b>Text Intelligence:</b>Convert raw,
+                                            unstructured text
+                                            into clear, actionable insights.</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span><b>Data Analytics:</b>Extract trends and
+                                            insights from raw
+                                            data to guide decisions.</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span><b>Entity Recognition &
+                                                Classification:</b> Identify and
+                                            classify key data points for efficient workflows.</span></li>
+                                    <li><i class="bi bi-check2-all"></i><span><b>AI-Powered Dashboards:</b>Turn complex
+                                            data into dynamic,
+                                            real-time dashboards that inspire intelligent decisions.</span></li>
+                                    <li><i class="bi bi-check2-all"></i><span><b>Scalable NLP Pipelines:</b>Deploy
+                                            adaptive AI models
+                                            across diverse domains with ease.</span></li>
+                                </ul>
+                                <div class="hero-buttons">
+                                    <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
+                                    <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
+                          <i class="bi bi-play-circle me-1"></i>
+                          Play Video
+                        </a> -->
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="assets/img/nlp-2.jfif" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div><!-- End tab content item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Features Section -->
+
         <!-- second section -->
         <section class="second">
             <div class="main-section text-center">
@@ -1190,27 +1369,39 @@
                     <div class="cards-inner">
                         <div class="card">
                             <h3>Machine Learning</h3>
-                            <p>KriraAI builds bespoke ML models that have the potential to expose latent patterns and enhance predictions. The aim is to streamline workflows, maximize performance, and assist in strategy formulation, without guessing.</p>
+                            <p>KriraAI builds bespoke ML models that have the potential to expose latent patterns and
+                                enhance predictions. The aim is to streamline workflows, maximize performance, and
+                                assist in strategy formulation, without guessing.</p>
                         </div>
                         <div class="card">
                             <h3>Deep Learning</h3>
-                            <p>Our deep learning specializations attempt to solve complex problems while exhibiting advanced human-like reasoning. Hence, these high-end models prove to be a boon, providing accuracy and agility to sift through heaps of dynamic data.</p>
+                            <p>Our deep learning specializations attempt to solve complex problems while exhibiting
+                                advanced human-like reasoning. Hence, these high-end models prove to be a boon,
+                                providing accuracy and agility to sift through heaps of dynamic data.</p>
                         </div>
                         <div class="card">
                             <h3>Natural Language Processing (NLP)</h3>
-                            <p>KriraAI applies the NLP skill set to genuinely understand and generate human language. We improve search, analysis, and communication, making them more relevant and efficient for your business.</p>
+                            <p>KriraAI applies the NLP skill set to genuinely understand and generate human language. We
+                                improve search, analysis, and communication, making them more relevant and efficient for
+                                your business.</p>
                         </div>
                         <div class="card">
                             <h3>Computer Vision</h3>
-                            <p>We develop intelligent vision systems that accurately interpret visual data. These solutions enable real-time analysis and recognition, supporting applications in healthcare, security, and beyond.</p>
+                            <p>We develop intelligent vision systems that accurately interpret visual data. These
+                                solutions enable real-time analysis and recognition, supporting applications in
+                                healthcare, security, and beyond.</p>
                         </div>
                         <div class="card">
                             <h3>Chatbot Development</h3>
-                            <p>KriraAI develops chatbots that remain dynamic and engage users effectively. Solutions we offer automate interactions and maintain impeccable support, which ultimately enhance user experience and reduce operational hindrances.</p>
+                            <p>KriraAI develops chatbots that remain dynamic and engage users effectively. Solutions we
+                                offer automate interactions and maintain impeccable support, which ultimately enhance
+                                user experience and reduce operational hindrances.</p>
                         </div>
                         <div class="card">
                             <h3>Data Science</h3>
-                            <p>Our data science services focus on generating meaningful, data-driven outcomes based on statistical advancements. We turn complex information into clear, and concise strategies that go with your organizational goals and challenges.</p>
+                            <p>Our data science services focus on generating meaningful, data-driven outcomes based on
+                                statistical advancements. We turn complex information into clear, and concise strategies
+                                that go with your organizational goals and challenges.</p>
                         </div>
                     </div>
                 </div>
@@ -1374,7 +1565,8 @@
                                 <span class="gradient-text">AI-powered solutions?</span>
                             </h1>
                             <p class="text-white-50 mb-4 fs-5">
-                                Join thousands of businesses already leveraging our cutting-edge AI technology to automate processes, enhance customer experiences, and drive growth.
+                                Join thousands of businesses already leveraging our cutting-edge AI technology to
+                                automate processes, enhance customer experiences, and drive growth.
                             </p>
                             <a href="contact.html" class="btn btn-lg">
                                 Get Started Today
@@ -1392,9 +1584,14 @@
                                     </div>
                                 </div>
                                 <!-- Sparkles -->
-                                <div class="sparkle" style="top: 20px; right: 20px; width: 8px; height: 8px; animation-delay: 0s;"></div>
-                                <div class="sparkle" style="top: 60px; left: 20px; width: 6px; height: 6px; animation-delay: 0.5s;"></div>
-                                <div class="sparkle" style="bottom: 40px; right: 40px; width: 10px; height: 10px; animation-delay: 1s;"></div>
+                                <div class="sparkle"
+                                    style="top: 20px; right: 20px; width: 8px; height: 8px; animation-delay: 0s;"></div>
+                                <div class="sparkle"
+                                    style="top: 60px; left: 20px; width: 6px; height: 6px; animation-delay: 0.5s;">
+                                </div>
+                                <div class="sparkle"
+                                    style="bottom: 40px; right: 40px; width: 10px; height: 10px; animation-delay: 1s;">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1404,81 +1601,68 @@
 
     </div>
 
-  <footer id="footer" class="footer section light-background" style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <!-- CTA Above Footer -->
-    <div class="container mb-5" style="width: 50%;">
-      <div class="row justify-content-center" data-aos="fade-up">
-        <div class="col-lg-10">
-          <div class="text-center">
-            <h2 style="font-weight: 700; color: #0b0b0b;">
-              Believe in possibilities and navigate
-              beyond the expected with us !
-            </h2>
-            <!-- <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact Us</a> -->
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center ">
-            <img src="assets/img/footer-logo2.png" alt="">
-          </a>
-          <div class="footer-contact pt-3">
-            <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
-            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
-            <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
+    <footer id="footer" class="footer section light-background"
+        style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Case Studies</a></li>
-            <li><a href="">Contact Us</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">Terms of Service</a></li>
-          </ul>
-        </div>
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center ">
+                        <img src="assets/img/footer-logo2.png" alt="">
+                    </a>
+                    <div class="footer-contact pt-3">
+                        <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+                        <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+                        <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+                    </div>
+                    <div class="social-links d-flex mt-4">
+                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
 
-        <div class="col-lg-3 col-md-3 footer-links">
-          <h4>Our Solutions</h4>
-          <ul>
-            <li><a href="#">AI & Automation Solutions</a></li>
-            <li><a href="#">Software & App Development</a></li>
-            <li><a href="#">Data Analytics & Visualization</a></li>
-            <li><a href="#">NLP & Language Models</a></li>
-            <li><a href="#">BPO & E-commerce Services</a></li>
-            <li><a href="">UI/UX Design & Prototyping</a></li>
-          </ul>
-        </div>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Terms of Service</a></li>
+                    </ul>
+                </div>
 
-        <div class="col-lg-3 col-md-3 footer-links">
-          <h4> Industries We Serve</h4>
-          <ul>
-            <li><a href="#">E-commerce & Retail</a></li>
-            <li><a href="#">Fintech & Banking</a></li>
-            <li><a href="#">Healthcare & MedTech</a></li>
-            <li><a href="#">Manufacturing & Supply Chain</a></li>
-            <li><a href="#">Education & EdTech</a></li>
-            <li><a href="">Real Estate & Smart Systems</a></li>
-          </ul>
-        </div>
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4>Our Solutions</h4>
+                    <ul>
+                        <li><a href="#">AI & Automation Solutions</a></li>
+                        <li><a href="#">Software & App Development</a></li>
+                        <li><a href="#">Data Analytics & Visualization</a></li>
+                        <li><a href="#">NLP & Language Models</a></li>
+                        <li><a href="#">BPO & E-commerce Services</a></li>
+                        <li><a href="">UI/UX Design & Prototyping</a></li>
+                    </ul>
+                </div>
 
-        <!-- <div class="col-lg-2 col-md-3 footer-links">
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4> Industries We Serve</h4>
+                    <ul>
+                        <li><a href="#">E-commerce & Retail</a></li>
+                        <li><a href="#">Fintech & Banking</a></li>
+                        <li><a href="#">Healthcare & MedTech</a></li>
+                        <li><a href="#">Manufacturing & Supply Chain</a></li>
+                        <li><a href="#">Education & EdTech</a></li>
+                        <li><a href="">Real Estate & Smart Systems</a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="col-lg-2 col-md-3 footer-links">
           <h4>Nobis illum</h4>
           <ul>
             <li><a href="#">Ipsam</a></li>
@@ -1489,23 +1673,23 @@
           </ul>
         </div> -->
 
-      </div>
-    </div>
+            </div>
+        </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
-          Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
+                    Reserved</span></p>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you've purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
           href="https://themewagon.com">ThemeWagon</a> -->
-      </div>
-    </div>
+            </div>
+        </div>
 
-  </footer>
+    </footer>
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
