@@ -222,11 +222,47 @@ function initializeDefaultSubmenu() {
 // Dropdown toggle functionality
 function setupDropdownToggles() {
     dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            const dropdownId = this.getAttribute('data-dropdown');
-            toggleDropdown(dropdownId);
+        const dropdownItem = toggle.closest('.dropdown');
+        const dropdownId = toggle.getAttribute('data-dropdown');
+        const targetDropdown = document.getElementById(`${dropdownId}-dropdown`);
+        
+        // Desktop: Hover to open
+        dropdownItem.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 768) {
+                openDropdown(targetDropdown);
+            }
         });
+        
+        dropdownItem.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 768) {
+                // Delay close to allow moving to dropdown menu
+                setTimeout(() => {
+                    const isHovering = dropdownItem.matches(':hover') || 
+                                       (targetDropdown && targetDropdown.matches(':hover'));
+                    if (!isHovering) {
+                        closeDropdown(targetDropdown);
+                    }
+                }, 100);
+            }
+        });
+        
+        // Keep dropdown open when hovering over it
+        if (targetDropdown) {
+            targetDropdown.addEventListener('mouseenter', function() {
+                if (window.innerWidth > 768) {
+                    openDropdown(targetDropdown);
+                }
+            });
+            
+            targetDropdown.addEventListener('mouseleave', function() {
+                if (window.innerWidth > 768) {
+                    closeDropdown(targetDropdown);
+                }
+            });
+        }
+        
+        // Mobile: Click to toggle (handled separately in mobile menu function)
+        // Don't prevent default here as it's handled in mobile menu function
     });
 }
 
@@ -396,18 +432,21 @@ function handleSubcategoryClick(subcategoryName) {
     console.log('Navigating to subcategory:', subcategoryName);
 }
 
-// Click outside to close
+// Click outside to close (desktop only - mobile handled separately)
 function setupClickOutside() {
     document.addEventListener('click', function(e) {
-        const isClickInsideDropdown = Array.from(dropdownMenus).some(menu => 
-            menu.contains(e.target)
-        );
-        const isClickOnToggle = Array.from(dropdownToggles).some(toggle => 
-            toggle.contains(e.target)
-        );
-        
-        if (!isClickInsideDropdown && !isClickOnToggle && isDropdownOpen) {
-            closeAllDropdowns();
+        // Only handle clicks on desktop
+        if (window.innerWidth > 768) {
+            const isClickInsideDropdown = Array.from(dropdownMenus).some(menu => 
+                menu.contains(e.target)
+            );
+            const isClickOnToggle = Array.from(dropdownToggles).some(toggle => 
+                toggle.contains(e.target) || toggle.closest('.dropdown').contains(e.target)
+            );
+            
+            if (!isClickInsideDropdown && !isClickOnToggle && isDropdownOpen) {
+                closeAllDropdowns();
+            }
         }
     });
 }
@@ -647,6 +686,106 @@ function showNotification(message) {
     }, 4000);
 }
 
+// Mobile Menu Toggle Functionality
+function initializeMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    
+    if (mobileMenuToggle && navMenu) {
+        // Mobile menu toggle button
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            // Toggle active class on button
+            mobileMenuToggle.classList.toggle('active');
+            
+            // Toggle active class on menu
+            navMenu.classList.toggle('active');
+            
+            // Toggle body overflow
+            body.classList.toggle('mobile-menu-active');
+        });
+        
+        // Close mobile menu when clicking on a regular link (not dropdown)
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Check if it's not a dropdown toggle
+                if (!this.classList.contains('dropdown-toggle')) {
+                    const href = this.getAttribute('href');
+                    // Only close if it's not an anchor link or if it navigates to a new page
+                    if (href && href !== '#' && !href.startsWith('#')) {
+                        mobileMenuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        body.classList.remove('mobile-menu-active');
+                    } else if (href && href.startsWith('#')) {
+                        // Close menu for anchor links too
+                        mobileMenuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        body.classList.remove('mobile-menu-active');
+                    }
+                }
+            });
+        });
+        
+        // Handle dropdown toggle in mobile menu
+        const dropdownToggles = navMenu.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const dropdownItem = this.closest('.dropdown');
+                const dropdownId = this.getAttribute('data-dropdown');
+                const dropdownMenu = document.getElementById(`${dropdownId}-dropdown`);
+                
+                // Toggle dropdown item active state
+                const isActive = dropdownItem.classList.contains('active');
+                dropdownItem.classList.toggle('active');
+                
+                // Toggle dropdown menu visibility
+                if (dropdownMenu) {
+                    if (!isActive) {
+                        // Opening
+                        dropdownMenu.style.display = 'block';
+                        dropdownMenu.classList.add('active');
+                        // Force reflow to trigger transition
+                        void dropdownMenu.offsetHeight;
+                    } else {
+                        // Closing
+                        dropdownMenu.classList.remove('active');
+                        setTimeout(() => {
+                            if (!dropdownItem.classList.contains('active')) {
+                                dropdownMenu.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                }
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                const isClickInsideMenu = navMenu.contains(e.target);
+                const isClickOnToggle = mobileMenuToggle.contains(e.target);
+                const isClickOnDropdown = Array.from(document.querySelectorAll('.dropdown-menu')).some(menu => menu.contains(e.target));
+                
+                if (!isClickInsideMenu && !isClickOnToggle && !isClickOnDropdown && navMenu.classList.contains('active')) {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    body.classList.remove('mobile-menu-active');
+                }
+            }
+        });
+    }
+}
+
+// Initialize mobile menu when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    initializeMobileMenu();
+});
+
 // Export functions for potential external use
 window.KriraAIMenubar = {
     toggleDropdown,
@@ -654,5 +793,6 @@ window.KriraAIMenubar = {
     closeDropdown,
     closeAllDropdowns,
     setActiveCategory,
-    showNotification
+    showNotification,
+    initializeMobileMenu
 };
