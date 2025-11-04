@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=optional"
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
@@ -44,7 +44,7 @@
         /* Section 1 */
         .wrapper {
             height: fit-content;
-            padding: 40px 0;
+            padding: 80px 0 40px 0;
             background: linear-gradient(180deg, transparent 0%, rgba(248, 251, 255, 0.3) 100%);
         }
 
@@ -1413,143 +1413,149 @@
 </head>
 
 <body class="services">
-    <nav class="navbar">
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="nav-logo">
-                <a href="index.html" class="logo">
-                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
-                </a>
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <a href="index.html" class="logo">
+          <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+        </a>
+      </div>
+
+      <!-- Main Navigation -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html#hero" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="Aboutus.html" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
+            Services
+            <!-- <i class="fas fa-chevron-down"></i> -->
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="Clients.html" class="nav-link">Clients</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">Contact Us</a>
+        </li>
+      </ul>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Action Button 
+            <div class="nav-action">
+                <button class="start-project-btn">Start Project</button>
+            </div>-->
+    </div>
+
+    <!-- Services Dropdown Menu -->
+    <div class="dropdown-menu" id="services-dropdown">
+      <div class="dropdown-container">
+        <div class="dropdown-content">
+          <!-- Service Categories -->
+          <div class="service-categories">
+            <div class="category-column">
+              <div class="category-item active" data-submenu="ai-automation">
+                <a href="service.html" class="category-link">AI & Automation</a>
+              </div>
+              <div class="category-item" data-submenu="development-technology">
+                <a href="#" class="category-link">Development & Technology</a>
+              </div>
+              <div class="category-item" data-submenu="design-branding">
+                <a href="#" class="category-link">Design & Branding</a>
+              </div>
+              <div class="category-item" data-submenu="cloud-infrastructure">
+                <a href="#" class="category-link">Cloud & Infrastructure</a>
+              </div>
+              <div class="category-item" data-submenu="data-operations">
+                <a href="#" class="category-link">Data & Operations</a>
+              </div>
             </div>
 
-            <!-- Main Navigation -->
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html#hero" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="Aboutus.html" class="nav-link">About Us</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
-                        Services
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="Clients.html" class="nav-link">Clients</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact Us</a>
-                </li>
-            </ul>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-
-        <!-- Services Dropdown Menu -->
-        <div class="dropdown-menu" id="services-dropdown">
-            <div class="dropdown-container">
-                <div class="dropdown-content">
-                    <!-- Service Categories -->
-                    <div class="service-categories">
-                        <div class="category-column">
-                            <div class="category-item active" data-submenu="ai-automation">
-                                <a href="#" class="category-link">AI & Automation</a>
-                            </div>
-                            <div class="category-item" data-submenu="development-technology">
-                                <a href="#" class="category-link">Development & Technology</a>
-                            </div>
-                            <div class="category-item" data-submenu="design-branding">
-                                <a href="#" class="category-link">Design & Branding</a>
-                            </div>
-                            <div class="category-item" data-submenu="cloud-infrastructure">
-                                <a href="#" class="category-link">Cloud & Infrastructure</a>
-                            </div>
-                            <div class="category-item" data-submenu="data-operations">
-                                <a href="#" class="category-link">Data & Operations</a>
-                            </div>
-                        </div>
-
-                        <!-- AI & Automation Subcategories -->
-                        <div class="subcategory-column" id="ai-automation-submenu">
-                            <div class="subcategory-item">
-                                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
-                            </div>
-                        </div>
-
-                        <!-- Development & Technology Subcategories -->
-                        <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Shopify Development & Services</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Web & Mobile Development</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Software Development & Consulting</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
-                            </div>
-                        </div>
-
-                        <!-- Design & Branding Subcategories -->
-                        <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Design & Branding</a>
-                            </div>
-                        </div>
-
-                        <!-- Cloud & Infrastructure Subcategories -->
-                        <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
-                            </div>
-                        </div>
-
-                        <!-- Data & Operations Subcategories -->
-                        <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Reporting & Analytics</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- AI & Automation Subcategories -->
+            <div class="subcategory-column" id="ai-automation-submenu">
+              <div class="subcategory-item">
+                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+              </div>
             </div>
+
+            <!-- Development & Technology Subcategories -->
+            <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Shopify Development & Services</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Web & Mobile Development</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Software Development & Consulting</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+              </div>
+            </div>
+
+            <!-- Design & Branding Subcategories -->
+            <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Design & Branding</a>
+              </div>
+            </div>
+
+            <!-- Cloud & Infrastructure Subcategories -->
+            <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+              </div>
+            </div>
+
+            <!-- Data & Operations Subcategories -->
+            <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Reporting & Analytics</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+              </div>
+            </div>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
     <div class="main">
 
         <section class="wrapper section light-background">
