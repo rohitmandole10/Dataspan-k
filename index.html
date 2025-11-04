@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=optional"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -43,12 +43,12 @@
 Marker
 ============================================================-->
   <style>
-
     @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -57,7 +57,8 @@ Marker
 
     .hero-title {
       color: #05386e;
-      font-weight: 700;
+      /* font-weight:500; */
+      /* font-size:3.1rem !important; */
     }
 
     #typing {
@@ -398,6 +399,2437 @@ Marker
         transform: rotate(45deg);
       }
     }
+
+    /* Logo Marquee Styles */
+    #clients.clients.section {
+      background-color: color-mix(in srgb, var(--accent-color), transparent 92%) !important;
+    }
+
+    #clients.clients.section::before {
+      display: none !important;
+    }
+
+    .logo-marquee-container {
+      overflow: hidden;
+      padding: 60px 0;
+      background: transparent;
+      position: relative;
+    }
+
+    .marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .marquee-wrapper:last-child {
+      margin-bottom: 0;
+    }
+
+    .marquee-content {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      /* gap-16 equivalent */
+      width: fit-content;
+      will-change: transform;
+    }
+
+    .logo-item {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      min-height: 80px;
+    }
+
+    .logo-img {
+      height: 4rem;
+      /* 64px */
+      width: auto;
+      min-width: 120px;
+      max-width: 220px;
+      object-fit: contain;
+      filter: grayscale(0%) brightness(1) contrast(1);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 1;
+      padding: 8px;
+      background: transparent;
+    }
+
+    .logo-img[src*=".svg"] {
+      filter: grayscale(0%) brightness(1) contrast(1);
+      width: auto;
+      height: 4rem;
+      max-width: 180px;
+    }
+
+    .logo-item:hover .logo-img {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+
+    /* Line 1: Scrolls Left to Right */
+    .marquee-line-1 .marquee-content {
+      animation: scrollLeftToRight 25s linear infinite;
+    }
+
+    /* Line 2: Scrolls Right to Left */
+    .marquee-line-2 .marquee-content {
+      animation: scrollRightToLeft 25s linear infinite;
+    }
+
+    @keyframes scrollLeftToRight {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0%);
+      }
+    }
+
+    @keyframes scrollRightToLeft {
+      0% {
+        transform: translateX(0%);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .logo-marquee-container {
+        padding: 40px 0;
+      }
+
+      .marquee-content {
+        gap: 3rem;
+      }
+
+      .logo-img {
+        height: 3.5rem;
+        min-width: 100px;
+        max-width: 160px;
+      }
+
+      .logo-item {
+        padding: 0 15px;
+        min-height: 70px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-marquee-container {
+        padding: 30px 0;
+      }
+
+      .marquee-content {
+        gap: 2rem;
+      }
+
+      .logo-img {
+        height: 3rem;
+        min-width: 80px;
+        max-width: 140px;
+      }
+
+      .logo-item {
+        padding: 0 10px;
+        min-height: 60px;
+      }
+    }
+
+    /* Pause animation on hover for better UX */
+    .marquee-wrapper:hover .marquee-content {
+      animation-play-state: paused;
+    }
+
+    /* Enhanced Responsive Styles for All Sections */
+    
+    /* Hero Section Improvements */
+    @media (max-width: 991px) {
+      .hero .hero-content {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .hero .hero-title {
+        font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+      }
+      
+      .hero .hero-image {
+        text-align: center;
+        margin-top: 2rem;
+      }
+      
+      .hero .hero-image img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      #typing {
+        font-size: clamp(1.25rem, 4vw, 1.75rem) !important;
+        height: auto;
+        min-height: 40px;
+        display: inline-block;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .hero-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .hero .hero-title br.hero-title-break {
+        display: none;
+      }
+      
+      .hero-title-text {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      
+      #typing {
+        display: block;
+        margin-top: 0.5rem;
+      }
+    }
+
+    /* About Company Section Improvements */
+    @media (max-width: 991px) {
+      .about-company {
+        padding: 60px 0;
+      }
+      
+      .about-company .row {
+        flex-direction: column-reverse;
+      }
+      
+      .about-content {
+        text-align: center;
+        margin-top: 2rem;
+      }
+      
+      .about-images-wrapper {
+        margin-bottom: 2rem;
+      }
+      
+      .about-image-main,
+      .about-image-secondary {
+        margin: 0 auto;
+      }
+    }
+
+    /* Services Section Improvements */
+    @media (max-width: 991px) {
+      .services.section {
+        padding: 60px 0;
+      }
+      
+      .service-card {
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+      }
+      
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      }
+      
+      .service-card .d-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.25rem;
+      }
+      
+      .service-card .icon {
+        margin-bottom: 0.5rem;
+      }
+      
+      .service-card .service-content {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .services.section {
+        padding: 50px 0;
+      }
+      
+      .service-card {
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
+      
+      .service-card h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .service-card p {
+        font-size: 0.875rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* Features-2 (Application Development) Section Improvements */
+    @media (max-width: 991px) {
+      .features-2 {
+        padding: 60px 0;
+      }
+      
+      .features-2 .row {
+        flex-direction: column;
+      }
+      
+      .features-2 .col-lg-4:first-child,
+      .features-2 .col-lg-4:last-child {
+        order: 2;
+      }
+      
+      .features-2 .col-lg-4:nth-child(2) {
+        order: 1;
+        margin-bottom: 2rem;
+      }
+      
+      .features-2 .feature-item {
+        text-align: center !important;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+      
+      .features-2 .feature-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.8);
+      }
+      
+      .features-2 .feature-item .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+      }
+      
+      .features-2 .feature-item.text-end {
+        text-align: center !important;
+      }
+      
+      .features-2 .phone-mockup {
+        text-align: center;
+        margin: 2rem 0;
+      }
+      
+      .features-2 .phone-mockup img {
+        max-width: 280px;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .features-2 {
+        padding: 50px 0;
+      }
+      
+      .features-2 .feature-item {
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .features-2 .feature-item .feature-icon {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .features-2 .feature-item .feature-content h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .features-2 .feature-item .feature-content p {
+        font-size: 0.875rem;
+        line-height: 1.6;
+      }
+      
+      .features-2 .phone-mockup img {
+        max-width: 220px;
+      }
+    }
+
+    /* Workflow Section Improvements */
+    @media (max-width: 991px) {
+      .workflow-section {
+        padding: 60px 0;
+      }
+      
+      .steps-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      
+      .step {
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    @media (max-width: 575px) {
+      .workflow-section {
+        padding: 50px 0;
+      }
+      
+      .steps-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 15px;
+      }
+      
+      .step {
+        padding: 1.25rem;
+      }
+      
+      .step-title {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .step-description {
+        font-size: 0.875rem;
+        line-height: 1.6;
+      }
+    }
+
+    /* Why Choose Us Section - Comprehensive Responsive Styles */
+    
+    /* Large Desktop (1400px+) */
+    @media (min-width: 1400px) {
+      #why-choose-us {
+        padding: 90px 0;
+      }
+      
+      #why-choose-us .section-title {
+        margin-bottom: 3.5rem;
+      }
+      
+      #why-choose-us .cards-container {
+        gap: 35px;
+        padding: 70px 30px 30px 30px;
+      }
+      
+      #why-choose-us .card {
+        width: 300px;
+        min-width: 280px;
+        height: 420px;
+      }
+      
+      #why-choose-us .card-title {
+        font-size: 1.75rem;
+      }
+      
+      #why-choose-us .card-description {
+        font-size: 1rem;
+      }
+    }
+
+    /* Desktop (1200px - 1399px) */
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      #why-choose-us {
+        padding: 80px 0;
+      }
+      
+      #why-choose-us .section-title {
+        margin-bottom: 3rem;
+      }
+      
+      #why-choose-us .cards-container {
+        gap: 30px;
+        padding: 60px 25px 25px 25px;
+      }
+      
+      #why-choose-us .card {
+        width: 280px;
+        min-width: 260px;
+        height: 400px;
+      }
+      
+      #why-choose-us .card-title {
+        font-size: 1.625rem;
+      }
+      
+      #why-choose-us .card-description {
+        font-size: 0.9375rem;
+      }
+    }
+
+    /* Large Tablets (992px - 1199px) */
+    @media (min-width: 992px) and (max-width: 1199px) {
+      #why-choose-us {
+        padding: 70px 0;
+      }
+      
+      #why-choose-us .container {
+        padding: 0 30px;
+      }
+      
+      #why-choose-us .section-title {
+        margin-bottom: 2.5rem;
+      }
+      
+      #why-choose-us .section-title h2 {
+        font-size: 2.125rem;
+      }
+      
+      #why-choose-us .section-title p {
+        font-size: 1.0625rem;
+      }
+      
+      #why-choose-us .cards-container {
+        gap: 25px;
+        padding: 50px 20px 25px 20px;
+        justify-content: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+      }
+      
+      #why-choose-us .card {
+        width: 260px;
+        min-width: 240px;
+        height: 380px;
+      }
+      
+      #why-choose-us .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      #why-choose-us .card-description {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+      }
+      
+      #why-choose-us .card-overlay {
+        padding: 25px;
+      }
+      
+      #why-choose-us .card-arrow {
+        width: 42px;
+        height: 42px;
+        top: 22px;
+        right: 22px;
+      }
+    }
+
+    /* Tablets (768px - 991px) */
+    @media (min-width: 768px) and (max-width: 991px) {
+      #why-choose-us {
+        padding: 60px 0;
+      }
+      
+      #why-choose-us .container {
+        padding: 0 30px;
+      }
+      
+      #why-choose-us .section-title {
+        margin-bottom: 2.5rem;
+      }
+      
+      #why-choose-us .section-title h2 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      
+      #why-choose-us .section-title p {
+        font-size: 1rem;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      #why-choose-us .cards-container {
+        gap: 20px;
+        padding: 40px 20px 20px 20px;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar {
+        height: 10px;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.3);
+      }
+      
+      #why-choose-us .card {
+        width: 240px;
+        min-width: 220px;
+        height: 360px;
+        scroll-snap-align: start;
+      }
+      
+      #why-choose-us .card-title {
+        font-size: 1.375rem;
+        margin-bottom: 0.625rem;
+      }
+      
+      #why-choose-us .card-description {
+        font-size: 0.875rem;
+        line-height: 1.6;
+      }
+      
+      #why-choose-us .card-overlay {
+        padding: 25px;
+      }
+      
+      #why-choose-us .card-arrow {
+        width: 40px;
+        height: 40px;
+        top: 20px;
+        right: 20px;
+      }
+      
+      #why-choose-us .card-arrow svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    /* Mobile Landscape (576px - 767px) */
+    @media (min-width: 576px) and (max-width: 767px) {
+      #why-choose-us {
+        padding: 50px 0;
+      }
+      
+      #why-choose-us .container {
+        padding: 0 20px;
+      }
+      
+      #why-choose-us .section-title {
+        margin-bottom: 2rem;
+      }
+      
+      #why-choose-us .section-title h2 {
+        font-size: 1.875rem;
+        text-align: center;
+      }
+      
+      #why-choose-us .section-title p {
+        font-size: 0.9375rem;
+        text-align: center;
+        padding: 0 10px;
+      }
+      
+      #why-choose-us .cards-container {
+        gap: 15px;
+        padding: 30px 15px 15px 15px;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar {
+        height: 8px;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+      }
+      
+      #why-choose-us .card {
+        width: 210px;
+        min-width: 190px;
+        height: 350px;
+        scroll-snap-align: start;
+      }
+      
+      #why-choose-us .card-title {
+        font-size: 1.1875rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      #why-choose-us .card-description {
+        font-size: 0.8125rem;
+        line-height: 1.6;
+      }
+      
+      #why-choose-us .card-overlay {
+        padding: 22px;
+      }
+      
+      #why-choose-us .card-arrow {
+        width: 38px;
+        height: 38px;
+        top: 18px;
+        right: 18px;
+      }
+      
+      #why-choose-us .card-arrow svg {
+        width: 17px;
+        height: 17px;
+      }
+    }
+
+    /* Small Mobile (< 576px) */
+    @media (max-width: 575px) {
+      #why-choose-us {
+        padding: 50px 0;
+      }
+      
+      #why-choose-us .container {
+        padding: 0 15px;
+      }
+      
+      #why-choose-us .section-title {
+        margin-bottom: 2rem;
+      }
+      
+      #why-choose-us .section-title h2 {
+        font-size: 1.625rem;
+        text-align: center;
+        padding-bottom: 15px;
+      }
+      
+      #why-choose-us .section-title p {
+        font-size: 0.875rem;
+        text-align: center;
+        padding: 0 10px;
+        line-height: 1.6;
+      }
+      
+      #why-choose-us .cards-container {
+        gap: 12px;
+        padding: 30px 10px 15px 10px;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar {
+        height: 6px;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 6px;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+      }
+      
+      #why-choose-us .cards-container::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.3);
+      }
+      
+      #why-choose-us .card {
+        width: 180px;
+        min-width: 160px;
+        height: 320px;
+        scroll-snap-align: start;
+        border-radius: 16px;
+      }
+      
+      #why-choose-us .card:hover {
+        transform: translateY(-10px) scale(1.01);
+      }
+      
+      #why-choose-us .card-title {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+      }
+      
+      #why-choose-us .card-subtitle {
+        font-size: 0.75rem;
+        margin-bottom: 0.625rem;
+      }
+      
+      #why-choose-us .card-description {
+        font-size: 0.75rem;
+        line-height: 1.5;
+      }
+      
+      #why-choose-us .card-overlay {
+        padding: 20px;
+        border-radius: 16px;
+      }
+      
+      #why-choose-us .card-arrow {
+        width: 36px;
+        height: 36px;
+        top: 15px;
+        right: 15px;
+      }
+      
+      #why-choose-us .card-arrow svg {
+        width: 16px;
+        height: 16px;
+      }
+      
+      /* Touch-friendly interactions for mobile */
+      #why-choose-us .card:active {
+        transform: translateY(-5px) scale(0.98);
+      }
+      
+      #why-choose-us .card:active .card-overlay {
+        transform: translateY(0);
+      }
+      
+      #why-choose-us .card:active .card-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Extra Small Mobile (< 400px) */
+    @media (max-width: 399px) {
+      #why-choose-us {
+        padding: 40px 0;
+      }
+      
+      #why-choose-us .section-title {
+        margin-bottom: 1.5rem;
+      }
+      
+      #why-choose-us .section-title h2 {
+        font-size: 1.5rem;
+      }
+      
+      #why-choose-us .cards-container {
+        gap: 10px;
+        padding: 25px 8px 12px 8px;
+      }
+      
+      #why-choose-us .card {
+        width: 160px;
+        min-width: 150px;
+        height: 300px;
+      }
+      
+      #why-choose-us .card-title {
+        font-size: 1rem;
+        margin-bottom: 0.375rem;
+      }
+      
+      #why-choose-us .card-description {
+        font-size: 0.6875rem;
+        line-height: 1.5;
+      }
+      
+      #why-choose-us .card-overlay {
+        padding: 18px;
+      }
+      
+      #why-choose-us .card-arrow {
+        width: 32px;
+        height: 32px;
+        top: 12px;
+        right: 12px;
+      }
+      
+      #why-choose-us .card-arrow svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    /* Clients Section Improvements */
+    @media (max-width: 991px) {
+      .clients.section {
+        padding: 60px 0;
+      }
+      
+      .clients .section-title {
+        margin-bottom: 2rem;
+      }
+      
+      .logo-marquee-container {
+        padding: 50px 0;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .clients.section {
+        padding: 50px 0;
+      }
+      
+      .logo-marquee-container {
+        padding: 40px 0;
+      }
+      
+      .logo-img {
+        height: 2.5rem;
+        min-width: 70px;
+        max-width: 120px;
+      }
+      
+      .logo-item {
+        padding: 0 8px;
+        min-height: 50px;
+      }
+    }
+
+    /* Call to Action Section Improvements */
+    @media (max-width: 991px) {
+      .call-to-action {
+        padding: 60px 0;
+      }
+      
+      .call-to-action .container {
+        padding: 4rem 2rem;
+      }
+      
+      .call-to-action h2 {
+        font-size: 2rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+      }
+      
+      .call-to-action p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .call-to-action {
+        padding: 50px 0;
+      }
+      
+      .call-to-action .container {
+        padding: 3rem 1.5rem;
+      }
+      
+      .call-to-action h2 {
+        font-size: 1.625rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .call-to-action p {
+        font-size: 0.9375rem;
+        margin-bottom: 1.25rem;
+      }
+      
+      .cta-buttons .btn {
+        max-width: 280px;
+        padding: 0.75rem 1.75rem;
+        font-size: 0.9375rem;
+      }
+    }
+
+    /* General Section Improvements */
+    @media (max-width: 991px) {
+      .section {
+        padding: 60px 0;
+      }
+      
+      .section-title {
+        margin-bottom: 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: clamp(1.75rem, 5vw, 2.25rem);
+        line-height: 1.3;
+        margin-bottom: 1rem;
+      }
+      
+      .section-title p {
+        font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+        line-height: 1.6;
+        padding: 0 15px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .section {
+        padding: 50px 0;
+      }
+      
+      .section-title h2 {
+        font-size: 1.625rem;
+        padding-bottom: 15px;
+      }
+      
+      .section-title p {
+        font-size: 0.875rem;
+        padding: 0 10px;
+      }
+    }
+
+    /* Container Padding Improvements */
+    @media (max-width: 991px) {
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+    /* Button Improvements */
+    @media (max-width: 575px) {
+      .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9375rem;
+        border-radius: 50px;
+      }
+    }
+
+    /* Image Responsiveness */
+    @media (max-width: 991px) {
+      img.img-fluid {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    /* Typography Improvements */
+    @media (max-width: 991px) {
+      h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word;
+        line-height: 1.3;
+      }
+      
+      p {
+        word-wrap: break-word;
+        line-height: 1.6;
+      }
+    }
+
+    /* Navigation Improvements */
+    @media (max-width: 991px) {
+      .navbar {
+        padding: 15px 0;
+      }
+      
+      .nav-container {
+        padding: 0 15px;
+      }
+      
+      .nav-logo .logo-image {
+        max-height: 35px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .navbar {
+        padding: 12px 0;
+      }
+      
+      .nav-logo .logo-image {
+        max-height: 30px;
+      }
+    }
+
+    /* Row and Column Improvements */
+    @media (max-width: 991px) {
+      .row {
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+      
+      .row > [class*="col-"] {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .row {
+        margin-left: -7.5px;
+        margin-right: -7.5px;
+      }
+      
+      .row > [class*="col-"] {
+        padding-left: 7.5px;
+        padding-right: 7.5px;
+      }
+    }
+
+    /* Spacing Improvements */
+    @media (max-width: 991px) {
+      .mb-4 {
+        margin-bottom: 1.5rem !important;
+      }
+      
+      .mb-md-5 {
+        margin-bottom: 2rem !important;
+      }
+      
+      .mt-5 {
+        margin-top: 2rem !important;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .mb-4 {
+        margin-bottom: 1.25rem !important;
+      }
+      
+      .mb-md-5 {
+        margin-bottom: 1.5rem !important;
+      }
+      
+      .mt-5 {
+        margin-top: 1.5rem !important;
+      }
+    }
+
+    /* Image Optimization */
+    @media (max-width: 991px) {
+      .hero-image img,
+      .about-image-main img,
+      .about-image-secondary img,
+      .phone-mockup img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+
+    /* Smooth Transitions */
+    .btn,
+    .card,
+    .service-card,
+    .feature-item,
+    .step,
+    img {
+      transition: all 0.3s ease;
+    }
+
+    /* Better Focus States */
+    @media (max-width: 575px) {
+      .btn:focus,
+      a:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+    }
+
+    /* Prevent Horizontal Scroll */
+    @media (max-width: 575px) {
+      body {
+        overflow-x: hidden;
+      }
+      
+      .container {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+    }
+
+    /* ============================================
+       COMPREHENSIVE BREAKPOINT UI & ALIGNMENT FIXES
+       ============================================ */
+
+    /* Large Desktop (1400px+) */
+    @media (min-width: 1400px) {
+      .container {
+        max-width: 1320px;
+      }
+      
+      .hero .hero-content {
+        padding-right: 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Desktop (1200px - 1399px) */
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      .hero .hero-title {
+        font-size: 2.75rem !important;
+      }
+      
+      .section-title h2 {
+        font-size: 2.25rem;
+      }
+      
+      .service-card {
+        padding: 2rem;
+      }
+      
+      .about-heading {
+        font-size: 2rem;
+      }
+    }
+
+    /* Large Tablets (992px - 1199px) */
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .hero {
+        padding-top: 130px;
+        padding-bottom: 60px;
+      }
+      
+      .hero .hero-title {
+        font-size: 2.25rem !important;
+        line-height: 1.3;
+      }
+      
+      .hero .hero-content p {
+        font-size: 1.05rem;
+      }
+      
+      .hero-image {
+        text-align: center;
+      }
+      
+      .hero-image img {
+        max-width: 90%;
+      }
+      
+      .about-company {
+        padding: 70px 0;
+      }
+      
+      .about-heading {
+        font-size: 1.875rem;
+      }
+      
+      .about-text {
+        font-size: 1rem;
+      }
+      
+      .services.section {
+        padding: 70px 0;
+      }
+      
+      .service-card {
+        padding: 1.75rem;
+      }
+      
+      .service-card h3 {
+        font-size: 1.25rem;
+      }
+      
+      .service-card p {
+        font-size: 0.95rem;
+      }
+      
+      .features-2 {
+        padding: 70px 0;
+      }
+      
+      .features-2 .feature-item {
+        padding: 1.5rem;
+      }
+      
+      .features-2 .feature-item .feature-content h3 {
+        font-size: 1.25rem;
+      }
+      
+      .features-2 .phone-mockup img {
+        max-width: 320px;
+      }
+      
+      .workflow-section {
+        padding: 70px 0;
+      }
+      
+      .steps-container {
+        gap: 2.5rem;
+      }
+      
+      .why-choose-us {
+        padding: 80px 0;
+      }
+      
+      .cards-container {
+        gap: 25px;
+      }
+      
+      .card {
+        width: 260px;
+        height: 400px;
+      }
+      
+      .call-to-action {
+        padding: 70px 0;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Tablets (768px - 991px) */
+    @media (min-width: 768px) and (max-width: 991px) {
+      .hero {
+        padding-top: 120px;
+        padding-bottom: 50px;
+      }
+      
+      .hero .container {
+        padding: 0 30px;
+      }
+      
+      .hero .row {
+        align-items: center;
+      }
+      
+      .hero .hero-content {
+        text-align: center;
+        margin-bottom: 2.5rem;
+        padding: 0;
+      }
+      
+      .hero .hero-title {
+        font-size: 2rem !important;
+        text-align: center;
+        margin-bottom: 1.25rem;
+      }
+      
+      .hero .hero-content p {
+        font-size: 1rem;
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      
+      .hero-buttons .btn {
+        width: auto;
+        min-width: 200px;
+        max-width: 300px;
+      }
+      
+      .hero-image {
+        text-align: center;
+        margin-top: 0;
+      }
+      
+      .hero-image img {
+        max-width: 85%;
+        margin: 0 auto;
+      }
+      
+      #typing {
+        font-size: 1.75rem !important;
+        text-align: center;
+        display: inline-block;
+      }
+      
+      .about-company {
+        padding: 60px 0;
+      }
+      
+      .about-company .container {
+        padding: 0 30px;
+      }
+      
+      .about-company .row {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+      
+      .about-content {
+        text-align: center;
+        margin-top: 2.5rem;
+        padding: 0;
+      }
+      
+      .about-heading {
+        font-size: 1.75rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      
+      .about-text {
+        font-size: 0.95rem;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 1.5rem auto;
+      }
+      
+      .about-list {
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        margin: 0 auto 1.5rem auto;
+      }
+      
+      .about-list li {
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .about-images-wrapper {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .about-image-main,
+      .about-image-secondary {
+        margin: 0 auto;
+      }
+      
+      .services.section {
+        padding: 60px 0;
+      }
+      
+      .services .container {
+        padding: 0 30px;
+      }
+      
+      .services .row {
+        margin: 0 -10px;
+      }
+      
+      .services .row > [class*="col-"] {
+        padding: 0 10px;
+        margin-bottom: 1.5rem;
+      }
+      
+      .service-card {
+        padding: 1.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .service-card .d-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.25rem;
+        height: 100%;
+      }
+      
+      .service-card .icon {
+        margin-bottom: 0.5rem;
+      }
+      
+      .service-card .service-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      
+      .service-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+        text-align: center;
+      }
+      
+      .service-card p {
+        font-size: 0.9375rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        flex: 1;
+      }
+      
+      .service-card .read-more {
+        text-align: center;
+        margin-top: auto;
+      }
+      
+      .features-2 {
+        padding: 60px 0;
+      }
+      
+      .features-2 .container {
+        padding: 0 30px;
+      }
+      
+      .features-2 .row {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .features-2 .col-lg-4:first-child,
+      .features-2 .col-lg-4:last-child {
+        order: 2;
+        width: 100%;
+        max-width: 800px;
+      }
+      
+      .features-2 .col-lg-4:nth-child(2) {
+        order: 1;
+        width: 100%;
+        margin-bottom: 3rem;
+      }
+      
+      .features-2 .feature-item {
+        text-align: center !important;
+        margin-bottom: 2rem;
+        padding: 1.75rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .features-2 .feature-item .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+      }
+      
+      .features-2 .feature-item.text-end {
+        text-align: center !important;
+      }
+      
+      .features-2 .phone-mockup {
+        text-align: center;
+        margin: 2rem 0;
+      }
+      
+      .features-2 .phone-mockup img {
+        max-width: 300px;
+        width: 100%;
+      }
+      
+      .workflow-section {
+        padding: 60px 0;
+      }
+      
+      .workflow-section .container {
+        padding: 0 30px;
+      }
+      
+      .workflow-section .section-title {
+        margin-bottom: 3rem;
+      }
+      
+      .workflow-section .section-title h2 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      
+      .workflow-section .section-title p {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      
+      .steps-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .step {
+        padding: 1.75rem;
+        text-align: center;
+      }
+      
+      .why-choose-us {
+        padding: 60px 0;
+      }
+      
+      .why-choose-us .container {
+        padding: 0 30px;
+      }
+      
+      .why-choose-us .section-title {
+        margin-bottom: 2.5rem;
+      }
+      
+      .cards-container {
+        gap: 20px;
+        padding: 40px 20px 20px 20px;
+        justify-content: center;
+      }
+      
+      .card {
+        width: 240px;
+        min-width: 220px;
+        height: 380px;
+      }
+      
+      .clients.section {
+        padding: 60px 0;
+      }
+      
+      .clients .container {
+        padding: 0 30px;
+      }
+      
+      .call-to-action {
+        padding: 60px 0;
+      }
+      
+      .call-to-action .container {
+        padding: 4rem 2.5rem;
+        max-width: 800px;
+      }
+      
+      .call-to-action h2 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      
+      .call-to-action p {
+        font-size: 1.0625rem;
+        text-align: center;
+      }
+      
+      .cta-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      
+      .cta-buttons .btn {
+        width: auto;
+        min-width: 220px;
+        max-width: 320px;
+      }
+      
+      .section-title {
+        margin-bottom: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      
+      .section-title p {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    }
+
+    /* Mobile Landscape (576px - 767px) */
+    @media (min-width: 576px) and (max-width: 767px) {
+      .hero {
+        padding-top: 110px;
+        padding-bottom: 40px;
+      }
+      
+      .hero .container {
+        padding: 0 20px;
+      }
+      
+      .hero .hero-content {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .hero .hero-title {
+        font-size: 1.875rem !important;
+        text-align: center;
+      }
+      
+      .hero .hero-content p {
+        font-size: 0.95rem;
+        text-align: center;
+      }
+      
+      .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.875rem;
+      }
+      
+      .hero-buttons .btn {
+        width: auto;
+        min-width: 180px;
+        max-width: 280px;
+        padding: 0.8125rem 1.75rem;
+      }
+      
+      .hero-image {
+        text-align: center;
+        margin-top: 2rem;
+      }
+      
+      .hero-image img {
+        max-width: 75%;
+      }
+      
+      #typing {
+        font-size: 1.625rem !important;
+        text-align: center;
+      }
+      
+      .about-company {
+        padding: 50px 0;
+      }
+      
+      .about-company .container {
+        padding: 0 20px;
+      }
+      
+      .about-content {
+        text-align: center;
+        margin-top: 2rem;
+      }
+      
+      .about-heading {
+        font-size: 1.625rem;
+        text-align: center;
+      }
+      
+      .about-text {
+        font-size: 0.9375rem;
+        text-align: center;
+      }
+      
+      .services.section {
+        padding: 50px 0;
+      }
+      
+      .services .container {
+        padding: 0 20px;
+      }
+      
+      .service-card {
+        padding: 1.5rem;
+      }
+      
+      .service-card h3 {
+        font-size: 1.125rem;
+      }
+      
+      .service-card p {
+        font-size: 0.875rem;
+      }
+      
+      .features-2 {
+        padding: 50px 0;
+      }
+      
+      .features-2 .container {
+        padding: 0 20px;
+      }
+      
+      .features-2 .feature-item {
+        padding: 1.5rem;
+      }
+      
+      .features-2 .feature-item .feature-content h3 {
+        font-size: 1.125rem;
+      }
+      
+      .features-2 .phone-mockup img {
+        max-width: 250px;
+      }
+      
+      .workflow-section {
+        padding: 50px 0;
+      }
+      
+      .workflow-section .container {
+        padding: 0 20px;
+      }
+      
+      .steps-container {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        max-width: 600px;
+      }
+      
+      .step {
+        padding: 1.5rem;
+      }
+      
+      .why-choose-us {
+        padding: 50px 0;
+      }
+      
+      .why-choose-us .container {
+        padding: 0 20px;
+      }
+      
+      .cards-container {
+        gap: 15px;
+        padding: 30px 15px 15px 15px;
+      }
+      
+      .card {
+        width: 210px;
+        min-width: 190px;
+        height: 350px;
+      }
+      
+      .card-title {
+        font-size: 1.1875rem;
+      }
+      
+      .call-to-action {
+        padding: 50px 0;
+      }
+      
+      .call-to-action .container {
+        padding: 3.5rem 2rem;
+      }
+      
+      .call-to-action h2 {
+        font-size: 1.875rem;
+      }
+      
+      .call-to-action p {
+        font-size: 1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.875rem;
+      }
+    }
+
+    /* Small Mobile (< 576px) */
+    @media (max-width: 575px) {
+      .hero {
+        padding-top: 100px;
+        padding-bottom: 30px;
+      }
+      
+      .hero .container {
+        padding: 0 15px;
+      }
+      
+      .hero .hero-content {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        padding: 0;
+      }
+      
+      .hero .hero-title {
+        font-size: 1.625rem !important;
+        text-align: center;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+      
+      .hero-title-text {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      
+      .hero .hero-content p {
+        font-size: 0.9375rem;
+        text-align: center;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+      }
+      
+      .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9375rem;
+      }
+      
+      .hero-image {
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+      
+      .hero-image img {
+        max-width: 70%;
+      }
+      
+      #typing {
+        font-size: 1.5rem !important;
+        text-align: center;
+        display: block;
+        margin-top: 0.5rem;
+        min-height: 35px;
+      }
+      
+      .about-company {
+        padding: 50px 0;
+      }
+      
+      .about-company .container {
+        padding: 0 15px;
+      }
+      
+      .about-content {
+        text-align: center;
+        margin-top: 1.5rem;
+        padding: 0;
+      }
+      
+      .about-subtitle {
+        font-size: 0.8125rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .about-heading {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 0.75rem;
+        line-height: 1.3;
+      }
+      
+      .about-separator {
+        margin: 0.75rem auto 1rem auto;
+      }
+      
+      .about-text {
+        font-size: 0.875rem;
+        text-align: center;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+      }
+      
+      .about-list {
+        text-align: center;
+        margin-bottom: 1.25rem;
+        padding: 0;
+      }
+      
+      .about-list li {
+        justify-content: center;
+        text-align: center;
+        font-size: 0.875rem;
+        margin-bottom: 0.625rem;
+        padding: 0.5rem 0;
+      }
+      
+      .about-list li i {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+      }
+      
+      .about-button-wrapper {
+        text-align: center;
+      }
+      
+      .btn-about-contact {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9375rem;
+      }
+      
+      .about-images-wrapper {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .about-image-main {
+        margin-bottom: 1rem;
+      }
+      
+      .about-image-secondary {
+        margin-top: 1rem;
+      }
+      
+      .services.section {
+        padding: 50px 0;
+      }
+      
+      .services .container {
+        padding: 0 15px;
+      }
+      
+      .services .section-title {
+        margin-bottom: 2rem;
+      }
+      
+      .services .section-title h2 {
+        font-size: 1.625rem;
+        text-align: center;
+      }
+      
+      .services .section-title p {
+        font-size: 0.875rem;
+        text-align: center;
+        padding: 0 10px 20px 10px;
+      }
+      
+      .services .row {
+        margin: 0 -7.5px;
+      }
+      
+      .services .row > [class*="col-"] {
+        padding: 0 7.5px;
+        margin-bottom: 1.25rem;
+      }
+      
+      .service-card {
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+        height: auto;
+      }
+      
+      .service-card .d-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      .service-card .icon {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+        margin-bottom: 0.5rem;
+      }
+      
+      .service-card .service-icon-svg {
+        width: 55px;
+        height: 55px;
+      }
+      
+      .service-card h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.625rem;
+        text-align: center;
+      }
+      
+      .service-card p {
+        font-size: 0.875rem;
+        text-align: center;
+        line-height: 1.6;
+        margin-bottom: 0.875rem;
+      }
+      
+      .service-card .read-more {
+        font-size: 0.875rem;
+        text-align: center;
+      }
+      
+      .features-2 {
+        padding: 50px 0;
+      }
+      
+      .features-2 .container {
+        padding: 0 15px;
+      }
+      
+      .features-2 .section-title {
+        margin-bottom: 2rem;
+      }
+      
+      .features-2 .section-title h2 {
+        font-size: 1.625rem;
+        text-align: center;
+      }
+      
+      .features-2 .row {
+        margin: 0;
+      }
+      
+      .features-2 .col-lg-4 {
+        width: 100%;
+        margin-bottom: 1.5rem;
+      }
+      
+      .features-2 .col-lg-4:nth-child(2) {
+        order: 1;
+        margin-bottom: 2rem;
+      }
+      
+      .features-2 .feature-item {
+        text-align: center !important;
+        margin-bottom: 1.5rem;
+        padding: 1.25rem;
+        width: 100%;
+      }
+      
+      .features-2 .feature-item .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .features-2 .feature-item.text-end {
+        text-align: center !important;
+      }
+      
+      .features-2 .feature-item .feature-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0.75rem;
+      }
+      
+      .features-2 .feature-item .feature-icon i {
+        font-size: 20px;
+      }
+      
+      .features-2 .feature-item .feature-content {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .features-2 .feature-item .feature-content h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+      
+      .features-2 .feature-item .feature-content p {
+        font-size: 0.875rem;
+        text-align: center;
+        line-height: 1.6;
+      }
+      
+      .features-2 .phone-mockup {
+        text-align: center;
+        margin: 1.5rem 0;
+        padding: 15px 0;
+      }
+      
+      .features-2 .phone-mockup img {
+        max-width: 220px;
+        width: 100%;
+      }
+      
+      .workflow-section {
+        padding: 50px 0;
+      }
+      
+      .workflow-section .container {
+        padding: 0 15px;
+      }
+      
+      .workflow-section .section-title {
+        margin-bottom: 2rem;
+      }
+      
+      .workflow-section .section-title h2 {
+        font-size: 1.625rem;
+        text-align: center;
+        margin-bottom: 0.75rem;
+      }
+      
+      .workflow-section .section-title p {
+        font-size: 0.875rem;
+        text-align: center;
+        padding: 0 10px;
+      }
+      
+      .steps-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 10px;
+        max-width: 100%;
+      }
+      
+      .step {
+        padding: 1.25rem;
+        margin-bottom: 0;
+      }
+      
+      .circle {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .step-title {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+      
+      .step-description {
+        font-size: 0.875rem;
+        line-height: 1.6;
+        text-align: center;
+        max-width: 100%;
+      }
+      
+      .why-choose-us {
+        padding: 50px 0;
+      }
+      
+      .why-choose-us .container {
+        padding: 0 15px;
+      }
+      
+      .why-choose-us .section-title {
+        margin-bottom: 2rem;
+      }
+      
+      .why-choose-us .section-title h2 {
+        font-size: 1.625rem;
+        text-align: center;
+      }
+      
+      .why-choose-us .section-title p {
+        font-size: 0.875rem;
+        text-align: center;
+        padding: 0 10px;
+      }
+      
+      .cards-container {
+        gap: 10px;
+        padding: 30px 10px 15px 10px;
+        justify-content: flex-start;
+      }
+      
+      .card {
+        width: 180px;
+        min-width: 160px;
+        height: 320px;
+      }
+      
+      .card-title {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+      
+      .card-subtitle {
+        font-size: 0.75rem;
+        margin-bottom: 0.75rem;
+        text-align: center;
+      }
+      
+      .card-description {
+        font-size: 0.75rem;
+        line-height: 1.5;
+        text-align: center;
+      }
+      
+      .card-overlay {
+        padding: 20px;
+      }
+      
+      .card-arrow {
+        width: 40px;
+        height: 40px;
+        top: 20px;
+        right: 20px;
+      }
+      
+      .card-arrow svg {
+        width: 18px;
+        height: 18px;
+      }
+      
+      .clients.section {
+        padding: 50px 0;
+      }
+      
+      .clients .container {
+        padding: 0 15px;
+      }
+      
+      .clients .section-title {
+        margin-bottom: 1.5rem;
+      }
+      
+      .clients .section-title h2 {
+        font-size: 1.625rem;
+        text-align: center;
+      }
+      
+      .clients .section-title p {
+        font-size: 0.875rem;
+        text-align: center;
+        padding: 0 10px;
+      }
+      
+      .logo-marquee-container {
+        padding: 40px 0;
+      }
+      
+      .logo-img {
+        height: 2.5rem;
+        min-width: 70px;
+        max-width: 120px;
+      }
+      
+      .logo-item {
+        padding: 0 8px;
+        min-height: 50px;
+      }
+      
+      .call-to-action {
+        padding: 50px 0;
+      }
+      
+      .call-to-action .container {
+        padding: 3rem 1.5rem;
+        max-width: 100%;
+      }
+      
+      .call-to-action h2 {
+        font-size: 1.625rem;
+        text-align: center;
+        margin-bottom: 0.75rem;
+        line-height: 1.3;
+      }
+      
+      .call-to-action p {
+        font-size: 0.9375rem;
+        text-align: center;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.75rem 1.75rem;
+        font-size: 0.9375rem;
+      }
+      
+      .section-title {
+        margin-bottom: 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.625rem;
+        text-align: center;
+        padding-bottom: 15px;
+      }
+      
+      .section-title p {
+        font-size: 0.875rem;
+        text-align: center;
+        padding: 0 10px;
+        line-height: 1.6;
+      }
+      
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+    /* Alignment Fixes for All Breakpoints */
+    @media (max-width: 991px) {
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      
+      [class*="col-"] {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      
+      .text-end {
+        text-align: center !important;
+      }
+      
+      .text-start {
+        text-align: center !important;
+      }
+    }
+
+    /* Ensure proper alignment for flex items */
+    @media (max-width: 991px) {
+      .d-flex {
+        flex-wrap: wrap;
+      }
+      
+      .align-items-center {
+        align-items: center !important;
+      }
+      
+      .justify-content-end {
+        justify-content: center !important;
+      }
+      
+      .justify-content-start {
+        justify-content: center !important;
+      }
+    }
+
+    /* Fix for gap utilities on mobile */
+    @media (max-width: 575px) {
+      .gap-2 {
+        gap: 1rem !important;
+      }
+      
+      .gap-4 {
+        gap: 1.25rem !important;
+      }
+    }
   </style>
 
   <script src="https://unpkg.com/globe.gl"></script>
@@ -419,7 +2851,7 @@ Marker
       <!-- Main Navigation -->
       <ul class="nav-menu">
         <li class="nav-item">
-          <a href="#hero" class="nav-link">Home</a>
+          <a href="index.html#hero" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
           <a href="Aboutus.html" class="nav-link">About Us</a>
@@ -487,7 +2919,8 @@ Marker
                 <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
               </div>
               <div class="subcategory-item">
-                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
+                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration &
+                  Automation</a>
               </div>
               <div class="subcategory-item">
                 <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
@@ -565,7 +2998,9 @@ Marker
                 Working for your success
               </div><br> -->
 
-              <h1 class="mb-4 hero-title"> Empowering Businesses with Intelligent <br>
+              <h1 class="mb-4 hero-title"> 
+                <span class="hero-title-text">Empowering Businesses with Intelligent</span>
+                <br class="hero-title-break">
                 <span id="typing"></span>
               </h1>
               <!-- <p class="mb-4" id="typing"> -->
@@ -699,39 +3134,120 @@ Marker
     </section><!-- /Hero Section -->
 
     <!-- AI / Core Capabilities Highlight -->
-    
+
+
+
+    <!-- About Company Section -->
+    <section id="about-company" class="about-company section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-center">
+          <!-- Left Column: Images -->
+          <div class="col-lg-6">
+            <div class="about-images-wrapper position-relative" data-aos="fade-right" data-aos-delay="200">
+              <!-- Circular background shape -->
+              <div class="about-bg-shape"></div>
+
+              <!-- Main warehouse image -->
+              <div class="about-image-main position-relative">
+                <img src="assets/img/about-2.webp" alt="Warehouse & Logistics" class="img-fluid rounded">
+
+                <!-- Secondary industrial facility image -->
+                <div class="about-image-secondary">
+                  <img src="assets/img/about-5.webp" alt="Industrial Facility" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Content -->
+          <div class="col-lg-6">
+            <div class="about-content" data-aos="fade-left" data-aos-delay="300">
+              <!-- Subtitle -->
+              <span class="about-subtitle">About Us</span>
+
+              <!-- Main Heading -->
+              <h2 class="about-heading">We empower digital transformation with intelligence and innovation</h2>
+
+              <!-- Separator line -->
+              <div class="about-separator"></div>
+
+              <!-- Paragraph text -->
+              <p class="about-text">
+                At Dataspan Technologies, we specialize in crafting advanced AI-driven, automated, and intelligent
+                solutions that redefine business excellence. Our expertise spans digital development, process
+                optimization, and analytics — enabling businesses to scale faster, work smarter, and stay secure in a
+                rapidly evolving digital landscape.</p>
+
+              <!-- Bulleted list with checkmarks -->
+              <ul class="about-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>AI-driven operational intelligence</span>
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Data-centric performance insights</span>
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Automation transforming industries</span>
+                </li>
+                <!-- <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Custom software development & integration</span>
+                </li> -->
+              </ul>
+
+              <!-- Contact Us Button -->
+              <div class="about-button-wrapper">
+                <a href="contact.html" class="btn btn-about-contact">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /About Company Section -->
 
 
     <!-- Services Section -->
     <section id="services" class="services section light-background">
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <div class="container section-title " data-aos="fade-up">
         <h2>Services</h2>
-        <p style="padding-bottom: 20px;">We deliver innovative, reliable, and tailored solutions to help businesses
-          grow, streamline operations, and
-          create lasting customer experiences.</p>
+        <p style="padding-bottom: 20px;font-size: 1rem; font-weight: 700;">We deliver innovative, reliable, and tailored
+          solutions to help businesses
+          grow, streamline operations, and create lasting customer experiences.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row g-4">
-          <!-- First row: 1 box full width -->
-          <!-- <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+          <!-- First row: 2 boxes -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-card ">
-              <div class="d-flex align-items-start gap-3">
-                <div class="icon flex-shrink-0 icon-webdev">
-                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="service-icon-svg">
-                    
-                    <path class="code-bracket-left" d="M 18 20 L 12 32 L 18 44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                    <path class="code-bracket-right" d="M 46 20 L 52 32 L 46 44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                    
-                    <line class="code-line-1" x1="24" y1="28" x2="40" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line class="code-line-2" x1="24" y1="32" x2="44" y2="32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line class="code-line-3" x1="24" y1="36" x2="36" y2="36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
+              <div class="d-flex align-items-start gap-2">
+                <div class="icon flex-shrink-0 icon-ai">
+                  <i class="bi bi-robot"></i>
                 </div>
                 <div class="service-content flex-grow-1">
-                  <h3>Website & App Development</h3>
+                  <h3>AI & Automation</h3>
+                  <p>We develop custom AI and ML solutions that enable intelligent automation, predictive analytics, and
+                    data-driven decision making.</p>
+                  <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Service Card -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card ">
+              <div class="d-flex align-items-start gap-2">
+                <div class="icon flex-shrink-0 icon-webdev">
+                  <i class="bi bi-laptop"></i>
+                </div>
+                <div class="service-content flex-grow-1">
+                  <h3>Web & App Development</h3>
                   <p>We build scalable AI-powered web and mobile apps ensuring performance, security, and seamless user
                     experiences.
                   </p>
@@ -740,29 +3256,19 @@ Marker
                 </div>
               </div>
             </div>
-          </div> -->
+          </div><!-- End Service Card -->
 
-          <!-- Second row: 2 boxes -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <!-- Second row: 3 boxes -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="service-card ">
-              <div class="d-flex align-items-start gap-3">
+              <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-ocr">
-                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="service-icon-svg">
-                    <!-- Document -->
-                    <rect x="16" y="12" width="32" height="40" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/>
-                    <!-- Document corner fold -->
-                    <path d="M 16 12 L 22 12 L 16 18 Z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
-                    <!-- Scanning line moving -->
-                    <line class="scan-line" x1="18" y1="20" x2="46" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-                    <!-- Text lines -->
-                    <line x1="20" y1="28" x2="44" y2="28" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    <line x1="20" y1="34" x2="42" y2="34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    <line x1="20" y1="40" x2="40" y2="40" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                  </svg>
+                  <i class="bi bi-file-text"></i>
                 </div>
                 <div class="service-content flex-grow-1">
                   <h3>OCR Technology</h3>
-                  <p>We develop intelligent OCR solutions that automate document processing, extract data accurately, and
+                  <p>We develop intelligent OCR solutions that automate document processing, extract data accurately,
+                    and
                     reduce manual effort.</p>
                   <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
@@ -771,35 +3277,16 @@ Marker
             </div>
           </div><!-- End Service Card -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
             <div class="service-card ">
-              <div class="d-flex align-items-start gap-3">
-                <div class="icon flex-shrink-0 icon-pos">
-                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="service-icon-svg">
-                    <!-- POS Terminal -->
-                    <rect x="14" y="16" width="36" height="32" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/>
-                    <!-- Terminal screen -->
-                    <rect x="18" y="20" width="28" height="16" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
-                    <!-- Screen content lines (animated) -->
-                    <line class="screen-line-1" x1="20" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line class="screen-line-2" x1="20" y1="28" x2="42" y2="28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line class="screen-line-3" x1="20" y1="32" x2="38" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <!-- Keyboard/base -->
-                    <rect x="20" y="38" width="24" height="6" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
-                    <!-- Keyboard keys -->
-                    <rect x="22" y="40" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                    <rect x="28" y="40" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                    <rect x="34" y="40" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                    <!-- Receipt printer slot -->
-                    <rect x="26" y="46" width="12" height="2" rx="1" fill="currentColor"/>
-                    <!-- Transaction indicator (animated dot) -->
-                    <circle class="pos-indicator" cx="46" cy="22" r="2" fill="currentColor"/>
-                  </svg>
+              <div class="d-flex align-items-start gap-2">
+                <div class="icon flex-shrink-0 icon-cloud">
+                  <i class="bi bi-cloud"></i>
                 </div>
                 <div class="service-content flex-grow-1">
-                  <h3>POS Management</h3>
-                  <p>We deliver AI-enabled POS systems offering real-time analytics, seamless transactions, and efficient
-                    inventory management.</p>
+                  <h3>Hosting & Cloud Services</h3>
+                  <p>We provide scalable cloud solutions, seamless migrations, and robust infrastructure management to
+                    support your growing business needs.</p>
                   <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
@@ -807,10 +3294,9 @@ Marker
             </div>
           </div><!-- End Service Card -->
 
-          <!-- Third row: 3 boxes -->
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
             <div class="service-card ">
-              <div class="d-flex align-items-start gap-3">
+              <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-ecommerce">
                   <i class="bi bi-cart"></i>
                 </div>
@@ -825,38 +3311,19 @@ Marker
             </div>
           </div><!-- End Service Card -->
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-card">
-              <div class="d-flex align-items-start gap-3">
-                <div class="icon flex-shrink-0 icon-uiux">
-                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="service-icon-svg">
-                    <!-- Monitor screen -->
-                    <rect x="12" y="16" width="40" height="28" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/>
-                    <!-- Monitor stand -->
-                    <line x1="22" y1="44" x2="22" y2="52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                    <line x1="42" y1="44" x2="42" y2="52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                    <line x1="18" y1="52" x2="46" y2="52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                    <!-- Screen content - boxes -->
-                    <rect x="16" y="20" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                    <rect x="26" y="20" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                    <!-- Screen content - lines -->
-                    <line x1="16" y1="32" x2="34" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line x1="16" y1="36" x2="38" y2="36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <!-- Paintbrush (diagonal, original style) -->
-                    <g class="paintbrush">
-                      <!-- Brush handle (diagonal) -->
-                      <line class="brush-handle" x1="44" y1="20" x2="52" y2="36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                      <!-- Ferrule (metal band connecting handle to bristles) -->
-                      <rect class="brush-ferrule" x="50" y="34" width="5" height="5" rx="0.5" transform="rotate(45 52.5 36.5)" stroke="currentColor" stroke-width="2" fill="none"/>
-                      <!-- Brush bristles (fan/triangular shape) -->
-                      <path class="brush-bristles" d="M 52 36 L 58 46 L 56 45 L 54 45 Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
-                    </g>
-                  </svg>
+          <!-- Third row: 2 boxes -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-card ">
+              <div class="d-flex align-items-start gap-2">
+                <div class="icon flex-shrink-0 icon-pos">
+                  <i class="bi bi-credit-card"></i>
                 </div>
                 <div class="service-content flex-grow-1">
-                  <h3>UI/UX & Creative Design</h3>
-                  <p>We craft user-focused, AI-enhanced designs that elevate engagement, improve usability, and strengthen
-                    brand presence.</p>
+                  <h3>POS Management</h3>
+                  <p>We deliver AI-enabled POS systems offering real-time analytics, seamless transactions, and
+                    efficient
+                    inventory management.</p>
                   <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
@@ -864,117 +3331,17 @@ Marker
             </div>
           </div><!-- End Service Card -->
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <!-- Fourth row: 1 box -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="700">
             <div class="service-card ">
-              <div class="d-flex align-items-start gap-3">
+              <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-bpo">
-                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="service-icon-svg">
-                    <!-- Main gear -->
-                    <circle cx="32" cy="32" r="16" stroke="currentColor" stroke-width="2.5" fill="none"/>
-                    <!-- Gear teeth (outer) -->
-                    <g class="gear-teeth">
-                      <rect x="30" y="14" width="4" height="6" rx="1" fill="currentColor"/>
-                      <rect x="30" y="44" width="4" height="6" rx="1" fill="currentColor"/>
-                      <rect x="14" y="30" width="6" height="4" rx="1" fill="currentColor"/>
-                      <rect x="44" y="30" width="6" height="4" rx="1" fill="currentColor"/>
-                      <rect x="40.9" y="17.1" width="4" height="6" rx="1" transform="rotate(45 42.9 20.1)" fill="currentColor"/>
-                      <rect x="19.1" y="17.1" width="4" height="6" rx="1" transform="rotate(-45 21.1 20.1)" fill="currentColor"/>
-                      <rect x="40.9" y="40.9" width="4" height="6" rx="1" transform="rotate(-45 42.9 43.9)" fill="currentColor"/>
-                      <rect x="19.1" y="40.9" width="4" height="6" rx="1" transform="rotate(45 21.1 43.9)" fill="currentColor"/>
-                    </g>
-                    <!-- Center hub -->
-                    <circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
-                    <!-- Inner rotating element -->
-                    <circle class="gear-inner" cx="32" cy="32" r="3" fill="currentColor"/>
-                  </svg>
+                  <i class="bi bi-diagram-3"></i>
                 </div>
                 <div class="service-content flex-grow-1">
                   <h3>BPO & Business Automation</h3>
                   <p>We optimize operations with AI-powered automation, improving efficiency, accuracy, and overall
                     business productivity.</p>
-                  <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
-          <!-- Fourth row: 2 boxes -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-card ">
-              <div class="d-flex align-items-start gap-3">
-                <div class="icon flex-shrink-0 icon-ai">
-                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="service-icon-svg">
-                    <!-- Central AI Brain/Core -->
-                    <circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2.5" fill="none" class="ai-core-ring"/>
-                    <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2" fill="none" class="ai-core-inner"/>
-                    <circle cx="32" cy="32" r="3" fill="currentColor" class="ai-core-center"/>
-                    
-                    <!-- Neural Network Nodes (Top Layer) -->
-                    <circle cx="20" cy="18" r="2.5" fill="currentColor" class="neural-node-top-1"/>
-                    <circle cx="32" cy="14" r="2.5" fill="currentColor" class="neural-node-top-2"/>
-                    <circle cx="44" cy="18" r="2.5" fill="currentColor" class="neural-node-top-3"/>
-                    
-                    <!-- Neural Network Nodes (Middle Layer) -->
-                    <circle cx="16" cy="32" r="2.5" fill="currentColor" class="neural-node-mid-1"/>
-                    <circle cx="48" cy="32" r="2.5" fill="currentColor" class="neural-node-mid-2"/>
-                    
-                    <!-- Neural Network Nodes (Bottom Layer) -->
-                    <circle cx="20" cy="46" r="2.5" fill="currentColor" class="neural-node-bottom-1"/>
-                    <circle cx="32" cy="50" r="2.5" fill="currentColor" class="neural-node-bottom-2"/>
-                    <circle cx="44" cy="46" r="2.5" fill="currentColor" class="neural-node-bottom-3"/>
-                    
-                    <!-- Connection Lines (Top to Center) -->
-                    <line class="neural-connection-1" x1="20" y1="18" x2="32" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line class="neural-connection-2" x1="32" y1="14" x2="32" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line class="neural-connection-3" x1="44" y1="18" x2="32" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    
-                    <!-- Connection Lines (Middle to Center) -->
-                    <line class="neural-connection-4" x1="16" y1="32" x2="32" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line class="neural-connection-5" x1="48" y1="32" x2="32" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    
-                    <!-- Connection Lines (Bottom to Center) -->
-                    <line class="neural-connection-6" x1="20" y1="46" x2="32" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line class="neural-connection-7" x1="32" y1="50" x2="32" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line class="neural-connection-8" x1="44" y1="46" x2="32" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    
-                    <!-- Pulsing Rings (Animated) -->
-                    <circle class="ai-pulse-ring-1" cx="32" cy="32" r="18" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0"/>
-                    <circle class="ai-pulse-ring-2" cx="32" cy="32" r="18" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0"/>
-                    
-                    <!-- Data Flow Particles (Animated) -->
-                    <circle class="data-particle-1" cx="32" cy="32" r="1.5" fill="currentColor" opacity="0"/>
-                    <circle class="data-particle-2" cx="32" cy="32" r="1.5" fill="currentColor" opacity="0"/>
-                    <circle class="data-particle-3" cx="32" cy="32" r="1.5" fill="currentColor" opacity="0"/>
-                  </svg>
-                </div>
-                <div class="service-content flex-grow-1">
-                  <h3>AI & Machine Learning</h3>
-                  <p>We develop custom AI and ML solutions that enable intelligent automation, predictive analytics, and data-driven decision making.</p>
-                  <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-card ">
-              <div class="d-flex align-items-start gap-3">
-                <div class="icon flex-shrink-0 icon-cloud">
-                  <i class="bi bi-cloud cloud-icon-main"></i>
-                  <svg class="cloud-sync-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Clockwise curved arrow (top arc: starts at 8 o'clock, ends at 4 o'clock) -->
-                    <path class="sync-arrow-clockwise" d="M7.76 9.76C7.76 7.61 9.61 5.76 11.76 5.76C13.91 5.76 15.76 7.61 15.76 9.76" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                    <path class="sync-arrow-clockwise" d="M15.76 9.76L13.94 7.94L15.76 6.12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                    <!-- Counter-clockwise curved arrow (bottom arc: starts at 4 o'clock, ends at 8 o'clock) -->
-                    <path class="sync-arrow-counterclockwise" d="M16.24 14.24C16.24 16.39 14.39 18.24 12.24 18.24C10.09 18.24 8.24 16.39 8.24 14.24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                    <path class="sync-arrow-counterclockwise" d="M8.24 14.24L10.06 16.06L8.24 17.88" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                  </svg>
-                </div>
-                <div class="service-content flex-grow-1">
-                  <h3>Cloud & Infrastructure</h3>
-                  <p>We provide scalable cloud solutions, seamless migrations, and robust infrastructure management to support your growing business needs.</p>
                   <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
@@ -1096,7 +3463,7 @@ Marker
     </section><!-- /Features 2 Section -->
 
     <!-- Work Flow section -->
-    <section>
+    <section class="workflow-section">
       <div class="container section-title" data-aos="fade-up">
         <h2>
           How Our <span class="highlight">AI-Driven</span> Process Works
@@ -1188,124 +3555,215 @@ Marker
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Why Choose DATASPAN Technologies?</h2>
-          <p>We combine cutting-edge AI expertise with proven business solutions to deliver measurable results that drive growth and innovation.</p>
+          <p>We harness AI, automation, and cloud technology to build scalable, secure, and high-performing digital
+            solutions.
+          </p>
         </div>
       </div>
 
       <div class="cards-container">
-          <div class="card">
-            <div class="card-arrow">
-              <svg viewBox="0 0 24 24">
-                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-              </svg>
-            </div>
-            <div class="card-overlay">
-              <div class="card-content">
-                <h2 class="card-title">Cutting-Edge AI Solutions</h2>
-                <p class="card-description">Stay ahead with the latest AI technologies and methodologies that transform business operations and drive innovation.</p>
-              </div>
+        <div class="card">
+          <div class="card-arrow">
+            <svg viewBox="0 0 24 24">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </div>
+          <div class="card-overlay">
+            <div class="card-content">
+              <h2 class="card-title">Innovative Tech Leadership</h2>
+              <p class="card-description">We fuse AI, automation, and cloud technology to build intelligent systems that
+                empower your business growth.</p>
             </div>
           </div>
+        </div>
 
-          <div class="card">
-            <div class="card-arrow">
-              <svg viewBox="0 0 24 24">
-                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-              </svg>
-            </div>
-            <div class="card-overlay">
-              <div class="card-content">
-                <h2 class="card-title">Expert Team</h2>
-                <p class="card-description">Work with experienced AI engineers, developers, and strategists who understand both technology and business needs.</p>
-              </div>
+        <div class="card">
+          <div class="card-arrow">
+            <svg viewBox="0 0 24 24">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </div>
+          <div class="card-overlay">
+            <div class="card-content">
+              <h2 class="card-title">Proven Multiplatform Expertise</h2>
+              <p class="card-description">From Shopify to AWS, our cross-platform mastery ensures seamless integrations,
+                scalability, and consistent performance.</p>
             </div>
           </div>
+        </div>
 
-          <div class="card">
-            <div class="card-arrow">
-              <svg viewBox="0 0 24 24">
-                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-              </svg>
-            </div>
-            <div class="card-overlay">
-              <div class="card-content">
-                <h2 class="card-title">Proven Track Record</h2>
-                <p class="card-description">Delivered successful projects across industries with measurable results, improved efficiency, and increased ROI.</p>
-              </div>
+        <div class="card">
+          <div class="card-arrow">
+            <svg viewBox="0 0 24 24">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </div>
+          <div class="card-overlay">
+            <div class="card-content">
+              <h2 class="card-title">Performance-Driven Results</h2>
+              <p class="card-description">Our data-backed strategies enhance efficiency, reduce costs, and deliver
+                measurable business outcomes that boost profitability.</p>
             </div>
           </div>
+        </div>
 
-          <div class="card">
-            <div class="card-arrow">
-              <svg viewBox="0 0 24 24">
-                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-              </svg>
-            </div>
-            <div class="card-overlay">
-              <div class="card-content">
-                <h2 class="card-title">Secure & Reliable</h2>
-                <p class="card-description">Enterprise-grade security and reliability with 24/7 monitoring and support to keep your systems running smoothly.</p>
-              </div>
+        <div class="card">
+          <div class="card-arrow">
+            <svg viewBox="0 0 24 24">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </div>
+          <div class="card-overlay">
+            <div class="card-content">
+              <h2 class="card-title">Trusted & secure</h2>
+              <p class="card-description">We keep your business running with resilient systems, proactive protection,
+                and technology that never lets you slow down.</p>
             </div>
           </div>
+        </div>
 
-          <div class="card">
-            <div class="card-arrow">
-              <svg viewBox="0 0 24 24">
-                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-              </svg>
-            </div>
-            <div class="card-overlay">
-              <div class="card-content">
-                <h2 class="card-title">Customized Solutions</h2>
-                <p class="card-description">Tailored AI solutions designed specifically for your business needs, ensuring maximum efficiency and relevance.</p>
-              </div>
+        <div class="card">
+          <div class="card-arrow">
+            <svg viewBox="0 0 24 24">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </div>
+          <div class="card-overlay">
+            <div class="card-content">
+              <h2 class="card-title">Tailored Partnership Approach</h2>
+              <p class="card-description">We customize every solution around your goals — combining strategy,
+                technology, and innovation to maximize success.</p>
             </div>
           </div>
+        </div>
       </div>
     </section><!-- /Why Choose Us Section -->
 
     <!-- Clients/Partners Section -->
-    <section id="clients" class="clients section light-background">
+    <section id="clients" class="clients section">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Trusted by Industry Leaders</h2>
-          <p>We're proud to partner with innovative companies across various industries to deliver AI-powered solutions.</p>
+          <p>We're proud to partner with innovative companies across various industries to deliver AI-powered solutions.
+          </p>
         </div>
 
-        <div class="row g-4 align-items-center justify-content-center">
-          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-1.png" class="img-fluid" alt="Client 1" onerror="this.style.display='none'">
+        <!-- Logo Marquee Container -->
+        <div class="logo-marquee-container">
+          <!-- Line 1: Scrolls Left to Right -->
+          <div class="marquee-wrapper marquee-line-1">
+            <div class="marquee-content">
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/1 aws.png" alt="AWS" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/2 google cloud.png" alt="Google Cloud" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/3 Azure.png" alt="Microsoft Azure" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/4 shopify.png" alt="Shopify" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/5 Magento.png" alt="Magento (Adobe Commerce)" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/6 bigcommerce.png" alt="BigCommerce" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/7 woocommerce.png" alt="WooCommerce" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/8 WordPress.png" alt="WordPress" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/9 godaddy.png" alt="GoDaddy" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/1 aws.png" alt="AWS" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/2 google cloud.png" alt="Google Cloud" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/3 Azure.png" alt="Microsoft Azure" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/4 shopify.png" alt="Shopify" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/5 Magento.png" alt="Magento (Adobe Commerce)" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/6 bigcommerce.png" alt="BigCommerce" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/7 woocommerce.png" alt="WooCommerce" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/8 WordPress.png" alt="WordPress" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/9 godaddy.png" alt="GoDaddy" class="logo-img">
+              </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-2.png" class="img-fluid" alt="Client 2" onerror="this.style.display='none'">
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-3.png" class="img-fluid" alt="Client 3" onerror="this.style.display='none'">
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-4.png" class="img-fluid" alt="Client 4" onerror="this.style.display='none'">
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-5.png" class="img-fluid" alt="Client 5" onerror="this.style.display='none'">
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-6.png" class="img-fluid" alt="Client 6" onerror="this.style.display='none'">
+
+          <!-- Line 2: Scrolls Right to Left -->
+          <div class="marquee-wrapper marquee-line-2">
+            <div class="marquee-content">
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/11 Huggingface.png" alt="Huggingface" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/12 redis.png" alt="redis" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/13 powerbi.png" alt="powerbi" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/14 microsoftdynamics.png" alt="microsoftdynamics" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/15 langchain.png" alt="langchain2" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/16 mysql.png" alt="mysql" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/17 android.png" alt="android" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/18 Elasticsearch.png" alt="Elasticsearch" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/11 Huggingface.png" alt="Huggingface" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/12 redis.png" alt="redis" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/13 powerbi.png" alt="powerbi" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/14 microsoftdynamics.png" alt="microsoftdynamics" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/15 langchain.png" alt="langchain2" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/16 mysql.png" alt="mysql" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/17 android.png" alt="android" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/clients/Logos/18 Elasticsearch.png" alt="Elasticsearch" class="logo-img">
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </section><!-- /Clients Section -->
 
     <!-- Call to Action Section -->
@@ -1313,8 +3771,8 @@ Marker
       <div class="container" data-aos="zoom-in">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
-            <h2>Ready to Transform Your Business with AI?</h2>
-            <p class="mb-4">Let's discuss how our intelligent automation solutions can drive growth, efficiency, and innovation for your organization.</p>
+            <h2>Shape the Future of Your Enterprise Today </h2>
+            <p class="mb-4">Let AI revolutionize how your business thinks, adapts, and succeeds in the digital era.</p>
             <div class="cta-buttons">
               <a href="contact.html" class="btn btn-primary me-2 mb-2">Get Started Today</a>
               <a href="service.html" class="btn btn-outline-primary mb-2">Explore Our Services</a>
@@ -1433,23 +3891,23 @@ Marker
   <script>
     // Map headings to background images
     const headingImageMap = {
-      'Cutting-Edge AI Solutions': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-      'Expert Team': 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
-      'Proven Track Record': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-      'Secure & Reliable': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
-      'Customized Solutions': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80'
+      'Innovative Tech Leadership': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
+      'Proven Multiplatform Expertise': 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
+      'Performance-Driven Results': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+      'Trusted & secure': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
+      'Tailored Partnership Approach': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80'
     };
 
     // Set background images based on headings
-    document.addEventListener('DOMContentLoaded', function() {
-      const cards = document.querySelectorAll('.card');
-      
+    document.addEventListener('DOMContentLoaded', function () {
+      const cards = document.querySelectorAll('#why-choose-us .card');
+
       cards.forEach(card => {
         const heading = card.querySelector('.card-title');
         if (heading) {
           const headingText = heading.textContent.trim();
           const imageUrl = headingImageMap[headingText];
-          
+
           if (imageUrl) {
             card.style.backgroundImage = `url('${imageUrl}')`;
           }
