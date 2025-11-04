@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=optional"
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
@@ -32,7 +32,6 @@
     <style>
         body {
             margin: 0;
-            font-family: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
             background: #ffffff;
             color: #212529;
             overflow-x: hidden;
@@ -62,7 +61,6 @@
             font-weight: 900;
             color: #2d465e;
             /* margin-bottom: 40px; */
-            font-family: "Nunito", sans-serif;
             line-height: 1.1;
         }
 
@@ -569,6 +567,7 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
                         Services
+                        <!-- <i class="fas fa-chevron-down"></i> -->
                     </a>
                 </li>
                 <li class="nav-item">
@@ -585,6 +584,11 @@
                 <span></span>
                 <span></span>
             </button>
+
+            <!-- Action Button 
+            <div class="nav-action">
+                <button class="start-project-btn">Start Project</button>
+            </div>-->
         </div>
 
         <!-- Services Dropdown Menu -->
@@ -595,7 +599,7 @@
                     <div class="service-categories">
                         <div class="category-column">
                             <div class="category-item active" data-submenu="ai-automation">
-                                <a href="#" class="category-link">AI & Automation</a>
+                                <a href="service.html" class="category-link">AI & Automation</a>
                             </div>
                             <div class="category-item" data-submenu="development-technology">
                                 <a href="#" class="category-link">Development & Technology</a>
