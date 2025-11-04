@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Contact Us - DATASPAN Technologies</title>
-  <meta name="description" content="Get in touch with DATASPAN Technologies. Our world-class team of AI experts and engineers combine deep knowledge and decades of collective experience to deliver intelligent solutions.">
+  <meta name="description"
+    content="Get in touch with DATASPAN Technologies. Our world-class team of AI experts and engineers combine deep knowledge and decades of collective experience to deliver intelligent solutions.">
   <meta name="keywords" content="contact, AI solutions, software development, automation, data analytics">
 
   <!-- Favicons -->
@@ -16,7 +17,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=optional"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -43,9 +44,17 @@
     }
 
     @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .contact-hero::before {
@@ -60,8 +69,8 @@
     }
 
     .contact-form-container {
-        margin-top: 100px;
-        background: #000B3C;
+      margin-top: 100px;
+      background: #000B3C;
       border-radius: 15px;
       padding: 3rem;
       box-shadow: 0 20px 40px rgba(0, 11, 60, 0.3);
@@ -108,8 +117,8 @@
       color: white;
     }
 
-    .form-floating .form-control:focus + label,
-    .form-floating .form-control:not(:placeholder-shown) + label {
+    .form-floating .form-control:focus+label,
+    .form-floating .form-control:not(:placeholder-shown)+label {
       color: #2d2d2b;
       transform: translateY(-1.5rem) scale(0.85);
     }
@@ -230,8 +239,15 @@
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
     }
 
     .btn-cta {
@@ -280,8 +296,15 @@
     }
 
     @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
     }
 
     .contact-icon i {
@@ -311,7 +334,7 @@
         padding: 2rem;
         margin-top: 2rem;
       }
-      
+
       .contact-hero {
         min-height: auto;
         padding: 3rem 0;
@@ -323,135 +346,148 @@
 <body class="contact-page">
 
   <nav class="navbar">
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="nav-logo">
-                <a href="index.html" class="logo">
-                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
-                </a>
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <a href="index.html" class="logo">
+          <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+        </a>
+      </div>
+
+      <!-- Main Navigation -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html#hero" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="Aboutus.html" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
+            Services
+            <!-- <i class="fas fa-chevron-down"></i> -->
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="Clients.html" class="nav-link">Clients</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">Contact Us</a>
+        </li>
+      </ul>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Action Button 
+            <div class="nav-action">
+                <button class="start-project-btn">Start Project</button>
+            </div>-->
+    </div>
+
+    <!-- Services Dropdown Menu -->
+    <div class="dropdown-menu" id="services-dropdown">
+      <div class="dropdown-container">
+        <div class="dropdown-content">
+          <!-- Service Categories -->
+          <div class="service-categories">
+            <div class="category-column">
+              <div class="category-item active" data-submenu="ai-automation">
+                <a href="service.html" class="category-link">AI & Automation</a>
+              </div>
+              <div class="category-item" data-submenu="development-technology">
+                <a href="#" class="category-link">Development & Technology</a>
+              </div>
+              <div class="category-item" data-submenu="design-branding">
+                <a href="#" class="category-link">Design & Branding</a>
+              </div>
+              <div class="category-item" data-submenu="cloud-infrastructure">
+                <a href="#" class="category-link">Cloud & Infrastructure</a>
+              </div>
+              <div class="category-item" data-submenu="data-operations">
+                <a href="#" class="category-link">Data & Operations</a>
+              </div>
             </div>
 
-            <!-- Main Navigation -->
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html#hero" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="Aboutus.html" class="nav-link">About Us</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
-                        Services
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="Clients.html" class="nav-link">Clients</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact Us</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Services Dropdown Menu -->
-        <div class="dropdown-menu" id="services-dropdown">
-            <div class="dropdown-container">
-                <div class="dropdown-content">
-                    <!-- Service Categories -->
-                    <div class="service-categories">
-                        <div class="category-column">
-                            <div class="category-item active" data-submenu="ai-automation">
-                                <a href="#" class="category-link">AI & Automation</a>
-                            </div>
-                            <div class="category-item" data-submenu="development-technology">
-                                <a href="#" class="category-link">Development & Technology</a>
-                            </div>
-                            <div class="category-item" data-submenu="design-branding">
-                                <a href="#" class="category-link">Design & Branding</a>
-                            </div>
-                            <div class="category-item" data-submenu="cloud-infrastructure">
-                                <a href="#" class="category-link">Cloud & Infrastructure</a>
-                            </div>
-                            <div class="category-item" data-submenu="data-operations">
-                                <a href="#" class="category-link">Data & Operations</a>
-                            </div>
-                        </div>
-
-                        <!-- AI & Automation Subcategories -->
-                        <div class="subcategory-column" id="ai-automation-submenu">
-                            <div class="subcategory-item">
-                                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
-                            </div>
-                        </div>
-
-                        <!-- Development & Technology Subcategories -->
-                        <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Shopify Development & Services</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Web & Mobile Development</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Software Development & Consulting</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
-                            </div>
-                        </div>
-
-                        <!-- Design & Branding Subcategories -->
-                        <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Design & Branding</a>
-                            </div>
-                        </div>
-
-                        <!-- Cloud & Infrastructure Subcategories -->
-                        <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
-                            </div>
-                        </div>
-
-                        <!-- Data & Operations Subcategories -->
-                        <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Reporting & Analytics</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- AI & Automation Subcategories -->
+            <div class="subcategory-column" id="ai-automation-submenu">
+              <div class="subcategory-item">
+                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+              </div>
             </div>
+
+            <!-- Development & Technology Subcategories -->
+            <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Shopify Development & Services</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Web & Mobile Development</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Software Development & Consulting</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+              </div>
+            </div>
+
+            <!-- Design & Branding Subcategories -->
+            <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Design & Branding</a>
+              </div>
+            </div>
+
+            <!-- Cloud & Infrastructure Subcategories -->
+            <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+              </div>
+            </div>
+
+            <!-- Data & Operations Subcategories -->
+            <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Reporting & Analytics</a>
+              </div>
+              <div class="subcategory-item">
+                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+              </div>
+            </div>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
   <main class="main">
 
@@ -462,7 +498,9 @@
           <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
             <h1 class="display-4 fw-bold text-dark mb-4">Contact Us</h1>
             <p class="lead text-dark mb-4">
-              Get in touch with DATASPAN Technologies. Our world-class team of AI experts and engineers combine deep knowledge and decades of collective experience to deliver intelligent solutions that IT professionals love, plus the industry's best support.
+              Get in touch with DATASPAN Technologies. Our world-class team of AI experts and engineers combine deep
+              knowledge and decades of collective experience to deliver intelligent solutions that IT professionals
+              love, plus the industry's best support.
             </p>
             <div class="contact-icon" data-aos="zoom-in" data-aos-delay="500">
               <i class="bi bi-headset"></i>
@@ -474,40 +512,46 @@
                 <div class="row g-3">
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" required>
+                      <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name"
+                        required>
                       <label for="firstName">First Name</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required>
+                      <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name"
+                        required>
                       <label for="lastName">Last Name</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="companyName" name="company_name" placeholder="Company Name" required>
+                      <input type="text" class="form-control" id="companyName" name="company_name"
+                        placeholder="Company Name" required>
                       <label for="companyName">Company Name</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="email" class="form-control" id="workEmail" name="work_email" placeholder="Work Email" required>
-                      <label for="workEmail">Work Email</label>
+                      <input type="email" class="form-control" id="workEmail" name="work_email" placeholder="Work Email"
+                        required>
+                      <label for="workEmail">Email</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="tel" class="form-control" id="phoneNumber" name="phone_number" placeholder="Phone Number" required>
+                      <input type="tel" class="form-control" id="phoneNumber" name="phone_number"
+                        placeholder="Phone Number" required>
                       <label for="phoneNumber">Phone Number</label>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <!-- <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="jobTitle" name="job_title" placeholder="Job Title" required>
+                      <input type="text" class="form-control" id="jobTitle" name="job_title" placeholder="Job Title"
+                        required>
                       <label for="jobTitle">Job Title</label>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-12">
                     <div class="form-floating">
                       <select class="form-select" id="country" name="country" required>
@@ -522,30 +566,22 @@
                         <option value="Japan">Japan</option>
                         <option value="Other">Other</option>
                       </select>
-                    
+
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="marketingConsent" name="marketing_consent">
                       <label class="form-check-label text-white" for="marketingConsent">
-                        Yes, I'd like to receive marketing communications about DATASPAN Technologies' products, services, and events. I can unsubscribe at any time.
+                        Yes, we'd like to receive marketing communications about DATASPAN Technologies' products,
+                        services, and events. I can unsubscribe at any time.
                       </label>
                     </div>
                   </div>
                   <div class="col-12">
                     <p class="text-white-50 small">
-                      By clicking "Submit" you agree to receive communications by text message about your inquiry and marketing communication from DATASPAN Technologies. You may opt-out by replying STOP or ask for more information by replying HELP. Message frequency varies. Message and data rates may apply. You may review our 
-                      <a href="#" class="privacy-links">Privacy Policy</a> to learn how your data is used.
-                    </p>
-                  </div>
-                  <div class="col-12">
-                    <p class="text-white-50 small">
-                      This site is protected by reCAPTCHA and the Google 
-                      <a href="#" class="privacy-links">Privacy Policy</a> and 
-                      <a href="#" class="privacy-links">Terms of Service</a> apply.
-                    </p>
-                  </div>
+                      By clicking "Submit" you agree to receive communications by text message about your inquiry and
+                      marketing communication from DATASPAN Technologies. 
                   <div class="col-12">
                     <button type="submit" class="btn btn-submit w-100">
                       Submit
@@ -583,17 +619,16 @@
               </p>
               <p class="mb-0">
                 <i class="bi bi-envelope me-2"></i>
-                <a href="mailto:info@dataspantechnologies.com" class="text-decoration-none">info@dataspantechnologies.com</a>
+                <a href="mailto:info@dataspantechnologies.com"
+                  class="text-decoration-none">info@dataspantechnologies.com</a>
               </p>
             </div>
           </div>
           <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
             <div class="map-container">
-              <iframe 
+              <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.123456789!2d73.7890123!3d19.9876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddc1234567890%3A0xabcdef1234567890!2sShreeji%20Pride%2C%20Manohar%20Nagar%2C%20Govind%20Nagar%2C%20Nashik%2C%20Maharashtra%20422001!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
               </iframe>
             </div>
           </div>
@@ -618,25 +653,12 @@
 
   </main>
 
-  <footer id="footer" class="footer section light-background" style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <!-- CTA Above Footer -->
-    <div class="container mb-5" style="width: 50%;">
-      <div class="row justify-content-center" data-aos="fade-up">
-        <div class="col-lg-10">
-          <div class="text-center">
-            <h2 style="font-weight: 700; color: #0b0b0b;">
-              Believe in possibilities and navigate
-              beyond the expected with us !
-            </h2>
-            <!-- <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact Us</a> -->
-          </div>
-        </div>
-      </div>
-    </div>
-    
+  <footer id="footer" class="footer section light-background"
+    style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
     <div class="container footer-top">
       <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
+        <div class="col-lg-4 col-md-6 col-12 footer-about">
           <a href="index.html" class="logo d-flex align-items-center ">
             <img src="assets/img/footer-logo2.png" alt="">
           </a>
@@ -654,7 +676,7 @@
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <div class="col-lg-2 col-md-6 col-12 footer-links">
           <h4>Useful Links</h4>
           <ul>
             <li><a href="#">Home</a></li>
@@ -668,7 +690,7 @@
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-3 footer-links">
+        <div class="col-lg-3 col-md-6 col-12 footer-links">
           <h4>Our Solutions</h4>
           <ul>
             <li><a href="#">AI & Automation Solutions</a></li>
@@ -680,7 +702,7 @@
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-3 footer-links">
+        <div class="col-lg-3 col-md-6 col-12 footer-links">
           <h4> Industries We Serve</h4>
           <ul>
             <li><a href="#">E-commerce & Retail</a></li>
@@ -739,7 +761,7 @@
   <!-- Contact Page Specific JavaScript -->
   <script>
     // Initialize AOS with custom settings for contact page
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       AOS.init({
         duration: 1000,
         once: true,
@@ -763,13 +785,13 @@
       // Enhanced form validation
       const form = document.querySelector('.php-email-form');
       if (form) {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
           e.preventDefault();
-          
+
           // Basic validation
           const requiredFields = form.querySelectorAll('[required]');
           let isValid = true;
-          
+
           requiredFields.forEach(field => {
             if (!field.value.trim()) {
               field.classList.add('is-invalid');
@@ -778,17 +800,17 @@
               field.classList.remove('is-invalid');
             }
           });
-          
+
           if (isValid) {
             // Show loading state
             const loading = form.querySelector('.loading');
             const errorMessage = form.querySelector('.error-message');
             const sentMessage = form.querySelector('.sent-message');
-            
+
             loading.style.display = 'block';
             errorMessage.style.display = 'none';
             sentMessage.style.display = 'none';
-            
+
             // Simulate form submission (replace with actual AJAX call)
             setTimeout(() => {
               loading.style.display = 'none';
@@ -802,11 +824,11 @@
       // Add floating label animation
       const floatingLabels = document.querySelectorAll('.form-floating .form-control');
       floatingLabels.forEach(input => {
-        input.addEventListener('focus', function() {
+        input.addEventListener('focus', function () {
           this.parentElement.classList.add('focused');
         });
-        
-        input.addEventListener('blur', function() {
+
+        input.addEventListener('blur', function () {
           if (!this.value) {
             this.parentElement.classList.remove('focused');
           }
