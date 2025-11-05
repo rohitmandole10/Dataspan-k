@@ -1093,6 +1093,12 @@ section,
   line-height: 1.3;
   margin-bottom: 1.2rem;
   letter-spacing: -0.02em;
+  font-family: var(--heading-font);
+}
+
+.hero .hero-title {
+  color: #05386e;
+  font-family: var(--heading-font);
 }
 
 .hero .hero-content p {
@@ -2535,7 +2541,7 @@ p.subheading {
   justify-content: center;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 60px 20px 20px 20px;
+  padding: 0 20px 20px 20px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
@@ -3797,11 +3803,6 @@ p.subheading {
   border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
 }
 
-.services .service-card:hover .icon {
-  /* Background and color remain unchanged on hover */
-  background: none;
-  color: var(--accent-color);
-}
 
 .services .service-card:hover .read-more {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
@@ -4055,14 +4056,6 @@ p.subheading {
   animation-delay: 0.9s;
 }
 
-.services .service-card:hover .icon-ecommerce .cart-indicator {
-  animation: cartIndicatorPulseHover 1s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(13, 131, 253, 0.6));
-}
-
-.services .service-card:hover .icon-ecommerce .product-item {
-  animation-duration: 2s;
-}
 
 @keyframes cartIndicatorPulse {
   0%, 100% {
@@ -4564,65 +4557,77 @@ p.subheading {
   }
 }
 
-/* Design & Branding - Palette with Brush Animation */
+/* Design & Branding - Laptop and Brush Icon */
 .services .service-card .icon-design-branding {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: visible;
+  gap: 8px;
 }
 
-.services .service-card .icon-design-branding i.bi-palette {
-  animation: palettePulse 2.5s ease-in-out infinite;
+.services .service-card .icon-design-branding i.bi-laptop {
   display: inline-block;
-  transform-origin: center;
   position: relative;
-  filter: drop-shadow(0 0 8px rgba(13, 131, 253, 0.3));
-  font-size: 1em;
-  z-index: 1;
+  filter: drop-shadow(0 0 8px rgba(13, 131, 253, 0.4));
   color: var(--accent-color);
+  transition: all 0.3s ease;
+  z-index: 1;
+  font-size: 0.9em;
 }
 
-/* Brush positioned diagonally across the palette */
+.services .service-card:hover .icon-design-branding i.bi-laptop {
+  filter: drop-shadow(0 0 12px rgba(13, 131, 253, 0.6));
+}
+
+/* Brush positioned next to laptop with animation */
 .services .service-card .icon-design-branding i.brush-on-palette {
-  animation: brushPaintingOnPalette 3s ease-in-out infinite;
-  display: inline-block;
-  transform-origin: 50% 80%;
+  display: inline-block !important;
   position: absolute;
   top: 50%;
   left: 50%;
-  filter: drop-shadow(0 0 8px rgba(13, 131, 253, 0.3));
-  font-size: 0.65em;
-  z-index: 3;
-  color: var(--accent-color);
-  pointer-events: none;
+  transform-origin: 50% 85%;
+  animation: brushToScreen 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(13, 131, 253, 0.4));
+  font-size: 0.65em !important;
+  z-index: 2 !important;
+  color: var(--accent-color) !important;
   font-weight: 600;
-  opacity: 1;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: all 0.3s ease;
 }
 
-/* Paint effect on brush tip - showing it's using colors from palette */
-.services .service-card .icon-design-branding i.brush-on-palette::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 25%;
-  width: 50%;
-  height: 45%;
-  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #f9ca24 75%, #ff6b6b 100%);
-  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
-  opacity: 1;
-  z-index: 1;
-  animation: paintDripOnBrush 3s ease-in-out infinite;
-  box-shadow: 
-    0 -2px 8px rgba(255, 107, 107, 0.8), 
-    0 -2px 12px rgba(78, 205, 196, 0.7),
-    0 -2px 16px rgba(69, 183, 209, 0.6),
-    0 0 20px rgba(249, 202, 36, 0.5);
-  pointer-events: none;
+.services .service-card:hover .icon-design-branding i.brush-on-palette {
+  filter: drop-shadow(0 0 12px rgba(13, 131, 253, 0.6));
 }
 
-@keyframes palettePulse {
+@media (min-width: 768px) {
+  .services .service-card .icon-design-branding {
+    gap: 10px;
+  }
+  .services .service-card .icon-design-branding i.bi-laptop {
+    font-size: 0.95em;
+  }
+  .services .service-card .icon-design-branding i.brush-on-palette {
+    font-size: 0.7em !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .services .service-card .icon-design-branding {
+    gap: 12px;
+  }
+  .services .service-card .icon-design-branding i.bi-laptop {
+    font-size: 1em;
+  }
+  .services .service-card .icon-design-branding i.brush-on-palette {
+    font-size: 0.75em !important;
+  }
+}
+
+@keyframes laptopPulse {
   0%, 100% {
     transform: scale(1);
     opacity: 1;
@@ -4633,18 +4638,135 @@ p.subheading {
   }
 }
 
+@keyframes brushToScreen {
+  /* Brush starts at right side position next to laptop */
+  0% {
+    transform: translate(-10%, -60%) rotate(-45deg);
+    opacity: 1;
+  }
+  /* Brush moves toward laptop screen */
+  30% {
+    transform: translate(-40%, -60%) rotate(-40deg);
+    opacity: 1;
+  }
+  /* Brush reaches laptop screen */
+  45% {
+    transform: translate(-50%, -60%) rotate(-35deg);
+    opacity: 1;
+  }
+  /* Brush touches/paints on screen */
+  50% {
+    transform: translate(-50%, -58%) rotate(-30deg);
+    opacity: 1;
+  }
+  /* Brush lifts slightly from screen */
+  55% {
+    transform: translate(-50%, -60%) rotate(-35deg);
+    opacity: 1;
+  }
+  /* Brush moves back away from screen */
+  70% {
+    transform: translate(-40%, -60%) rotate(-40deg);
+    opacity: 1;
+  }
+  /* Brush returns to original side position */
+  100% {
+    transform: translate(-10%, -60%) rotate(-45deg);
+    opacity: 1;
+  }
+}
+
+@keyframes brushWorkingOnScreen {
+  /* Brush starts at left side of screen */
+  0% {
+    transform: translate(-60%, -50%) rotate(-40deg);
+    opacity: 1;
+  }
+  /* Brush moves across screen applying color */
+  25% {
+    transform: translate(-40%, -48%) rotate(-35deg);
+    opacity: 1;
+  }
+  /* Brush continues painting across screen */
+  50% {
+    transform: translate(-20%, -50%) rotate(-40deg);
+    opacity: 1;
+  }
+  /* Brush continues to right side */
+  75% {
+    transform: translate(-5%, -48%) rotate(-35deg);
+    opacity: 1;
+  }
+  /* Brush returns to start position */
+  100% {
+    transform: translate(-60%, -50%) rotate(-40deg);
+    opacity: 1;
+  }
+}
+
+@keyframes brushPaintEffect {
+  /* Paint effect is visible as brush works on screen */
+  0% {
+    opacity: 0.8;
+    transform: scaleY(1);
+  }
+  25% {
+    opacity: 1;
+    transform: scaleY(1.1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.2);
+  }
+  75% {
+    opacity: 1;
+    transform: scaleY(1.1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes screenColorTrail {
+  /* Color trail appears as brush moves across screen */
+  0% {
+    opacity: 0;
+    transform: translate(-70%, -50%);
+  }
+  25% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-30%, -50%);
+  }
+  75% {
+    opacity: 0.6;
+    transform: translate(-10%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(10%, -50%);
+  }
+}
+
 @keyframes brushPaintingOnPalette {
   0% {
     transform: translate(-45%, -50%) rotate(-45deg);
   }
-  25% {
-    transform: translate(-40%, -45%) rotate(-42deg);
+  20% {
+    transform: translate(-35%, -40%) rotate(-35deg);
   }
-  50% {
-    transform: translate(-35%, -50%) rotate(-45deg);
+  40% {
+    transform: translate(-25%, -45%) rotate(-40deg);
   }
-  75% {
-    transform: translate(-40%, -48%) rotate(-43deg);
+  60% {
+    transform: translate(-30%, -40%) rotate(-35deg);
+  }
+  80% {
+    transform: translate(-40%, -50%) rotate(-50deg);
   }
   100% {
     transform: translate(-45%, -50%) rotate(-45deg);
@@ -4670,15 +4792,6 @@ p.subheading {
   }
 }
 
-.services .service-card:hover .icon-design-branding i.bi-palette {
-  animation: palettePulse 1.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(13, 131, 253, 0.7));
-}
-
-.services .service-card:hover .icon-design-branding i.brush-on-palette {
-  animation: brushPaintingOnPalette 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(13, 131, 253, 0.7));
-}
 
 /* BPO - Gear rotating with inner element */
 .services .service-card .icon-bpo {
@@ -4717,7 +4830,7 @@ p.subheading {
 .services .service-card .icon-ai,
 .services .service-card .icon-ai-title {
   position: relative;
-  transition: all 0.3s ease;
+  transition: none !important;
 }
 
 /* AI/ML - Bootstrap Icon Animation (bi bi-cpu) */
@@ -4725,12 +4838,9 @@ p.subheading {
   animation: cpuPulse 2.5s ease-in-out infinite;
   display: inline-block;
   transform-origin: center;
+  transition: none !important;
 }
 
-.services .service-card:hover .icon-ai i.bi-cpu {
-  animation: cpuPulseHover 1s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px rgba(13, 131, 253, 0.5));
-}
 
 @keyframes cpuPulse {
   0%, 100% {
@@ -4758,14 +4868,10 @@ p.subheading {
 
 /* Brain outline glow */
 .services .service-card .icon-ai .ai-brain-outline {
-  transition: all 0.4s ease;
   filter: drop-shadow(0 0 4px rgba(13, 131, 253, 0.2));
 }
 
 /* Animated nodes - sequential pulsing */
-.services .service-card .icon-ai .ai-node {
-  transition: all 0.3s ease;
-}
 
 .services .service-card .icon-ai .ai-node-1 {
   animation: nodePulse 2s ease-in-out infinite;
@@ -4807,7 +4913,6 @@ p.subheading {
   opacity: 0.6;
   stroke-dasharray: 8;
   stroke-dashoffset: 0;
-  transition: all 0.3s ease;
 }
 
 .services .service-card .icon-ai .ai-conn-1 {
@@ -4841,25 +4946,6 @@ p.subheading {
 }
 
 /* Hover effects */
-.services .service-card:hover .icon-ai svg {
-  filter: drop-shadow(0 4px 12px rgba(13, 131, 253, 0.4));
-  transform: scale(1.05);
-}
-
-.services .service-card:hover .icon-ai .ai-brain-outline {
-  filter: drop-shadow(0 0 8px rgba(13, 131, 253, 0.5));
-  stroke-width: 2.8;
-}
-
-.services .service-card:hover .icon-ai .ai-node {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 4px rgba(13, 131, 253, 0.6));
-}
-
-.services .service-card:hover .icon-ai .ai-connection {
-  opacity: 1;
-  stroke-width: 2;
-}
 
 /* Keyframe animations */
 @keyframes nodePulse {
@@ -4903,6 +4989,7 @@ p.subheading {
 .services .service-card .icon-cloud {
   position: relative;
   overflow: visible;
+  transition: none !important;
 }
 
 /* Cloud outline - larger size, static with gentle pulse/glow */
@@ -4969,6 +5056,7 @@ p.subheading {
   animation: aiThinking 2.5s ease-in-out infinite;
   display: inline-block;
   transform-origin: center;
+  transition: none !important;
   position: relative;
   filter: drop-shadow(0 0 8px rgba(13, 131, 253, 0.3));
 }
@@ -5038,23 +5126,6 @@ p.subheading {
   z-index: 1;
 }
 
-.services .service-card:hover .icon-ai i.bi-robot {
-  animation: aiThinkingHover 1.2s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(13, 131, 253, 0.8));
-}
-
-.services .service-card:hover .icon-ai::before {
-  box-shadow: 0 0 30px rgba(13, 131, 253, 0.4);
-}
-
-.services .service-card:hover .icon-ai i.bi-robot::after {
-  box-shadow: 
-    0 0 12px rgba(13, 131, 253, 1),
-    -25px 0 0 rgba(13, 131, 253, 0.8),
-    25px 0 0 rgba(13, 131, 253, 0.8),
-    0 -25px 0 rgba(13, 131, 253, 0.6),
-    0 25px 0 rgba(13, 131, 253, 0.6);
-}
 
 @keyframes aiThinking {
   0%, 100% {
@@ -5207,10 +5278,6 @@ p.subheading {
   text-shadow: 0 0 8px rgba(13, 131, 253, 0.6);
 }
 
-.services .service-card:hover .icon-webdev i.bi-laptop {
-  animation: laptopDevelopmentHover 1s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px rgba(13, 131, 253, 0.5));
-}
 
 @keyframes laptopDevelopment {
   0%, 100% {
@@ -5363,10 +5430,6 @@ p.subheading {
   z-index: -1;
 }
 
-.services .service-card:hover .icon-ocr i.bi-file-text {
-  animation: ocrScanningHover 1s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px rgba(13, 131, 253, 0.5));
-}
 
 @keyframes ocrScanning {
   0%, 100% {
@@ -5430,6 +5493,7 @@ p.subheading {
   transform-origin: center;
   position: relative;
   filter: drop-shadow(0 0 8px rgba(13, 131, 253, 0.3));
+  transition: none !important;
 }
 
 /* Animated checkmark - pulsing verification */
@@ -5480,15 +5544,6 @@ p.subheading {
   z-index: -1;
 }
 
-.services .service-card:hover .icon-cloud i.bi-cloud {
-  animation: cloudDataSyncHover 1.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(13, 131, 253, 0.7));
-}
-
-.services .service-card:hover .icon-cloud i.bi-cloud::after {
-  animation: checkmarkPulseHover 1.5s ease-in-out infinite;
-  text-shadow: 0 0 12px rgba(13, 131, 253, 1);
-}
 
 @keyframes cloudDataSync {
   0%, 100% {
@@ -5649,17 +5704,6 @@ p.subheading {
   box-shadow: 0 0 8px rgba(13, 131, 253, 0.6);
 }
 
-.services .service-card:hover .icon-ecommerce i.bi-cart {
-  animation: ecommerceCartHover 0.8s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px rgba(13, 131, 253, 0.5));
-}
-
-.services .service-card:hover .icon-ecommerce::before,
-.services .service-card:hover .icon-ecommerce::after,
-.services .service-card:hover .icon-ecommerce i.bi-cart::after {
-  box-shadow: 0 0 12px rgba(13, 131, 253, 1);
-  background: rgba(13, 131, 253, 1);
-}
 
 @keyframes ecommerceCart {
   0%, 100% {
@@ -5826,10 +5870,6 @@ p.subheading {
   z-index: 2;
 }
 
-.services .service-card:hover .icon-pos i.bi-credit-card {
-  animation: cardSwipingHover 1.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(13, 131, 253, 0.7));
-}
 
 @keyframes cardSwipingHover {
   0% {
@@ -5917,6 +5957,16 @@ p.subheading {
 .services .service-card .icon-bpo {
   position: relative;
   overflow: visible;
+  transition: none !important;
+}
+
+.services .service-card .icon-bpo i.bi-gear {
+  animation: gearRotate 4s linear infinite;
+  display: inline-block;
+  transform-origin: center;
+  position: relative;
+  filter: drop-shadow(0 0 8px rgba(13, 131, 253, 0.3));
+  transition: none !important;
 }
 
 .services .service-card .icon-bpo i.bi-diagram-3 {
@@ -5925,63 +5975,19 @@ p.subheading {
   transform-origin: center;
   position: relative;
   filter: drop-shadow(0 0 8px rgba(13, 131, 253, 0.3));
+  transition: none !important;
 }
 
 /* Workflow connection network - pulsing dashed border showing connections */
 .services .service-card .icon-bpo::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  border: 2px dashed rgba(13, 131, 253, 0.6);
-  border-radius: 8px;
-  animation: workflowConnections 2.5s ease-in-out infinite;
-  pointer-events: none;
-  z-index: -1;
-  box-shadow: 0 0 10px rgba(13, 131, 253, 0.3);
+  display: none;
 }
 
 /* Data flow rotation - showing automated data processing */
 .services .service-card .icon-bpo::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 80%;
-  height: 80%;
-  transform: translate(-50%, -50%);
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    rgba(13, 131, 253, 0.2) 25%,
-    rgba(13, 131, 253, 0.4) 50%,
-    rgba(13, 131, 253, 0.2) 75%,
-    transparent 100%
-  );
-  border-radius: 50%;
-  animation: dataFlowRotation 3s linear infinite;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0.6;
+  display: none;
 }
 
-.services .service-card:hover .icon-bpo i.bi-diagram-3 {
-  animation: automationWorkflowHover 1.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(13, 131, 253, 0.7));
-}
-
-.services .service-card:hover .icon-bpo::before {
-  border-color: rgba(13, 131, 253, 0.9);
-  box-shadow: 0 0 20px rgba(13, 131, 253, 0.5);
-}
-
-.services .service-card:hover .icon-bpo::after {
-  opacity: 0.9;
-  animation-duration: 2s;
-}
 
 /* Workflow automation - diagram pulses showing active processes */
 @keyframes automationWorkflow {
@@ -6093,37 +6099,22 @@ p.subheading {
   animation: iconFloat 3s ease-in-out infinite;
 }
 
-.services .service-card .icon-ecommerce-title:hover {
-  animation: iconFloatHover 0.6s ease-in-out infinite;
-  transform: scale(1.15);
-}
 
 .services .service-card .icon-ecommerce-title svg {
   filter: drop-shadow(0 2px 8px rgba(13, 131, 253, 0.3));
 }
 
-.services .service-card:hover .icon-ecommerce-title svg {
-  filter: drop-shadow(0 4px 16px rgba(13, 131, 253, 0.5));
-  transform: rotate(5deg);
-}
 
 /* AI icon animations */
 .services .service-card .icon-ai-title {
   animation: iconPulse 2.5s ease-in-out infinite;
 }
 
-.services .service-card .icon-ai-title:hover {
-  animation: iconPulseHover 0.8s ease-in-out infinite;
-  transform: scale(1.2);
-}
 
 .services .service-card .icon-ai-title svg {
   filter: drop-shadow(0 2px 8px rgba(13, 131, 253, 0.3));
 }
 
-.services .service-card:hover .icon-ai-title svg {
-  filter: drop-shadow(0 4px 20px rgba(13, 131, 253, 0.6));
-}
 
 
 /* New keyframe animations for title icons */
@@ -6170,13 +6161,6 @@ p.subheading {
 }
 
 /* Enhanced hover effect for service cards with title icons */
-.services .service-card:hover .icon-title-icon {
-  transform: translateX(4px);
-}
-
-.services .service-card:hover .icon-title-icon svg {
-  color: var(--accent-color);
-}
 
 /* Responsive styles for title icons */
 @media (max-width: 768px) {
@@ -7634,7 +7618,7 @@ html {
 }
 
 .about-section .image-column .image-1 img{
-  width: 100%;
+  width: 80%;
   height: 500px;
   object-fit: cover;
   box-shadow: 0 30px 50px rgba(8,13,62,.15);
@@ -7647,8 +7631,8 @@ html {
 }
 
 .about-section .image-column .image-2 img{
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   box-shadow: 0 30px 50px rgba(8,13,62,.15);
 }
@@ -7916,7 +7900,7 @@ html {
   }
 
   .why-choose-us .section-title {
-    margin-bottom: 3rem;
+    margin-bottom:1rem;
   }
 
   .why-choose-us .section-title h2 {
@@ -7928,7 +7912,7 @@ html {
   }
 
   .why-choose-us .cards-container {
-    padding: 50px 15px 20px 15px;
+    padding: 20px 15px 20px 15px !important;
   }
 
   .why-choose-us .card {
@@ -7957,7 +7941,7 @@ html {
   }
 
   .why-choose-us .cards-container {
-    padding: 45px 15px 20px 15px;
+    padding: 20px 15px 20px 15px !important;
     gap: 20px;
   }
 
@@ -8009,7 +7993,7 @@ html {
   .why-choose-us .cards-container,
   #why-choose-us .cards-container,
   .why-choose-us-cards {
-    padding: 40px 10px 20px 10px;
+    padding: 0 10px 20px 10px;
     gap: 20px;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
