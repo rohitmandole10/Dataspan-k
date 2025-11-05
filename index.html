@@ -303,7 +303,7 @@ Marker
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
       border-radius: 50%;
-      display: flex;
+      display: none !important;
       align-items: center;
       justify-content: center;
       transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -3146,73 +3146,41 @@ Marker
 
 
     <!-- About Company Section -->
-    <section id="about-company" class="about-company section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row align-items-center">
-          <!-- Left Column: Images -->
-          <div class="col-lg-6">
-            <div class="about-images-wrapper position-relative" data-aos="fade-right" data-aos-delay="200">
-              <!-- Circular background shape -->
-              <div class="about-bg-shape"></div>
-
-              <!-- Main warehouse image -->
-              <div class="about-image-main position-relative">
-                <img src="assets/img/about-2.webp" alt="Warehouse & Logistics" class="img-fluid rounded">
-
-                <!-- Secondary industrial facility image -->
-                <div class="about-image-secondary">
-                  <img src="assets/img/about-5.webp" alt="Industrial Facility" class="img-fluid rounded">
-                </div>
+    <section class="about-section">
+      <div class="container">
+        <div class="row">
+          <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
+            <div class="inner-column">
+              <div class="sec-title">
+                <span class="title">About Us</span>
+                <h2>We empower digital transformation with intelligence and innovation</h2>
+              </div>
+              <div class="text">At Dataspan Technologies, we specialize in crafting advanced AI-driven, automated, and
+                intelligent solutions that redefine business excellence. Our expertise spans digital development,
+                process optimization, and analytics — enabling businesses to scale faster, work smarter, and stay secure
+                in a rapidly evolving digital landscape.</div>
+              <ul class="list-style-one">
+                <li>AI-driven operational intelligence</li>
+                <li>Data-centric performance insights</li>
+                <li>Automation transforming industries</li>
+              </ul>
+              <div class="btn-box">
+                <a href="contact.html" class="theme-btn btn-style-one">Contact Us</a>
               </div>
             </div>
           </div>
 
-          <!-- Right Column: Content -->
-          <div class="col-lg-6">
-            <div class="about-content" data-aos="fade-left" data-aos-delay="300">
-              <!-- Subtitle -->
-              <span class="about-subtitle">About Us</span>
-
-              <!-- Main Heading -->
-              <h2 class="about-heading">We empower digital transformation with intelligence and innovation</h2>
-
-              <!-- Separator line -->
-              <div class="about-separator"></div>
-
-              <!-- Paragraph text -->
-              <p class="about-text">
-                At Dataspan Technologies, we specialize in crafting advanced AI-driven, automated, and intelligent
-                solutions that redefine business excellence. Our expertise spans digital development, process
-                optimization, and analytics — enabling businesses to scale faster, work smarter, and stay secure in a
-                rapidly evolving digital landscape.</p>
-
-              <!-- Bulleted list with checkmarks -->
-              <ul class="about-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  <span>AI-driven operational intelligence</span>
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  <span>Data-centric performance insights</span>
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  <span>Automation transforming industries</span>
-                </li>
-                <!-- <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  <span>Custom software development & integration</span>
-                </li> -->
-              </ul>
-
-              <!-- Contact Us Button -->
-              <div class="about-button-wrapper">
-                <a href="contact.html" class="btn btn-about-contact">Contact Us</a>
-              </div>
+          <!-- Image Column -->
+          <div class="image-column col-lg-6 col-md-12 col-sm-12">
+            <div class="inner-column wow fadeInLeft">
+              <figure class="image-1"><a href="#" class="lightbox-image" data-fancybox="images"><img
+                    src="assets/img/Home page/About us section/vertical.jpg" alt=""></a></figure>
+              <figure class="image-2"><a href="#" class="lightbox-image" data-fancybox="images"><img
+                    src="assets/img/Home page/About us section/mini.jpg" alt=""></a></figure>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section><!-- /About Company Section -->
 
@@ -3239,9 +3207,9 @@ Marker
                 </div>
                 <div class="service-content flex-grow-1">
                   <h3>AI & Automation</h3>
-                  <p>We evelop AI-powered systems that automate processes, enhance decision-making, and drive
+                  <p>We develop AI-powered systems that automate processes, enhance decision-making, and drive
                     intelligent business outcomes.</p>
-                  <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -3259,7 +3227,7 @@ Marker
                   <p>We build responsive websites and mobile apps tailored for performance, scalability, and seamless
                     user experiences.
                   </p>
-                  <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -3277,7 +3245,7 @@ Marker
                   <h3>OCR Technology</h3>
                   <p>We develop intelligent OCR solutions that automate document processing, extract data accurately,
                     and reduce manual effort.</p>
-                  <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -3294,7 +3262,7 @@ Marker
                   <h3>Hosting & Cloud Services</h3>
                   <p>We deliver secure, optimized, and scalable managed hosting with cloud migration, monitoring,
                     backups, and dedicated support.</p>
-                  <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -3308,10 +3276,10 @@ Marker
                   <i class="bi bi-cart"></i>
                 </div>
                 <div class="service-content flex-grow-1">
-                  <h3>E-Commerce Solutions</h3>
-                  <p>We design AI-driven eCommerce platforms with automation, smart recommendations, optimized
-                    performance, and 24/7 reliability.</p>
-                  <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  <h3>E-Commerce & POS Solutions</h3>
+                  <p>We build AI-enabled unified retail systems connecting online stores and POS platforms for seamless
+                    sales, inventory, and analytics.</p>
+                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -3323,14 +3291,15 @@ Marker
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-card ">
               <div class="d-flex align-items-start gap-2">
-                <div class="icon flex-shrink-0 icon-pos">
-                  <i class="bi bi-credit-card"></i>
+                <div class="icon flex-shrink-0 icon-design-branding">
+                  <i class="bi bi-palette"></i>
+                  <i class="bi bi-brush brush-on-palette"></i>
                 </div>
                 <div class="service-content flex-grow-1">
-                  <h3>POS Management</h3>
-                  <p>We deliver AI-enabled POS systems ensuring omnichannel sales, real-time analytics, and efficient
-                    inventory management.</p>
-                  <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  <h3>Design & Branding</h3>
+                  <p>We craft impactful creative design solutions that merge creativity with strategy, enhancing
+                    engagement and consistency across all platforms.</p>
+                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -3342,13 +3311,13 @@ Marker
             <div class="service-card ">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-bpo">
-                  <i class="bi bi-diagram-3"></i>
+                  <i class="bi bi-gear"></i>
                 </div>
                 <div class="service-content flex-grow-1">
                   <h3>BPO & Business Automation</h3>
                   <p>We optimize operations with AI-powered automation, improving efficiency, accuracy, and overall
                     business productivity.</p>
-                  <div> <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -3660,58 +3629,58 @@ Marker
           <div class="marquee-wrapper marquee-line-1">
             <div class="marquee-content">
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/1 aws.png" alt="AWS" class="logo-img">
+                <img src="assets/img/Logos/aws.png" alt="AWS" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/2 google cloud.png" alt="Google Cloud" class="logo-img">
+                <img src="assets/img/Logos/google cloud.png" alt="Google Cloud" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/3 Azure.png" alt="Microsoft Azure" class="logo-img">
+                <img src="assets/img/Logos/azure.png" alt="Microsoft Azure" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/4 shopify.png" alt="Shopify" class="logo-img">
+                <img src="assets/img/Logos/shopify.png" alt="Shopify" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/5 Magento.png" alt="Magento (Adobe Commerce)" class="logo-img">
+                <img src="assets/img/Logos/Magento.png" alt="Magento (Adobe Commerce)" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/6 bigcommerce.png" alt="BigCommerce" class="logo-img">
+                <img src="assets/img/Logos/Bigcommerce.png" alt="BigCommerce" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/7 woocommerce.png" alt="WooCommerce" class="logo-img">
+                <img src="assets/img/Logos/woocommerce.png" alt="WooCommerce" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/8 WordPress.png" alt="WordPress" class="logo-img">
+                <img src="assets/img/Logos/wordpress.png" alt="WordPress" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/9 godaddy.png" alt="GoDaddy" class="logo-img">
+                <img src="assets/img/Logos/godaddy.png" alt="GoDaddy" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/1 aws.png" alt="AWS" class="logo-img">
+                <img src="assets/img/Logos/aws.png" alt="AWS" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/2 google cloud.png" alt="Google Cloud" class="logo-img">
+                <img src="assets/img/Logos/google cloud.png" alt="Google Cloud" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/3 Azure.png" alt="Microsoft Azure" class="logo-img">
+                <img src="assets/img/Logos/azure.png" alt="Microsoft Azure" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/4 shopify.png" alt="Shopify" class="logo-img">
+                <img src="assets/img/Logos/shopify.png" alt="Shopify" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/5 Magento.png" alt="Magento (Adobe Commerce)" class="logo-img">
+                <img src="assets/img/Logos/Magento.png" alt="Magento (Adobe Commerce)" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/6 bigcommerce.png" alt="BigCommerce" class="logo-img">
+                <img src="assets/img/Logos/Bigcommerce.png" alt="BigCommerce" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/7 woocommerce.png" alt="WooCommerce" class="logo-img">
+                <img src="assets/img/Logos/woocommerce.png" alt="WooCommerce" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/8 WordPress.png" alt="WordPress" class="logo-img">
+                <img src="assets/img/Logos/wordpress.png" alt="WordPress" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/9 godaddy.png" alt="GoDaddy" class="logo-img">
+                <img src="assets/img/Logos/godaddy.png" alt="GoDaddy" class="logo-img">
               </div>
             </div>
           </div>
@@ -3720,52 +3689,52 @@ Marker
           <div class="marquee-wrapper marquee-line-2">
             <div class="marquee-content">
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/11 Huggingface.png" alt="Huggingface" class="logo-img">
+                <img src="assets/img/Logos/Huggingface.png" alt="Huggingface" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/12 redis.png" alt="redis" class="logo-img">
+                <img src="assets/img/Logos/redis.png" alt="redis" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/13 powerbi.png" alt="powerbi" class="logo-img">
+                <img src="assets/img/Logos/Power BI.png" alt="powerbi" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/14 microsoftdynamics.png" alt="microsoftdynamics" class="logo-img">
+                <img src="assets/img/Logos/microsoft dymaic.png" alt="microsoftdynamics" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/15 langchain.png" alt="langchain2" class="logo-img">
+                <img src="assets/img/Logos/Langchain.png" alt="langchain2" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/16 mysql.png" alt="mysql" class="logo-img">
+                <img src="assets/img/Logos/mysql.png" alt="mysql" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/17 android.png" alt="android" class="logo-img">
+                <img src="assets/img/Logos/Android.png" alt="android" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/18 Elasticsearch.png" alt="Elasticsearch" class="logo-img">
+                <img src="assets/img/Logos/Elasticsearch.png" alt="Elasticsearch" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/11 Huggingface.png" alt="Huggingface" class="logo-img">
+                <img src="assets/img/Logos/Huggingface.png" alt="Huggingface" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/12 redis.png" alt="redis" class="logo-img">
+                <img src="assets/img/Logos/redis.png" alt="redis" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/13 powerbi.png" alt="powerbi" class="logo-img">
+                <img src="assets/img/Logos/Power BI.png" alt="powerbi" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/14 microsoftdynamics.png" alt="microsoftdynamics" class="logo-img">
+                <img src="assets/img/Logos/microsoft dymaic.png" alt="microsoftdynamics" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/15 langchain.png" alt="langchain2" class="logo-img">
+                <img src="assets/img/Logos/Langchain.png" alt="langchain2" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/16 mysql.png" alt="mysql" class="logo-img">
+                <img src="assets/img/Logos/mysql.png" alt="mysql" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/17 android.png" alt="android" class="logo-img">
+                <img src="assets/img/Logos/Android.png" alt="android" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/clients/Logos/18 Elasticsearch.png" alt="Elasticsearch" class="logo-img">
+                <img src="assets/img/Logos/Elasticsearch.png" alt="Elasticsearch" class="logo-img">
               </div>
             </div>
           </div>
@@ -3894,33 +3863,6 @@ Marker
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <script>
-    // Map headings to background images
-    const headingImageMap = {
-      'Innovative Tech Leadership': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-      'Proven Multiplatform Expertise': 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
-      'Performance-Driven Results': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-      'Trusted & secure': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
-      'Tailored Partnership Approach': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80'
-    };
-
-    // Set background images based on headings
-    document.addEventListener('DOMContentLoaded', function () {
-      const cards = document.querySelectorAll('#why-choose-us .card');
-
-      cards.forEach(card => {
-        const heading = card.querySelector('.card-title');
-        if (heading) {
-          const headingText = heading.textContent.trim();
-          const imageUrl = headingImageMap[headingText];
-
-          if (imageUrl) {
-            card.style.backgroundImage = `url('${imageUrl}')`;
-          }
-        }
-      });
-    });
-  </script>
 
 </body>
 
