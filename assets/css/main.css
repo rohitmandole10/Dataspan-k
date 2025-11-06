@@ -2572,22 +2572,60 @@ section#why-choose-us {
   gap: 30px;
   width: 100%;
   max-width: 100%;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: stretch;
-  overflow-x: auto;
+  overflow-x: auto !important;
   overflow-y: hidden;
-  padding: 100px 40px 100px 40px;
+  padding: 20px 0 !important;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: 40px;
-  scroll-padding-right: 40px;
+  scroll-padding-left: 0;
+  scroll-padding-right: 0;
   box-sizing: border-box;
   position: relative;
   margin: 0;
-  padding:5px 0px;
-  min-width: 0;
   /* border: 5px solid red; */
+}
+
+/* Add padding to cards wrapper to center them when they fit */
+.why-choose-us .cards-container::before,
+#why-choose-us .cards-container::before,
+.why-choose-us-cards::before {
+  content: '';
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: calc((100% - (280px * 5 + 30px * 4)) / 2);
+}
+
+.why-choose-us .cards-container::after,
+#why-choose-us .cards-container::after,
+.why-choose-us-cards::after {
+  content: '';
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: calc((100% - (280px * 5 + 30px * 4)) / 2);
+}
+
+/* When cards overflow, remove pseudo-elements for scrolling */
+@media (max-width: 1600px) {
+  .why-choose-us .cards-container::before,
+  #why-choose-us .cards-container::before,
+  .why-choose-us-cards::before,
+  .why-choose-us .cards-container::after,
+  #why-choose-us .cards-container::after,
+  .why-choose-us-cards::after {
+    display: none;
+  }
+  
+  .why-choose-us .cards-container,
+  #why-choose-us .cards-container,
+  .why-choose-us-cards {
+    padding: 20px 40px !important;
+    justify-content: flex-start;
+    scroll-padding-left: 40px;
+    scroll-padding-right: 40px;
+  }
 }
 
 .why-choose-us .cards-container::-webkit-scrollbar,
@@ -7972,10 +8010,11 @@ html {
   .why-choose-us .cards-container,
   #why-choose-us .cards-container,
   .why-choose-us-cards {
-    justify-content: center;
-    overflow-x: auto;
+    justify-content: flex-start;
+    overflow-x: auto !important;
     overflow-y: hidden;
-    margin: 0 auto;
+    padding: 20px 40px !important;
+    margin: 0;
   }
 }
 
@@ -7995,13 +8034,13 @@ html {
   .why-choose-us .cards-container,
   #why-choose-us .cards-container {
     gap: 35px;
-    padding: 100px 80px 100px 80px;
-    justify-content: center;
-    overflow-x: auto;
+    padding: 20px 40px !important;
+    justify-content: flex-start;
+    overflow-x: auto !important;
     overflow-y: hidden;
-    scroll-padding-left: 80px;
-    scroll-padding-right: 80px;
-    margin: 0 auto;
+    scroll-padding-left: 40px;
+    scroll-padding-right: 40px;
+    margin: 0;
   }
 
   .why-choose-us .card,
@@ -8040,13 +8079,13 @@ html {
   .why-choose-us .cards-container,
   #why-choose-us .cards-container {
     gap: 40px;
-    padding: 100px 100px 100px 100px;
-    justify-content: center;
-    overflow-x: auto;
+    padding: 20px 40px !important;
+    justify-content: flex-start;
+    overflow-x: auto !important;
     overflow-y: hidden;
-    scroll-padding-left: 100px;
-    scroll-padding-right: 100px;
-    margin: 0 auto;
+    scroll-padding-left: 40px;
+    scroll-padding-right: 40px;
+    margin: 0;
   }
 
   .why-choose-us .card,
@@ -8112,13 +8151,13 @@ html {
   .why-choose-us .cards-container,
   #why-choose-us .cards-container {
     gap: 28px;
-    padding: 100px 80px 100px 80px;
+    padding: 20px 40px !important;
     justify-content: flex-start;
-    overflow-x: auto;
+    overflow-x: auto !important;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    scroll-padding-left: 80px;
-    scroll-padding-right: 80px;
+    scroll-padding-left: 40px;
+    scroll-padding-right: 40px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     width: 100%;
@@ -9006,8 +9045,37 @@ html {
   width: 100%;
   justify-content: center;
   overflow-x: auto;
-  padding: 20px 20px 20px 20px !important;
+  padding: 20px 0 !important;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Add padding to cards wrapper to center them when they fit */
+.cards-container::before {
+  content: '';
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: calc((100% - (280px * 5 + 30px * 4)) / 2);
+}
+
+.cards-container::after {
+  content: '';
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: calc((100% - (280px * 5 + 30px * 4)) / 2);
+}
+
+/* When cards overflow, remove pseudo-elements for scrolling */
+@media (max-width: 1600px) {
+  .cards-container::before,
+  .cards-container::after {
+    display: none;
+  }
+  
+  .cards-container {
+    padding: 20px 40px !important;
+    justify-content: flex-start;
+  }
 }
 
 .cards-container::-webkit-scrollbar {
@@ -9032,7 +9100,8 @@ html {
   position: relative;
   flex: 0 0 auto;
   width: 280px;
-  min-width: 240px;
+  min-width: 280px;
+  max-width: 280px;
   height: 400px;
   border-radius: 20px;
   overflow: hidden;
@@ -9043,6 +9112,8 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   will-change: transform;
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .card:hover {
