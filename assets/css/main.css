@@ -202,6 +202,10 @@ h6 {
   transition: 0.3s;
 }
 
+.hero-buttons {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
 .hero-buttons .btn-getstarted {
   color: var(--contrast-color);
   background: #036ffd;
@@ -1085,6 +1089,7 @@ section,
 .hero .hero-content {
   position: relative;
   z-index: 1;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .hero .hero-content h1 {
@@ -1094,11 +1099,13 @@ section,
   margin-bottom: 1.2rem;
   letter-spacing: -0.02em;
   font-family: var(--heading-font);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .hero .hero-title {
   color: #05386e;
   font-family: var(--heading-font);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .hero .hero-content p {
@@ -1106,6 +1113,7 @@ section,
   line-height: 1.7;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 2rem;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .hero .hero-content h1 .accent-text {
@@ -1302,13 +1310,14 @@ section,
   position: relative;
   text-align: center;
   z-index: 1;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .hero .hero-image img {
   max-width: 100%;
   height: auto;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
 }
 
 .hero .hero-image:hover img {
@@ -2181,6 +2190,14 @@ p.subheading {
 /*--------------------------------------------------------------
 # Features 2 Section
 --------------------------------------------------------------*/
+.features-2 .feature-item {
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color), transparent 95%), color-mix(in srgb, var(--accent-color), transparent 98%)) !important;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 95%);
+}
+
 .features-2 .feature-item .feature-icon {
   width: 70px;
   height: 70px;
@@ -7542,9 +7559,10 @@ html {
   font-size:40px;
   line-height: 1.28em;
   color: var(--heading-color);
-  font-weight: 600;
+  font-weight: 700;
   padding-bottom:18px;
   font-family: var(--heading-font);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .sec-title h2:before{
@@ -7564,6 +7582,7 @@ html {
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   font-weight: 400;
   margin-top: 35px;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .sec-title.light h2{
@@ -7590,6 +7609,7 @@ html {
   padding-left:35px;
   margin-bottom: 12px;
   list-style: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .list-style-one li:before {
@@ -7673,6 +7693,7 @@ html {
 
 .about-section .btn-box{
   position: relative;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .about-section .btn-box a{
@@ -7714,11 +7735,13 @@ html {
 .about-section .image-column .image-1{
   position: relative;
   margin-bottom: 30px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
 .about-section .image-column .image-1 img{
   width: 80%;
   height: 500px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
   object-fit: cover;
   box-shadow: 0 30px 50px rgba(8,13,62,.15);
 }
@@ -7727,6 +7750,7 @@ html {
   position: absolute;
   left: 0;
   bottom: 30px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
 .about-section .image-column .image-2 img{
@@ -7734,6 +7758,7 @@ html {
   height: 250px;
   object-fit: cover;
   box-shadow: 0 30px 50px rgba(8,13,62,.15);
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
 .about-section .image-column .video-link{
