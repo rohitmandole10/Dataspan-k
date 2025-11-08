@@ -72,6 +72,10 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -1047,6 +1051,18 @@ section,
   margin-right: auto;
 }
 
+/* Global lead/subtext styling to match hero section subtext */
+.lead,
+p.lead,
+.subtext,
+p.subtext {
+  font-size: 1.125rem !important;
+  line-height: 1.7 !important;
+  color: color-mix(in srgb, var(--default-color), transparent 20%) !important;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
 #services .section-title p {
   width: 100%;
   max-width: 100%;
@@ -1143,6 +1159,14 @@ section,
     font-size: 1.05rem;
   }
 
+  /* Responsive lead/subtext styling to match hero section */
+  .lead,
+  p.lead,
+  .subtext,
+  p.subtext {
+    font-size: 1.05rem !important;
+  }
+
   .hero .hero-content .hero-buttons {
     justify-content: center;
   }
@@ -1175,6 +1199,15 @@ section,
 
   .hero .hero-content p {
     font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Responsive lead/subtext styling to match hero section */
+  .lead,
+  p.lead,
+  .subtext,
+  p.subtext {
+    font-size: 1rem !important;
     margin-bottom: 1.5rem;
   }
 
@@ -1454,6 +1487,233 @@ section,
 
   100% {
     transform: translateY(0);
+  }
+}
+
+/* Smooth Hero Section Animations */
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Smooth About Section Animations */
+@keyframes aboutFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aboutFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutImageFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Apply animations to Hero Section */
+.hero .hero-content {
+  animation: heroFadeInUp 1s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero .hero-title {
+  animation: heroFadeInUp 1s ease-out 0.2s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero .hero-content p {
+  animation: heroFadeInUp 1s ease-out 0.4s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero .hero-buttons {
+  animation: heroFadeInUp 1s ease-out 0.6s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero .hero-image {
+  animation: heroFadeInRight 1.2s ease-out 0.3s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero .hero-image img {
+  animation: heroScaleIn 1.2s ease-out 0.5s both;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s ease;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero .hero-image:hover img {
+  transform: translateY(-8px) scale(1.02);
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.2));
+}
+
+/* Apply animations to About Section */
+.about-section .content-column {
+  animation: aboutFadeInLeft 1.2s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.about-section .sec-title {
+  animation: aboutFadeInUp 1s ease-out 0.2s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.about-section .text {
+  animation: aboutFadeInUp 1s ease-out 0.4s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.about-section .list-style-one {
+  animation: aboutFadeInUp 1s ease-out 0.6s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.about-section .list-style-one li {
+  animation: aboutFadeInLeft 0.8s ease-out both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.about-section .list-style-one li:nth-child(1) {
+  animation-delay: 0.8s;
+}
+
+.about-section .list-style-one li:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.about-section .list-style-one li:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+.about-section .btn-box {
+  animation: aboutFadeInUp 1s ease-out 1.4s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.about-section .image-column {
+  animation: aboutFadeInRight 1.2s ease-out 0.3s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.about-section .image-column .image-1 {
+  animation: aboutFadeInRight 1.2s ease-out 0.5s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.about-section .image-column .image-2 {
+  animation: aboutFadeInRight 1.2s ease-out 0.7s both;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Smooth transitions for all elements */
+.hero *,
+.about-section * {
+  will-change: transform, opacity;
+}
+
+/* Ensure animations work with reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-content,
+  .hero .hero-title,
+  .hero .hero-content p,
+  .hero .hero-buttons,
+  .hero .hero-image,
+  .hero .hero-image img,
+  .about-section .content-column,
+  .about-section .sec-title,
+  .about-section .text,
+  .about-section .list-style-one,
+  .about-section .list-style-one li,
+  .about-section .btn-box,
+  .about-section .image-column,
+  .about-section .image-column .image-1,
+  .about-section .image-column .image-2 {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -1864,7 +2124,8 @@ section,
 ---------------------------------------------------------------- */
 .workflow-section {
   position: relative;
-  padding: 80px 0;
+  padding-top: 40px !important;
+  padding-bottom: 60px !important;
   background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color), transparent 95%), color-mix(in srgb, var(--accent-color), transparent 98%));
 }
 
@@ -2190,6 +2451,12 @@ p.subheading {
 /*--------------------------------------------------------------
 # Features 2 Section
 --------------------------------------------------------------*/
+#features-2,
+.features-2.section {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
 .features-2 .feature-item {
   background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color), transparent 95%), color-mix(in srgb, var(--accent-color), transparent 98%)) !important;
   border-radius: 12px;
@@ -2497,6 +2764,12 @@ p.subheading {
 /*--------------------------------------------------------------
 # Why Choose Us Section
 --------------------------------------------------------------*/
+#why-choose-us,
+.why-choose-us.section {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
 .why-choose-us .why-item {
   padding: 2rem;
   background: var(--surface-color);
@@ -2845,9 +3118,16 @@ section#why-choose-us {
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
+#clients,
+.clients,
 .clients.section {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+.clients {
   position: relative;
-  padding: 80px 0;
+  border:px solid red;
 }
 
 .clients.section.light-background {
@@ -2898,7 +3178,7 @@ section#why-choose-us {
 --------------------------------------------------------------*/
 @media (max-width: 992px) {
   .clients.section {
-    padding: 60px 0;
+    padding: 45px 0;
   }
 
   .clients .section-title {
@@ -2908,7 +3188,7 @@ section#why-choose-us {
 
 @media (max-width: 768px) {
   .clients.section {
-    padding: 50px 0;
+    padding: 35px 0;
   }
 
   .clients .section-title h2 {
@@ -2947,7 +3227,7 @@ section#why-choose-us {
 
 @media (max-width: 576px) {
   .clients.section {
-    padding: 40px 0;
+    padding: 30px 0;
   }
 
   .clients .section-title h2 {
@@ -3183,10 +3463,10 @@ section#why-choose-us {
 }
 
 .about-hero .lead {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   font-weight: 400;
 }
 
@@ -3788,9 +4068,14 @@ section#why-choose-us {
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
+#services,
+.services.section {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
 .services.section {
   position: relative;
-  padding: 80px 0;
   background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color), transparent 95%), color-mix(in srgb, var(--accent-color), transparent 98%)) !important;
 }
 
@@ -7659,7 +7944,8 @@ html {
 
 .about-section{
   position: relative;
-  /* padding: 120px 0 70px; */
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
   background-color: var(--background-color);
   color: var(--default-color);
 }
