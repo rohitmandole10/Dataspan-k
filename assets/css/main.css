@@ -1002,7 +1002,7 @@ section,
   }
 
   .section-title p {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 }
 
@@ -1012,7 +1012,7 @@ section,
   }
 
   .section-title p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     padding: 0 15px;
   }
 }
@@ -1023,7 +1023,7 @@ section,
   }
 
   .section-title p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     padding: 0 10px;
   }
 }
@@ -1042,13 +1042,14 @@ section,
 }
 
 .section-title p {
-  margin-bottom: 0;
-  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
   line-height: 1.7;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  font-family: var(--default-font);
 }
 
 /* Global lead/subtext styling to match hero section subtext */
@@ -2261,6 +2262,9 @@ p.subheading {
 
   .workflow-section .section-title p {
     font-size: 1rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     padding: 0 20px;
   }
 
@@ -2331,7 +2335,10 @@ p.subheading {
   }
 
   .workflow-section .section-title p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     padding: 0 15px;
   }
 
@@ -2595,6 +2602,9 @@ p.subheading {
 
   .features-2 .section-title p {
     font-size: 0.95rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     padding: 0;
   }
 
@@ -2696,7 +2706,10 @@ p.subheading {
   }
 
   .features-2 .section-title p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     padding: 0;
   }
 
@@ -2766,8 +2779,9 @@ p.subheading {
 --------------------------------------------------------------*/
 #why-choose-us,
 .why-choose-us.section {
-  padding-top: 40px !important;
+  padding-top:55px !important;
   padding-bottom: 40px !important;
+  /* border: 5px solid red; */
 }
 
 .why-choose-us .why-item {
@@ -3198,6 +3212,9 @@ section#why-choose-us {
 
   .clients .section-title p {
     font-size: 0.95rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     padding: 0 20px;
   }
 
@@ -3235,7 +3252,10 @@ section#why-choose-us {
   }
 
   .clients .section-title p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     padding: 0 15px;
   }
 
@@ -8451,8 +8471,10 @@ html {
 
   .why-choose-us .section-title p,
   #why-choose-us .section-title p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     text-align: center;
     max-width: 950px;
     margin: 0 auto;
@@ -8551,7 +8573,9 @@ html {
   .why-choose-us .section-title p,
   #why-choose-us .section-title p {
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     max-width: 900px;
     margin: 0 auto;
   }
@@ -8665,8 +8689,10 @@ html {
   .why-choose-us .section-title p,
   #why-choose-us .section-title p {
     font-size: 1rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     padding: 0 10px;
-    line-height: 1.6;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
@@ -8988,8 +9014,10 @@ html {
 
   .why-choose-us .section-title p,
   #why-choose-us .section-title p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     padding: 0;
     word-wrap: break-word;
     text-align: center;
@@ -9187,8 +9215,10 @@ html {
   }
 
   .why-choose-us .section-title p {
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-family: var(--default-font);
     text-align: center;
   }
 
