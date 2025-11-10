@@ -15,9 +15,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=optional"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -192,9 +190,11 @@
         }
 
         .second .section-subtitle {
-            font-size: 1.2rem;
-            color: #64748b;
-            line-height: 1.6;
+            font-size: 1.125rem;
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-family: var(--default-font);
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
@@ -290,203 +290,40 @@
             }
         }
 
-
-        /* Enhanced third section */
-        .third {
-            position: relative;
-            width: 100%;
-            padding: 120px 0;
-            overflow: visible;
-            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-        }
-
-        .third::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 80%, rgba(3, 5, 97, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(9, 190, 245, 0.05) 0%, transparent 50%);
-        }
-
-        .third .wrap {
-            width: 90%;
-            max-width: 1320px;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 60px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .third .left {
-            width: 45%;
-        }
-
-        .third .left h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .third .left p {
-            margin: 20px 0 40px;
-            font-size: 1.2rem;
-            color: #64748b;
-            line-height: 1.7;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .third .cta {
-            padding: 18px 40px;
-            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(3, 5, 97, 0.3);
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .third .cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(3, 5, 97, 0.4);
-        }
-
-        .third .cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .third .cta:hover::before {
-            left: 100%;
-        }
-
-        .third .cards-wrap {
-            width: 55%;
-            position: relative;
-            height: 500px;
-        }
-
-        .third .cards-inner {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            align-items: flex-start;
-        }
-
-        .third .card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border-radius: 24px;
-            padding: 35px 40px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            width: 540px;
-            min-height: 180px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .third .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #030561, #09bef5);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .third .card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .third .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .third .card h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-        }
-
-        .third .card p {
-            font-size: 1rem;
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-
-
-
-        /* ✅ Responsive */
-        @media (max-width: 1024px) {
-            .third .wrap {
-                flex-direction: column;
-                gap: 60px;
-            }
-
-            .third .left,
-            .cards-wrap {
-                width: 100%;
-            }
-
-            .cards-wrap {
-                height: 580px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .third .left h1 {
-                font-size: 38px;
-            }
-
-            .third .cards-wrap {
-                height: 780px;
-            }
-        }
-
-        /* Enhanced 4th section */
+        /* Enhanced 4th section - Beautiful Modern Design */
         .section4 {
             margin: 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #f8fafc 100%);
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            padding: 80px 0;
             position: relative;
+            /* border: 5px solid red; */
+        }
+
+        .section4 .section-title-container {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section4 .section-title-container h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .section4 .section-title-container h2 .title-part1 {
+            color: #1e293b;
+        }
+
+        .section4 .section-title-container h2 .title-part2 {
+            color: #09bef5;
+            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .section4::before {
@@ -496,112 +333,190 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 70%, rgba(3, 5, 97, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(9, 190, 245, 0.03) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(3, 5, 97, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(9, 190, 245, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(3, 5, 97, 0.03) 0%, transparent 70%);
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
         .section4 .wrapper {
             display: flex;
-            height: 70vh;
-            width: 80%;
-            overflow: hidden;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.8));
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            /* max-width: 1400px; */
+            margin: 0 auto;
+            /* background: linear-gradient(135deg, #e8f0f5 0%, #d1e0e8 50%, #c4d4dd 100%); */
+            background-color: none;
+            border-radius: 24px;
+            /* box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.12),
+                0 0 0 1px rgba(255, 255, 255, 0.5); */
             position: relative;
             z-index: 1;
+            height: 55vh;
+            max-height: 55vh;
+            overflow: hidden;
+            padding: 0px 300px;
+            /* border: 5px solid red; */
         }
 
-        /* LEFT SIDE – Enhanced Scrollable */
-        .section4 .scroll-container {
+
+        /* Scrollable Features Container */
+        .section4 .features-container {
             height: 100%;
             width: 55%;
-            overflow-y: scroll;
-            padding: 0 10%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 60px 8% 60px 8%;
             scroll-snap-type: y mandatory;
+            position: relative;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            -webkit-overflow-scrolling: touch;
+            background: linear-gradient(135deg, #e8f0f5 0%, #d1e0e8 50%, #c4d4dd 100%);
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.12),
+                0 0 0 1px rgba(255, 255, 255, 0.5);
         }
 
-        .section4 .scroll-container::-webkit-scrollbar {
-            width: 8px;
+        .section4 .features-container::-webkit-scrollbar {
+            display: none;
         }
 
-        .section4 .scroll-container::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.05);
-            border-radius: 4px;
-        }
-
-        .section4 .scroll-container::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #030561, #09bef5);
-            border-radius: 4px;
-            transition: background 0.3s ease;
-        }
-
-        .section4 .scroll-container::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #02043a, #0788c7);
-        }
-
-        .section4 .panel {
-            height: 40vh;
+        .section4 .feature-item {
+            min-height: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
-            scroll-snap-align: start;
-            opacity: 0.2;
-            transform: translateX(50px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: none;
+            justify-content: space-between;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            opacity: 0.3;
+            transform: translateX(60px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            padding: 40px 0;
+            will-change: transform, opacity;
+            pointer-events: none;
         }
 
-        .section4 .panel.active {
+        .section4 .feature-item.active {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateX(0) scale(1) translateY(0);
+            pointer-events: auto;
+            z-index: 10;
+        }
+        
+        .section4 .feature-item:not(.active) {
+            opacity: 0.25;
         }
 
-        .section4 .text-block {
-            max-width: 520px;
+        .section4 .feature-content {
+            flex: 1;
+            max-width: 70%;
+            position: relative;
         }
 
-        .section4 h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .section4 .feature-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            transition: all 0.4s ease;
         }
 
-        .section4 p {
-            font-size: 1.1rem;
-            color: #64748b;
+        .section4 .feature-content p {
+            font-size: 1rem;
+            color: #475569;
             line-height: 1.7;
+            font-weight: 400;
+            margin: 0;
+            transition: all 0.4s ease;
         }
 
-        /* RIGHT SIDE – Enhanced Fixed Number */
+        .section4 .feature-item.active .feature-content h3 {
+            color: #1e293b;
+        }
+
+        .section4 .feature-item:not(.active) .feature-content h3 {
+            color: #94a3b8;
+        }
+
+        .section4 .feature-item:not(.active) .feature-content p {
+            color: #94a3b8;
+        }
+
+        /* Fixed Number Display */
         .section4 .number-box {
             width: 45%;
             height: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.8));
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                rgba(248, 250, 252, 0.3) 50%,
+                rgba(255, 255, 255, 0.2) 100%);
             position: relative;
+            overflow: hidden;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.12),
+                0 0 0 1px rgba(255, 255, 255, 0.5);
         }
 
         .section4 .number {
-            font-size: 12rem;
+            font-size: 10rem;
             font-weight: 900;
             line-height: 1;
-            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
+            background: linear-gradient(135deg, #030561 0%, #09bef5 50%, #227faa 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
-            transform-origin: center;
+            transform-origin: center center;
+            transform-style: preserve-3d;
             display: inline-block;
-            will-change: transform;
-            text-shadow: 0 0 30px rgba(3, 5, 97, 0.3);
+            will-change: transform, filter, opacity;
+            position: relative;
+            z-index: 1;
+            animation: gradientFlow 5s ease infinite;
+            filter: drop-shadow(0 0 40px rgba(9, 190, 245, 0.3));
+            transition: none;
+            perspective: 1000px;
+            backface-visibility: hidden;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .section4 .number-box::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 220px;
+            height: 220px;
+            border: 2px solid rgba(9, 190, 245, 0.2);
+            border-radius: 50%;
+            animation: rotateRing 20s linear infinite;
+        }
+
+        @keyframes rotateRing {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         /* Enhanced 5th section */
@@ -747,41 +662,48 @@
                 font-size: 3rem;
             }
 
-            .third .left h1 {
-                font-size: 3.5rem;
+            .section4 .section-title-container h2 {
+                font-size: 3rem;
             }
 
-            .section4 h2 {
-                font-size: 2.2rem;
+            .section4 .wrapper {
+                width: 95%;
+            }
+
+            .section4 .number {
+                font-size: 7rem;
             }
         }
 
         @media(max-width: 900px) {
-            .section4 .wrapper {
-                flex-direction: column;
-                height: 80vh;
+            .section4 {
+                padding: 60px 0;
             }
 
-            .section4 .scroll-container,
-            .number-box {
-                width: 100%;
+            .section4 .section-title-container h2 {
+                font-size: 2.5rem;
+            }
+
+            .section4 .wrapper {
+                width: 95%;
                 height: 50vh;
+                max-height: 50vh;
+            }
+
+            .section4 .features-container {
+                padding: 40px 6%;
+            }
+
+            .section4 .feature-content h3 {
+                font-size: 1.3rem;
             }
 
             .section4 .number {
-                font-size: 6rem;
-            }
-
-            .section4 .panel {
-                height: 50vh;
+                font-size: 8rem;
             }
 
             .hero-title {
                 font-size: 2.5rem;
-            }
-
-            .third .left h1 {
-                font-size: 3rem;
             }
 
             .section5 h1 {
@@ -798,17 +720,54 @@
                 font-size: 2.5rem;
             }
 
-            .third .left h1 {
-                font-size: 2.5rem;
+            .section4 {
+                padding: 50px 0;
             }
 
-            .third .card {
+            .section4 .section-title-container {
+                margin-bottom: 40px;
+            }
+
+            .section4 .section-title-container h2 {
+                font-size: 2.2rem;
+            }
+
+            .section4 .wrapper {
+                width: 95%;
+                height: 50vh;
+                max-height: 50vh;
+                flex-direction: column;
+            }
+
+            .section4 .features-container {
                 width: 100%;
-                padding: 25px 30px;
+                height: 60%;
+                max-height: 60%;
+                padding: 30px 6%;
             }
 
-            .section4 h2 {
-                font-size: 2rem;
+            .section4 .number-box {
+                width: 100%;
+                height: 40%;
+                max-height: 40%;
+                padding: 15px 0;
+            }
+
+            .section4 .feature-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .section4 .feature-content p {
+                font-size: 0.95rem;
+            }
+
+            .section4 .number {
+                font-size: 6rem;
+            }
+
+            .section4 .number-box::after {
+                width: 200px;
+                height: 200px;
             }
 
             .section5 h1 {
@@ -834,20 +793,49 @@
                 font-size: 2rem;
             }
 
-            .third .left h1 {
-                font-size: 2rem;
+            .section4 {
+                padding: 40px 0;
             }
 
-            .third .card {
-                padding: 20px 25px;
+            .section4 .section-title-container {
+                margin-bottom: 30px;
             }
 
-            .section4 h2 {
+            .section4 .section-title-container h2 {
                 font-size: 1.8rem;
             }
 
-            .section4 p {
-                font-size: 1rem;
+            .section4 .wrapper {
+                width: 98%;
+                height: 50vh;
+                max-height: 50vh;
+            }
+
+            .section4 .features-container {
+                padding: 25px 5%;
+            }
+
+            .section4 .feature-item {
+                padding: 25px 0;
+            }
+
+            .section4 .feature-content h3 {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+
+            .section4 .feature-content p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            .section4 .number {
+                font-size: 5rem;
+            }
+
+            .section4 .number-box::after {
+                width: 150px;
+                height: 150px;
             }
 
             .section5 h1 {
@@ -1350,164 +1338,56 @@
             </div>
         </section>
 
-        <!-- third section -->
-        <!-- ===== REPLACE your entire <section class="third"> with this block ===== -->
-        <section class="third" id="ai-services">
-            <div class="wrap">
-
-                <!-- ✅ Left Content -->
-                <div class="left">
-                    <h1>Our AI Services</h1>
-                    <p>
-                        KriraAI delivers scalable AI solutions across industries — from predictive analytics
-                        and deep learning to chat automation and intelligent decision systems.
-                    </p>
-                    <button class="cta">Explore Work</button>
-                </div>
-
-                <!-- ✅ Animated Stack Cards -->
-                <div class="cards-wrap">
-                    <div class="cards-inner">
-                        <div class="card">
-                            <h3>Machine Learning</h3>
-                            <p>KriraAI builds bespoke ML models that have the potential to expose latent patterns and
-                                enhance predictions. The aim is to streamline workflows, maximize performance, and
-                                assist in strategy formulation, without guessing.</p>
-                        </div>
-                        <div class="card">
-                            <h3>Deep Learning</h3>
-                            <p>Our deep learning specializations attempt to solve complex problems while exhibiting
-                                advanced human-like reasoning. Hence, these high-end models prove to be a boon,
-                                providing accuracy and agility to sift through heaps of dynamic data.</p>
-                        </div>
-                        <div class="card">
-                            <h3>Natural Language Processing (NLP)</h3>
-                            <p>KriraAI applies the NLP skill set to genuinely understand and generate human language. We
-                                improve search, analysis, and communication, making them more relevant and efficient for
-                                your business.</p>
-                        </div>
-                        <div class="card">
-                            <h3>Computer Vision</h3>
-                            <p>We develop intelligent vision systems that accurately interpret visual data. These
-                                solutions enable real-time analysis and recognition, supporting applications in
-                                healthcare, security, and beyond.</p>
-                        </div>
-                        <div class="card">
-                            <h3>Chatbot Development</h3>
-                            <p>KriraAI develops chatbots that remain dynamic and engage users effectively. Solutions we
-                                offer automate interactions and maintain impeccable support, which ultimately enhance
-                                user experience and reduce operational hindrances.</p>
-                        </div>
-                        <div class="card">
-                            <h3>Data Science</h3>
-                            <p>Our data science services focus on generating meaningful, data-driven outcomes based on
-                                statistical advancements. We turn complex information into clear, and concise strategies
-                                that go with your organizational goals and challenges.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- ✅ GSAP Scripts -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-                <script>
-                    gsap.registerPlugin(ScrollTrigger);
-
-                    const cards = gsap.utils.toArray(".card");
-                    const section = document.querySelector('.third');
-
-                    const tl = gsap.timeline({
-                        scrollTrigger: {
-                            trigger: section,
-                            start: "top top",
-                            end: "+=2500",
-                            pin: true,
-                            scrub: 1,
-                            snap: 1 / (cards.length - 1)
-                        }
-                    });
-
-                    // stacking animation with fixed offset for consistency
-                    cards.forEach((card, i) => {
-                        const body = card.querySelector('p');
-                        const title = card.querySelector('h3');
-
-                        tl.to(card, {
-                            y: -(i * 140), // fixed offset for consistent movement
-                            duration: 1,
-                            ease: "elastic.out(0.5, 0.4)"
-                        }, i)
-
-                            // keep title and body visible
-                            .to(title, {
-                                opacity: 1,
-                                duration: 0.3,
-                            }, i);
-                    });
-
-                    // final overlapping compression
-                    // tl.to(cards, {
-                    //     y: -((cards.length - 1) * 140),
-                    //     stagger: 0.06,
-                    //     duration: 1.2,
-                    //     ease: "elastic.out(0.4, 0.35)"
-                    // }, cards.length);
-                </script>
-
-            </div>
-        </section>
-
         <!-- 4th section  -->
         <section class="section4">
+            <div class="section-title-container">
+                <h2><span class="title-part1">Why Choose </span><span class="title-part2">KriraAI</span></h2>
+            </div>
             <div class="wrapper">
-                <div class="scroll-container">
-                    <section class="panel">
-                        <div class="text-block">
-                            <h2>Expertise</h2>
-                            <p>Our team comprises experienced AI professionals with expertise in machine learning, deep
-                                learning, computer vision, and natural language processing.</p>
+                <div class="features-container">
+                    <div class="feature-item active">
+                        <div class="feature-content">
+                            <h3>Expertise</h3>
+                            <p>Our team comprises experienced AI professionals with expertise in machine learning, deep learning, computer vision, and natural language processing.</p>
                         </div>
-                    </section>
-                    <section class="panel">
-                        <div class="text-block">
-                            <h2>Customized Solutions</h2>
-                            <p>We design AI solutions to meet your organization's specific needs and objectives,
-                                automating processes & enhancing user experience.</p>
                         </div>
-                    </section>
-                    <section class="panel">
-                        <div class="text-block">
-                            <h2>Scalability</h2>
-                            <p>Our AI solutions grow with your business—whether early-stage startup or enterprise
-                                deployment.</p>
+                    <div class="feature-item">
+                        <div class="feature-content">
+                            <h3>Customized Solutions</h3>
+                            <p>We design AI solutions to meet your organization's specific needs and objectives, automating processes & enhancing user experience.</p>
                         </div>
-                    </section>
-                    <section class="panel">
-                        <div class="text-block">
-                            <h2>Innovation Focus</h2>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-content">
+                            <h3>Scalability</h3>
+                            <p>Our AI solutions grow with your business—whether early-stage startup or enterprise deployment.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-content">
+                            <h3>Innovation Focus</h3>
                             <p>We push boundaries—new algorithms, frameworks & R&D to deliver cutting-edge AI.</p>
                         </div>
-                    </section>
-                    <section class="panel">
-                        <div class="text-block">
-                            <h2>Ethical AI</h2>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-content">
+                            <h3>Ethical AI</h3>
                             <p>Transparency, fairness & accountability are built into every AI solution we create.</p>
                         </div>
-                    </section>
-                    <section class="panel">
-                        <div class="text-block">
-                            <h2>Collaborative Partnership</h2>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-content">
+                            <h3>Collaborative Partnership</h3>
                             <p>We align with your goals—working closely with your team at every milestone.</p>
                         </div>
-                    </section>
-                    <section class="panel">
-                        <div class="text-block">
-                            <h2>Results-Driven Approach</h2>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-content">
+                            <h3>Results-Driven Approach</h3>
                             <p>We deliver measurable outcomes—efficiency, cost reduction & high user satisfaction.</p>
                         </div>
-                    </section>
                 </div>
-
+                </div>
                 <div class="number-box">
                     <div class="number">01</div>
                 </div>
@@ -1520,37 +1400,299 @@
             <script>
                 gsap.registerPlugin(ScrollTrigger);
 
-                const panels = gsap.utils.toArray(".panel");
-                const numberEl = document.querySelector(".number");
+                const featureItems = gsap.utils.toArray(".section4 .feature-item");
+                const numberEl = document.querySelector(".section4 .number");
+                const scrollContainer = document.querySelector(".section4 .features-container");
+                const numberBox = document.querySelector(".section4 .number-box");
+                const wrapper = document.querySelector(".section4 .wrapper");
 
-                panels.forEach((panel, index) => {
+                // Track active feature item and scrolling state
+                let activeFeatureIndex = -1;
+                let isScrolling = false;
+                let scrollTimeout = null;
+
+                // Function to smoothly center a feature item
+                function centerFeatureItem(item, index) {
+                    if (!item || isScrolling) return;
+                    
+                    isScrolling = true;
+                    const itemOffsetTop = item.offsetTop;
+                    const containerHeight = scrollContainer.clientHeight;
+                    const itemHeight = item.offsetHeight;
+                    
+                    const targetScroll = Math.max(0, itemOffsetTop - (containerHeight / 2) + (itemHeight / 2));
+                    
+                    // Deactivate current feature
+                    if (activeFeatureIndex >= 0 && featureItems[activeFeatureIndex]) {
+                        featureItems[activeFeatureIndex].classList.remove('active');
+                        deactivateFeature(featureItems[activeFeatureIndex]);
+                    }
+                    
+                    // Activate new feature
+                    activeFeatureIndex = index;
+                    item.classList.add('active');
+                    
+                    // Change number and activate feature simultaneously
+                    changeNumber(index);
+                    activateFeature(item);
+                    
+                    // Smooth scroll animation synchronized with number change
+                    gsap.to(scrollContainer, {
+                        scrollTop: targetScroll,
+                        duration: 0.8,
+                        ease: "power3.out",
+                        onComplete: () => {
+                            // Allow next scroll after animation completes
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        isScrolling = false;
+                            }, 100);
+                        }
+                    });
+                }
+
+                // Function to handle scroll events (shared by both containers)
+                function handleScroll(e) {
+                    // Prevent multiple scrolls during animation
+                    if (isScrolling) {
+                        e.preventDefault();
+                        return;
+                    }
+                    
+                    const deltaY = e.deltaY;
+                    const currentIndex = activeFeatureIndex >= 0 ? activeFeatureIndex : 0;
+                    const isAtTop = currentIndex === 0;
+                    const isAtBottom = currentIndex === featureItems.length - 1;
+                    
+                    // Check if we can scroll within features
+                    const canScrollDown = deltaY > 0 && !isAtBottom;
+                    const canScrollUp = deltaY < 0 && !isAtTop;
+                    
+                    if (canScrollDown) {
+                        // Scroll down - move to next feature
+                        e.preventDefault();
+                        const nextItem = featureItems[currentIndex + 1];
+                        const nextIndex = currentIndex + 1;
+                        centerFeatureItem(nextItem, nextIndex);
+                    } else if (canScrollUp) {
+                        // Scroll up - move to previous feature
+                        e.preventDefault();
+                        const prevItem = featureItems[currentIndex - 1];
+                        const prevIndex = currentIndex - 1;
+                        centerFeatureItem(prevItem, prevIndex);
+                    } else {
+                        // At boundaries - allow normal page scroll
+                        // Don't prevent default, let the page scroll naturally
+                        return;
+                    }
+                }
+
+                // Handle wheel events on scroll container
+                scrollContainer.addEventListener('wheel', handleScroll, { passive: false });
+
+                // Handle wheel events on number box
+                if (numberBox) {
+                    numberBox.addEventListener('wheel', handleScroll, { passive: false });
+                }
+
+                // Handle wheel events on wrapper (entire section)
+                if (wrapper) {
+                    wrapper.addEventListener('wheel', handleScroll, { passive: false });
+                }
+
+                // Enhanced feature animations with auto-centering (for manual scrolling)
+                featureItems.forEach((item, index) => {
                     ScrollTrigger.create({
-                        trigger: panel,
-                        scroller: ".scroll-container",
-                        start: "top center",
-                        end: "bottom center",
-                        scrub: true,
-                        onEnter: () => changeNumber(index),
-                        onEnterBack: () => changeNumber(index),
-                        onToggle: (self) => {
-                            self.isActive ? panel.classList.add("active") : panel.classList.remove("active");
+                        trigger: item,
+                        scroller: ".section4 .features-container",
+                        start: "top 50%",
+                        end: "bottom 50%",
+                        scrub: false,
+                        onEnter: () => {
+                            // Only update if not already scrolling via wheel
+                            if (!isScrolling && activeFeatureIndex !== index) {
+                                // Deactivate all other features first
+                                featureItems.forEach((f, i) => {
+                                    if (i !== index && f.classList.contains('active')) {
+                                        f.classList.remove('active');
+                                        deactivateFeature(f);
+                                    }
+                                });
+                                
+                                activeFeatureIndex = index;
+                                item.classList.add("active");
+                                changeNumber(index);
+                                activateFeature(item);
+                            }
+                        },
+                        onEnterBack: () => {
+                            // Only update if not already scrolling via wheel
+                            if (!isScrolling && activeFeatureIndex !== index) {
+                                // Deactivate all other features first
+                                featureItems.forEach((f, i) => {
+                                    if (i !== index && f.classList.contains('active')) {
+                                        f.classList.remove('active');
+                                        deactivateFeature(f);
+                                    }
+                                });
+                                
+                                activeFeatureIndex = index;
+                                item.classList.add("active");
+                                changeNumber(index);
+                                activateFeature(item);
+                            }
+                        },
+                        onLeave: () => {
+                            if (activeFeatureIndex === index && !isScrolling) {
+                                item.classList.remove("active");
+                                deactivateFeature(item);
+                            }
+                        },
+                        onLeaveBack: () => {
+                            if (activeFeatureIndex === index && !isScrolling) {
+                                item.classList.remove("active");
+                                deactivateFeature(item);
+                            }
                         }
                     });
                 });
 
+                function activateFeature(item) {
+                    // Smooth animation for feature item
+                    gsap.to(item, {
+                        opacity: 1,
+                        x: 0,
+                        scale: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: "power3.out"
+                    });
+
+                    const h3 = item.querySelector('h3');
+                    const p = item.querySelector('p');
+
+                    // Smooth animation for heading
+                    if (h3) {
+                        gsap.fromTo(h3, 
+                            { opacity: 0, y: 20, scale: 0.95 },
+                            {
+                            opacity: 1,
+                            y: 0,
+                            scale: 1,
+                            duration: 0.7,
+                            delay: 0.2,
+                            ease: "back.out(1.2)"
+                            }
+                        );
+                    }
+
+                    // Smooth animation for paragraph
+                    if (p) {
+                        gsap.fromTo(p,
+                            { opacity: 0, y: 15 },
+                            {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.7,
+                            delay: 0.3,
+                            ease: "power3.out"
+                            }
+                        );
+                    }
+                }
+
+                function deactivateFeature(item) {
+                    // Smooth deactivation animation
+                    gsap.to(item, {
+                        opacity: 0.25,
+                        x: 60,
+                        scale: 0.95,
+                        duration: 0.6,
+                            ease: "power2.in"
+                        });
+                }
+
                 function changeNumber(index) {
                     const newNum = String(index + 1).padStart(2, "0");
+                    const currentNum = numberEl.textContent.trim();
 
-                    gsap.fromTo(numberEl,
-                        { rotateX: 0 },
-                        {
-                            rotateX: 360,
-                            scale: 1.1,
-                            duration: 1.0,
-                            ease: "elastic.out(1, 0.4)",
-                            onStart: () => { numberEl.textContent = newNum; }
+                    if (currentNum === newNum) return;
+
+                    const currentIndex = parseInt(currentNum) || 1;
+                    const targetIndex = index + 1;
+                    const direction = targetIndex > currentIndex ? 1 : -1;
+
+                    // Create a smooth scroll-like animation for the number
+                    const timeline = gsap.timeline();
+
+                    // Step 1: Rotate out the current number
+                    timeline.to(numberEl, {
+                        rotateX: 90 * direction,
+                        scale: 0.8,
+                        y: -30 * direction,
+                        opacity: 0,
+                        duration: 0.3,
+                        ease: "power2.in",
+                        filter: "drop-shadow(0 0 20px rgba(9, 190, 245, 0.5))",
+                        onComplete: () => {
+                            // Update the number text
+                            numberEl.textContent = newNum;
                         }
-                    );
+                    })
+                    // Step 2: Rotate in the new number from opposite direction
+                    .fromTo(numberEl, {
+                        rotateX: -90 * direction,
+                        scale: 0.8,
+                        y: 30 * direction,
+                        opacity: 0
+                    }, {
+                        rotateX: 0,
+                        scale: 1.15,
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.4,
+                        ease: "back.out(1.7)",
+                        filter: "drop-shadow(0 0 50px rgba(9, 190, 245, 0.6))"
+                    })
+                    // Step 3: Settle to final position
+                    .to(numberEl, {
+                        scale: 1,
+                        duration: 0.3,
+                        ease: "power2.out",
+                        filter: "drop-shadow(0 0 40px rgba(9, 190, 245, 0.3))"
+                    });
+
+                    // Add a subtle glow pulse after animation
+                    timeline.to(numberEl, {
+                        filter: "drop-shadow(0 0 60px rgba(9, 190, 245, 0.8))",
+                        duration: 0.2,
+                        yoyo: true,
+                        repeat: 1,
+                        ease: "power2.inOut"
+                    }, "-=0.1");
+                }
+
+                // Center first feature on initial load
+                if (featureItems.length > 0) {
+                    setTimeout(() => {
+                        activeFeatureIndex = 0;
+                        const firstItem = featureItems[0];
+                        firstItem.classList.add("active");
+                        changeNumber(0);
+                        activateFeature(firstItem);
+                        
+                        // Center the first item smoothly
+                        const itemOffsetTop = firstItem.offsetTop;
+                        const containerHeight = scrollContainer.clientHeight;
+                        const itemHeight = firstItem.offsetHeight;
+                        const targetScroll = Math.max(0, itemOffsetTop - (containerHeight / 2) + (itemHeight / 2));
+                        
+                        gsap.to(scrollContainer, {
+                            scrollTop: targetScroll,
+                            duration: 1,
+                            ease: "power3.out"
+                        });
+                    }, 200);
                 }
             </script>
         </section>
@@ -1603,7 +1745,7 @@
     </div>
 
     <footer id="footer" class="footer section light-background"
-        style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        style="background-image: url('assets/img/resized_image_1880x694.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
         <div class="container footer-top">
             <div class="row gy-4">
