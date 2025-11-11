@@ -2475,6 +2475,243 @@ Marker
         gap: 1.25rem !important;
       }
     }
+
+    /* Mobile-specific updates */
+    @media (max-width: 767px) {
+      /* 1. Hide hero section's image for mobile */
+      .hero .hero-image {
+        display: none !important;
+      }
+
+      /* 2. Display only one image in about us section for mobile screen */
+      .about-section .image-2 {
+        display: none !important;
+      }
+
+      /* 3. Services icons should be centered with larger icons on mobile */
+      #services .section-title {
+        margin-bottom: 1rem !important;
+      }
+
+      #services .section-title p {
+        padding-bottom: 10px !important;
+        margin-bottom: 0 !important;
+      }
+
+      .services .row.g-4 {
+        gap: 1rem !important;
+      }
+
+      .services .row > [class*="col-"] {
+        margin-bottom: 1rem !important;
+      }
+
+      .service-card {
+        margin-bottom: 0.75rem !important;
+      }
+
+      .service-card .d-flex {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 0.25rem !important;
+      }
+
+      .service-card .icon {
+        width: 80px !important;
+        height: 80px !important;
+        font-size: 32px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 0.25rem !important;
+      }
+
+      .service-card .service-content {
+        text-align: center !important;
+        width: 100% !important;
+      }
+
+      /* 4. Decrease gap between content in about us section for mobile */
+      .about-section .inner-column {
+        gap: 1rem !important;
+      }
+
+      .about-section .sec-title {
+        margin-bottom: 1rem !important;
+      }
+
+      .about-section .text {
+        margin-bottom: 1rem !important;
+      }
+
+      .about-section .list-style-one {
+        margin-bottom: 1rem !important;
+      }
+
+      /* 5. Center .list-style-one and .btn-box on mobile screen */
+      .about-section .list-style-one {
+        display: block !important;
+        margin: 0 auto !important;
+        max-width: fit-content !important;
+        text-align: left !important;
+      }
+
+      .about-section .list-style-one li {
+        text-align: left !important;
+        display: block !important;
+        width: auto !important;
+      }
+
+      .about-section .btn-box {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-top: 1rem !important;
+      }
+
+      /* 6. Decrease the top gap of .why-choose-us section for mobile */
+      #why-choose-us.section,
+      .why-choose-us.section {
+        padding-top: 20px !important;
+      }
+
+      .why-choose-us .container {
+        margin-bottom: 1rem !important;
+      }
+
+      #why-choose-us .cards-container {
+        padding-top: 10px !important;
+      }
+
+      /* Footer Dropdown Styles for Mobile */
+      .footer-top .row.gy-4 {
+        gap: 5px !important;
+      }
+
+      .footer-links {
+        margin-bottom: 5px !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+
+      .footer-links h4.footer-dropdown-toggle {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0;
+        user-select: none;
+        padding: 0.3rem 0;
+      }
+
+      .footer-links.active .footer-chevron {
+        transform: rotate(180deg);
+      }
+
+      .footer-dropdown-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding: 0;
+        margin: 0;
+        text-align: left !important;
+        margin-left: 1rem !important;
+      }
+
+      .footer-dropdown-content li {
+        text-align: left !important;
+        justify-content: flex-start !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+
+      .footer-dropdown-content a {
+        text-align: left !important;
+        display: inline-block !important;
+      }
+
+      .footer-links.active .footer-dropdown-content {
+        max-height: 1000px;
+        padding-top: 0.5rem;
+      }
+    }
+
+    /* Footer Chevron - Hidden by default on all screens, shown only on mobile */
+    .footer-chevron {
+      display: none !important;
+    }
+
+    /* Footer Dropdown Content - Always align left */
+    .footer-dropdown-content {
+      text-align: left !important;
+    }
+
+    .footer-dropdown-content li {
+      text-align: left !important;
+      justify-content: flex-start !important;
+    }
+
+    .footer-dropdown-content a {
+      text-align: left !important;
+    }
+
+    /* Show footer chevron only on mobile screens */
+    @media (max-width: 767px) {
+      .footer-chevron {
+        display: inline-block !important;
+        transition: transform 0.3s ease;
+        font-size: 0.875rem;
+      }
+    }
+
+    /* Override main.css centering for footer dropdown content on mobile (max-width: 768px matches main.css breakpoint) */
+    @media (max-width: 768px) {
+      .footer .footer-links .footer-dropdown-content {
+        text-align: left !important;
+      }
+
+      .footer .footer-links .footer-dropdown-content li {
+        text-align: left !important;
+        justify-content: flex-start !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+
+      .footer .footer-links .footer-dropdown-content a {
+        text-align: left !important;
+        display: inline-block !important;
+      }
+    }
+
+    /* Desktop: Ensure footer chevron is hidden and dropdown content is always visible */
+    @media (min-width: 768px) {
+      .footer-links h4.footer-dropdown-toggle {
+        cursor: default;
+      }
+
+      .footer-chevron {
+        display: none !important;
+      }
+
+      .footer-dropdown-content {
+        max-height: none !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        text-align: left !important;
+        margin-left: 0 !important;
+      }
+
+      .footer-dropdown-content li {
+        text-align: left !important;
+      }
+
+      .footer-dropdown-content a {
+        text-align: left !important;
+      }
+    }
   </style>
 
   <script src="https://unpkg.com/globe.gl"></script>
@@ -2833,7 +3070,6 @@ Marker
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row g-4">
           <!-- First row: 2 boxes -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
@@ -3419,8 +3655,11 @@ Marker
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
+          <h4 class="footer-dropdown-toggle">
+            Useful Links
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
             <li><a href="#">Home</a></li>
             <li><a href="#">About us</a></li>
             <li><a href="#">Services</a></li>
@@ -3433,8 +3672,11 @@ Marker
         </div>
 
         <div class="col-lg-3 col-md-3 footer-links">
-          <h4>Our Solutions</h4>
-          <ul>
+          <h4 class="footer-dropdown-toggle">
+            Our Solutions
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
             <li><a href="#">AI & Automation Solutions</a></li>
             <li><a href="#">Software & App Development</a></li>
             <li><a href="#">Data Analytics & Visualization</a></li>
@@ -3445,8 +3687,11 @@ Marker
         </div>
 
         <div class="col-lg-3 col-md-3 footer-links">
-          <h4> Industries We Serve</h4>
-          <ul>
+          <h4 class="footer-dropdown-toggle">
+            Industries We Serve
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
             <li><a href="#">E-commerce & Retail</a></li>
             <li><a href="#">Fintech & Banking</a></li>
             <li><a href="#">Healthcare & MedTech</a></li>
@@ -3499,6 +3744,51 @@ Marker
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <!-- Footer Dropdown Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
+      
+      // Add click handlers once
+      footerDropdowns.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+          // Only work on mobile
+          if (window.innerWidth < 768) {
+            e.preventDefault();
+            const footerLinks = this.closest('.footer-links');
+            const isActive = footerLinks.classList.contains('active');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.footer-links').forEach(link => {
+              if (link !== footerLinks) {
+                link.classList.remove('active');
+              }
+            });
+            
+            // Toggle current dropdown
+            if (isActive) {
+              footerLinks.classList.remove('active');
+            } else {
+              footerLinks.classList.add('active');
+            }
+          }
+        });
+      });
+      
+      // Handle window resize - remove active classes on desktop
+      let resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+          if (window.innerWidth >= 768) {
+            document.querySelectorAll('.footer-links').forEach(link => {
+              link.classList.remove('active');
+            });
+          }
+        }, 250);
+      });
+    });
+  </script>
 
 </body>
 
