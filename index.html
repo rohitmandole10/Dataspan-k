@@ -15,7 +15,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -72,7 +74,7 @@ Marker
       /* cursor */
       white-space: nowrap;
       overflow: hidden;
-      animation: blinkCursor 0.8s steps(1) infinite;
+      animation: blinkCursor 0.6s steps(1) infinite;
       /* border: 2px solid red; */
       height: 60px;
       text-align: center;
@@ -202,7 +204,7 @@ Marker
       -webkit-overflow-scrolling: touch;
       /* border: 5px solid red; */
     }
-    
+
     /* Add padding to cards wrapper to center them when they fit */
     .cards-container::before {
       content: '';
@@ -210,21 +212,22 @@ Marker
       min-width: 0;
       max-width: calc((100% - (280px * 5 + 30px * 4)) / 2);
     }
-    
+
     .cards-container::after {
       content: '';
       flex: 1 1 auto;
       min-width: 0;
       max-width: calc((100% - (280px * 5 + 30px * 4)) / 2);
     }
-    
+
     /* When cards overflow, remove pseudo-elements for scrolling */
     @media (max-width: 1600px) {
+
       .cards-container::before,
       .cards-container::after {
         display: none;
       }
-      
+
       .cards-container {
         padding: 20px 40px !important;
         justify-content: flex-start;
@@ -260,7 +263,7 @@ Marker
       overflow: hidden;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
       cursor: pointer;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -282,7 +285,7 @@ Marker
       height: 100%;
       background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.65) 100%);
       transform: translateY(100%);
-      transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -298,7 +301,7 @@ Marker
     .card-content {
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s;
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
       will-change: opacity, transform;
     }
 
@@ -341,7 +344,7 @@ Marker
       display: none !important;
       align-items: center;
       justify-content: center;
-      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 10;
       will-change: transform;
     }
@@ -350,7 +353,7 @@ Marker
       width: 20px;
       height: 20px;
       fill: white;
-      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .card:hover .card-arrow {
@@ -488,7 +491,7 @@ Marker
       max-width: 220px;
       object-fit: contain;
       filter: grayscale(0%) brightness(1) contrast(1);
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      transition: transform 0.4s ease, opacity 0.4s ease;
       opacity: 1;
       padding: 8px;
       background: transparent;
@@ -682,7 +685,7 @@ Marker
         margin-bottom: 1.5rem;
         padding: 1.5rem;
         border-radius: 16px;
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
       }
 
       .service-card:hover {
@@ -763,7 +766,7 @@ Marker
         background: rgba(255, 255, 255, 0.6);
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
       }
 
       .features-2 .feature-item:hover {
@@ -1611,9 +1614,9 @@ Marker
       }
 
       .steps-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        max-width: 900px;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1rem;
+        max-width: 100%;
         margin: 0 auto;
       }
 
@@ -1705,7 +1708,7 @@ Marker
     @media (min-width: 576px) and (max-width: 767px) {
       .hero {
         padding-top: 110px;
-        padding-bottom: 40px;
+        padding-bottom: 0;
       }
 
       .hero .container {
@@ -1768,6 +1771,12 @@ Marker
         margin-top: 2rem;
       }
 
+      /* Display only one image in about us section for md screens */
+      .about-section .image-column .image-2,
+      .about-section .image-2 {
+        display: none !important;
+      }
+
       .about-heading {
         font-size: 1.625rem;
         text-align: center;
@@ -1776,6 +1785,17 @@ Marker
       .about-text {
         font-size: 0.9375rem;
         text-align: center;
+      }
+
+      /* Decrease gap between section-title and cards-container in why-choose-us for md screens */
+      #why-choose-us .section-title,
+      .why-choose-us .section-title {
+        margin-bottom: 1rem !important;
+      }
+
+      #why-choose-us .cards-container,
+      .why-choose-us .cards-container {
+        padding-top: 40px !important;
       }
 
       .services.section {
@@ -1788,6 +1808,33 @@ Marker
 
       .service-card {
         padding: 1.5rem;
+      }
+
+      /* Services section icons - centered on md screens */
+      .services .service-card .d-flex {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 1rem !important;
+      }
+
+      .services .service-card .icon {
+        width: 90px !important;
+        height: 90px !important;
+        font-size: 48px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      .services .service-card .service-content {
+        text-align: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
       .service-card h3 {
@@ -2478,6 +2525,7 @@ Marker
 
     /* Mobile-specific updates */
     @media (max-width: 767px) {
+
       /* 1. Hide hero section's image for mobile */
       .hero .hero-image {
         display: none !important;
@@ -2502,7 +2550,7 @@ Marker
         gap: 1rem !important;
       }
 
-      .services .row > [class*="col-"] {
+      .services .row>[class*="col-"] {
         margin-bottom: 1rem !important;
       }
 
@@ -2602,6 +2650,7 @@ Marker
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-top: 0;
         margin-bottom: 0;
         user-select: none;
         padding: 0.3rem 0;
@@ -2614,7 +2663,7 @@ Marker
       .footer-dropdown-content {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease, padding 0.3s ease;
+        transition: max-height 0.4s ease, padding 0.4s ease;
         padding: 0;
         margin: 0;
         text-align: left !important;
@@ -2662,7 +2711,7 @@ Marker
     @media (max-width: 767px) {
       .footer-chevron {
         display: inline-block !important;
-        transition: transform 0.3s ease;
+        transition: transform 0.4s ease;
         font-size: 0.875rem;
       }
     }
@@ -2710,6 +2759,68 @@ Marker
 
       .footer-dropdown-content a {
         text-align: left !important;
+      }
+    }
+
+    /* Hero Section - Smooth Animations (1-2 seconds total) */
+    .hero .hero-content {
+      animation: heroFadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+      animation-delay: 0s !important;
+    }
+
+    .hero .hero-title {
+      animation: heroFadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both !important;
+    }
+
+    .hero .hero-content p {
+      animation: heroFadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both !important;
+    }
+
+    .hero .hero-buttons {
+      animation: heroFadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both !important;
+    }
+
+    .hero .hero-image {
+      animation: heroFadeInRight 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both !important;
+    }
+
+    .hero .hero-image img {
+      animation: heroScaleIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both !important;
+    }
+
+    @keyframes heroFadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroFadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes heroScaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
       }
     }
   </style>
@@ -2870,11 +2981,13 @@ Marker
 
     <!-- Hero Section -->
     <section id="hero" class="hero section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+        data-aos-easing="ease-out-cubic">
 
         <div class="row align-items-center">
           <div class="col-lg-6">
-            <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+              data-aos-easing="ease-out-cubic">
               <!-- <div class="company-badge mb-4">
                 <i class="bi bi-gear-fill me-2"></i>
                 Working for your success
@@ -2906,7 +3019,8 @@ Marker
           </div>
 
           <div class="col-lg-6">
-            <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
+            <div class="hero-image" data-aos="zoom-out" data-aos-delay="0" data-aos-duration="600"
+              data-aos-easing="ease-out-cubic">
               <img src="assets/img/Ai icon 01.png" alt="Hero Image" class="img-fluid">
 
               <!-- <div class="customers-badge">
@@ -3018,7 +3132,6 @@ Marker
     <!-- AI / Core Capabilities Highlight -->
 
 
-
     <!-- About Company Section -->
     <section class="about-section">
       <div class="container">
@@ -3069,10 +3182,10 @@ Marker
           grow, streamline operations, and create lasting customer experiences.</p>
       </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container" data-aos="fade-up" data-aos-delay="50">
         <div class="row g-4">
           <!-- First row: 2 boxes -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
             <div class="service-card ">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-ai">
@@ -3089,7 +3202,59 @@ Marker
             </div>
           </div><!-- End Service Card -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
+            <div class="service-card ">
+              <div class="d-flex align-items-start gap-2">
+                <div class="icon flex-shrink-0 icon-ecommerce">
+                  <i class="bi bi-cart"></i>
+                </div>
+                <div class="service-content flex-grow-1">
+                  <h3>E-Commerce & POS Solutions</h3>
+                  <p>We build AI-enabled unified retail systems connecting online stores and POS platforms for seamless
+                    sales, inventory, and analytics.</p>
+                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Service Card -->
+
+          <!-- Second row: 3 boxes -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="service-card ">
+              <div class="d-flex align-items-start gap-2">
+                <div class="icon flex-shrink-0 icon-ocr">
+                  <i class="bi bi-file-text"></i>
+                </div>
+                <div class="service-content flex-grow-1">
+                  <h3>OCR Technology</h3>
+                  <p>We develop intelligent OCR solutions that automate document processing, extract data accurately,
+                    and reduce manual effort.</p>
+                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Service Card -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card ">
+              <div class="d-flex align-items-start gap-2">
+                <div class="icon flex-shrink-0 icon-cloud">
+                  <i class="bi bi-cloud"></i>
+                </div>
+                <div class="service-content flex-grow-1">
+                  <h3>Hosting & Cloud Services</h3>
+                  <p>We deliver secure, optimized, and scalable managed hosting with cloud migration, monitoring,
+                    backups, and dedicated support.</p>
+                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Service Card -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="250">
             <div class="service-card ">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-webdev">
@@ -3107,61 +3272,9 @@ Marker
             </div>
           </div><!-- End Service Card -->
 
-          <!-- Second row: 3 boxes -->
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-card ">
-              <div class="d-flex align-items-start gap-2">
-                <div class="icon flex-shrink-0 icon-ocr">
-                  <i class="bi bi-file-text"></i>
-                </div>
-                <div class="service-content flex-grow-1">
-                  <h3>OCR Technology</h3>
-                  <p>We develop intelligent OCR solutions that automate document processing, extract data accurately,
-                    and reduce manual effort.</p>
-                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-card ">
-              <div class="d-flex align-items-start gap-2">
-                <div class="icon flex-shrink-0 icon-cloud">
-                  <i class="bi bi-cloud"></i>
-                </div>
-                <div class="service-content flex-grow-1">
-                  <h3>Hosting & Cloud Services</h3>
-                  <p>We deliver secure, optimized, and scalable managed hosting with cloud migration, monitoring,
-                    backups, and dedicated support.</p>
-                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-card ">
-              <div class="d-flex align-items-start gap-2">
-                <div class="icon flex-shrink-0 icon-ecommerce">
-                  <i class="bi bi-cart"></i>
-                </div>
-                <div class="service-content flex-grow-1">
-                  <h3>E-Commerce & POS Solutions</h3>
-                  <p>We build AI-enabled unified retail systems connecting online stores and POS platforms for seamless
-                    sales, inventory, and analytics.</p>
-                  <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Service Card -->
-
           <!-- Third row: 2 boxes -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-card ">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-design-branding">
@@ -3179,8 +3292,7 @@ Marker
             </div>
           </div><!-- End Service Card -->
 
-          <!-- Fourth row: 1 box -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="700">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="350">
             <div class="service-card ">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-bpo">
@@ -3209,13 +3321,13 @@ Marker
       <div class="container section-title" data-aos="fade-up">
         <h2>Application Development</h2>
       </div><!-- End Section Title -->
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container" data-aos="fade-up" data-aos-delay="50">
 
         <div class="row align-items-center">
 
           <div class="col-lg-4 col-12 order-1 order-lg-1">
 
-            <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="100">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
                   <h3>Custom App Development</h3>
@@ -3228,7 +3340,7 @@ Marker
               </div>
             </div><!-- End .feature-item -->
 
-            <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="300">
+            <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="150">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
                   <h3>QA & Testing</h3>
@@ -3241,7 +3353,7 @@ Marker
               </div>
             </div><!-- End .feature-item -->
 
-            <div class="feature-item text-end" data-aos="fade-right" data-aos-delay="400">
+            <div class="feature-item text-end" data-aos="fade-right" data-aos-delay="200">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
                   <h3>Shopify App Solutions</h3>
@@ -3264,7 +3376,7 @@ Marker
 
           <div class="col-lg-4 col-12 order-3 order-lg-3">
 
-            <div class="feature-item mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="feature-item mb-5" data-aos="fade-left" data-aos-delay="100">
               <div class="d-flex align-items-center gap-4">
                 <div class="feature-icon flex-shrink-0">
                   <i class="bi-plug"></i>
@@ -3278,7 +3390,7 @@ Marker
               </div>
             </div><!-- End .feature-item -->
 
-            <div class="feature-item mb-5" data-aos="fade-left" data-aos-delay="300">
+            <div class="feature-item mb-5" data-aos="fade-left" data-aos-delay="150">
               <div class="d-flex align-items-center gap-4">
                 <div class="feature-icon flex-shrink-0">
                   <i class="bi-arrow-repeat"></i>
@@ -3291,7 +3403,7 @@ Marker
               </div>
             </div><!-- End .feature-item -->
 
-            <div class="feature-item" data-aos="fade-left" data-aos-delay="400">
+            <div class="feature-item" data-aos="fade-left" data-aos-delay="200">
               <div class="d-flex align-items-center gap-4">
                 <div class="feature-icon flex-shrink-0">
                   <i class="bi-palette"></i>
@@ -3362,6 +3474,14 @@ Marker
               innovation.
             </div>
           </div>
+          <div class="step">
+            <div class="circle">6</div>
+            <div class="step-title">Scale & Innovate</div>
+            <div class="step-description">
+              We monitor, enhance, and expand AI systems to support scalability, continuous improvement, and long-term
+              innovation.
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -3370,25 +3490,25 @@ Marker
     <!-- <section id="stats" class="stats section light-background">
       <div class="container" data-aos="fade-up">
         <div class="row gy-4">
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="50">
             <div class="stats-item text-center">
               <span data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="2" class="purecounter">0</span>
               <p>Projects Completed</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="stats-item text-center">
               <span data-purecounter-start="0" data-purecounter-end="200" data-purecounter-duration="2" class="purecounter">0</span>
               <p>Happy Clients</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
             <div class="stats-item text-center">
               <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="2" class="purecounter">0</span>
               <p>Team Members</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="stats-item text-center">
               <span data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="2" class="purecounter">0</span>
               <p>Success Rate %</p>
@@ -3492,7 +3612,8 @@ Marker
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Integrating Innovation Across Every Digital Layer</h2>
-          <p>We accelerate business success through advanced AI, automation, cloud and seamless digital platform expertise.</p>
+          <p>We accelerate business success through advanced AI, automation, cloud and seamless digital platform
+            expertise.</p>
         </div>
 
         <!-- Logo Marquee Container -->
@@ -3631,8 +3752,7 @@ Marker
 
   </main>
 
-  <footer id="footer" class="footer section light-background"
-    style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <footer id="footer" class="footer section light-background">
 
     <div class="container footer-top">
       <div class="row gy-4">
@@ -3715,23 +3835,23 @@ Marker
       </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
-          Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
-          href="https://themewagon.com">ThemeWagon</a> -->
+    <div class="container copyright text-center m-0 p-0">
+      <!-- Social Links for Mobile View -->
+      <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href=""><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-linkedin"></i></a>
       </div>
+      <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN
+          Technologies</strong> <span>All Rights
+          Reserved</span></p>
     </div>
 
   </footer>
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+      class="bi bi-arrow-up-short "></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -3744,27 +3864,38 @@ Marker
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <!-- Initialize AOS with smooth animation settings -->
+  <script>
+    AOS.init({
+      duration: 500, // Smooth animation duration (0.5s)
+      easing: 'ease-out-cubic', // Smooth cubic easing for fluid motion
+      once: true, // Animate only once
+      offset: 0, // Trigger immediately when element enters viewport
+      delay: 0 // Base delay (individual delays are set via data-aos-delay)
+    });
+  </script>
+
   <!-- Footer Dropdown Toggle Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
-      
+
       // Add click handlers once
       footerDropdowns.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
+        toggle.addEventListener('click', function (e) {
           // Only work on mobile
           if (window.innerWidth < 768) {
             e.preventDefault();
             const footerLinks = this.closest('.footer-links');
             const isActive = footerLinks.classList.contains('active');
-            
+
             // Close all other dropdowns
             document.querySelectorAll('.footer-links').forEach(link => {
               if (link !== footerLinks) {
                 link.classList.remove('active');
               }
             });
-            
+
             // Toggle current dropdown
             if (isActive) {
               footerLinks.classList.remove('active');
@@ -3774,12 +3905,12 @@ Marker
           }
         });
       });
-      
+
       // Handle window resize - remove active classes on desktop
       let resizeTimer;
-      window.addEventListener('resize', function() {
+      window.addEventListener('resize', function () {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
+        resizeTimer = setTimeout(function () {
           if (window.innerWidth >= 768) {
             document.querySelectorAll('.footer-links').forEach(link => {
               link.classList.remove('active');
