@@ -16,9 +16,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=optional"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -667,8 +665,7 @@
     </section><!-- /Call to Action Section -->
   </main>
 
-  <footer id="footer" class="footer section light-background"
-    style="background-image: url('assets/img/image (11).jfif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <footer id="footer" class="footer section light-background">
 
     <div class="container footer-top">
       <div class="row gy-4">
@@ -691,8 +688,11 @@
         </div>
 
         <div class="col-lg-2 col-md-6 col-12 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
+          <h4 class="footer-dropdown-toggle">
+            Useful Links
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
             <li><a href="#">Home</a></li>
             <li><a href="#">About us</a></li>
             <li><a href="#">Services</a></li>
@@ -705,8 +705,11 @@
         </div>
 
         <div class="col-lg-3 col-md-6 col-12 footer-links">
-          <h4>Our Solutions</h4>
-          <ul>
+          <h4 class="footer-dropdown-toggle">
+            Our Solutions
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
             <li><a href="#">AI & Automation Solutions</a></li>
             <li><a href="#">Software & App Development</a></li>
             <li><a href="#">Data Analytics & Visualization</a></li>
@@ -717,8 +720,11 @@
         </div>
 
         <div class="col-lg-3 col-md-6 col-12 footer-links">
-          <h4> Industries We Serve</h4>
-          <ul>
+          <h4 class="footer-dropdown-toggle">
+            Industries We Serve
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
             <li><a href="#">E-commerce & Retail</a></li>
             <li><a href="#">Fintech & Banking</a></li>
             <li><a href="#">Healthcare & MedTech</a></li>
@@ -742,17 +748,17 @@
       </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
-          Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
-          href="https://themewagon.com">ThemeWagon</a> -->
+    <div class="container copyright text-center m-0 p-0">
+      <!-- Social Links for Mobile View -->
+      <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href=""><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-linkedin"></i></a>
       </div>
+      <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN
+          Technologies</strong> <span>All Rights
+          Reserved</span></p>
     </div>
 
   </footer>
@@ -771,6 +777,52 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Footer Dropdown Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
+      
+      // Add click handlers once
+      footerDropdowns.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+          // Only work on mobile
+          if (window.innerWidth < 768) {
+            e.preventDefault();
+            const footerLinks = this.closest('.footer-links');
+            const isActive = footerLinks.classList.contains('active');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.footer-links').forEach(link => {
+              if (link !== footerLinks) {
+                link.classList.remove('active');
+              }
+            });
+            
+            // Toggle current dropdown
+            if (isActive) {
+              footerLinks.classList.remove('active');
+            } else {
+              footerLinks.classList.add('active');
+            }
+          }
+        });
+      });
+      
+      // Handle window resize - remove active classes on desktop
+      let resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+          if (window.innerWidth >= 768) {
+            document.querySelectorAll('.footer-links').forEach(link => {
+              link.classList.remove('active');
+            });
+          }
+        }, 250);
+      });
+    });
+  </script>
 
   <!-- Contact Page Specific JavaScript -->
   <script>
