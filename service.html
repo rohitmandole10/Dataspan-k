@@ -903,18 +903,33 @@
             <div class="category-column">
               <div class="category-item active" data-submenu="ai-automation">
                 <a href="service.html" class="category-link">AI & Automation</a>
+                <button class="category-toggle" aria-label="Toggle submenu">
+                  <span class="toggle-icon">+</span>
+                </button>
               </div>
               <div class="category-item" data-submenu="development-technology">
                 <a href="#" class="category-link">Development & Technology</a>
+                <button class="category-toggle" aria-label="Toggle submenu">
+                  <span class="toggle-icon">+</span>
+                </button>
               </div>
               <div class="category-item" data-submenu="design-branding">
                 <a href="#" class="category-link">Design & Branding</a>
+                <button class="category-toggle" aria-label="Toggle submenu">
+                  <span class="toggle-icon">+</span>
+                </button>
               </div>
               <div class="category-item" data-submenu="cloud-infrastructure">
                 <a href="#" class="category-link">Cloud & Infrastructure</a>
+                <button class="category-toggle" aria-label="Toggle submenu">
+                  <span class="toggle-icon">+</span>
+                </button>
               </div>
               <div class="category-item" data-submenu="data-operations">
                 <a href="#" class="category-link">Data & Operations</a>
+                <button class="category-toggle" aria-label="Toggle submenu">
+                  <span class="toggle-icon">+</span>
+                </button>
               </div>
             </div>
 
@@ -1102,7 +1117,7 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>AI-Driven Capabilities Built for Growth</h2>
-                <!-- <p>“Empowering businesses with cutting-edge AI technologies to drive innovation, efficiency, and growth.”</p> -->
+                <!-- <p>"Empowering businesses with cutting-edge AI technologies to drive innovation, efficiency, and growth."</p> -->
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -1142,7 +1157,7 @@
                             <div
                                 class="col-lg-6 order-2 order-lg-1  mt-lg-0 d-flex flex-column justify-content-center align-top">
                                 <h3>Automate and optimize business processes using intelligent AI workflows.</h3>
-                                <!-- <p class="fst-italic">Great design is more than visuals — it’s about usability. At Dataspan
+                                <!-- <p class="fst-italic">Great design is more than visuals — it's about usability. At Dataspan
                         Technologies, our detailed UX audit identifies improvements that make digital products seamless and
                         enjoyable.</p> -->
                                 <ul>
@@ -1744,8 +1759,7 @@
 
     </div>
 
-    <footer id="footer" class="footer section light-background"
-        style="background-image: url('assets/img/resized_image_1880x694.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <footer id="footer" class="footer section light-background">
 
         <div class="container footer-top">
             <div class="row gy-4">
@@ -1768,8 +1782,11 @@
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
+                    <h4 class="footer-dropdown-toggle">
+                        Useful Links
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <ul class="footer-dropdown-content">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About us</a></li>
                         <li><a href="#">Services</a></li>
@@ -1782,8 +1799,11 @@
                 </div>
 
                 <div class="col-lg-3 col-md-3 footer-links">
-                    <h4>Our Solutions</h4>
-                    <ul>
+                    <h4 class="footer-dropdown-toggle">
+                        Our Solutions
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <ul class="footer-dropdown-content">
                         <li><a href="#">AI & Automation Solutions</a></li>
                         <li><a href="#">Software & App Development</a></li>
                         <li><a href="#">Data Analytics & Visualization</a></li>
@@ -1794,8 +1814,11 @@
                 </div>
 
                 <div class="col-lg-3 col-md-3 footer-links">
-                    <h4> Industries We Serve</h4>
-                    <ul>
+                    <h4 class="footer-dropdown-toggle">
+                        Industries We Serve
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <ul class="footer-dropdown-content">
                         <li><a href="#">E-commerce & Retail</a></li>
                         <li><a href="#">Fintech & Banking</a></li>
                         <li><a href="#">Healthcare & MedTech</a></li>
@@ -1819,17 +1842,17 @@
             </div>
         </div>
 
-        <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN Technologies</strong> <span>All Rights
-                    Reserved</span></p>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
-          href="https://themewagon.com">ThemeWagon</a> -->
+        <div class="container copyright text-center m-0 p-0">
+            <!-- Social Links for Mobile View -->
+            <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
             </div>
+            <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN
+                    Technologies</strong> <span>All Rights
+                    Reserved</span></p>
         </div>
 
     </footer>
@@ -1848,5 +1871,51 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Footer Dropdown Toggle Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
+        
+        // Add click handlers once
+        footerDropdowns.forEach(toggle => {
+          toggle.addEventListener('click', function(e) {
+            // Only work on mobile
+            if (window.innerWidth < 768) {
+              e.preventDefault();
+              const footerLinks = this.closest('.footer-links');
+              const isActive = footerLinks.classList.contains('active');
+              
+              // Close all other dropdowns
+              document.querySelectorAll('.footer-links').forEach(link => {
+                if (link !== footerLinks) {
+                  link.classList.remove('active');
+                }
+              });
+              
+              // Toggle current dropdown
+              if (isActive) {
+                footerLinks.classList.remove('active');
+              } else {
+                footerLinks.classList.add('active');
+              }
+            }
+          });
+        });
+        
+        // Handle window resize - remove active classes on desktop
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function() {
+            if (window.innerWidth >= 768) {
+              document.querySelectorAll('.footer-links').forEach(link => {
+                link.classList.remove('active');
+              });
+            }
+          }, 250);
+        });
+      });
+    </script>
 
 </body>
