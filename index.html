@@ -364,6 +364,128 @@ Marker
       transform: rotate(45deg);
     }
 
+    @keyframes ctaPulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(34, 127, 170, 0.35);
+      }
+
+      55% {
+        transform: translate(-50%, -50%) scale(1.08);
+        box-shadow: 0 0 0 12px rgba(34, 127, 170, 0);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(34, 127, 170, 0);
+      }
+    }
+
+    @keyframes shimmerStroke {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .why-choose-us .cta-circle-btn {
+      display: none;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid rgba(34, 127, 170, 0.65);
+      background: rgba(12, 30, 48, 0.35);
+      backdrop-filter: blur(8px);
+      color: #c7ecff;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 12px 28px rgba(6, 24, 38, 0.35);
+    }
+
+    .why-choose-us .cta-circle-btn:focus-visible {
+      outline: 3px solid rgba(34, 127, 170, 0.3);
+      outline-offset: 2px;
+    }
+
+    .why-choose-us .cta-circle-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(34, 127, 170, 0.15);
+    }
+
+    .why-choose-us .cta-circle-btn::before,
+    .why-choose-us .cta-circle-btn::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .why-choose-us .cta-circle-btn::before {
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+      opacity: 0.9;
+    }
+
+    .why-choose-us .cta-circle-btn::after {
+      border: 1px solid rgba(34, 127, 170, 0.4);
+      animation: shimmerStroke 4s linear infinite;
+    }
+
+    .why-choose-us .card .card-cta {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      animation: ctaPulse 2.8s infinite ease-in-out;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .why-choose-us .card .card-cta {
+        animation: none;
+      }
+
+      .why-choose-us .cta-circle-btn::after {
+        animation: none;
+      }
+    }
+
+    .why-choose-us .card.details-visible .card-cta,
+    .why-choose-us .card:hover .card-cta {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .why-choose-us .card.details-visible .card-overlay,
+    .why-choose-us .card.details-visible .card-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 991px) {
+
+      .why-choose-us .cta-circle-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
     /* Responsive Design */
     @media (max-width: 1200px) {
       .card {
@@ -467,11 +589,14 @@ Marker
 
     .marquee-content {
       display: flex;
+      flex-wrap: nowrap;
       align-items: center;
       gap: 4rem;
       /* gap-16 equivalent */
       width: fit-content;
       will-change: transform;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
     }
 
     .logo-item {
@@ -510,29 +635,33 @@ Marker
     }
 
 
-    /* Line 1: Scrolls Left to Right */
+    /* Line directions & speeds */
     .marquee-line-1 .marquee-content {
-      animation: scrollLeftToRight 40s linear infinite;
+      animation-name: marqueeSlide;
+      animation-duration: 46s;
+      animation-direction: reverse;
     }
 
-    /* Line 2: Scrolls Right to Left */
     .marquee-line-2 .marquee-content {
-      animation: scrollRightToLeft 40s linear infinite;
+      animation-name: marqueeSlide;
+      animation-duration: 52s;
     }
 
-    @keyframes scrollLeftToRight {
-      0% {
-        transform: translateX(-50%);
-      }
-
-      100% {
-        transform: translateX(0%);
-      }
+    .marquee-line-3 .marquee-content {
+      animation-name: marqueeSlide;
+      animation-duration: 46s;
+      animation-direction: reverse;
+      animation-delay: -23s;
     }
 
-    @keyframes scrollRightToLeft {
+    .marquee-line-2 .marquee-content:hover,
+    .marquee-line-3 .marquee-content:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeSlide {
       0% {
-        transform: translateX(0%);
+        transform: translateX(0);
       }
 
       100% {
@@ -586,6 +715,14 @@ Marker
     /* Pause animation on hover for better UX */
     .marquee-wrapper:hover .marquee-content {
       animation-play-state: paused;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-content {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transform: none !important;
+      }
     }
 
     /* Enhanced Responsive Styles for All Sections */
@@ -2854,6 +2991,75 @@ Marker
             Services
             <!-- <i class="fas fa-chevron-down"></i> -->
           </a>
+          <div class="mobile-services-menu" aria-label="Services categories">
+            <div class="mobile-services-meta">
+              <p>Explore our services</p>
+              <span>Tap a category to reveal detailed capabilities</span>
+            </div>
+            <div class="mobile-category-list">
+              <div class="category-item active" data-submenu="ai-automation">
+                <a href="service.html" class="category-link">AI & Automation</a>
+                <button class="category-toggle" type="button" aria-label="Expand AI & Automation services">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="category-item" data-submenu="development-technology">
+                <a href="service.html#development" class="category-link">Development & Technology</a>
+                <button class="category-toggle" type="button" aria-label="Expand Development & Technology services">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="category-item" data-submenu="design-branding">
+                <a href="service.html#design" class="category-link">Design & Branding</a>
+                <button class="category-toggle" type="button" aria-label="Expand Design & Branding services">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="category-item" data-submenu="cloud-infrastructure">
+                <a href="service.html#cloud" class="category-link">Cloud & Infrastructure</a>
+                <button class="category-toggle" type="button" aria-label="Expand Cloud & Infrastructure services">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="category-item" data-submenu="data-operations">
+                <a href="service.html#operations" class="category-link">Data & Operations</a>
+                <button class="category-toggle" type="button" aria-label="Expand Data & Operations services">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-subcategories-container hidden" aria-live="polite">
+            <div class="subcategory-grid hidden" data-category="ai-automation">
+              <a href="service.html" class="subcategory-link subcategory-pill">AI & Machine Learning (ML)</a>
+              <a href="ocr.html" class="subcategory-link subcategory-pill">OCR (Optical Character Recognition)</a>
+              <a href="scraper-scripting.html" class="subcategory-link subcategory-pill">Scraper & Scripting</a>
+              <a href="navision-integration-automation.html" class="subcategory-link subcategory-pill">Navision
+                Integration & Automation</a>
+              <a href="esl-integration.html" class="subcategory-link subcategory-pill">ESL (Electronic Shelf Labels)
+                Integration</a>
+            </div>
+            <div class="subcategory-grid hidden" data-category="development-technology">
+              <a href="service.html#shopify" class="subcategory-link subcategory-pill">Shopify Development & Services</a>
+              <a href="service.html#web-mobile" class="subcategory-link subcategory-pill">Web & Mobile Development</a>
+              <a href="service-details.html#software-consulting" class="subcategory-link subcategory-pill">Software Development & Consulting</a>
+              <a href="service.html#ecommerce" class="subcategory-link subcategory-pill">E-Commerce & Marketplace Integration</a>
+            </div>
+            <div class="subcategory-grid hidden" data-category="design-branding">
+              <a href="service.html#uiux" class="subcategory-link subcategory-pill">UI/UX & Creative Services</a>
+              <a href="service.html#branding" class="subcategory-link subcategory-pill">Design & Branding</a>
+            </div>
+            <div class="subcategory-grid hidden" data-category="cloud-infrastructure">
+              <a href="service.html#hosting" class="subcategory-link subcategory-pill">Hosting & Cloud Services</a>
+              <a href="service.html#managed-hosting" class="subcategory-link subcategory-pill">Managed Hosting Solutions</a>
+              <a href="service.html#cloud-migration" class="subcategory-link subcategory-pill">Cloud Setup, Migration & Optimization</a>
+              <a href="service.html#server-monitoring" class="subcategory-link subcategory-pill">Server Monitoring, Backup & Security Management</a>
+            </div>
+            <div class="subcategory-grid hidden" data-category="data-operations">
+              <a href="service.html#analytics" class="subcategory-link subcategory-pill">Reporting & Analytics</a>
+              <a href="service.html#bpo" class="subcategory-link subcategory-pill">Back Office & BPO Solutions</a>
+            </div>
+          </div>
         </li>
         <li class="nav-item">
           <a href="Clients.html" class="nav-link">Clients</a>
@@ -2884,19 +3090,19 @@ Marker
           <div class="service-categories">
             <div class="category-column">
               <div class="category-item active" data-submenu="ai-automation">
-                <a href="service.html" class="category-link">AI & Automation</a>
+                <a href="service.html#ai-automation" class="category-link">AI & Automation</a>
               </div>
               <div class="category-item" data-submenu="development-technology">
-                <a href="#" class="category-link">Development & Technology</a>
+                <a href="service.html#development" class="category-link">Development & Technology</a>
               </div>
               <div class="category-item" data-submenu="design-branding">
-                <a href="#" class="category-link">Design & Branding</a>
+                <a href="service.html#design" class="category-link">Design & Branding</a>
               </div>
               <div class="category-item" data-submenu="cloud-infrastructure">
-                <a href="#" class="category-link">Cloud & Infrastructure</a>
+                <a href="service.html#cloud" class="category-link">Cloud & Infrastructure</a>
               </div>
               <div class="category-item" data-submenu="data-operations">
-                <a href="#" class="category-link">Data & Operations</a>
+                <a href="service.html#operations" class="category-link">Data & Operations</a>
               </div>
             </div>
 
@@ -2923,52 +3129,52 @@ Marker
             <!-- Development & Technology Subcategories -->
             <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Shopify Development & Services</a>
+                <a href="service.html#shopify" class="subcategory-link">Shopify Development & Services</a>
               </div>
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Web & Mobile Development</a>
+                <a href="service.html#web-mobile" class="subcategory-link">Web & Mobile Development</a>
               </div>
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Software Development & Consulting</a>
+                <a href="service.html#software-consulting" class="subcategory-link">Software Development & Consulting</a>
               </div>
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+                <a href="service.html#ecommerce" class="subcategory-link">E-Commerce & Marketplace Integration</a>
               </div>
             </div>
 
             <!-- Design & Branding Subcategories -->
             <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+                <a href="service.html#uiux" class="subcategory-link">UI/UX & Creative Services</a>
               </div>
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Design & Branding</a>
+                <a href="service.html#branding" class="subcategory-link">Design & Branding</a>
               </div>
             </div>
 
             <!-- Cloud & Infrastructure Subcategories -->
             <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+                <a href="service.html#hosting" class="subcategory-link">Hosting & Cloud Services</a>
               </div>
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+                <a href="service.html#managed-hosting" class="subcategory-link">Managed Hosting Solutions</a>
               </div>
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+                <a href="service.html#cloud-migration" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
               </div>
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+                <a href="service.html#server-monitoring" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
               </div>
             </div>
 
             <!-- Data & Operations Subcategories -->
             <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Reporting & Analytics</a>
+                <a href="service.html#analytics" class="subcategory-link">Reporting & Analytics</a>
               </div>
               <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+                <a href="service.html#bpo" class="subcategory-link">Back Office & BPO Solutions</a>
               </div>
             </div>
           </div>
@@ -2976,6 +3182,7 @@ Marker
       </div>
     </div>
   </nav>
+  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
 
   <main class="main">
 
@@ -3004,8 +3211,8 @@ Marker
               <!-- </p> -->
 
               <p class="mb-4 mb-md-5">
-                Unlock the power of AI and custom software that automate operations, elevate experiences, and keep your
-                business ahead of the curve.
+                Accelerate growth with smart automation, powerful AI, and integrated digital solutions that streamline
+                operations, enhance experiences, and keep your business ahead of the curve.
               </p>
 
               <div class="hero-buttons">
@@ -3140,12 +3347,12 @@ Marker
             <div class="inner-column">
               <div class="sec-title">
                 <span class="title">About Us</span>
-                <h2>We empower digital transformation with intelligence and innovation</h2>
+                <h2>We enable smarter, scalable growth through technology and operational excellence</h2>
               </div>
-              <div class="text">At Dataspan Technologies, we specialize in crafting advanced AI-driven, automated, and
-                intelligent solutions that redefine business excellence. Our expertise spans digital development,
-                process optimization, and analytics — enabling businesses to scale faster, work smarter, and stay secure
-                in a rapidly evolving digital landscape.</div>
+              <div class="text">At Dataspan Technologies, we deliver intelligent, automated, and integrated solutions
+                that solve real business challenges end-to-end. From AI-powered systems to e-commerce operations, cloud
+                engineering, workflow automation, and financial management, we help companies streamline processes,
+                improve performance, and drive measurable results in a fast-changing digital world.</div>
               <ul class="list-style-one">
                 <li>AI-driven operational intelligence</li>
                 <li>Data-centric performance insights</li>
@@ -3429,8 +3636,7 @@ Marker
           How Our <span class="highlight">AI-Driven</span> Process Works
         </h2>
         <p>
-          Transforming your business with AI innovation — turning challenges into opportunities with autonomous
-          intelligence.
+          Transforming your business with intelligent technology — turning challenges into opportunities through automation and innovation.
         </p>
 
         <div class="steps-container">
@@ -3438,48 +3644,45 @@ Marker
             <div class="circle">1</div>
             <div class="step-title">Understand & Evaluate</div>
             <div class="step-description">
-              We understand business workflows, identify process gaps, and uncover AI opportunities for automation and
-              optimization.
+              We analyze workflows, identify operational gaps, and uncover opportunities for automation, optimization, and intelligent improvements.
+
             </div>
           </div>
           <div class="step">
             <div class="circle">2</div>
             <div class="step-title">Plan & Design</div>
             <div class="step-description">
-              We define tailored AI roadmaps, architecture, and technologies that align with business objectives and
-              maximize efficiency.
+              We craft tailored strategies, architectures, and technology plans aligned with your objectives to drive efficiency and scalability.
+
             </div>
           </div>
           <div class="step">
             <div class="circle">3</div>
             <div class="step-title">Develop & Integrate</div>
             <div class="step-description">
-              We build and integrate AI-driven software solutions that automate processes and connect seamlessly with
-              existing systems.
+              We build and integrate smart software solutions that streamline processes, enhance operations, and connect seamlessly with existing systems.
+
             </div>
           </div>
           <div class="step">
             <div class="circle">4</div>
             <div class="step-title">Test & Optimize</div>
             <div class="step-description">
-              We rigorously test and fine-tune solutions to ensure performance, security, and consistent, data-driven
-              optimization.
+              We validate performance, security, and accuracy, ensuring every solution runs reliably and delivers measurable impact.
             </div>
           </div>
           <div class="step">
             <div class="circle">5</div>
-            <div class="step-title">Scale & Innovate</div>
+            <div class="step-title"> Deploy & Stabilize</div>
             <div class="step-description">
-              We monitor, enhance, and expand AI systems to support scalability, continuous improvement, and long-term
-              innovation.
+              We deploy the solution seamlessly, ensure system reliability, validate configurations, and maintain stability during initial rollout.
             </div>
           </div>
           <div class="step">
             <div class="circle">6</div>
             <div class="step-title">Scale & Innovate</div>
             <div class="step-description">
-              We monitor, enhance, and expand AI systems to support scalability, continuous improvement, and long-term
-              innovation.
+              We monitor, enhance, and expand your systems to support long-term growth, continuous improvement, and future-ready innovation.
             </div>
           </div>
         </div>
@@ -3523,8 +3726,7 @@ Marker
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Why Choose Dataspan Technologies?</h2>
-          <p>We harness AI, automation, and cloud technology to build scalable, secure, and high-performing digital
-            solutions.
+          <p>We combine intelligent engineering, automation, and scalable digital operations to deliver secure, performance-driven solutions that accelerate growth.
           </p>
         </div>
       </div>
@@ -3539,10 +3741,11 @@ Marker
           <div class="card-overlay">
             <div class="card-content">
               <h2 class="card-title">Innovative Tech Leadership</h2>
-              <p class="card-description">We fuse AI, automation, and cloud technology to build intelligent systems that
-                empower your business growth.</p>
+              <p class="card-description">We merge AI, automation, cloud engineering, and modern development to create smarter systems that elevate operational performance.
+              </p>
             </div>
           </div>
+          <button type="button" class="cta-circle-btn card-cta">Click Me</button>
         </div>
 
         <div class="card">
@@ -3554,10 +3757,11 @@ Marker
           <div class="card-overlay">
             <div class="card-content">
               <h2 class="card-title">Proven Multiplatform Expertise</h2>
-              <p class="card-description">From Shopify to AWS, our cross-platform mastery ensures seamless integrations,
-                scalability, and consistent performance.</p>
+              <p class="card-description">From Shopify and marketplaces to AWS, Azure, and NAV, our cross-platform expertise ensures seamless, scalable integration.
+              </p>
             </div>
           </div>
+          <button type="button" class="cta-circle-btn card-cta">Click Me</button>
         </div>
 
         <div class="card">
@@ -3569,10 +3773,10 @@ Marker
           <div class="card-overlay">
             <div class="card-content">
               <h2 class="card-title">Performance-Driven Results</h2>
-              <p class="card-description">Our data-backed strategies enhance efficiency, reduce costs, and deliver
-                measurable business outcomes that boost profitability.</p>
+              <p class="card-description">Our data-focused approach improves efficiency, strengthens operations, and delivers measurable outcomes that directly impact profitability.</p>
             </div>
           </div>
+          <button type="button" class="cta-circle-btn card-cta">Click Me</button>
         </div>
 
         <div class="card">
@@ -3584,10 +3788,10 @@ Marker
           <div class="card-overlay">
             <div class="card-content">
               <h2 class="card-title">Trusted & secure</h2>
-              <p class="card-description">We keep your business running with resilient systems, proactive protection,
-                and technology that never lets you slow down.</p>
+              <p class="card-description">We protect your business with resilient infrastructure, strong security practices, and continuous monitoring that keeps everything running smoothly.</p>
             </div>
           </div>
+          <button type="button" class="cta-circle-btn card-cta">Click Me</button>
         </div>
 
         <div class="card">
@@ -3599,10 +3803,10 @@ Marker
           <div class="card-overlay">
             <div class="card-content">
               <h2 class="card-title">Tailored Partnership Approach</h2>
-              <p class="card-description">We customize every solution around your goals — combining strategy,
-                technology, and innovation to maximize success.</p>
+              <p class="card-description">We shape every solution around your goals — combining strategy, technology, and operational insight to maximize long-term success.</p>
             </div>
           </div>
+          <button type="button" class="cta-circle-btn card-cta">Click Me</button>
         </div>
       </div>
     </section><!-- /Why Choose Us Section -->
@@ -3622,58 +3826,40 @@ Marker
           <div class="marquee-wrapper marquee-line-1">
             <div class="marquee-content">
               <div class="logo-item">
-                <img src="assets/img/Logos/aws.png" alt="AWS" class="logo-img">
+                <img src="assets/img/Software & Ai/aws.png" alt="AWS" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/google cloud.png" alt="Google Cloud" class="logo-img">
+                <img src="assets/img/Software & Ai/google cloud.png" alt="google cloud" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/Microsoft Azure.png" alt="Microsoft Azure" class="logo-img">
+                <img src="assets/img/Software & Ai/wordpress.png" alt="wordpress" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/shopify.png" alt="Shopify" class="logo-img">
+                <img src="assets/img/Software & Ai/Huggingface.png" alt="Huggingface" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/Magento.png" alt="Magento (Adobe Commerce)" class="logo-img">
+                <img src="assets/img/Software & Ai/docker.png" alt="docker" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/Bigcommerce.png" alt="BigCommerce" class="logo-img">
+                <img src="assets/img/Software & Ai/Langchain.png" alt="Langchain" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/woocommerce.png" alt="WooCommerce" class="logo-img">
+                <img src="assets/img/Software & Ai/n8n.png" alt="n8n" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/wordpress.png" alt="WordPress" class="logo-img">
+                <img src="assets/img/Software & Ai/Python.png" alt="Python" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/godaddy.png" alt="GoDaddy" class="logo-img">
+                <img src="assets/img/Software & Ai/redis.png" alt="redis" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/aws.png" alt="AWS" class="logo-img">
+                <img src="assets/img/Software & Ai/mysql.png" alt="mysql" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/google cloud.png" alt="Google Cloud" class="logo-img">
+                <img src="assets/img/Software & Ai/drupal.png" alt="drupal" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/Microsoft Azure.png" alt="Microsoft Azure" class="logo-img">
-              </div>
-              <div class="logo-item">
-                <img src="assets/img/Logos/shopify.png" alt="Shopify" class="logo-img">
-              </div>
-              <div class="logo-item">
-                <img src="assets/img/Logos/Magento.png" alt="Magento (Adobe Commerce)" class="logo-img">
-              </div>
-              <div class="logo-item">
-                <img src="assets/img/Logos/Bigcommerce.png" alt="BigCommerce" class="logo-img">
-              </div>
-              <div class="logo-item">
-                <img src="assets/img/Logos/woocommerce.png" alt="WooCommerce" class="logo-img">
-              </div>
-              <div class="logo-item">
-                <img src="assets/img/Logos/wordpress.png" alt="WordPress" class="logo-img">
-              </div>
-              <div class="logo-item">
-                <img src="assets/img/Logos/godaddy.png" alt="GoDaddy" class="logo-img">
+                <img src="assets/img/Software & Ai/Android.png" alt="Android" class="logo-img">
               </div>
             </div>
           </div>
@@ -3682,56 +3868,89 @@ Marker
           <div class="marquee-wrapper marquee-line-2">
             <div class="marquee-content">
               <div class="logo-item">
-                <img src="assets/img/Logos/Huggingface.png" alt="Huggingface" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/amazon seller central.png" alt="amazon seller central"
+                  class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/redis.png" alt="redis" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/Bigcommerce.png" alt="Bigcommerce" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/Power BI.png" alt="powerbi" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/ebay.png" alt="ebay" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/microsoft dynamic nav.png" alt="microsoftdynamics" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/channel advisor.png" alt="channel advisor"
+                  class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/Langchain.png" alt="langchain2" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/Magento.png" alt="Magento (Adobe Commerce)"
+                  class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/mysql.png" alt="mysql" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/sellbrite.png" alt="sellbrite" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/Android.png" alt="android" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/shopify.png" alt="shopify" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/Elasticsearch.png" alt="Elasticsearch" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/godaddy.png" alt="godaddy" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/Huggingface.png" alt="Huggingface" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/Elasticsearch.png" alt="Elasticsearch" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/redis.png" alt="redis" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/woocommerce.png" alt="woocommerce" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/Power BI.png" alt="powerbi" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/skuvault.png" alt="skuvault" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Logos/microsoft dynamic nav.png" alt="microsoftdynamics" class="logo-img">
-              </div>
-              <div class="logo-item">
-                <img src="assets/img/Logos/Langchain.png" alt="langchain2" class="logo-img">
-              </div>
-              <div class="logo-item">
-                <img src="assets/img/Logos/mysql.png" alt="mysql" class="logo-img">
-              </div>
-              <div class="logo-item">
-                <img src="assets/img/Logos/Android.png" alt="android" class="logo-img">
-              </div>
-              <div class="logo-item">
-                <img src="assets/img/Logos/Elasticsearch.png" alt="Elasticsearch" class="logo-img">
+                <img src="assets/img/Marketplace & Operations/Walmart.png" alt="Microsoft Azure" class="logo-img">
               </div>
             </div>
           </div>
-        </div>
+
+          <!-- Line 3: Scrolls Right to Left -->
+          <div class="marquee-wrapper marquee-line-3">
+            <div class="marquee-content">
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/figma.png" alt="figma" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/mailchimp.png" alt="mailchimp" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/Qlikview.png" alt="Qlikview" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/tally.png" alt="tally" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/twilio.png" alt="twilio" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/photoshop.png" alt="photoshop" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/microsoft dynamic nav.png" alt="microsoft dynamic nav"
+                  class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/Power BI.png" alt="Power BI" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/sellbrite.png" alt="sellbrite" class="logo-img">
+                <div class="logo-item">
+                  <img src="assets/img/Business Operations/asana.png" alt="asana" class="logo-img">
+                </div>
+                <div class="logo-item">
+                  <img src="assets/img/Business Operations/helliom 10.png" alt="helliom" class="logo-img">
+                </div>
+                <div class="logo-item">
+                  <img src="assets/img/Business Operations/illustrator.png" alt="illustrator" class="logo-img">
+                </div>
+              </div>
+            </div>
+          </div>
     </section><!-- /Clients Section -->
 
     <!-- Call to Action Section -->
@@ -3878,6 +4097,22 @@ Marker
   <!-- Footer Dropdown Toggle Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const marqueeContents = document.querySelectorAll('.marquee-wrapper .marquee-content');
+      const whyChooseCards = document.querySelectorAll('#why-choose-us .card');
+      const CARD_BREAKPOINT = 991;
+
+      marqueeContents.forEach(content => {
+        if (content.dataset.loopInit === 'true') return;
+        content.dataset.loopInit = 'true';
+
+        const children = Array.from(content.children);
+        children.forEach(child => {
+          const clone = child.cloneNode(true);
+          clone.setAttribute('aria-hidden', 'true');
+          content.appendChild(clone);
+        });
+      });
+
       const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
 
       // Add click handlers once
@@ -3906,6 +4141,25 @@ Marker
         });
       });
 
+      const clearCardStates = () => {
+        whyChooseCards.forEach(card => card.classList.remove('details-visible'));
+      };
+
+      const handleCardToggle = (card) => {
+        if (window.innerWidth > CARD_BREAKPOINT) return;
+        const isActive = card.classList.contains('details-visible');
+        clearCardStates();
+        if (!isActive) {
+          card.classList.add('details-visible');
+        }
+      };
+
+      whyChooseCards.forEach(card => {
+        card.addEventListener('click', function () {
+          handleCardToggle(card);
+        });
+      });
+
       // Handle window resize - remove active classes on desktop
       let resizeTimer;
       window.addEventListener('resize', function () {
@@ -3915,6 +4169,9 @@ Marker
             document.querySelectorAll('.footer-links').forEach(link => {
               link.classList.remove('active');
             });
+          }
+          if (window.innerWidth > CARD_BREAKPOINT) {
+            clearCardStates();
           }
         }, 250);
       });
