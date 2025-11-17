@@ -308,14 +308,6 @@
       left: 100%;
     }
 
-    .contact-gradient-text {
-      background: linear-gradient(90deg, #0f4c81 0%, #367ff1 50%, #29d8c0 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-    }
-
     .contact-icon {
       width: 80px;
       height: 80px;
@@ -343,139 +335,6 @@
     .contact-icon i {
       font-size: 2rem;
       color: white;
-    }
-
-    .contact-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-badge {
-      flex: 1 1 220px;
-      min-width: 180px;
-      background: rgba(255, 255, 255, 0.85);
-      border: 1px solid rgba(15, 76, 129, 0.1);
-      border-radius: 18px;
-      padding: 0.9rem 1rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      color: #0f2345;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      box-shadow: 0 10px 24px rgba(15, 36, 76, 0.08);
-    }
-
-    .contact-badge i {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(15, 76, 129, 0.15), rgba(50, 159, 255, 0.45));
-      color: #0a3a6b;
-      font-size: 1.25rem;
-    }
-
-    .contact-badge:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 30px rgba(10, 31, 81, 0.15);
-    }
-
-    .contact-badge span {
-      display: block;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #51617b;
-    }
-
-    .contact-badge strong {
-      display: block;
-      font-size: 1.05rem;
-      color: #091c35;
-    }
-
-    .contact-support-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2.25rem;
-    }
-
-    .contact-support-card {
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 18px;
-      padding: 1.25rem 1.35rem;
-      border: 1px solid rgba(13, 60, 115, 0.08);
-      box-shadow: 0 18px 30px rgba(5, 38, 71, 0.08);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: cardFloat 6s ease-in-out infinite;
-    }
-
-    .contact-support-card:nth-child(2) {
-      animation-delay: 1.2s;
-    }
-
-    .contact-support-card:nth-child(3) {
-      animation-delay: 2.4s;
-    }
-
-    .contact-support-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(0, 94, 184, 0.05), rgba(255, 255, 255, 0));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .contact-support-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 28px 45px rgba(6, 32, 70, 0.15);
-    }
-
-    .contact-support-card:hover::after {
-      opacity: 1;
-    }
-
-    .support-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #6c7a91;
-      margin-bottom: 0.25rem;
-      font-weight: 600;
-    }
-
-    .contact-support-card h4 {
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: #0c1d36;
-      margin-bottom: 0.35rem;
-    }
-
-    .contact-support-card p {
-      margin: 0;
-      color: #51617b;
-      font-size: 0.92rem;
-    }
-
-    @keyframes cardFloat {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-4px);
-      }
     }
 
     .privacy-links {
@@ -512,15 +371,6 @@
     @media (max-width: 768px) {
       .contact-page .main {
         padding-top: 3rem;
-      }
-
-      .contact-badges {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      .contact-support-grid {
-        grid-template-columns: 1fr;
       }
 
       .contact-form-container {
@@ -576,75 +426,6 @@
             Services
             <!-- <i class="fas fa-chevron-down"></i> -->
           </a>
-          <div class="mobile-services-menu" aria-label="Services categories">
-            <div class="mobile-services-meta">
-              <p>Explore our services</p>
-              <span>Tap a category to reveal detailed capabilities</span>
-            </div>
-            <div class="mobile-category-list">
-              <div class="category-item active" data-submenu="ai-automation">
-                <a href="service.html#ai-automation" class="category-link">AI & Automation</a>
-                <button class="category-toggle" type="button" aria-label="Expand AI & Automation services">
-                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="development-technology">
-                <a href="service.html#development" class="category-link">Development & Technology</a>
-                <button class="category-toggle" type="button" aria-label="Expand Development & Technology services">
-                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="design-branding">
-                <a href="service.html#design" class="category-link">Design & Branding</a>
-                <button class="category-toggle" type="button" aria-label="Expand Design & Branding services">
-                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="cloud-infrastructure">
-                <a href="service.html#cloud" class="category-link">Cloud & Infrastructure</a>
-                <button class="category-toggle" type="button" aria-label="Expand Cloud & Infrastructure services">
-                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="data-operations">
-                <a href="service.html#operations" class="category-link">Data & Operations</a>
-                <button class="category-toggle" type="button" aria-label="Expand Data & Operations services">
-                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mobile-subcategories-container hidden" aria-live="polite">
-            <div class="subcategory-grid hidden" data-category="ai-automation">
-              <a href="service.html" class="subcategory-link subcategory-pill">AI & Machine Learning (ML)</a>
-              <a href="ocr.html" class="subcategory-link subcategory-pill">OCR (Optical Character Recognition)</a>
-              <a href="scraper-scripting.html" class="subcategory-link subcategory-pill">Scraper & Scripting</a>
-              <a href="navision-integration-automation.html" class="subcategory-link subcategory-pill">Navision
-                Integration & Automation</a>
-              <a href="esl-integration.html" class="subcategory-link subcategory-pill">ESL (Electronic Shelf Labels)
-                Integration</a>
-            </div>
-            <div class="subcategory-grid hidden" data-category="development-technology">
-              <a href="service.html#shopify" class="subcategory-link subcategory-pill">Shopify Development & Services</a>
-              <a href="service.html#web-mobile" class="subcategory-link subcategory-pill">Web & Mobile Development</a>
-              <a href="service.html#software-consulting" class="subcategory-link subcategory-pill">Software Development & Consulting</a>
-              <a href="service.html#ecommerce" class="subcategory-link subcategory-pill">E-Commerce & Marketplace Integration</a>
-            </div>
-            <div class="subcategory-grid hidden" data-category="design-branding">
-              <a href="service.html#uiux" class="subcategory-link subcategory-pill">UI/UX & Creative Services</a>
-              <a href="service.html#branding" class="subcategory-link subcategory-pill">Design & Branding</a>
-            </div>
-            <div class="subcategory-grid hidden" data-category="cloud-infrastructure">
-              <a href="service.html#hosting" class="subcategory-link subcategory-pill">Hosting & Cloud Services</a>
-              <a href="service.html#managed-hosting" class="subcategory-link subcategory-pill">Managed Hosting Solutions</a>
-              <a href="service.html#cloud-migration" class="subcategory-link subcategory-pill">Cloud Setup, Migration & Optimization</a>
-              <a href="service.html#server-monitoring" class="subcategory-link subcategory-pill">Server Monitoring, Backup & Security Management</a>
-            </div>
-            <div class="subcategory-grid hidden" data-category="data-operations">
-              <a href="service.html#analytics" class="subcategory-link subcategory-pill">Reporting & Analytics</a>
-              <a href="service.html#bpo" class="subcategory-link subcategory-pill">Back Office & BPO Solutions</a>
-            </div>
-          </div>
         </li>
         <li class="nav-item">
           <a href="Clients.html" class="nav-link">Clients</a>
@@ -675,19 +456,19 @@
           <div class="service-categories">
             <div class="category-column">
               <div class="category-item active" data-submenu="ai-automation">
-                <a href="service.html#ai-automation" class="category-link">AI & Automation</a>
+                <a href="service.html" class="category-link">AI & Automation</a>
               </div>
               <div class="category-item" data-submenu="development-technology">
-                <a href="service.html#development" class="category-link">Development & Technology</a>
+                <a href="#" class="category-link">Development & Technology</a>
               </div>
               <div class="category-item" data-submenu="design-branding">
-                <a href="service.html#design" class="category-link">Design & Branding</a>
+                <a href="#" class="category-link">Design & Branding</a>
               </div>
               <div class="category-item" data-submenu="cloud-infrastructure">
-                <a href="service.html#cloud" class="category-link">Cloud & Infrastructure</a>
+                <a href="#" class="category-link">Cloud & Infrastructure</a>
               </div>
               <div class="category-item" data-submenu="data-operations">
-                <a href="service.html#operations" class="category-link">Data & Operations</a>
+                <a href="#" class="category-link">Data & Operations</a>
               </div>
             </div>
 
@@ -714,52 +495,52 @@
             <!-- Development & Technology Subcategories -->
             <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
               <div class="subcategory-item">
-                <a href="service.html#shopify" class="subcategory-link">Shopify Development & Services</a>
+                <a href="#" class="subcategory-link">Shopify Development & Services</a>
               </div>
               <div class="subcategory-item">
-                <a href="service.html#web-mobile" class="subcategory-link">Web & Mobile Development</a>
+                <a href="#" class="subcategory-link">Web & Mobile Development</a>
               </div>
               <div class="subcategory-item">
-                <a href="service.html#software-consulting" class="subcategory-link">Software Development & Consulting</a>
+                <a href="#" class="subcategory-link">Software Development & Consulting</a>
               </div>
               <div class="subcategory-item">
-                <a href="service.html#ecommerce" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
               </div>
             </div>
 
             <!-- Design & Branding Subcategories -->
             <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
               <div class="subcategory-item">
-                <a href="service.html#uiux" class="subcategory-link">UI/UX & Creative Services</a>
+                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
               </div>
               <div class="subcategory-item">
-                <a href="service.html#branding" class="subcategory-link">Design & Branding</a>
+                <a href="#" class="subcategory-link">Design & Branding</a>
               </div>
             </div>
 
             <!-- Cloud & Infrastructure Subcategories -->
             <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
               <div class="subcategory-item">
-                <a href="service.html#hosting" class="subcategory-link">Hosting & Cloud Services</a>
+                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
               </div>
               <div class="subcategory-item">
-                <a href="service.html#managed-hosting" class="subcategory-link">Managed Hosting Solutions</a>
+                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
               </div>
               <div class="subcategory-item">
-                <a href="service.html#cloud-migration" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
               </div>
               <div class="subcategory-item">
-                <a href="service.html#server-monitoring" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
               </div>
             </div>
 
             <!-- Data & Operations Subcategories -->
             <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
               <div class="subcategory-item">
-                <a href="service.html#analytics" class="subcategory-link">Reporting & Analytics</a>
+                <a href="#" class="subcategory-link">Reporting & Analytics</a>
               </div>
               <div class="subcategory-item">
-                <a href="service.html#bpo" class="subcategory-link">Back Office & BPO Solutions</a>
+                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
               </div>
             </div>
           </div>
@@ -767,7 +548,6 @@
       </div>
     </div>
   </nav>
-  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
 
   <main class="main">
 
@@ -776,53 +556,11 @@
       <div class="container">
         <div class="row align-items-center gx-5 gy-1">
           <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-            <h1 class="display-4 fw-bold text-dark mb-3">
-              <span class="contact-gradient-text">Contact Us</span>
-            </h1>
+            <h1 class="display-4 fw-bold text-dark mb-4">Contact Us</h1>
             <p class="lead text-dark mb-4">
               Connect with us today where innovation meets execution. Our expert team of specialists who work closely
               with you to design solutions that accelerate growth and deliver measurable impact.
             </p>
-            <div class="contact-badges">
-              <a href="tel:+919764997022" class="contact-badge" aria-label="Call Dataspan Technologies">
-                <i class="bi bi-telephone-outbound"></i>
-                <div>
-                  <span>Talk to Sales</span>
-                  <strong>+91 97649 97022</strong>
-                </div>
-              </a>
-              <a href="mailto:info@dataspantechnologies.com" class="contact-badge" aria-label="Email Dataspan Technologies">
-                <i class="bi bi-envelope-paper-heart"></i>
-                <div>
-                  <span>Email Us</span>
-                  <strong>info@dataspantechnologies.com</strong>
-                </div>
-              </a>
-              <div class="contact-badge" role="text">
-                <i class="bi bi-clock-history"></i>
-                <div>
-                  <span>Support Window</span>
-                  <strong>Mon - Sat · 9 AM - 8 PM IST</strong>
-                </div>
-              </div>
-            </div>
-            <div class="contact-support-grid" data-aos="fade-up" data-aos-delay="200">
-              <div class="contact-support-card">
-                <div class="support-label">Average Response</div>
-                <h4>&lt; 24 hours</h4>
-                <p>Dedicated success team that replies within one business day.</p>
-              </div>
-              <div class="contact-support-card">
-                <div class="support-label">Global Delivery</div>
-                <h4>4 time zones</h4>
-                <p>India HQ with partner pods across North America & Europe.</p>
-              </div>
-              <div class="contact-support-card">
-                <div class="support-label">Engagements</div>
-                <h4>120+ clients</h4>
-                <p>Product, engineering, and AI squads tailored to your goals.</p>
-              </div>
-            </div>
             <div class="contact-icon" data-aos="zoom-in" data-aos-delay="500">
               <i class="bi bi-headset"></i>
             </div>
