@@ -16,7 +16,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -47,8 +49,10 @@
         }
 
         body {
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
         }
 
         html {
@@ -61,8 +65,73 @@
         }
 
         html {
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        /* Breadcrumb */
+        .about-breadcrumb {
+            width: 100%;
+            margin: 0 auto clamp(20px, 2.5vw, 30px) auto;
+            padding: 0 clamp(60px, 6vw, 100px);
+            position: relative;
+            z-index: 2;
+            pointer-events: auto;
+        }
+
+        .about-breadcrumb .breadcrumb {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+            font-weight: 500;
+        }
+
+        .about-breadcrumb .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .about-breadcrumb .breadcrumb li::after {
+            content: '›';
+            font-size: 0.85rem;
+            color: color-mix(in srgb, var(--default-color), transparent 40%);
+        }
+
+        .about-breadcrumb .breadcrumb li:last-child::after {
+            display: none;
+        }
+
+        .about-breadcrumb .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .about-breadcrumb .breadcrumb a:hover {
+            color: color-mix(in srgb, var(--accent-color), transparent 20%);
+        }
+
+        .about-breadcrumb .breadcrumb span {
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+
+        @media (max-width: 767px) {
+            .about-breadcrumb {
+                margin-bottom: clamp(15px, 3vw, 22px);
+            }
+
+            .about-breadcrumb .breadcrumb {
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+            }
         }
 
         /* Responsive Images - Base Rule */
@@ -117,54 +186,46 @@
             padding: clamp(100px, 10vw, 120px) 0 clamp(40px, 5vw, 60px) 0;
             padding-top: clamp(100px, 10vw, 120px) !important;
             background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color), transparent 95%), color-mix(in srgb, var(--accent-color), transparent 98%));
+            position: relative;
             margin-top: 0;
         }
 
+        .about-section-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/img/Website header background Images - Free Download on Freepik.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            opacity: 0.35;
+            z-index: 0;
+        }
+
         .about-section-1-content {
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 6%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-            align-items: stretch;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+        }
+
+        /* Override Bootstrap container to use full width */
+        .about-section-1-content.container {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
         }
 
         .about-section-1-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-            min-height: 100%;
+            width: 80% !important;
+            max-width: 80% !important;
+            margin: 0 auto;
             padding: clamp(8px, 1.2vw, 15px) 0;
-        }
-
-        .about-section-1-image {
-            width: 100%;
-            height: 100%;
-            min-height: 100%;
-            overflow: visible;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .about-section-1-image img {
-            width: 90%;
-            height: auto;
-            max-width: 90%;
-            min-width: 300px;
-            min-height: 220px;
-            object-fit: contain;
-            display: block;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .about-section-1-image img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
         }
 
         /* Section 2: Intelligent AI & Automations */
@@ -220,6 +281,255 @@
             padding: clamp(8px, 1.2vw, 15px) 0;
         }
 
+        /* Section 3: Impact Stories Slider */
+        .impact-slider-section {
+            background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color), transparent 95%), color-mix(in srgb, var(--accent-color), transparent 98%)) !important;
+            padding: 0 6%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+        }
+
+        .impact-slider-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            /* background-color: color-mix(in srgb, var(--default-color), transparent 96%); */
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .impact-slider-wrapper {
+            width: min(95%, 1320px);
+            margin: 20px auto;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 36px;
+            background: transparent;
+            z-index: 1;
+        }
+
+        .impact-slider-track {
+            display: flex;
+            transition: transform 0.7s cubic-bezier(.6, .05, .2, .94);
+            will-change: transform;
+        }
+
+        .impact-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: clamp(20px, 3vw, 40px);
+            padding: clamp(32px, 5vw, 60px);
+        }
+
+        .impact-slide-media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 26px;
+            padding: clamp(12px, 2vw, 24px);
+        }
+
+        .impact-slide-media img {
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .impact-slide-content h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: #05386e;
+            margin-bottom: 1rem;
+            font-family: var(--heading-font);
+            font-weight: 700;
+        }
+
+        .impact-slide-content h3 {
+            font-size: clamp(1.25rem, 3vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: #1b1f3b;
+            font-weight: 600;
+        }
+
+        .impact-slide-content p {
+            color: color-mix(in srgb, var(--default-color), transparent 15%);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-slide-content .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.85rem;
+            color: #00a0d2;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .impact-slide-content .impact-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 26px;
+            border-radius: 999px;
+            background: #05386e;
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 12px 30px rgba(5, 56, 110, 0.35);
+        }
+
+        .impact-slide-content .impact-cta:hover {
+            background: #032a4a;
+            transform: translateY(-2px);
+        }
+
+        .impact-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, #0ea0ff, #05386e);
+            color: #fff;
+            box-shadow: 0 15px 35px rgba(5, 56, 110, 0.35);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 2;
+        }
+
+        .impact-nav:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 20px 40px rgba(5, 56, 110, 0.45);
+        }
+
+        .impact-prev {
+            left: clamp(10px, 2vw, 20px);
+        }
+
+        .impact-next {
+            right: clamp(10px, 2vw, 20px);
+        }
+
+        .impact-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px 0 26px;
+        }
+
+        .impact-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(5, 56, 110, 0.25);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .impact-dot.is-active {
+            width: 32px;
+            border-radius: 999px;
+            background: #05386e;
+        }
+
+        .impact-slide.is-active .impact-slide-content h2 {
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .impact-slide.is-active .impact-slide-content h3 {
+            animation: fadeUp 0.6s ease 0.1s both;
+        }
+
+        .impact-slide.is-active .impact-slide-content p {
+            animation: fadeUp 0.6s ease 0.2s both;
+        }
+
+        .impact-slide.is-active .impact-slide-content .impact-cta {
+            animation: fadeUp 0.6s ease 0.3s both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .impact-slide {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .impact-slide-media {
+                order: -1;
+            }
+
+            .impact-nav {
+                top: auto;
+                bottom: 20px;
+                transform: translateY(0);
+            }
+
+            .impact-prev {
+                left: 20px;
+            }
+
+            .impact-next {
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .impact-slider-section {
+                padding: 0 4%;
+                margin: 0;
+            }
+
+            .impact-slider-wrapper {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .impact-slider-wrapper {
+                border-radius: 20px;
+            }
+
+            .impact-slide {
+                padding: 28px 20px 56px;
+            }
+
+            .impact-slide-content .impact-cta {
+                width: 100%;
+            }
+        }
+
         /* Typography - Responsive Font Sizes */
         .about-section-1-text small {
             font-size: clamp(1.1rem, 3vw, 1.9rem);
@@ -248,10 +558,17 @@
             color: color-mix(in srgb, var(--default-color), transparent 20%);
             font-size: 1.125rem;
             line-height: 1.7;
-            margin: 0 0 2rem 0;
+            margin: clamp(2px, 0.4vw, 8px) auto 1.8rem auto;
             font-weight: 400;
             font-family: var(--default-font);
             padding-right: clamp(10px, 2vw, 20px);
+            text-align: center;
+            max-width: 1040px;
+        }
+
+        .about-section-1-text .hero-title {
+            margin-bottom: clamp(2px, 0.6vw, 8px);
+            padding-bottom: 0;
         }
 
         .about-section-2-text h2 {
@@ -1586,11 +1903,17 @@
         }
 
         .values-section {
-            width: 90%;
-            max-width: 60%;
-            margin: auto;
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0;
+            padding: 0;
             text-align: center;
-            background: #ffffff;
+            background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color), transparent 95%), color-mix(in srgb, var(--accent-color), transparent 98%)) !important;
+        }
+
+        .values-section.section {
+            margin: 0;
+            padding: 0;
         }
 
         .values-section h2 {
@@ -1611,21 +1934,23 @@
         .values-section p.top-desc {
             font-size: 1.05rem;
             color: var(--default-color);
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto 25px;
             line-height: 1.7;
         }
 
         .values-section .values-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            background: transparent;
             padding: 60px 60px;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(13, 131, 253, 0.1),
-                0 5px 15px rgba(0, 0, 0, 0.05);
+            /* border-radius: 20px; */
+            /* box-shadow: 0 15px 50px rgba(13, 131, 253, 0.1),
+                0 5px 15px rgba(0, 0, 0, 0.05); */
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(13, 131, 253, 0.12);
-            margin: 30px 0;
+            border: none;
+            margin: 30px auto;
+            max-width: 1380px;
+            width: 98%;
         }
 
         .values-section .values-card::before {
@@ -1634,8 +1959,8 @@
 
         .values-section .values-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px 50px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px 32px;
             text-align: left;
 
         }
@@ -1651,6 +1976,8 @@
             flex-direction: column;
             border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
             overflow: hidden;
+            box-shadow: 0 8px 20px rgba(13, 131, 253, 0.08),
+                0 4px 12px rgba(0, 0, 0, 0.04);
         }
 
         .values-section .value-item::before {
@@ -1749,8 +2076,8 @@
             }
 
             .values-section {
-                width: 85%;
-                max-width: 65%;
+                width: 100% !important;
+                max-width: none !important;
             }
 
             .values-section h2 {
@@ -1768,7 +2095,8 @@
             }
 
             .values-section .values-grid {
-                gap: clamp(28px, 3vw, 35px) clamp(45px, 4.5vw, 55px);
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: clamp(22px, 2.8vw, 30px) clamp(30px, 3.5vw, 40px);
             }
 
             .values-section .value-item {
@@ -1797,8 +2125,8 @@
             }
 
             .values-section {
-                width: 88%;
-                max-width: 70%;
+                width: 100% !important;
+                max-width: none !important;
             }
 
             .values-section h2 {
@@ -1845,8 +2173,8 @@
             }
 
             .values-section {
-                width: 92%;
-                max-width: 85%;
+                width: 100% !important;
+                max-width: none !important;
             }
 
             .values-section h2 {
@@ -1865,7 +2193,7 @@
 
             .values-section .values-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: clamp(22px, 2.5vw, 28px) clamp(35px, 3.5vw, 45px);
+                gap: clamp(18px, 2.3vw, 24px) clamp(25px, 3vw, 35px);
             }
 
             .values-section .value-item {
@@ -1888,6 +2216,13 @@
             }
         }
 
+        @media (min-width: 768px) and (max-width: 991px) {
+            .values-section .values-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: clamp(18px, 2vw, 24px) clamp(22px, 2.5vw, 32px);
+            }
+        }
+
         @media (max-width: 767px) {
             .valuessection {
                 padding: clamp(35px, 4.5vw, 50px) 0;
@@ -1895,8 +2230,8 @@
             }
 
             .values-section {
-                width: 95%;
-                max-width: 95%;
+                width: 100% !important;
+                max-width: none !important;
             }
 
             .values-section h2 {
@@ -1948,8 +2283,8 @@
             }
 
             .values-section {
-                width: 98%;
-                max-width: 98%;
+                width: 100% !important;
+                max-width: none !important;
             }
 
             .values-section h2 {
@@ -1994,8 +2329,8 @@
         /* section three ---------------------------------------------------*/
         /* People Section - Light background with gradient cards */
         .people-section {
-            background: linear-gradient(135deg, #f8fbff 0%, #ffffff 50%, #f0f7ff 100%);
-            padding:10px 6%;
+            background: #ffffff;
+            padding: 10px 6%;
             text-align: center;
             color: var(--heading-color);
             position: relative;
@@ -2018,7 +2353,7 @@
         .people-section h2 {
             font-size: clamp(1.6rem, 2.8vw, 2.1rem);
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 8px !important;
             color: var(--heading-color);
             position: relative;
             z-index: 2;
@@ -2034,8 +2369,10 @@
 
         .people-section p.subtext {
             font-size: 1.125rem;
-            max-width: 600px;
-            margin: 0 auto 40px;
+            max-width: 900px;
+            margin: 0 auto 10px !important;
+            margin-top: 0 !important;
+            margin-bottom: 10px !important;
             line-height: 1.7;
             color: color-mix(in srgb, var(--default-color), transparent 20%);
             position: relative;
@@ -2047,6 +2384,11 @@
         .people-section .cards-row {
             position: relative;
             z-index: 2;
+            overflow-x: auto !important;
+            overflow-y: visible !important;
+            padding-top: 20px;
+            margin-top: 20px;
+            scroll-behavior: smooth;
         }
 
         /* Subtle radial glow around the cards row on hover */
@@ -2058,13 +2400,14 @@
             transform: translate(-50%, -50%);
             width: 110%;
             height: 120%;
-            background: radial-gradient(ellipse at center, 
-                rgba(0, 180, 255, 0.05) 0%, 
-                transparent 70%);
+            background: radial-gradient(ellipse at center,
+                    rgba(0, 180, 255, 0.05) 0%,
+                    transparent 70%);
             pointer-events: none;
             z-index: 0;
             opacity: 0;
             transition: opacity 0.6s ease;
+
         }
 
         .people-section .cards-row:hover::before {
@@ -2077,12 +2420,13 @@
             padding: 0 !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
+            padding-top: 20px !important;
             margin: 0 !important;
             margin-left: 0 !important;
             margin-right: 0 !important;
             margin-bottom: 0 !important;
             margin-top: 0 !important;
-            /* Allow overflow for connection effect */
+            /* Allow overflow for connection effect and hover */
             overflow: visible !important;
             /* Force single line - prevent wrapping */
             flex: 0 0 auto !important;
@@ -2108,10 +2452,13 @@
             padding: 0 !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
+            padding-top: 20px !important;
+            padding-bottom: 15px !important;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             width: 100%;
+            min-width: 100%;
             max-width: 100%;
             overflow-x: auto !important;
             overflow-y: hidden !important;
@@ -2121,85 +2468,160 @@
             z-index: 1;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
-            scroll-behavior: smooth;
-            /* Ensure scroll continues until all shapes are complete */
+            scroll-behavior: smooth !important;
+            scroll-snap-type: x proximity;
+            scroll-snap-stop: always;
             scroll-padding-right: clamp(20px, 3vw, 40px);
-            /* Hide vertical scrollbar */
-            scrollbar-width: thin;
+            /* Ensure height matches container */
+            height: auto;
+            box-sizing: border-box;
         }
 
-        /* Hide vertical scrollbar for cards-row */
+        /* Show scrollbar for cards-row when content overflows */
         .people-section .cards-row::-webkit-scrollbar {
-            height: 8px;
+            display: block;
+            height: 10px;
+            background: transparent;
         }
 
-        .people-section .cards-row::-webkit-scrollbar:vertical {
-            display: none;
+        .people-section .cards-row::-webkit-scrollbar-thumb {
+            background: rgba(13, 131, 253, 0.5);
+            border-radius: 10px;
+            transition: background 0.2s ease;
+            cursor: grab;
         }
 
-        /* When screen is wide enough, center the shapes and hide horizontal scrollbar */
-        @media (min-width: 1300px) {
-            .people-section .cards-row {
-                justify-content: center !important;
-                padding-right: 0 !important;
-                overflow-x: hidden !important;
-            }
+        .people-section .cards-row::-webkit-scrollbar-thumb:active {
+            background: rgba(13, 131, 253, 0.8);
+            cursor: grabbing;
+        }
 
-            /* Hide horizontal scrollbar when all shapes are visible */
+        .people-section .cards-row::-webkit-scrollbar-thumb:hover {
+            background: rgba(13, 131, 253, 0.7);
+        }
+
+        .people-section .cards-row::-webkit-scrollbar-track {
+            background: rgba(13, 131, 253, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Scrollbar is always visible for cards-row */
+
+        /* Hide scrollbar on XXL screens and above (above 1400px) */
+        @media (min-width: 1401px) {
             .people-section .cards-row::-webkit-scrollbar {
-                display: none;
+                display: none !important;
             }
 
             .people-section .cards-row {
-                scrollbar-width: none; /* Firefox */
-                -ms-overflow-style: none; /* IE and Edge */
-            }
-
-            .people-section .container {
-                overflow-x: hidden !important;
-            }
-
-            .people-section .container::-webkit-scrollbar {
-                display: none;
-            }
-
-            .people-section .container {
-                scrollbar-width: none; /* Firefox */
-                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none !important;
             }
         }
 
-        /* When screen is smaller, allow scrolling and align to start */
-        @media (max-width: 1299px) {
-            .people-section .cards-row {
-                justify-content: flex-start !important;
-                padding-right: clamp(20px, 3vw, 40px) !important;
-                overflow-x: auto !important;
-            }
+        /* Always allow horizontal scrolling, even on wide screens */
+        @media (max-width: 1400px) {
 
-            /* Show horizontal scrollbar when scrolling is needed */
-            .people-section .cards-row::-webkit-scrollbar {
-                display: block;
-                height: 8px;
-            }
-
-            .people-section .cards-row {
-                scrollbar-width: thin; /* Firefox */
-            }
-
+            .people-section .cards-row,
             .people-section .container {
                 justify-content: flex-start !important;
                 padding-right: clamp(20px, 3vw, 40px) !important;
                 overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scrollbar-width: thin;
+                scroll-behavior: smooth !important;
             }
 
+            .people-section .cards-row::-webkit-scrollbar,
             .people-section .container::-webkit-scrollbar {
                 display: block;
-                height: 8px;
+                height: 10px;
+                background: transparent;
             }
 
+            .people-section .cards-row::-webkit-scrollbar-thumb,
+            .people-section .container::-webkit-scrollbar-thumb {
+                background: rgba(13, 131, 253, 0.5);
+                border-radius: 10px;
+                cursor: grab;
+                transition: background 0.2s ease;
+            }
+
+            .people-section .cards-row::-webkit-scrollbar-thumb:active,
+            .people-section .container::-webkit-scrollbar-thumb:active {
+                background: rgba(13, 131, 253, 0.8);
+                cursor: grabbing;
+            }
+
+            .people-section .cards-row::-webkit-scrollbar-thumb:hover,
+            .people-section .container::-webkit-scrollbar-thumb:hover {
+                background: rgba(13, 131, 253, 0.7);
+            }
+
+            .people-section .cards-row::-webkit-scrollbar-track,
+            .people-section .container::-webkit-scrollbar-track {
+                background: rgba(13, 131, 253, 0.1);
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 991px) {
+
+            .people-section .cards-row,
             .people-section .container {
-                scrollbar-width: thin; /* Firefox */
+                flex-wrap: nowrap !important;
+                width: max-content !important;
+                min-width: 100% !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scrollbar-width: thin;
+                padding-right: clamp(20px, 3vw, 40px) !important;
+                justify-content: flex-start !important;
+                scroll-behavior: smooth !important;
+            }
+
+            .people-section .cards-row::-webkit-scrollbar,
+            .people-section .container::-webkit-scrollbar {
+                display: block;
+                height: 10px;
+                background: transparent;
+            }
+
+            .people-section .cards-row::-webkit-scrollbar-thumb,
+            .people-section .container::-webkit-scrollbar-thumb {
+                background: rgba(13, 131, 253, 0.5);
+                border-radius: 10px;
+                cursor: grab;
+                transition: background 0.2s ease;
+            }
+
+            .people-section .cards-row::-webkit-scrollbar-thumb:active,
+            .people-section .container::-webkit-scrollbar-thumb:active {
+                background: rgba(13, 131, 253, 0.8);
+                cursor: grabbing;
+            }
+
+            .people-section .cards-row::-webkit-scrollbar-thumb:hover,
+            .people-section .container::-webkit-scrollbar-thumb:hover {
+                background: rgba(13, 131, 253, 0.7);
+            }
+
+            .people-section .cards-row::-webkit-scrollbar-track,
+            .people-section .container::-webkit-scrollbar-track {
+                background: rgba(13, 131, 253, 0.1);
+                border-radius: 10px;
+            }
+
+            .people-section .people-card {
+                width: 220px;
+                min-width: 220px;
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .people-section .people-card {
+                width: 180px;
+                min-width: 180px;
             }
         }
 
@@ -2207,48 +2629,50 @@
             padding: 0 !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
+            padding-top: 0 !important;
             margin: 0 auto !important;
             margin-left: auto !important;
             margin-right: auto !important;
-            max-width: 100%;
+            margin-top: 0 !important;
             width: 100%;
+            max-width: 100%;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-start;
+            align-items: flex-start;
+            overflow-x: auto !important;
             overflow-x: auto !important;
             overflow-y: hidden !important;
             position: relative;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
             scroll-behavior: smooth;
+            scroll-snap-type: x proximity;
             scroll-padding-right: clamp(20px, 3vw, 40px);
+            /* Ensure container height matches cards-row */
+            height: auto;
+            box-sizing: border-box;
             /* Test border - uncomment to see */
             /* border: 2px solid green; */
         }
 
         /* Hide vertical scrollbar for container */
         .people-section .container::-webkit-scrollbar {
+            display: block;
             height: 8px;
+            background: transparent;
         }
 
         .people-section .container::-webkit-scrollbar:vertical {
             display: none;
         }
 
-        /* When screen is wide enough, center the container */
-        @media (min-width: 1300px) {
-            .people-section .container {
-                justify-content: center !important;
-                padding-right: 0 !important;
-            }
+        .people-section .container::-webkit-scrollbar-thumb {
+            background: rgba(13, 131, 253, 0.4);
+            border-radius: 8px;
         }
 
-        /* When screen is smaller, allow scrolling and align to start */
-        @media (max-width: 1299px) {
-            .people-section .container {
-                justify-content: flex-start !important;
-                padding-right: clamp(20px, 3vw, 40px) !important;
-            }
+        .people-section .container::-webkit-scrollbar-track {
+            background: rgba(13, 131, 253, 0.1);
         }
 
         /* Custom pill-shaped card with gradient */
@@ -2294,6 +2718,8 @@
             opacity: 1 !important;
             visibility: visible !important;
             display: flex !important;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
         }
 
         /* Ensure all people cards remain visible on scroll */
@@ -2314,10 +2740,10 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255, 255, 255, 0.2) 50%, 
-                transparent 100%);
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.2) 50%,
+                    transparent 100%);
             transition: left 0.6s ease;
             z-index: 1;
             pointer-events: none;
@@ -2365,8 +2791,8 @@
         .people-section .cards-row>div:not(:last-child)::after {
             content: '';
             position: absolute;
-            top: 55%;
-            left: 95%;
+            top: 55% !important;
+            left: 95% !important;
             width: 70px;
             height: 185px;
             background: #0056CC;
@@ -2405,7 +2831,7 @@
 
         /* Animated connection lines that respond to hover */
         .people-section .cards-row>div:hover::after,
-        .people-section .cards-row>div:hover + div::after {
+        .people-section .cards-row>div:hover+div::after {
             opacity: 0.85 !important;
             visibility: visible !important;
             transform: translateY(-50%) rotate(140deg) scale(1.05);
@@ -2434,6 +2860,7 @@
         }
 
         /* Individual pill colors matching cards - dusky versions */
+        /* All pills have the same position relative to their shapes */
         /* Pill between card 1 and 2 - matches card 1 (light blue) */
         .people-section .cards-row>div:nth-child(1)::after {
             background: #0077AA;
@@ -2442,6 +2869,7 @@
             display: block !important;
             z-index: 1 !important;
             left: 95% !important;
+            top: 55% !important;
         }
 
         /* Pill between card 2 and 3 - matches card 2 (medium blue) */
@@ -2450,6 +2878,8 @@
             opacity: 1 !important;
             visibility: visible !important;
             display: block !important;
+            left: 95% !important;
+            top: 55% !important;
         }
 
         /* Pill between card 3 and 4 - matches card 3 (light blue) */
@@ -2458,6 +2888,8 @@
             opacity: 1 !important;
             visibility: visible !important;
             display: block !important;
+            left: 95% !important;
+            top: 55% !important;
         }
 
         /* Pill between card 4 and 5 - matches card 4 (medium blue) */
@@ -2466,6 +2898,8 @@
             opacity: 1 !important;
             visibility: visible !important;
             display: block !important;
+            left: 95% !important;
+            top: 55% !important;
         }
 
         /* Alternating solid colors for badge shapes */
@@ -2562,12 +2996,12 @@
 
             .people-section h2 {
                 font-size: clamp(2rem, 3.5vw, 2.5rem);
-                margin-bottom: clamp(22px, 2.5vw, 28px);
+                margin-bottom: 8px !important;
             }
 
             .people-section p.subtext {
                 font-size: clamp(1.05rem, 1.8vw, 1.15rem);
-                margin-bottom: clamp(35px, 4vw, 45px);
+                margin-bottom: 10px !important;
             }
 
             .people-section .people-card {
@@ -2598,7 +3032,8 @@
             .people-section .cards-row>div:not(:last-child)::after {
                 width: 70px;
                 height: 185px;
-                left: 95%;
+                left: 95% !important;
+                top: 55% !important;
             }
         }
 
@@ -2646,7 +3081,8 @@
             .people-section .cards-row>div:not(:last-child)::after {
                 width: clamp(60px, 5.5vw, 68px);
                 height: clamp(160px, 16vw, 180px);
-                left: 93%;
+                left: 93% !important;
+                top: 55% !important;
                 border-radius: clamp(20px, 2.2vw, 24px);
             }
         }
@@ -2660,12 +3096,12 @@
 
             .people-section h2 {
                 font-size: clamp(1.75rem, 3vw, 2.1rem);
-                margin-bottom: clamp(18px, 2.1vw, 24px);
+                margin-bottom: 8px !important;
             }
 
             .people-section p.subtext {
                 font-size: clamp(0.98rem, 1.6vw, 1.08rem);
-                margin-bottom: clamp(30px, 3.5vw, 40px);
+                margin-bottom: 10px !important;
             }
 
             .people-section .people-card {
@@ -2701,8 +3137,8 @@
             .people-section .cards-row>div:not(:last-child)::after {
                 width: clamp(50px, 5vw, 65px);
                 height: clamp(140px, 15vw, 170px);
-                left: 90%;
-                top: 55%;
+                left: 90% !important;
+                top: 55% !important;
                 border-radius: clamp(18px, 2vw, 23px);
             }
         }
@@ -2757,8 +3193,8 @@
             .people-section .cards-row>div:not(:last-child)::after {
                 width: clamp(40px, 4.5vw, 55px);
                 height: clamp(110px, 12vw, 140px);
-                left: 88%;
-                top: 55%;
+                left: 88% !important;
+                top: 55% !important;
                 border-radius: clamp(15px, 1.8vw, 20px);
             }
         }
@@ -2772,12 +3208,12 @@
 
             .people-section h2 {
                 font-size: clamp(1.5rem, 5.5vw, 1.85rem);
-                margin-bottom: clamp(14px, 1.8vw, 20px);
+                margin-bottom: 8px !important;
             }
 
             .people-section p.subtext {
                 font-size: clamp(0.9rem, 2vw, 1rem);
-                margin-bottom: clamp(25px, 3vw, 35px);
+                margin-bottom: 10px !important;
                 padding: 0 clamp(8px, 1.8vw, 18px);
             }
 
@@ -2812,26 +3248,38 @@
             .people-section .cards-row>div:not(:last-child)::after {
                 width: clamp(35px, 4vw, 45px);
                 height: clamp(90px, 10vw, 115px);
-                left: 85%;
-                top: 55%;
+                left: 85% !important;
+                top: 55% !important;
                 border-radius: clamp(12px, 1.5vw, 18px);
             }
         }
 
 
         /* section four -----------------------------------------------------------*/
+        .talent-wrapper {
+            width: 100%;
+            padding: 35px 0 50px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background: transparent;
+        }
+
         .talent-section {
             position: relative;
-            height: 450px;
+            width: 70%;
+            height: 220px;
             display: flex;
             align-items: center;
             padding-left: 8%;
             overflow: hidden;
-            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 30%, #f0f7ff 60%, #e8f0ff 100%);
-            margin: 40px 0;
+            background: linear-gradient(to bottom,
+                    color-mix(in srgb, var(--accent-color), transparent 95%),
+                    color-mix(in srgb, var(--accent-color), transparent 98%)) !important;
+            margin: 0 auto;
             border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(13, 131, 253, 0.15),
-                0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 18px 40px rgba(5, 56, 110, 0.14),
+                0 6px 14px rgba(5, 56, 110, 0.1);
             border: 1px solid rgba(13, 131, 253, 0.1);
         }
 
@@ -2840,9 +3288,11 @@
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
@@ -2855,12 +3305,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(-45deg, 
-                rgba(255, 255, 255, 0.1) 0%, 
-                rgba(0, 180, 255, 0.08) 25%, 
-                rgba(13, 131, 253, 0.1) 50%, 
-                rgba(0, 112, 255, 0.08) 75%, 
-                rgba(255, 255, 255, 0.1) 100%);
+            background: linear-gradient(-45deg,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    rgba(0, 180, 255, 0.08) 25%,
+                    rgba(13, 131, 253, 0.1) 50%,
+                    rgba(0, 112, 255, 0.08) 75%,
+                    rgba(255, 255, 255, 0.1) 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
             border-radius: 20px;
@@ -2874,12 +3324,15 @@
                 transform: translateY(0) translateX(0) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 1;
             }
+
             90% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(-100vh) translateX(50px) rotate(360deg);
                 opacity: 0;
@@ -2891,12 +3344,15 @@
                 transform: translateY(100vh) translateX(0) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.6;
             }
+
             90% {
                 opacity: 0.6;
             }
+
             100% {
                 transform: translateY(0) translateX(-30px) rotate(-360deg);
                 opacity: 0;
@@ -2904,12 +3360,16 @@
         }
 
         @keyframes floatParticle3 {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translate(0, 0) rotate(0deg);
             }
+
             33% {
                 transform: translate(30px, -30px) rotate(120deg);
             }
+
             66% {
                 transform: translate(-20px, -60px) rotate(240deg);
             }
@@ -2920,9 +3380,11 @@
             0% {
                 transform: translateX(0) translateY(0);
             }
+
             50% {
                 transform: translateX(-25px) translateY(15px);
             }
+
             100% {
                 transform: translateX(0) translateY(0);
             }
@@ -2939,6 +3401,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -2968,6 +3431,7 @@
             0% {
                 filter: brightness(1);
             }
+
             100% {
                 filter: brightness(1.1);
             }
@@ -3031,10 +3495,10 @@
         /* Abstract Shapes - Wave-like/Mountain-like translucent shapes with animations */
         .talent-section .shapes {
             position: absolute;
-            bottom: 0;
+            top: 5%;
             right: 0;
-            width: 100%;
-            height: 100%;
+            width: 50%;
+            height: 90%;
             z-index: 1;
             pointer-events: none;
             overflow: hidden;
@@ -3111,13 +3575,13 @@
 
         .talent-section .shape {
             position: absolute;
-            width: 600px;
-            height: 500px;
+            width: 460px;
+            height: 320px;
             background: linear-gradient(135deg, rgba(0, 180, 255, 0.25) 0%, rgba(13, 131, 253, 0.3) 50%, rgba(0, 112, 255, 0.25) 100%);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            right: -100px;
-            bottom: -80px;
+            right: -60px;
+            bottom: -30px;
             transform: rotate(-15deg);
             border-radius: 80px 80px 80px 20px;
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -3128,12 +3592,12 @@
         .talent-section .shape2 {
             position: absolute;
             background: linear-gradient(135deg, rgba(0, 112, 255, 0.25) 0%, rgba(0, 180, 255, 0.28) 50%, rgba(13, 131, 253, 0.22) 100%);
-            width: 500px;
-            height: 450px;
+            width: 360px;
+            height: 280px;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            right: 50px;
-            bottom: -50px;
+            right: 40px;
+            bottom: -10px;
             transform: rotate(-8deg);
             border-radius: 60px 60px 20px 60px;
             border: 1px solid rgba(255, 255, 255, 0.35);
@@ -3146,6 +3610,7 @@
             from {
                 transform: rotate(0deg);
             }
+
             to {
                 transform: rotate(360deg);
             }
@@ -3153,10 +3618,10 @@
 
         .talent-section .shape3 {
             position: absolute;
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            right: 5%;
+            width: 160px;
+            height: 160px;
+            top: 15%;
+            right: 8%;
             background: linear-gradient(45deg, rgba(0, 180, 255, 0.08), rgba(13, 131, 253, 0.12));
             clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
             animation: rotateShape 30s linear infinite;
@@ -3166,8 +3631,11 @@
         /* Talent Section Responsive */
         @media (min-width: 1200px) {
             .talent-section {
-                height: clamp(420px, 35vw, 480px);
+                height: clamp(300px, 26vw, 360px);
                 padding-left: clamp(6%, 7vw, 9%);
+            }
+
+            .talent-wrapper {
                 margin: clamp(35px, 4vw, 45px) 0;
             }
 
@@ -3189,8 +3657,11 @@
 
         @media (min-width: 992px) and (max-width: 1199px) {
             .talent-section {
-                height: clamp(400px, 33vw, 460px);
+                height: clamp(280px, 24vw, 340px);
                 padding-left: clamp(5.5%, 6.5vw, 8.5%);
+            }
+
+            .talent-wrapper {
                 margin: clamp(30px, 3.5vw, 40px) 0;
             }
 
@@ -3213,8 +3684,11 @@
         @media (min-width: 768px) and (max-width: 991px) {
             .talent-section {
                 height: auto;
-                min-height: clamp(380px, 45vw, 440px);
+                min-height: clamp(260px, 32vw, 320px);
                 padding: clamp(35px, 4vw, 50px) clamp(4%, 5vw, 6%) clamp(100px, 12vw, 120px);
+            }
+
+            .talent-wrapper {
                 margin: clamp(25px, 3vw, 35px) 0;
             }
 
@@ -3238,21 +3712,24 @@
             }
 
             .talent-section .shape {
-                width: clamp(400px, 50vw, 550px);
-                height: clamp(350px, 42vw, 480px);
+                width: clamp(300px, 42vw, 420px);
+                height: clamp(240px, 34vw, 320px);
             }
 
             .talent-section .shape2 {
-                width: clamp(350px, 44vw, 480px);
-                height: clamp(320px, 40vw, 420px);
+                width: clamp(260px, 36vw, 360px);
+                height: clamp(210px, 30vw, 280px);
             }
         }
 
         @media (max-width: 767px) {
             .talent-section {
                 height: auto;
-                min-height: clamp(350px, 50vw, 420px);
+                min-height: clamp(240px, 38vw, 300px);
                 padding: clamp(35px, 4.5vw, 50px) clamp(3.5%, 4.5vw, 5.5%) clamp(90px, 11vw, 110px);
+            }
+
+            .talent-wrapper {
                 margin: clamp(20px, 2.5vw, 30px) 0;
             }
 
@@ -3283,28 +3760,31 @@
             }
 
             .talent-section .shape {
-                width: clamp(300px, 60vw, 450px);
-                height: clamp(260px, 52vw, 380px);
+                width: clamp(240px, 48vw, 360px);
+                height: clamp(200px, 40vw, 300px);
                 right: -80px;
             }
 
             .talent-section .shape2 {
-                width: clamp(260px, 52vw, 380px);
-                height: clamp(240px, 48vw, 340px);
+                width: clamp(200px, 40vw, 320px);
+                height: clamp(180px, 36vw, 260px);
                 right: 20px;
             }
 
             .talent-section .shape3 {
-                width: clamp(120px, 24vw, 180px);
-                height: clamp(120px, 24vw, 180px);
+                width: clamp(90px, 20vw, 150px);
+                height: clamp(90px, 20vw, 150px);
             }
         }
 
         @media (max-width: 479px) {
             .talent-section {
                 height: auto;
-                min-height: clamp(320px, 55vw, 400px);
+                min-height: clamp(280px, 50vw, 340px);
                 padding: clamp(30px, 4vw, 45px) clamp(3%, 4vw, 5%) clamp(80px, 10vw, 100px);
+            }
+
+            .talent-wrapper {
                 margin: clamp(18px, 2.2vw, 25px) 0;
             }
 
@@ -3635,7 +4115,13 @@
 
         /* Ensure all text is readable on mobile */
         @media (max-width: 479px) {
-            h1, h2, h3, h4, h5, h6 {
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
                 word-wrap: break-word;
                 overflow-wrap: break-word;
             }
@@ -3791,8 +4277,23 @@
                 padding-top: clamp(90px, 8vw, 110px) !important;
             }
 
+            .about-section-1::before {
+                background-size: cover;
+                background-position: center center;
+                opacity: clamp(0.3, 0.35vw, 0.35);
+            }
+
             .about-section-1-content {
                 gap: clamp(50px, 5.5vw, 65px);
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0;
+            }
+
+            .about-section-1-text {
+                width: 60% !important;
+                max-width: 60% !important;
+                margin: 0 auto;
             }
 
             .about-section-1-text small {
@@ -3803,11 +4304,7 @@
             .about-section-1-text p {
                 font-size: 1.05rem;
                 line-height: 1.7;
-            }
-
-            .about-section-1-image img {
-                min-width: clamp(260px, 65vw, 300px);
-                min-height: clamp(190px, 48vw, 220px);
+                text-align: center;
             }
         }
 
@@ -3817,14 +4314,24 @@
                 padding-top: clamp(85px, 7vw, 100px) !important;
             }
 
+            .about-section-1::before {
+                background-size: cover;
+                background-position: center top;
+                opacity: clamp(0.25, 0.35vw, 0.35);
+            }
+
             .about-section-1-content {
                 grid-template-columns: 1fr;
                 gap: clamp(35px, 4.5vw, 50px);
-                padding: 0 clamp(15px, 2.5vw, 25px);
+                padding: 0;
+                max-width: 100% !important;
+                width: 100% !important;
             }
 
-            .about-section-1-image {
-                order: 1;
+            .about-section-1-text {
+                width: 60% !important;
+                max-width: 60% !important;
+                margin: 0 auto;
             }
 
             .about-section-1-text {
@@ -3851,20 +4358,6 @@
                 padding-right: 0;
             }
 
-            .about-section-1-image {
-                height: auto;
-                min-height: auto;
-            }
-
-            .about-section-1-image img {
-                width: 100%;
-                max-width: 100%;
-                height: auto;
-                min-width: clamp(250px, 70vw, 280px);
-                min-height: clamp(180px, 50vw, 200px);
-                border-radius: clamp(20px, 3vw, 26px);
-            }
-
             .about-section-1-text {
                 height: auto;
                 min-height: auto;
@@ -3877,9 +4370,23 @@
                 padding-top: clamp(80px, 6.5vw, 95px) !important;
             }
 
+            .about-section-1::before {
+                background-size: cover;
+                background-position: center top;
+                opacity: clamp(0.2, 0.3vw, 0.3);
+            }
+
             .about-section-1-content {
                 gap: clamp(30px, 4vw, 40px);
-                padding: 0 clamp(12px, 2vw, 20px);
+                padding: 0;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+
+            .about-section-1-text {
+                width: 60% !important;
+                max-width: 60% !important;
+                margin: 0 auto;
             }
 
             .about-section-1-text small {
@@ -3891,18 +4398,7 @@
                 font-size: 0.9375rem;
                 line-height: 1.6;
                 margin-bottom: 1.25rem;
-            }
-
-            .about-section-1-image {
-                height: auto;
-                min-height: auto;
-            }
-
-            .about-section-1-image img {
-                height: auto;
-                min-width: clamp(220px, 75vw, 250px);
-                min-height: clamp(160px, 45vw, 180px);
-                border-radius: clamp(18px, 2.8vw, 24px);
+                text-align: center;
             }
 
             .about-section-1-text {
@@ -4218,12 +4714,12 @@
 
             .people-section h2 {
                 font-size: clamp(1.75rem, 4.5vw, 2.1rem);
-                margin-bottom: clamp(18px, 2.1vw, 24px);
+                margin-bottom: 8px !important;
             }
 
             .people-section p.subtext {
                 font-size: clamp(0.98rem, 2.2vw, 1.08rem);
-                margin-bottom: clamp(30px, 3.5vw, 40px);
+                margin-bottom: 10px !important;
                 padding: 0 clamp(10px, 2vw, 20px);
             }
 
@@ -4422,168 +4918,368 @@
                 height: clamp(50px, 13vw, 70px);
             }
         }
+
+        /* Footer Dropdown Styles for Mobile */
+        @media (max-width: 767px) {
+            .footer-top .row.gy-4 {
+                gap: 5px !important;
+            }
+
+            .footer-links {
+                margin-bottom: 5px !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            .footer-links h4.footer-dropdown-toggle {
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 0;
+                margin-bottom: 0;
+                user-select: none;
+                padding: 0.3rem 0;
+            }
+
+            .footer-links.active .footer-chevron {
+                transform: rotate(180deg);
+            }
+
+            .footer-dropdown-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease, padding 0.4s ease;
+                padding: 0;
+                margin: 0;
+                text-align: left !important;
+                margin-left: 1rem !important;
+            }
+
+            .footer-dropdown-content li {
+                text-align: left !important;
+                justify-content: flex-start !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+
+            .footer-dropdown-content a {
+                text-align: left !important;
+                display: inline-block !important;
+            }
+
+            .footer-links.active .footer-dropdown-content {
+                max-height: 1000px;
+                padding-top: 0.5rem;
+            }
+        }
+
+        /* Footer Chevron - Hidden by default on all screens, shown only on mobile */
+        .footer-chevron {
+            display: none !important;
+        }
+
+        /* Footer Dropdown Content - Always align left */
+        .footer-dropdown-content {
+            text-align: left !important;
+        }
+
+        .footer-dropdown-content li {
+            text-align: left !important;
+            justify-content: flex-start !important;
+        }
+
+        .footer-dropdown-content a {
+            text-align: left !important;
+        }
+
+        /* Show footer chevron only on mobile screens */
+        @media (max-width: 767px) {
+            .footer-chevron {
+                display: inline-block !important;
+                transition: transform 0.4s ease;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Override main.css centering for footer dropdown content on mobile (max-width: 768px matches main.css breakpoint) */
+        @media (max-width: 768px) {
+            .footer .footer-links .footer-dropdown-content {
+                text-align: left !important;
+            }
+
+            .footer .footer-links .footer-dropdown-content li {
+                text-align: left !important;
+                justify-content: flex-start !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+
+            .footer .footer-links .footer-dropdown-content a {
+                text-align: left !important;
+                display: inline-block !important;
+            }
+        }
+
+        /* Desktop: Ensure footer chevron is hidden and dropdown content is always visible */
+        @media (min-width: 768px) {
+            .footer-links h4.footer-dropdown-toggle {
+                cursor: default;
+            }
+
+            .footer-chevron {
+                display: none !important;
+            }
+
+            .footer-dropdown-content {
+                max-height: none !important;
+                padding: 0 !important;
+                overflow: visible !important;
+                text-align: left !important;
+                margin-left: 0 !important;
+            }
+
+            .footer-dropdown-content li {
+                text-align: left !important;
+            }
+
+            .footer-dropdown-content a {
+                text-align: left !important;
+            }
+        }
     </style>
 </head>
 
 <body class="services">
-  <nav class="navbar">
-    <div class="nav-container">
-      <!-- Logo -->
-      <div class="nav-logo">
-        <a href="index.html" class="logo">
-          <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
-        </a>
-      </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+                </a>
+            </div>
 
-      <!-- Main Navigation -->
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="index.html#hero" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="Aboutus.html" class="nav-link">About Us</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
-            Services
-            <!-- <i class="fas fa-chevron-down"></i> -->
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="Clients.html" class="nav-link">Clients</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact Us</a>
-        </li>
-      </ul>
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#hero" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Aboutus.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
+                        Services
+                        <!-- <i class="fas fa-chevron-down"></i> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="Clients.html" class="nav-link">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
 
-      <!-- Mobile Menu Toggle Button -->
-      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-      <!-- Action Button 
+            <!-- Action Button 
             <div class="nav-action">
                 <button class="start-project-btn">Start Project</button>
             </div>-->
-    </div>
-
-    <!-- Services Dropdown Menu -->
-    <div class="dropdown-menu" id="services-dropdown">
-      <div class="dropdown-container">
-        <div class="dropdown-content">
-          <!-- Service Categories -->
-          <div class="service-categories">
-            <div class="category-column">
-              <div class="category-item active" data-submenu="ai-automation">
-                <a href="service.html" class="category-link">AI & Automation</a>
-              </div>
-              <div class="category-item" data-submenu="development-technology">
-                <a href="#" class="category-link">Development & Technology</a>
-              </div>
-              <div class="category-item" data-submenu="design-branding">
-                <a href="#" class="category-link">Design & Branding</a>
-              </div>
-              <div class="category-item" data-submenu="cloud-infrastructure">
-                <a href="#" class="category-link">Cloud & Infrastructure</a>
-              </div>
-              <div class="category-item" data-submenu="data-operations">
-                <a href="#" class="category-link">Data & Operations</a>
-              </div>
-            </div>
-
-            <!-- AI & Automation Subcategories -->
-            <div class="subcategory-column" id="ai-automation-submenu">
-              <div class="subcategory-item">
-                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
-              </div>
-            </div>
-
-            <!-- Development & Technology Subcategories -->
-            <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Shopify Development & Services</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Web & Mobile Development</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Software Development & Consulting</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
-              </div>
-            </div>
-
-            <!-- Design & Branding Subcategories -->
-            <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Design & Branding</a>
-              </div>
-            </div>
-
-            <!-- Cloud & Infrastructure Subcategories -->
-            <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
-              </div>
-            </div>
-
-            <!-- Data & Operations Subcategories -->
-            <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Reporting & Analytics</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </nav>
+
+        <!-- Services Dropdown Menu -->
+        <div class="dropdown-menu" id="services-dropdown">
+            <div class="dropdown-container">
+                <div class="dropdown-content">
+                    <!-- Service Categories -->
+                    <div class="service-categories">
+                        <div class="category-column">
+                            <div class="category-item active" data-submenu="ai-automation">
+                                <a href="#" class="category-link">AI & Automation</a>
+                            </div>
+                            <div class="category-item" data-submenu="development-technology">
+                                <a href="#" class="category-link">Development & Technology</a>
+                            </div>
+                            <div class="category-item" data-submenu="design-branding">
+                                <a href="#" class="category-link">Design & Branding</a>
+                            </div>
+                            <div class="category-item" data-submenu="cloud-infrastructure">
+                                <a href="#" class="category-link">Cloud & Infrastructure</a>
+                            </div>
+                            <div class="category-item" data-submenu="data-operations">
+                                <a href="#" class="category-link">Data & Operations</a>
+                            </div>
+                        </div>
+
+                        <!-- AI & Automation Subcategories -->
+                        <div class="subcategory-column" id="ai-automation-submenu">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">AI & Machine Learning (ML)</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">OCR (Optical Character Recognition)</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Scraper & Scripting</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Navision Integration & Automation</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+                            </div>
+                        </div>
+
+                        <!-- Development & Technology Subcategories -->
+                        <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Shopify Development & Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Web & Mobile Development</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Software Development & Consulting</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+                            </div>
+                        </div>
+
+                        <!-- Design & Branding Subcategories -->
+                        <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Design & Branding</a>
+                            </div>
+                        </div>
+
+                        <!-- Cloud & Infrastructure Subcategories -->
+                        <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+                            </div>
+                        </div>
+
+                        <!-- Data & Operations Subcategories -->
+                        <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Reporting & Analytics</a>
+                            </div>
+                            <div class="subcategory-item">
+                                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Promotional Graphics Section -->
+                    <div class="promo-section">
+                        <div class="tech-illustration">
+                            <!-- Robot/Server Unit -->
+                            <div class="robot-unit">
+                                <div class="robot-head">
+                                    <div class="robot-core"></div>
+                                    <div class="circuit-board"></div>
+                                </div>
+                                <div class="code-screen">
+                                    <div class="code-line"></div>
+                                    <div class="code-line"></div>
+                                    <div class="code-line"></div>
+                                </div>
+                            </div>
+
+                            <!-- Human Figures -->
+                            <div class="human-figures">
+                                <div class="human-figure male">
+                                    <div class="figure-body"></div>
+                                    <div class="key blue-key"></div>
+                                </div>
+                                <div class="human-figure female">
+                                    <div class="figure-body"></div>
+                                    <div class="key green-key"></div>
+                                </div>
+                            </div>
+
+                            <!-- Brain Icon -->
+                            <div class="brain-icon">
+                                <div class="brain-shape"></div>
+                            </div>
+
+                            <!-- Geometric Elements -->
+                            <div class="geometric-elements">
+                                <div class="cube-stack">
+                                    <div class="cube"></div>
+                                    <div class="cube"></div>
+                                    <div class="cube"></div>
+                                </div>
+                                <div class="individual-cubes">
+                                    <div class="cube"></div>
+                                    <div class="cube"></div>
+                                </div>
+                                <div class="shield-icon"></div>
+                                <div class="floating-keys">
+                                    <div class="key blue-key"></div>
+                                    <div class="key green-key"></div>
+                                </div>
+                            </div>
+
+                            <!-- Smartphone -->
+                            <div class="smartphone">
+                                <div class="phone-body"></div>
+                                <div class="network-signals">
+                                    <div class="signal"></div>
+                                    <div class="signal"></div>
+                                    <div class="signal"></div>
+                                </div>
+                                <div class="data-flow">
+                                    <div class="data-cube"></div>
+                                    <div class="data-cube"></div>
+                                    <div class="data-cube"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="main">
 
         <!-- Section 1: Why Us -->
-        <section class="about-section-1">
-            <div class="about-section-1-content container">
-                <div class="about-section-1-text ">
-                    <h1 class="hero-title">Why Us</h1>
-                    <p>
-                        We are transforming the way businesses connect, operate, and grow in a digital-first world. With
-                        expertise in AI, automation, cloud, and eCommerce ecosystems, we build secure, intelligent, and
-                        scalable solutions that empower organizations to thrive.
+        <section class="about-section-1" id="about">
+            <div class="about-breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>About Us</span></li>
+                </ol>
+            </div>
+            <div class="about-section-1-content container ">
+                <div class="about-section-1-text  ">
+                    <h1 class="hero-title">Driving business growth with real, measurable impact.</h1>
+                    <p>We help companies modernize how they operate by combining AI, automation, data operations, and
+                        eCommerce integrations into one efficient ecosystem. Our solutions reduce manual work, optimize
+                        costs, and unlock new revenue <br> opportunities — built to be secure, scalable, and
+                        future-ready.
                     </p>
-                </div>
-                <div class="about-section-1-image">
-                    <img src="assets/img/About Us/Hero1.jpg" alt="About Us - Our Team">
                 </div>
             </div>
         </section>
@@ -4593,81 +5289,97 @@
             <div class="about-section-2-content container">
                 <div class="about-section-2-image">
                     <img src="assets/img/About Us/section2.png" alt="Technology Solutions">
-                    </div>
+                </div>
                 <div class="about-section-2-text">
-                        <h2 class="hybrid-heading">
-                            <span class="hybrid-heading-part1">Intelligent AI & Automations</span><br>
-                            <span class="hybrid-heading-part2">that </span><span
-                                class="hybrid-heading-accent">transforms IT operations</span>
-                        </h2>
-                        <p>Empowering digital ecosystems through intelligent automation, resilient cloud frameworks, and
-                            real-time optimization that ensure performance, continuity, and global scalability.</p>
-                        <ul class="features">
-                            <li>
-                                <div class="feature-content">
-                                    <strong>Unified system intelligence:</strong>
-                                    <span class="feature-desc">Connecting infrastructure, data, and applications for
-                                        seamless, insight-driven operational performance.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="feature-content">
-                                    <strong>Predictive AI Automation:</strong>
-                                    <span class="feature-desc">Automating decisions through AI models that anticipate
-                                        needs before disruptions occur.
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="feature-content">
-                                    <strong>End-to-End Observability:</strong>
-                                    <span class="feature-desc">Delivering continuous visibility and control across
-                                        hybrid systems, applications, and networks.</span>
-                                </div>
-                            </li>
-                        </ul>
+                    <h2 class="hybrid-heading">
+                        <span class="hybrid-heading-part1">Smart Solutions That Keep Your Business Moving Forward</span>
+                    </h2>
+                    <p>We help businesses work smarter by connecting systems, simplifying workflows, and creating
+                        smoother day-to-day operations that support steady and scalable growth.</p>
+                    <ul class="features">
+                        <li>
+                            <div class="feature-content">
+                                <strong>Unified System Connectivity:</strong>
+                                <span class="feature-desc">We bring your tools, platforms, and data together so
+                                    everything works in sync across your business.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-content">
+                                <strong>Performance Optimization:</strong>
+                                <span class="feature-desc">We streamline processes, eliminate unnecessary steps, and
+                                    make operations run faster and more efficient.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-content">
+                                <strong>End-to-End Visibility & Control:</strong>
+                                <span class="feature-desc">We give you clear oversight across systems, helping you track
+                                    activity, spot issues early, and stay fully in control.</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section class="valuessection section">
-            <div class="values-section">
-                <div class="values-card">
-                    <h2>Values That Power Our Progress</h2>
-                    <p class="top-desc">
-                        Our values are the foundation of everything we build. They guide our innovation, strengthen our
-                        relationships, and drive us toward excellence every day.
-                    </p>
-                    <div class="values-grid">
+        <section class="impact-slider-section">
+            <div class="impact-slider-wrapper">
+                <button class="impact-nav impact-prev" aria-label="Previous impact story">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="impact-nav impact-next" aria-label="Next impact story">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
 
-                        <div class="value-item">
-                            <i class="bi bi-people" style="fill: none; stroke: currentColor;"></i>
-                            <h4>Customer-First Innovation</h4>
-                            <p>We design every solution with precision, aligning our technology and expertise to drive
-                                our customers' lasting success.</p>
+                <div class="impact-slider-track">
+                    <article class="impact-slide is-active">
+                        <div class="impact-slide-media">
+                            <img src="assets/img/About Us/vision 1.png" alt="Team presenting growth insights">
                         </div>
+                        <div class="impact-slide-content">
+                            <p class="eyebrow">Our Vision</p>
+                            <h2>Future, Clarity, Confidence</h2>
+                            <h3>Growth Without Barriers</h3>
+                            <p>We envision businesses thriving confidently through simpler systems, smoother workflows,
+                                and enduring, sustainable progress.</p>
+                            <a href="#" class="impact-cta">Read the report <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
 
-                        <div class="value-item">
-                            <i class="bi bi-shield-check" style="fill: none; stroke: currentColor;"></i>
-                            <h4>Reliability Above Everything</h4>
-                            <p>We build systems that perform flawlessly, ensuring continuity, resilience, and trust
-                                across every digital touchpoint and operation.</p>
+                    <article class="impact-slide">
+                        <div class="impact-slide-media">
+                            <img src="assets/img/About Us/Mission.png" alt="Team celebrating milestone">
                         </div>
+                        <div class="impact-slide-content">
+                            <p class="eyebrow"> Our Mission</p>
+                            <h2>Empower, Simplify, Support</h2>
+                            <h3>Impact Through Clarity</h3>
+                            <p>We create solutions that reduce complexity, strengthen operations, and help teams work
+                                confidently.</p>
+                            <a href="#" class="impact-cta">Explore the story <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
 
-                        <div class="value-item">
-                            <i class="bi bi-check-circle" style="fill: none; stroke: currentColor;"></i>
-                            <h4>Ownership in Every Action</h4>
-                            <p>We commit to accountability, craftsmanship, and measurable results — treating every
-                                challenge as our own opportunity to excel.</p>
+                    <article class="impact-slide">
+                        <div class="impact-slide-media">
+                            <img src="assets/img/About Us/approach.png" alt="Leaders planning social impact">
                         </div>
+                        <div class="impact-slide-content">
+                            <p class="eyebrow">Our Approach</p>
+                            <h2>Practical, Human, Thoughtful</h2>
+                            <h3>Solutions That Adapt</h3>
+                            <p>We combine insight with smart tools to build solutions that evolve as businesses grow.
+                            </p>
+                            <a href="#" class="impact-cta">See initiatives <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
 
-                        <div class="value-item">
-                            <i class="bi bi-lightbulb" style="fill: none; stroke: currentColor;"></i>
-                            <h4>Pioneering What's Next</h4>
-                            <p>We lead with curiosity and courage, turning ideas into intelligent solutions that
-                                redefine what's possible for global businesses.</p>
-                        </div>
-                    </div>
+                <div class="impact-dots" role="tablist" aria-label="Impact stories navigation">
+                    <button class="impact-dot is-active" data-slide="0" aria-label="Slide 1"></button>
+                    <button class="impact-dot" data-slide="1" aria-label="Slide 2"></button>
+                    <button class="impact-dot" data-slide="2" aria-label="Slide 3"></button>
                 </div>
             </div>
         </section>
@@ -4683,7 +5395,7 @@
 
             <!-- Bootstrap 5 Grid Layout -->
             <div class="container">
-                <div class="row cards-row">
+                <div class="row cards-row ">
                     <!-- Card 1: Lean & Learn -->
                     <div class="col-lg-3 col-md-6 col-12 mb-4">
                         <div class="people-card">
@@ -4729,96 +5441,154 @@
 
         </section>
 
-        <section class="talent-section section">
-            <div class="talent-content">
-                <h2>Visionary Talent. Boundless Innovation</h2>
-                <p>Ready to redefine the future together?</p>
-                <a href="#" class="join-btn">Join us</a>
-            </div>
+        <section class="values-section section">
+            <!-- <div class="values-section"> -->
+            <div class="values-card">
+                <h2>Values That Power Our Progress</h2>
+                <p class="top-desc">
+                    Our values are the foundation of everything we build. They guide our innovation, strengthen our
+                    relationships, and drive us toward excellence every day.
+                </p>
+                <div class="values-grid">
 
-            <!-- Decorative abstract shapes with continuous animations -->
-            <div class="shapes">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="shape shape1"></div>
-                <div class="shape shape2"></div>
-                <div class="shape3"></div>
+                    <div class="value-item">
+                        <i class="bi bi-person-check" style="fill: none; stroke: currentColor;"></i>
+                        <h4>Customer-First Innovation</h4>
+                        <p>We design every solution with precision, aligning our technology and expertise to drive our
+                            customers’ lasting success.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <i class="bi bi-shield-lock" style="fill: none; stroke: currentColor;"></i>
+                        <h4>Reliability Above Everything</h4>
+                        <p>We build systems that perform flawlessly, ensuring continuity, resilience, and trust across
+                            every digital touchpoint and operation.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <i class="bi bi-clipboard-check" style="fill: none; stroke: currentColor;"></i>
+                        <h4>Ownership in Every Action</h4>
+                        <p>We commit to accountability, craftsmanship, and measurable results — treating every challenge
+                            as our own opportunity to excel.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <i class="bi bi-lightbulb" style="fill: none; stroke: currentColor;"></i>
+                        <h4>Pioneering What’s Next</h4>
+                        <p>We lead with curiosity and courage, turning ideas into intelligent solutions that redefine
+                            what’s possible for global businesses.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <i class="bi bi-diagram-3" style="fill: none; stroke: currentColor;"></i>
+                        <h4>Collaboration That Drives Progress</h4>
+                        <p>We collaborate with clients, teams, and partners to build solutions that drive stronger
+                            results and sustained progress.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <i class="bi bi-shield-shaded" style="fill: none; stroke: currentColor;"></i>
+                        <h4>Integrity in Every Commitment</h4>
+                        <p>We operate with transparency, honesty, and consistency to ensure every commitment builds
+                            trust and strengthens business relationships.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </section>
+
+        <section class="talent-wrapper">
+            <div class="talent-section section">
+                <div class="talent-content">
+                    <h2>Visionary Talent. <br> Boundless Solutions</h2>
+                    <p>Ready to redefine the future together?</p>
+                    <a href="#" class="join-btn">Join us</a>
+                </div>
+
+                <!-- Decorative abstract shapes with continuous animations -->
+                <div class="shapes">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="shape shape1"></div>
+                    <div class="shape shape2"></div>
+                    <div class="shape3"></div>
+                </div>
             </div>
         </section>
 
     </div>
 
-    <footer id="footer" class="footer section light-background">
+  <footer id="footer" class="footer section light-background">
 
-        <div class="container footer-top">
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center ">
-                        <img src="assets/img/footer-logo2.png" alt="">
-                    </a>
-                    <div class="footer-contact pt-3">
-                        <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
-                        <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
-                        <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
-                    </div>
-                    <div class="social-links d-flex mt-4">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center ">
+            <img src="assets/img/footer-logo2.png" alt="">
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+            <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
 
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4 class="footer-dropdown-toggle">
-                        Useful Links
-                        <i class="bi bi-chevron-down footer-chevron"></i>
-                    </h4>
-                    <ul class="footer-dropdown-content">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="">Contact Us</a></li>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Terms of Service</a></li>
-                    </ul>
-                </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Useful Links
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Terms of Service</a></li>
+          </ul>
+        </div>
 
-                <div class="col-lg-3 col-md-3 footer-links">
-                    <h4 class="footer-dropdown-toggle">
-                        Our Solutions
-                        <i class="bi bi-chevron-down footer-chevron"></i>
-                    </h4>
-                    <ul class="footer-dropdown-content">
-                        <li><a href="#">AI & Automation Solutions</a></li>
-                        <li><a href="#">Software & App Development</a></li>
-                        <li><a href="#">Data Analytics & Visualization</a></li>
-                        <li><a href="#">NLP & Language Models</a></li>
-                        <li><a href="#">BPO & E-commerce Services</a></li>
-                        <li><a href="">UI/UX Design & Prototyping</a></li>
-                    </ul>
-                </div>
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Our Solutions
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="#">AI & Automation Solutions</a></li>
+            <li><a href="#">Software & App Development</a></li>
+            <li><a href="#">Data Analytics & Visualization</a></li>
+            <li><a href="#">NLP & Language Models</a></li>
+            <li><a href="#">BPO & E-commerce Services</a></li>
+            <li><a href="">UI/UX Design & Prototyping</a></li>
+          </ul>
+        </div>
 
-                <div class="col-lg-3 col-md-3 footer-links">
-                    <h4 class="footer-dropdown-toggle">
-                        Industries We Serve
-                        <i class="bi bi-chevron-down footer-chevron"></i>
-                    </h4>
-                    <ul class="footer-dropdown-content">
-                        <li><a href="#">E-commerce & Retail</a></li>
-                        <li><a href="#">Fintech & Banking</a></li>
-                        <li><a href="#">Healthcare & MedTech</a></li>
-                        <li><a href="#">Manufacturing & Supply Chain</a></li>
-                        <li><a href="#">Education & EdTech</a></li>
-                        <li><a href="">Real Estate & Smart Systems</a></li>
-                    </ul>
-                </div>
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Industries We Serve
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="#">E-commerce & Retail</a></li>
+            <li><a href="#">Fintech & Banking</a></li>
+            <li><a href="#">Healthcare & MedTech</a></li>
+            <li><a href="#">Manufacturing & Supply Chain</a></li>
+            <li><a href="#">Education & EdTech</a></li>
+            <li><a href="">Real Estate & Smart Systems</a></li>
+          </ul>
+        </div>
 
-                <!-- <div class="col-lg-2 col-md-3 footer-links">
+        <!-- <div class="col-lg-2 col-md-3 footer-links">
           <h4>Nobis illum</h4>
           <ul>
             <li><a href="#">Ipsam</a></li>
@@ -4829,23 +5599,23 @@
           </ul>
         </div> -->
 
-            </div>
-        </div>
+      </div>
+    </div>
 
-        <div class="container copyright text-center m-0 p-0">
-            <!-- Social Links for Mobile View -->
-            <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
-                <a href=""><i class="bi bi-twitter-x"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-            <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN
-                    Technologies</strong> <span>All Rights
-                    Reserved</span></p>
-        </div>
+    <div class="container copyright text-center m-0 p-0">
+      <!-- Social Links for Mobile View -->
+      <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href=""><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-linkedin"></i></a>
+      </div>
+      <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN
+          Technologies</strong> <span>All Rights
+          Reserved</span></p>
+    </div>
 
-    </footer>
+  </footer>
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
@@ -4864,52 +5634,505 @@
 
     <!-- Footer Dropdown Toggle Script -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
-        
-        // Add click handlers once
-        footerDropdowns.forEach(toggle => {
-          toggle.addEventListener('click', function(e) {
-            // Only work on mobile
-            if (window.innerWidth < 768) {
-              e.preventDefault();
-              const footerLinks = this.closest('.footer-links');
-              const isActive = footerLinks.classList.contains('active');
-              
-              // Close all other dropdowns
-              document.querySelectorAll('.footer-links').forEach(link => {
-                if (link !== footerLinks) {
-                  link.classList.remove('active');
+        document.addEventListener('DOMContentLoaded', function () {
+            const marqueeContents = document.querySelectorAll('.marquee-wrapper .marquee-content');
+            const whyChooseCards = document.querySelectorAll('#why-choose-us .card');
+            const CARD_BREAKPOINT = 991;
+
+            marqueeContents.forEach(content => {
+                if (content.dataset.loopInit === 'true') return;
+                content.dataset.loopInit = 'true';
+
+                const children = Array.from(content.children);
+                children.forEach(child => {
+                    const clone = child.cloneNode(true);
+                    clone.setAttribute('aria-hidden', 'true');
+                    content.appendChild(clone);
+                });
+            });
+
+            const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
+
+            // Add click handlers once
+            footerDropdowns.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    // Only work on mobile
+                    if (window.innerWidth < 768) {
+                        e.preventDefault();
+                        const footerLinks = this.closest('.footer-links');
+                        const isActive = footerLinks.classList.contains('active');
+
+                        // Close all other dropdowns
+                        document.querySelectorAll('.footer-links').forEach(link => {
+                            if (link !== footerLinks) {
+                                link.classList.remove('active');
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        if (isActive) {
+                            footerLinks.classList.remove('active');
+                        } else {
+                            footerLinks.classList.add('active');
+                        }
+                    }
+                });
+            });
+
+            const clearCardStates = () => {
+                whyChooseCards.forEach(card => card.classList.remove('details-visible'));
+            };
+
+            const handleCardToggle = (card) => {
+                if (window.innerWidth > CARD_BREAKPOINT) return;
+                const isActive = card.classList.contains('details-visible');
+                clearCardStates();
+                if (!isActive) {
+                    card.classList.add('details-visible');
                 }
-              });
-              
-              // Toggle current dropdown
-              if (isActive) {
-                footerLinks.classList.remove('active');
-              } else {
-                footerLinks.classList.add('active');
-              }
-            }
-          });
+            };
+
+            whyChooseCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    handleCardToggle(card);
+                });
+            });
+
+            // Handle window resize - remove active classes on desktop
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    if (window.innerWidth >= 768) {
+                        document.querySelectorAll('.footer-links').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                    }
+                    if (window.innerWidth > CARD_BREAKPOINT) {
+                        clearCardStates();
+                    }
+                }, 250);
+            });
         });
-        
-        // Handle window resize - remove active classes on desktop
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-          clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(function() {
-            if (window.innerWidth >= 768) {
-              document.querySelectorAll('.footer-links').forEach(link => {
-                link.classList.remove('active');
-              });
+    </script>
+
+    <script>
+        // Smooth scrolling for cards-row
+        (function () {
+            const cardsRow = document.querySelector('.people-section .cards-row');
+            if (!cardsRow) return;
+
+            let animationId = null;
+            let targetScroll = null;
+            let isDragging = false;
+            let dragStartX = 0;
+            let dragStartScroll = 0;
+
+            // Function to check if all cards are visible and manage scrolling
+            function updateScrollbarVisibility() {
+                requestAnimationFrame(() => {
+                    const cards = cardsRow.querySelectorAll('.people-card');
+                    const containerRect = cardsRow.getBoundingClientRect();
+                    let allCardsVisible = true;
+
+                    // Check if all cards are fully visible (not cropped)
+                    if (cards.length > 0) {
+                        cards.forEach(card => {
+                            const cardRect = card.getBoundingClientRect();
+                            // Check if card is cropped (partially outside container)
+                            // Add small tolerance (1px) to account for rounding
+                            const isFullyVisible = cardRect.left >= (containerRect.left - 1) &&
+                                cardRect.right <= (containerRect.right + 1);
+                            if (!isFullyVisible) {
+                                allCardsVisible = false;
+                            }
+                        });
+                    } else {
+                        allCardsVisible = true; // No cards, so technically all visible
+                    }
+
+                    // If all cards are visible without cropping, disable scrolling
+                    if (allCardsVisible) {
+                        cardsRow.style.setProperty('overflow-x', 'hidden', 'important');
+                        cardsRow.style.scrollbarWidth = 'none';
+                        cardsRow.classList.remove('has-scrollbar');
+                        cardsRow.classList.add('no-scroll');
+                    } else {
+                        // If any card is cropped, enable scrolling
+                        cardsRow.style.setProperty('overflow-x', 'auto', 'important');
+                        cardsRow.classList.remove('no-scroll');
+
+                        // Show scrollbar only on screens below XXL (below 1401px)
+                        if (window.innerWidth < 1401) {
+                            cardsRow.style.scrollbarWidth = 'thin';
+                            cardsRow.classList.add('has-scrollbar');
+                        } else {
+                            // Hide scrollbar on XXL and above
+                            cardsRow.style.scrollbarWidth = 'none';
+                            cardsRow.classList.remove('has-scrollbar');
+                        }
+                    }
+                });
             }
-          }, 250);
-        });
-      });
+
+            // Initial check and on resize
+            updateScrollbarVisibility();
+            window.addEventListener('resize', updateScrollbarVisibility);
+
+            // Watch for content changes (cards being added/removed or resized)
+            const resizeObserver = new ResizeObserver(() => {
+                updateScrollbarVisibility();
+            });
+            resizeObserver.observe(cardsRow);
+
+            // Also observe child changes
+            const mutationObserver = new MutationObserver(() => {
+                updateScrollbarVisibility();
+            });
+            mutationObserver.observe(cardsRow, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['style', 'class']
+            });
+
+            // Handle scrollbar dragging for smooth scrolling
+            cardsRow.addEventListener('mousedown', function (e) {
+                // Don't allow dragging if scrolling is disabled
+                if (cardsRow.classList.contains('no-scroll')) return;
+
+                // Check if clicking on scrollbar area
+                const rect = cardsRow.getBoundingClientRect();
+                const scrollbarArea = 20; // Approximate scrollbar area width
+
+                // Check if click is in the scrollbar area (right side of element)
+                if (e.clientX > rect.right - scrollbarArea && cardsRow.scrollWidth > cardsRow.clientWidth) {
+                    isDragging = true;
+                    dragStartX = e.clientX;
+                    dragStartScroll = cardsRow.scrollLeft;
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Cancel any ongoing animation
+                    if (animationId !== null) {
+                        cancelAnimationFrame(animationId);
+                        animationId = null;
+                    }
+                }
+            });
+
+            document.addEventListener('mousemove', function (e) {
+                if (isDragging) {
+                    e.preventDefault();
+                    const deltaX = e.clientX - dragStartX;
+                    const scrollableWidth = cardsRow.scrollWidth - cardsRow.clientWidth;
+                    const trackWidth = cardsRow.clientWidth;
+                    const scrollRatio = scrollableWidth / trackWidth;
+                    const newScroll = Math.max(0, Math.min(scrollableWidth, dragStartScroll + (deltaX * scrollRatio)));
+
+                    // Direct scroll for immediate response during drag
+                    cardsRow.scrollLeft = newScroll;
+                }
+            });
+
+            document.addEventListener('mouseup', function () {
+                if (isDragging) {
+                    isDragging = false;
+                    // Apply smooth scroll to final position for polish
+                    const finalScroll = cardsRow.scrollLeft;
+                    smoothScrollTo(cardsRow, finalScroll, 200);
+                }
+            });
+
+            // Handle wheel events for smooth scrolling
+            cardsRow.addEventListener('wheel', function (e) {
+                // Don't interfere if dragging scrollbar or if scrolling is disabled
+                if (isDragging || cardsRow.classList.contains('no-scroll')) return;
+
+                // Only handle horizontal scrolling
+                if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+                    return; // Let vertical scrolling work normally
+                }
+
+                e.preventDefault();
+
+                const scrollAmount = e.deltaX * 1.5; // Slightly increase scroll speed
+                const currentScroll = cardsRow.scrollLeft;
+                targetScroll = (targetScroll !== null ? targetScroll : currentScroll) + scrollAmount;
+
+                // Clamp target scroll to valid range
+                targetScroll = Math.max(0, Math.min(targetScroll, cardsRow.scrollWidth - cardsRow.clientWidth));
+
+                // Cancel existing animation
+                if (animationId !== null) {
+                    cancelAnimationFrame(animationId);
+                }
+
+                // Start smooth scroll animation
+                smoothScrollTo(cardsRow, targetScroll, 400);
+            }, { passive: false });
+
+            // Smooth scroll function with better easing
+            function smoothScrollTo(element, target, duration) {
+                const start = element.scrollLeft;
+                const distance = target - start;
+                const startTime = performance.now();
+
+                function animate(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    // Smooth easing function (ease-out-cubic)
+                    const ease = 1 - Math.pow(1 - progress, 3);
+
+                    element.scrollLeft = start + (distance * ease);
+
+                    if (progress < 1) {
+                        animationId = requestAnimationFrame(animate);
+                    } else {
+                        animationId = null;
+                        targetScroll = null;
+                    }
+                }
+
+                animationId = requestAnimationFrame(animate);
+            }
+
+            // Also handle touch scrolling for mobile devices
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let isTouchScrolling = false;
+
+            cardsRow.addEventListener('touchstart', function (e) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+
+            cardsRow.addEventListener('touchmove', function (e) {
+                if (!isTouchScrolling) {
+                    const deltaX = Math.abs(e.touches[0].clientX - touchStartX);
+                    const deltaY = Math.abs(e.touches[0].clientY - touchStartY);
+
+                    // If horizontal scroll is dominant, enable smooth scrolling
+                    if (deltaX > deltaY) {
+                        isTouchScrolling = true;
+                    }
+                }
+            }, { passive: true });
+
+            cardsRow.addEventListener('touchend', function () {
+                isTouchScrolling = false;
+            }, { passive: true });
+        })();
+
+        // Impact slider interactions
+        (function () {
+            const slider = document.querySelector('.impact-slider-wrapper');
+            if (!slider) return;
+
+            const track = slider.querySelector('.impact-slider-track');
+            const originalSlides = Array.from(slider.querySelectorAll('.impact-slide'));
+            const dots = Array.from(slider.querySelectorAll('.impact-dot'));
+            const prevBtn = slider.querySelector('.impact-prev');
+            const nextBtn = slider.querySelector('.impact-next');
+
+            // Clone the last slide and prepend it to the beginning for left navigation
+            // Clone the first slide and append it to the end for right navigation
+            if (originalSlides.length > 0) {
+                const lastSlideClone = originalSlides[originalSlides.length - 1].cloneNode(true);
+                lastSlideClone.classList.remove('is-active');
+                track.insertBefore(lastSlideClone, originalSlides[0]);
+
+                const firstSlideClone = originalSlides[0].cloneNode(true);
+                firstSlideClone.classList.remove('is-active');
+                track.appendChild(firstSlideClone);
+            }
+
+            const slides = Array.from(slider.querySelectorAll('.impact-slide'));
+            const realSlideCount = originalSlides.length;
+            // Start at index 1 (first real slide, since index 0 is cloned last slide)
+            let currentIndex = 1;
+            let autoTimer = null;
+            let isTransitioning = false;
+            const autoDelay = 7000;
+
+            function goToSlide(index, isAuto = false) {
+                if (!slides.length || isTransitioning) return;
+
+                // For auto-slide, always move right
+                if (isAuto) {
+                    currentIndex = index;
+                } else {
+                    // For manual navigation, allow both directions
+                    currentIndex = index;
+                }
+
+                track.style.transition = '';
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // Map currentIndex to real slide index
+                // Index 0 = cloned last slide (maps to real slide realSlideCount - 1)
+                // Index 1 to realSlideCount = real slides (maps to real slide 0 to realSlideCount - 1)
+                // Index realSlideCount + 1 = cloned first slide (maps to real slide 0)
+                let realSlideIndex;
+                if (currentIndex === 0) {
+                    realSlideIndex = realSlideCount - 1; // Cloned last slide
+                } else if (currentIndex > 0 && currentIndex <= realSlideCount) {
+                    realSlideIndex = currentIndex - 1; // Real slides (1-based to 0-based)
+                } else {
+                    realSlideIndex = 0; // Cloned first slide
+                }
+
+                // Update active states for real slides only
+                originalSlides.forEach((slide, idx) => {
+                    slide.classList.toggle('is-active', idx === realSlideIndex);
+                });
+
+                // Update dots
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('is-active', idx === realSlideIndex);
+                    dot.setAttribute('aria-pressed', idx === realSlideIndex ? 'true' : 'false');
+                });
+            }
+
+            function startAutoSlide() {
+                stopAutoSlide();
+                autoTimer = setInterval(() => {
+                    // Always move to the right (increment index)
+                    const nextIndex = currentIndex + 1;
+
+                    // If we're moving from last real slide (index realSlideCount) to first, use cloned slide trick
+                    if (currentIndex === realSlideCount) {
+                        // Move to cloned first slide (index realSlideCount + 1, appears to continue right)
+                        currentIndex = realSlideCount + 1;
+                        track.style.transition = '';
+                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                        // Update active states
+                        originalSlides.forEach((slide, idx) => {
+                            slide.classList.toggle('is-active', idx === 0);
+                        });
+                        dots.forEach((dot, idx) => {
+                            dot.classList.toggle('is-active', idx === 0);
+                            dot.setAttribute('aria-pressed', idx === 0 ? 'true' : 'false');
+                        });
+
+                        // After transition, instantly jump to real first slide (index 1)
+                        setTimeout(() => {
+                            track.style.transition = 'none';
+                            currentIndex = 1;
+                            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                            setTimeout(() => {
+                                track.style.transition = '';
+                            }, 50);
+                        }, 700); // Wait for CSS transition to complete
+                    } else {
+                        goToSlide(nextIndex, true);
+                    }
+                }, autoDelay);
+            }
+
+            function stopAutoSlide() {
+                if (autoTimer) {
+                    clearInterval(autoTimer);
+                    autoTimer = null;
+                }
+            }
+
+            prevBtn?.addEventListener('click', () => {
+                const prevIndex = currentIndex - 1;
+                // If we're on the first real slide (index 1) and going left
+                if (currentIndex === 1) {
+                    // Move to cloned last slide (index 0, appears to move left)
+                    currentIndex = 0;
+                    track.style.transition = '';
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                    // Update active states
+                    originalSlides.forEach((slide, idx) => {
+                        slide.classList.toggle('is-active', idx === realSlideCount - 1);
+                    });
+                    dots.forEach((dot, idx) => {
+                        dot.classList.toggle('is-active', idx === realSlideCount - 1);
+                        dot.setAttribute('aria-pressed', idx === realSlideCount - 1 ? 'true' : 'false');
+                    });
+
+                    // After transition, instantly jump to real last slide (index realSlideCount)
+                    setTimeout(() => {
+                        track.style.transition = 'none';
+                        currentIndex = realSlideCount;
+                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        setTimeout(() => {
+                            track.style.transition = '';
+                        }, 50);
+                    }, 700); // Wait for CSS transition to complete
+                } else {
+                    goToSlide(prevIndex, false);
+                }
+                startAutoSlide();
+            });
+
+            nextBtn?.addEventListener('click', () => {
+                const nextIndex = currentIndex + 1;
+                // If we're on the last real slide (index realSlideCount) and going right
+                if (currentIndex === realSlideCount) {
+                    // Move to cloned first slide (index realSlideCount + 1, appears to continue right)
+                    currentIndex = realSlideCount + 1;
+                    track.style.transition = '';
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                    // Update active states
+                    originalSlides.forEach((slide, idx) => {
+                        slide.classList.toggle('is-active', idx === 0);
+                    });
+                    dots.forEach((dot, idx) => {
+                        dot.classList.toggle('is-active', idx === 0);
+                        dot.setAttribute('aria-pressed', idx === 0 ? 'true' : 'false');
+                    });
+
+                    // After transition, instantly jump to real first slide (index 1)
+                    setTimeout(() => {
+                        track.style.transition = 'none';
+                        currentIndex = 1;
+                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        setTimeout(() => {
+                            track.style.transition = '';
+                        }, 50);
+                    }, 700); // Wait for transition to complete
+                } else {
+                    goToSlide(nextIndex, false);
+                }
+                startAutoSlide();
+            });
+
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => {
+                    // Map dot index (0-based) to slide index (1-based, since index 0 is cloned last slide)
+                    goToSlide(idx + 1, false);
+                    startAutoSlide();
+                });
+            });
+
+            slider.addEventListener('mouseenter', stopAutoSlide);
+            slider.addEventListener('mouseleave', startAutoSlide);
+
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    stopAutoSlide();
+                } else {
+                    startAutoSlide();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            });
+
+            goToSlide(1); // Start at first real slide (index 1, since index 0 is cloned last slide)
+            startAutoSlide();
+        })();
     </script>
 
 </body>
 
-
-
-    
+</html>
