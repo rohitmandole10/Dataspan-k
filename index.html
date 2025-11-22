@@ -70,22 +70,32 @@ Marker
       /* font-size: 2em; */
       color: #227faa;
       display: inline-block;
-      border-right: 3px solid #969595;
-      /* cursor */
       white-space: nowrap;
-      overflow: hidden;
-      animation: blinkCursor 0.6s steps(1) infinite;
-      /* border: 2px solid red; */
-      height: 60px;
+      overflow: visible;
+      /* height removed - now responsive via CSS media queries */
       text-align: center;
       justify-content: center;
-      padding-right: 5px;
+      line-height: 1.3;
+      vertical-align: middle;
+      position: relative;
+    }
+
+    /* Cursor as pseudo-element that moves with text */
+    #typing::after {
+      content: "|";
+      color: #969595;
+      animation: blinkCursor 0.6s steps(1) infinite;
+      display: inline-block;
+      margin-left: 2px;
     }
 
     /* blinking cursor animation */
     @keyframes blinkCursor {
-      50% {
-        border-color: transparent;
+      0%, 50% {
+        opacity: 1;
+      }
+      51%, 100% {
+        opacity: 0;
       }
     }
 
@@ -605,15 +615,21 @@ Marker
       align-items: center;
       justify-content: center;
       padding: 0 20px;
+      height: 80px;
+      width: 200px;
       min-height: 80px;
+      min-width: 200px;
+      max-height: 80px;
+      max-width: 200px;
     }
 
     .logo-img {
-      height: 4rem;
-      /* 64px */
-      width: auto;
-      min-width: 120px;
-      max-width: 220px;
+      height: 80px;
+      width: 160px;
+      min-height: 80px;
+      min-width: 160px;
+      max-height: 80px;
+      max-width: 160px;
       object-fit: contain;
       filter: grayscale(0%) brightness(1) contrast(1);
       transition: transform 0.4s ease, opacity 0.4s ease;
@@ -624,9 +640,12 @@ Marker
 
     .logo-img[src*=".svg"] {
       filter: grayscale(0%) brightness(1) contrast(1);
-      width: auto;
-      height: 4rem;
-      max-width: 180px;
+      height: 80px;
+      width: 160px;
+      min-height: 80px;
+      min-width: 160px;
+      max-height: 80px;
+      max-width: 160px;
     }
 
     .logo-item:hover .logo-img {
@@ -680,14 +699,22 @@ Marker
       }
 
       .logo-img {
-        height: 3.5rem;
-        min-width: 100px;
+        height: 80px;
+        width: 160px;
+        min-height: 80px;
+        min-width: 160px;
+        max-height: 80px;
         max-width: 160px;
       }
 
       .logo-item {
         padding: 0 15px;
-        min-height: 70px;
+        height: 80px;
+        width: 200px;
+        min-height: 80px;
+        min-width: 200px;
+        max-height: 80px;
+        max-width: 200px;
       }
     }
 
@@ -2537,14 +2564,22 @@ Marker
       }
 
       .logo-img {
-        height: 2.5rem;
-        min-width: 70px;
-        max-width: 120px;
+        height: 80px;
+        width: 160px;
+        min-height: 80px;
+        min-width: 160px;
+        max-height: 80px;
+        max-width: 160px;
       }
 
       .logo-item {
         padding: 0 8px;
-        min-height: 50px;
+        height: 80px;
+        width: 200px;
+        min-height: 80px;
+        min-width: 200px;
+        max-height: 80px;
+        max-width: 200px;
       }
 
       .call-to-action {
@@ -2733,28 +2768,6 @@ Marker
 
       .about-section .list-style-one {
         margin-bottom: 1rem !important;
-      }
-
-      /* 5. Center .list-style-one and .btn-box on mobile screen */
-      .about-section .list-style-one {
-        display: block !important;
-        margin: 0 auto !important;
-        max-width: fit-content !important;
-        text-align: left !important;
-      }
-
-      .about-section .list-style-one li {
-        text-align: left !important;
-        display: block !important;
-        width: auto !important;
-      }
-
-      .about-section .btn-box {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        text-align: center !important;
-        margin-top: 1rem !important;
       }
 
       /* 6. Decrease the top gap of .why-choose-us section for mobile */
@@ -3084,104 +3097,171 @@ Marker
 
     <!-- Services Dropdown Menu -->
     <div class="dropdown-menu" id="services-dropdown">
-      <div class="dropdown-container">
-        <div class="dropdown-content">
-          <!-- Service Categories -->
-          <div class="service-categories">
-            <div class="category-column">
-              <div class="category-item active" data-submenu="ai-automation">
-                <a href="service.html#ai-automation" class="category-link">AI & Automation</a>
-              </div>
-              <div class="category-item" data-submenu="development-technology">
-                <a href="service.html#development" class="category-link">Development & Technology</a>
-              </div>
-              <div class="category-item" data-submenu="design-branding">
-                <a href="service.html#design" class="category-link">Design & Branding</a>
-              </div>
-              <div class="category-item" data-submenu="cloud-infrastructure">
-                <a href="service.html#cloud" class="category-link">Cloud & Infrastructure</a>
-              </div>
-              <div class="category-item" data-submenu="data-operations">
-                <a href="service.html#operations" class="category-link">Data & Operations</a>
-              </div>
-            </div>
+        <div class="dropdown-container">
+            <div class="dropdown-content">
+                <!-- Service Categories -->
+                <div class="service-categories">
+                    <div class="category-column">
+                        <div class="category-item active" data-submenu="ai-automation">
+                            <a href="#" class="category-link">AI & Automation</a>
+                        </div>
+                        <div class="category-item" data-submenu="development-technology">
+                            <a href="#" class="category-link">Development & Technology</a>
+                        </div>
+                        <div class="category-item" data-submenu="design-branding">
+                            <a href="#" class="category-link">Design & Branding</a>
+                        </div>
+                        <div class="category-item" data-submenu="cloud-infrastructure">
+                            <a href="#" class="category-link">Cloud & Infrastructure</a>
+                        </div>
+                        <div class="category-item" data-submenu="data-operations">
+                            <a href="#" class="category-link">Data & Operations</a>
+                        </div>
+                    </div>
 
-            <!-- AI & Automation Subcategories -->
-            <div class="subcategory-column" id="ai-automation-submenu">
-              <div class="subcategory-item">
-                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration &
-                  Automation</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
-              </div>
-            </div>
+                    <!-- AI & Automation Subcategories -->
+                    <div class="subcategory-column" id="ai-automation-submenu">
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">AI & Machine Learning (ML)</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">OCR (Optical Character Recognition)</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Scraper & Scripting</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Navision Integration & Automation</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+                        </div>
+                    </div>
 
-            <!-- Development & Technology Subcategories -->
-            <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="service.html#shopify" class="subcategory-link">Shopify Development & Services</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="service.html#web-mobile" class="subcategory-link">Web & Mobile Development</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="service.html#software-consulting" class="subcategory-link">Software Development & Consulting</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="service.html#ecommerce" class="subcategory-link">E-Commerce & Marketplace Integration</a>
-              </div>
-            </div>
+                    <!-- Development & Technology Subcategories -->
+                    <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Shopify Development & Services</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Web & Mobile Development</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Software Development & Consulting</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+                        </div>
+                    </div>
 
-            <!-- Design & Branding Subcategories -->
-            <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="service.html#uiux" class="subcategory-link">UI/UX & Creative Services</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="service.html#branding" class="subcategory-link">Design & Branding</a>
-              </div>
-            </div>
+                    <!-- Design & Branding Subcategories -->
+                    <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Design & Branding</a>
+                        </div>
+                    </div>
 
-            <!-- Cloud & Infrastructure Subcategories -->
-            <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="service.html#hosting" class="subcategory-link">Hosting & Cloud Services</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="service.html#managed-hosting" class="subcategory-link">Managed Hosting Solutions</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="service.html#cloud-migration" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="service.html#server-monitoring" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
-              </div>
-            </div>
+                    <!-- Cloud & Infrastructure Subcategories -->
+                    <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+                        </div>
+                    </div>
 
-            <!-- Data & Operations Subcategories -->
-            <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="service.html#analytics" class="subcategory-link">Reporting & Analytics</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="service.html#bpo" class="subcategory-link">Back Office & BPO Solutions</a>
-              </div>
+                    <!-- Data & Operations Subcategories -->
+                    <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Reporting & Analytics</a>
+                        </div>
+                        <div class="subcategory-item">
+                            <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promotional Graphics Section -->
+                <div class="promo-section">
+                    <div class="tech-illustration">
+                        <!-- Robot/Server Unit -->
+                        <div class="robot-unit">
+                            <div class="robot-head">
+                                <div class="robot-core"></div>
+                                <div class="circuit-board"></div>
+                            </div>
+                            <div class="code-screen">
+                                <div class="code-line"></div>
+                                <div class="code-line"></div>
+                                <div class="code-line"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Human Figures -->
+                        <div class="human-figures">
+                            <div class="human-figure male">
+                                <div class="figure-body"></div>
+                                <div class="key blue-key"></div>
+                            </div>
+                            <div class="human-figure female">
+                                <div class="figure-body"></div>
+                                <div class="key green-key"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Brain Icon -->
+                        <div class="brain-icon">
+                            <div class="brain-shape"></div>
+                        </div>
+                        
+                        <!-- Geometric Elements -->
+                        <div class="geometric-elements">
+                            <div class="cube-stack">
+                                <div class="cube"></div>
+                                <div class="cube"></div>
+                                <div class="cube"></div>
+                            </div>
+                            <div class="individual-cubes">
+                                <div class="cube"></div>
+                                <div class="cube"></div>
+                            </div>
+                            <div class="shield-icon"></div>
+                            <div class="floating-keys">
+                                <div class="key blue-key"></div>
+                                <div class="key green-key"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Smartphone -->
+                        <div class="smartphone">
+                            <div class="phone-body"></div>
+                            <div class="network-signals">
+                                <div class="signal"></div>
+                                <div class="signal"></div>
+                                <div class="signal"></div>
+                            </div>
+                            <div class="data-flow">
+                                <div class="data-cube"></div>
+                                <div class="data-cube"></div>
+                                <div class="data-cube"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </nav>
+</nav>
   <div class="mobile-menu-backdrop" aria-hidden="true"></div>
 
   <main class="main">
@@ -3211,8 +3291,8 @@ Marker
               <!-- </p> -->
 
               <p class="mb-4 mb-md-5">
-                Accelerate growth with smart automation, powerful AI, and integrated digital solutions that streamline
-                operations, enhance experiences, and keep your business ahead of the curve.
+                Explore our unified digital solutions and intelligent workflows that streamline operations, strengthen performance, and keep your business ahead of the curve.
+
               </p>
 
               <div class="hero-buttons">
@@ -3245,7 +3325,7 @@ Marker
           </div>
         </div>
         <script>
-          const texts = ["AI Solutions.", "Automation Tools.", "Smart Workflows.", "Process Optimization."];
+          const texts = ["eCommerce Services.", "AI Solutions.", "Automation Tools.", "Process Optimization."];
           let count = 0;
           let index = 0;
           let currentText = "";
@@ -3349,10 +3429,7 @@ Marker
                 <span class="title">About Us</span>
                 <h2>We enable smarter, scalable growth through technology and operational excellence</h2>
               </div>
-              <div class="text">At Dataspan Technologies, we deliver intelligent, automated, and integrated solutions
-                that solve real business challenges end-to-end. From AI-powered systems to e-commerce operations, cloud
-                engineering, workflow automation, and financial management, we help companies streamline processes,
-                improve performance, and drive measurable results in a fast-changing digital world.</div>
+              <div class="text">At Dataspan Technologies, we deliver connected, automated, and commerce-ready solutions that address end-to-end business needs. From intelligent software and AI capabilities to e-commerce management, marketplace integrations, workflow automation, and advanced data operations, we help organizations streamline processes, strengthen performance, and achieve measurable outcomes in an increasingly competitive digital economy.</div>
               <ul class="list-style-one">
                 <li>AI-driven operational intelligence</li>
                 <li>Data-centric performance insights</li>
@@ -3384,9 +3461,9 @@ Marker
       <!-- Section Title -->
       <div class="container section-title " data-aos="fade-up">
         <h2>Services</h2>
-        <p style="padding-bottom: 20px;font-size: 1rem; font-weight: 700;">We deliver innovative, reliable, and tailored
+        <p style="padding-bottom: 20px;">We deliver innovative, reliable, and tailored
           solutions to help businesses
-          grow, streamline operations, and create lasting customer experiences.</p>
+          grow, <br> streamline operations, and create lasting customer experiences.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="50">
@@ -3417,8 +3494,7 @@ Marker
                 </div>
                 <div class="service-content flex-grow-1">
                   <h3>E-Commerce & POS Solutions</h3>
-                  <p>We build AI-enabled unified retail systems connecting online stores and POS platforms for seamless
-                    sales, inventory, and analytics.</p>
+                  <p>We build unified retail systems connecting online stores and POS platforms for seamless sales, inventory, and analytics.</p>
                   <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
@@ -3633,10 +3709,10 @@ Marker
     <section class="workflow-section">
       <div class="container section-title" data-aos="fade-up">
         <h2>
-          How Our <span class="highlight">AI-Driven</span> Process Works
+          How Our <span class="highlight">Process</span>  Works
         </h2>
         <p>
-          Transforming your business with intelligent technology — turning challenges into opportunities through automation and innovation.
+          Transforming business challenges into streamlined operations with a clear, strategic, and scalable process.
         </p>
 
         <div class="steps-container">
@@ -3675,7 +3751,7 @@ Marker
             <div class="circle">5</div>
             <div class="step-title"> Deploy & Stabilize</div>
             <div class="step-description">
-              We deploy the solution seamlessly, ensure system reliability, validate configurations, and maintain stability during initial rollout.
+              We build and integrate smart software solutions that streamline processes, enhance operations, and connect with systems.
             </div>
           </div>
           <div class="step">
@@ -3938,7 +4014,8 @@ Marker
                 <img src="assets/img/Business Operations/Power BI.png" alt="Power BI" class="logo-img">
               </div>
               <div class="logo-item">
-                <img src="assets/img/Business Operations/sellbrite.png" alt="sellbrite" class="logo-img">
+                <img src="assets/img/Business Operations/semrush.png" alt="semrush" class="logo-img">
+              </div>
                 <div class="logo-item">
                   <img src="assets/img/Business Operations/asana.png" alt="asana" class="logo-img">
                 </div>
