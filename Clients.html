@@ -15,7 +15,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,9 +43,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
             position: relative;
-            padding-bottom: 30px;
+            padding-bottom: 0;
             margin-bottom: 0;
         }
 
@@ -215,14 +216,14 @@
             opacity: 1;
             transform: scale(1) translateZ(0) rotateY(0deg);
             transition: opacity 0.9s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+                transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @media (prefers-reduced-motion: reduce) {
             .stat-card {
                 transform: scale(0.8) translateZ(0) rotateY(0deg);
             }
-            
+
             .stat-card.animate-in {
                 transition: opacity 0.3s ease, transform 0.3s ease;
             }
@@ -320,7 +321,7 @@
 
         @media (max-width: 1200px) {
             .global-reach-section {
-                padding: 80px 6% 40px;
+                padding: 80px 6% 0;
             }
 
             .globe-stats-container {
@@ -371,7 +372,7 @@
         /* Medium screens (md) - 768px to 991px - Keep same structure */
         @media (max-width: 991px) {
             .global-reach-section {
-                padding: 70px 5% 35px;
+                padding: 70px 5% 0;
             }
 
             .main-content {
@@ -433,7 +434,7 @@
         /* Small screens (sm) - below 768px - Change structure */
         @media (max-width: 767px) {
             .global-reach-section {
-                padding: 60px 4% 30px;
+                padding: 60px 4% 0;
                 min-height: auto;
             }
 
@@ -513,7 +514,7 @@
         /* Extra small screens - below 576px */
         @media (max-width: 575px) {
             .global-reach-section {
-                padding: 50px 3% 25px;
+                padding: 50px 3% 0;
             }
 
             .main-content h1 {
@@ -562,7 +563,7 @@
 
         @media (max-width: 480px) {
             .global-reach-section {
-                padding: 40px 2%;
+                padding: 40px 2% 0;
             }
 
             .main-content h1 {
@@ -605,7 +606,7 @@
 </head>
 
 <body>
-  <nav class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
             <!-- Logo -->
             <div class="nav-logo">
@@ -657,7 +658,7 @@
                     <div class="service-categories">
                         <div class="category-column">
                             <div class="category-item active" data-submenu="ai-automation">
-                                <a href="service.html" class="category-link">AI & Automation</a>
+                                <a href="#" class="category-link">AI & Automation</a>
                             </div>
                             <div class="category-item" data-submenu="development-technology">
                                 <a href="#" class="category-link">Development & Technology</a>
@@ -676,19 +677,19 @@
                         <!-- AI & Automation Subcategories -->
                         <div class="subcategory-column" id="ai-automation-submenu">
                             <div class="subcategory-item">
-                                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
+                                <a href="#" class="subcategory-link">AI & Machine Learning (ML)</a>
                             </div>
                             <div class="subcategory-item">
-                                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
+                                <a href="#" class="subcategory-link">OCR (Optical Character Recognition)</a>
                             </div>
                             <div class="subcategory-item">
-                                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
+                                <a href="#" class="subcategory-link">Scraper & Scripting</a>
                             </div>
                             <div class="subcategory-item">
-                                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
+                                <a href="#" class="subcategory-link">Navision Integration & Automation</a>
                             </div>
                             <div class="subcategory-item">
-                                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+                                <a href="#" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
                             </div>
                         </div>
 
@@ -744,10 +745,78 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Promotional Graphics Section -->
+                    <div class="promo-section">
+                        <div class="tech-illustration">
+                            <!-- Robot/Server Unit -->
+                            <div class="robot-unit">
+                                <div class="robot-head">
+                                    <div class="robot-core"></div>
+                                    <div class="circuit-board"></div>
+                                </div>
+                                <div class="code-screen">
+                                    <div class="code-line"></div>
+                                    <div class="code-line"></div>
+                                    <div class="code-line"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Human Figures -->
+                            <div class="human-figures">
+                                <div class="human-figure male">
+                                    <div class="figure-body"></div>
+                                    <div class="key blue-key"></div>
+                                </div>
+                                <div class="human-figure female">
+                                    <div class="figure-body"></div>
+                                    <div class="key green-key"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Brain Icon -->
+                            <div class="brain-icon">
+                                <div class="brain-shape"></div>
+                            </div>
+                            
+                            <!-- Geometric Elements -->
+                            <div class="geometric-elements">
+                                <div class="cube-stack">
+                                    <div class="cube"></div>
+                                    <div class="cube"></div>
+                                    <div class="cube"></div>
+                                </div>
+                                <div class="individual-cubes">
+                                    <div class="cube"></div>
+                                    <div class="cube"></div>
+                                </div>
+                                <div class="shield-icon"></div>
+                                <div class="floating-keys">
+                                    <div class="key blue-key"></div>
+                                    <div class="key green-key"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Smartphone -->
+                            <div class="smartphone">
+                                <div class="phone-body"></div>
+                                <div class="network-signals">
+                                    <div class="signal"></div>
+                                    <div class="signal"></div>
+                                    <div class="signal"></div>
+                                </div>
+                                <div class="data-flow">
+                                    <div class="data-cube"></div>
+                                    <div class="data-cube"></div>
+                                    <div class="data-cube"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </nav>
+</nav>
     <div>
         <section class="global-reach-section">
             <div class="main-content">
@@ -854,7 +923,7 @@
                 window.addEventListener('resize', debouncedResize);
                 window.addEventListener('orientationchange', debouncedResize);
                 resizeGlobe(); // initial sizing
-                
+
                 // Re-resize after a short delay to ensure proper sizing
                 setTimeout(resizeGlobe, 100);
 
@@ -862,16 +931,16 @@
                 function animateCardsOnScroll() {
                     const statCards = document.querySelectorAll('.stat-card');
                     const globeSection = document.querySelector('.global-reach-section');
-                    
+
                     if (!globeSection || statCards.length === 0) return;
 
                     // Check if device prefers reduced motion
                     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    
+
                     // Adjust threshold based on screen size for better mobile experience
                     const isMobile = window.innerWidth <= 768;
                     const threshold = isMobile ? 0.1 : 0.2;
-                    
+
                     const observerOptions = {
                         root: null,
                         rootMargin: isMobile ? '50px' : '0px',
@@ -919,7 +988,7 @@
     </div>
 
   <footer id="footer" class="footer section light-background">
-    
+
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
@@ -1017,64 +1086,113 @@
   </footer>
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+      class="bi bi-arrow-up-short "></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
 
-  <!-- Footer Dropdown Toggle Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
-      
-      // Add click handlers once
-      footerDropdowns.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-          // Only work on mobile
-          if (window.innerWidth < 768) {
-            e.preventDefault();
-            const footerLinks = this.closest('.footer-links');
-            const isActive = footerLinks.classList.contains('active');
-            
-            // Close all other dropdowns
-            document.querySelectorAll('.footer-links').forEach(link => {
-              if (link !== footerLinks) {
-                link.classList.remove('active');
+    <!-- Initialize AOS with smooth animation settings -->
+    <script>
+      AOS.init({
+        duration: 500, // Smooth animation duration (0.5s)
+        easing: 'ease-out-cubic', // Smooth cubic easing for fluid motion
+        once: true, // Animate only once
+        offset: 0, // Trigger immediately when element enters viewport
+        delay: 0 // Base delay (individual delays are set via data-aos-delay)
+      });
+    </script>
+
+    <!-- Footer Dropdown Toggle Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const marqueeContents = document.querySelectorAll('.marquee-wrapper .marquee-content');
+        const whyChooseCards = document.querySelectorAll('#why-choose-us .card');
+        const CARD_BREAKPOINT = 991;
+
+        marqueeContents.forEach(content => {
+          if (content.dataset.loopInit === 'true') return;
+          content.dataset.loopInit = 'true';
+
+          const children = Array.from(content.children);
+          children.forEach(child => {
+            const clone = child.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            content.appendChild(clone);
+          });
+        });
+
+        const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
+
+        // Add click handlers once
+        footerDropdowns.forEach(toggle => {
+          toggle.addEventListener('click', function (e) {
+            // Only work on mobile
+            if (window.innerWidth < 768) {
+              e.preventDefault();
+              const footerLinks = this.closest('.footer-links');
+              const isActive = footerLinks.classList.contains('active');
+
+              // Close all other dropdowns
+              document.querySelectorAll('.footer-links').forEach(link => {
+                if (link !== footerLinks) {
+                  link.classList.remove('active');
+                }
+              });
+
+              // Toggle current dropdown
+              if (isActive) {
+                footerLinks.classList.remove('active');
+              } else {
+                footerLinks.classList.add('active');
               }
-            });
-            
-            // Toggle current dropdown
-            if (isActive) {
-              footerLinks.classList.remove('active');
-            } else {
-              footerLinks.classList.add('active');
             }
+          });
+        });
+
+        const clearCardStates = () => {
+          whyChooseCards.forEach(card => card.classList.remove('details-visible'));
+        };
+
+        const handleCardToggle = (card) => {
+          if (window.innerWidth > CARD_BREAKPOINT) return;
+          const isActive = card.classList.contains('details-visible');
+          clearCardStates();
+          if (!isActive) {
+            card.classList.add('details-visible');
           }
+        };
+
+        whyChooseCards.forEach(card => {
+          card.addEventListener('click', function () {
+            handleCardToggle(card);
+          });
+        });
+
+        // Handle window resize - remove active classes on desktop
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function () {
+            if (window.innerWidth >= 768) {
+              document.querySelectorAll('.footer-links').forEach(link => {
+                link.classList.remove('active');
+              });
+            }
+            if (window.innerWidth > CARD_BREAKPOINT) {
+              clearCardStates();
+            }
+          }, 250);
         });
       });
-      
-      // Handle window resize - remove active classes on desktop
-      let resizeTimer;
-      window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-          if (window.innerWidth >= 768) {
-            document.querySelectorAll('.footer-links').forEach(link => {
-              link.classList.remove('active');
-            });
-          }
-        }, 250);
-      });
-    });
-  </script>
+    </script>
 
 </body>
 
