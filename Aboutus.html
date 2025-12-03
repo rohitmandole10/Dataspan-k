@@ -11,7 +11,6 @@
     <!-- Favicons -->
     <link href="assets/img/brand.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -31,45 +30,6 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
     <style>
-        /* Base Styles */
-        body {
-            margin: 0;
-            font-family: var(--default-font);
-            background: var(--background-color);
-            color: var(--default-color);
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        /* Hide vertical scrollbar */
-        body::-webkit-scrollbar {
-            width: 0px;
-            background: transparent;
-        }
-
-        body {
-            scrollbar-width: none;
-            /* Firefox */
-            -ms-overflow-style: none;
-            /* IE and Edge */
-        }
-
-        html {
-            overflow-y: auto;
-        }
-
-        html::-webkit-scrollbar {
-            width: 0px;
-            background: transparent;
-        }
-
-        html {
-            scrollbar-width: none;
-            /* Firefox */
-            -ms-overflow-style: none;
-            /* IE and Edge */
-        }
 
         /* Breadcrumb */
         .about-breadcrumb {
@@ -224,8 +184,34 @@
             width: 80% !important;
             max-width: 80% !important;
             margin: 0 auto;
-            padding: clamp(8px, 1.2vw, 15px) 0;
+            padding: clamp(8px, 1.2vw, 15px) clamp(20px, 3vw, 40px);
             box-sizing: border-box;
+        }
+
+        .about-section-1-text .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: clamp(20px, 3vw, 30px);
+            text-align: center;
+        }
+
+        .about-section-1-text p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .about-breadcrumb {
+            position: relative;
+            z-index: 1;
+            padding: clamp(15px, 2vw, 25px) clamp(20px, 4vw, 40px);
+        }
+
+        .about-breadcrumb .breadcrumb {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
         }
 
         /* Section 2: Intelligent AI & Automations */
@@ -3683,13 +3669,26 @@
 
         @media (min-width: 768px) and (max-width: 991px) {
             .talent-section {
+                width: 100%;
                 height: auto;
                 min-height: clamp(260px, 32vw, 320px);
-                padding: clamp(35px, 4vw, 50px) clamp(4%, 5vw, 6%) clamp(100px, 12vw, 120px);
+                padding: clamp(35px, 4vw, 50px) 0 clamp(100px, 12vw, 120px);
+                margin-left: 0;
+                margin-right: 0;
+                border-radius: 0;
+                box-shadow: none;
             }
 
+            .talent-section::before {
+                border-radius: 0;
+            }
+
+            section.talent-wrapper,
             .talent-wrapper {
-                margin: clamp(25px, 3vw, 35px) 0;
+                margin: clamp(25px, 3vw, 35px) 0 !important;
+                padding: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
 
             .talent-section .talent-content h2 {
@@ -3724,13 +3723,26 @@
 
         @media (max-width: 767px) {
             .talent-section {
+                width: 100%;
                 height: auto;
                 min-height: clamp(240px, 38vw, 300px);
-                padding: clamp(35px, 4.5vw, 50px) clamp(3.5%, 4.5vw, 5.5%) clamp(90px, 11vw, 110px);
+                padding: clamp(35px, 4.5vw, 50px) 0 clamp(90px, 11vw, 110px);
+                margin-left: 0;
+                margin-right: 0;
+                border-radius: 0;
+                box-shadow: none;
             }
 
+            .talent-section::before {
+                border-radius: 0;
+            }
+
+            section.talent-wrapper,
             .talent-wrapper {
-                margin: clamp(20px, 2.5vw, 30px) 0;
+                margin: clamp(20px, 2.5vw, 30px) 0 !important;
+                padding: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
 
             .talent-section .talent-content h2 {
@@ -3835,63 +3847,7 @@
            COMPREHENSIVE RESPONSIVE STYLES FOR ENTIRE PAGE
            ============================================ */
 
-        /* Navigation Responsive Styles */
-        @media (max-width: 991px) {
-            .navbar {
-                padding: clamp(10px, 1.5vw, 15px) 0;
-            }
-
-            .nav-container {
-                padding: 0 clamp(15px, 3vw, 25px);
-            }
-
-            .nav-logo .logo-image {
-                max-height: clamp(35px, 5vw, 45px);
-                width: auto;
-            }
-
-            .mobile-menu-toggle {
-                width: clamp(30px, 4vw, 40px);
-                height: clamp(30px, 4vw, 40px);
-            }
-        }
-
-        @media (max-width: 767px) {
-            .navbar {
-                padding: clamp(8px, 1.2vw, 12px) 0;
-            }
-
-            .nav-container {
-                padding: 0 clamp(12px, 2.5vw, 20px);
-            }
-
-            .nav-logo .logo-image {
-                max-height: clamp(30px, 4.5vw, 40px);
-            }
-
-            .dropdown-menu {
-                max-height: calc(100vh - 80px);
-                overflow-y: auto;
-            }
-
-            .dropdown-container {
-                padding: clamp(15px, 2.5vw, 20px);
-            }
-        }
-
-        @media (max-width: 479px) {
-            .navbar {
-                padding: clamp(6px, 1vw, 10px) 0;
-            }
-
-            .nav-container {
-                padding: 0 clamp(10px, 2vw, 15px);
-            }
-
-            .nav-logo .logo-image {
-                max-height: clamp(28px, 4vw, 35px);
-            }
-        }
+        /* Navigation Responsive Styles - Removed to use main.css styles for consistency */
 
         /* Footer Responsive Styles */
         @media (max-width: 991px) {
@@ -4093,15 +4049,24 @@
         }
 
         /* Section Padding Responsive */
+        .section {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
         @media (max-width: 767px) {
             .section {
                 padding: clamp(30px, 4vw, 50px) 0;
+                margin-left: 0;
+                margin-right: 0;
             }
         }
 
         @media (max-width: 479px) {
             .section {
                 padding: clamp(25px, 3.5vw, 40px) 0;
+                margin-left: 0;
+                margin-right: 0;
             }
         }
 
@@ -4271,6 +4236,14 @@
            ============================================ */
 
         /* About Section 1 - Enhanced Responsive */
+        @media (max-width: 1199px) {
+            .about-section-1-text {
+                width: 85% !important;
+                max-width: 85% !important;
+                padding: clamp(8px, 1.2vw, 15px) clamp(20px, 3vw, 40px);
+            }
+        }
+
         @media (max-width: 991px) {
             .about-section-1 {
                 padding: clamp(90px, 8vw, 110px) 0 clamp(35px, 4.5vw, 55px) 0;
@@ -4291,27 +4264,33 @@
             }
 
             .about-section-1-text {
-                width: 60% !important;
-                max-width: 60% !important;
+                width: 90% !important;
+                max-width: 90% !important;
                 margin: 0 auto;
+                padding: clamp(8px, 1.2vw, 15px) clamp(20px, 3vw, 35px);
             }
 
-            .about-section-1-text small {
-                font-size: clamp(1.15rem, 3.4vw, 1.9rem);
-                margin-bottom: clamp(10px, 1.8vw, 14px);
+            .about-section-1-text .hero-title {
+                font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+                line-height: 1.25;
+                margin-bottom: clamp(18px, 2.5vw, 25px);
             }
 
             .about-section-1-text p {
-                font-size: 1.05rem;
+                font-size: clamp(0.95rem, 1.8vw, 1.05rem);
                 line-height: 1.7;
                 text-align: center;
+            }
+
+            .about-breadcrumb {
+                padding: clamp(15px, 2vw, 25px) clamp(20px, 3vw, 35px);
             }
         }
 
         @media (max-width: 767px) {
             .about-section-1 {
-                padding: clamp(85px, 7vw, 100px) 0 clamp(30px, 4vw, 45px) 0;
-                padding-top: clamp(85px, 7vw, 100px) !important;
+                padding: clamp(80px, 7vw, 100px) 0 clamp(30px, 4vw, 45px) 0;
+                padding-top: clamp(80px, 7vw, 100px) !important;
             }
 
             .about-section-1::before {
@@ -4322,52 +4301,55 @@
 
             .about-section-1-content {
                 grid-template-columns: 1fr;
-                gap: clamp(35px, 4.5vw, 50px);
+                gap: clamp(30px, 4vw, 45px);
                 padding: 0;
                 max-width: 100% !important;
                 width: 100% !important;
             }
 
             .about-section-1-text {
-                width: 60% !important;
-                max-width: 60% !important;
+                width: 95% !important;
+                max-width: 95% !important;
                 margin: 0 auto;
-            }
-
-            .about-section-1-text {
+                padding: clamp(8px, 1.2vw, 15px) clamp(20px, 4vw, 30px);
                 order: 2;
                 text-align: center;
+                height: auto;
+                min-height: auto;
             }
 
-            .about-section-1-text small {
-                font-size: clamp(1.2rem, 4.8vw, 1.7rem);
+            .about-section-1-text .hero-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+                line-height: 1.3;
+                margin-bottom: clamp(15px, 2vw, 20px);
                 text-align: center;
-                margin-bottom: clamp(10px, 1.8vw, 14px);
-            }
-
-            .about-section-1-text small::after {
-                left: 50%;
-                transform: translateX(-50%);
             }
 
             .about-section-1-text p {
-                font-size: 1rem;
+                font-size: clamp(0.9rem, 2.2vw, 1rem);
                 line-height: 1.7;
                 margin-bottom: 1.5rem;
                 text-align: center;
-                padding-right: 0;
+                padding: 0;
             }
 
-            .about-section-1-text {
-                height: auto;
-                min-height: auto;
+            .about-section-1-text p br {
+                display: none;
+            }
+
+            .about-breadcrumb {
+                padding: clamp(12px, 2vw, 20px) clamp(20px, 4vw, 30px);
+            }
+
+            .about-breadcrumb .breadcrumb {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
             }
         }
 
         @media (max-width: 479px) {
             .about-section-1 {
-                padding: clamp(80px, 6.5vw, 95px) 0 clamp(25px, 3.5vw, 35px) 0;
-                padding-top: clamp(80px, 6.5vw, 95px) !important;
+                padding: clamp(70px, 6vw, 90px) 0 clamp(25px, 3.5vw, 35px) 0;
+                padding-top: clamp(70px, 6vw, 90px) !important;
             }
 
             .about-section-1::before {
@@ -4377,33 +4359,46 @@
             }
 
             .about-section-1-content {
-                gap: clamp(30px, 4vw, 40px);
+                gap: clamp(25px, 3.5vw, 35px);
                 padding: 0;
                 max-width: 100% !important;
                 width: 100% !important;
             }
 
             .about-section-1-text {
-                width: 60% !important;
-                max-width: 60% !important;
+                width: 100% !important;
+                max-width: 100% !important;
                 margin: 0 auto;
+                padding: clamp(8px, 1.2vw, 15px) clamp(15px, 4vw, 25px);
+                height: auto;
+                min-height: auto;
             }
 
-            .about-section-1-text small {
-                font-size: clamp(1.15rem, 5.8vw, 1.6rem);
-                margin-bottom: clamp(10px, 1.8vw, 14px);
-            }
-
-            .about-section-1-text p {
-                font-size: 0.9375rem;
-                line-height: 1.6;
-                margin-bottom: 1.25rem;
+            .about-section-1-text .hero-title {
+                font-size: clamp(1.35rem, 7vw, 1.75rem);
+                line-height: 1.3;
+                margin-bottom: clamp(12px, 2vw, 18px);
                 text-align: center;
             }
 
-            .about-section-1-text {
-                height: auto;
-                min-height: auto;
+            .about-section-1-text p {
+                font-size: clamp(0.875rem, 2.5vw, 0.95rem);
+                line-height: 1.65;
+                margin-bottom: 1.25rem;
+                text-align: center;
+                padding: 0;
+            }
+
+            .about-section-1-text p br {
+                display: none;
+            }
+
+            .about-breadcrumb {
+                padding: clamp(10px, 1.5vw, 15px) clamp(15px, 4vw, 25px);
+            }
+
+            .about-breadcrumb .breadcrumb {
+                font-size: clamp(0.75rem, 2.2vw, 0.85rem);
             }
         }
 
@@ -5050,218 +5045,206 @@
     </style>
 </head>
 
-<body class="services">
-    <nav class="navbar">
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="nav-logo">
-                <a href="index.html" class="logo">
-                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
-                </a>
-            </div>
+<body class="index-page">
 
-            <!-- Main Navigation -->
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html#hero" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="Aboutus.html" class="nav-link">About Us</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
-                        Services
-                        <!-- <i class="fas fa-chevron-down"></i> -->
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="Clients.html" class="nav-link">Clients</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact Us</a>
-                </li>
-            </ul>
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <a href="index.html" class="logo">
+          <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+        </a>
+      </div>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+      <!-- Main Navigation -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html#hero" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="Aboutus.html" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="Clients.html" class="nav-link">Clients</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">Contact Us</a>
+        </li>
+      </ul>
 
-            <!-- Action Button 
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Action Button 
             <div class="nav-action">
                 <button class="start-project-btn">Start Project</button>
             </div>-->
+    </div>
+
+    <!-- Services Dropdown Menu -->
+    <!--
+    <div class="dropdown-menu" id="services-dropdown">
+        <div class="dropdown-container">
+            <div class="dropdown-content">
+                Service Categories
+                <div class="service-categories">
+      <div class="category-column">
+        <div class="category-item active" data-submenu="ai-automation">
+          <a href="#" class="category-link">AI & Automation</a>
+        </div>
+        <div class="category-item" data-submenu="development-technology">
+          <a href="#" class="category-link">Development & Technology</a>
+        </div>
+        <div class="category-item" data-submenu="design-branding">
+          <a href="#" class="category-link">Design & Branding</a>
+        </div>
+        <div class="category-item" data-submenu="cloud-infrastructure">
+          <a href="#" class="category-link">Cloud & Infrastructure</a>
+        </div>
+        <div class="category-item" data-submenu="data-operations">
+          <a href="#" class="category-link">Data & Operations</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="ai-automation-submenu">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">AI & Machine Learning (ML)</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">OCR (Optical Character Recognition)</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Scraper & Scripting</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Navision Integration & Automation</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Shopify Development & Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Web & Mobile Development</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Software Development & Consulting</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Design & Branding</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Reporting & Analytics</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="promo-section">
+      <div class="tech-illustration">
+        <div class="robot-unit">
+          <div class="robot-head">
+            <div class="robot-core"></div>
+            <div class="circuit-board"></div>
+          </div>
+          <div class="code-screen">
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+          </div>
         </div>
 
-        <!-- Services Dropdown Menu -->
-        <div class="dropdown-menu" id="services-dropdown">
-            <div class="dropdown-container">
-                <div class="dropdown-content">
-                    <!-- Service Categories -->
-                    <div class="service-categories">
-                        <div class="category-column">
-                            <div class="category-item active" data-submenu="ai-automation">
-                                <a href="#" class="category-link">AI & Automation</a>
-                            </div>
-                            <div class="category-item" data-submenu="development-technology">
-                                <a href="#" class="category-link">Development & Technology</a>
-                            </div>
-                            <div class="category-item" data-submenu="design-branding">
-                                <a href="#" class="category-link">Design & Branding</a>
-                            </div>
-                            <div class="category-item" data-submenu="cloud-infrastructure">
-                                <a href="#" class="category-link">Cloud & Infrastructure</a>
-                            </div>
-                            <div class="category-item" data-submenu="data-operations">
-                                <a href="#" class="category-link">Data & Operations</a>
-                            </div>
-                        </div>
-
-                        <!-- AI & Automation Subcategories -->
-                        <div class="subcategory-column" id="ai-automation-submenu">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">AI & Machine Learning (ML)</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">OCR (Optical Character Recognition)</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Scraper & Scripting</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Navision Integration & Automation</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
-                            </div>
-                        </div>
-
-                        <!-- Development & Technology Subcategories -->
-                        <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Shopify Development & Services</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Web & Mobile Development</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Software Development & Consulting</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
-                            </div>
-                        </div>
-
-                        <!-- Design & Branding Subcategories -->
-                        <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Design & Branding</a>
-                            </div>
-                        </div>
-
-                        <!-- Cloud & Infrastructure Subcategories -->
-                        <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
-                            </div>
-                        </div>
-
-                        <!-- Data & Operations Subcategories -->
-                        <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Reporting & Analytics</a>
-                            </div>
-                            <div class="subcategory-item">
-                                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Promotional Graphics Section -->
-                    <div class="promo-section">
-                        <div class="tech-illustration">
-                            <!-- Robot/Server Unit -->
-                            <div class="robot-unit">
-                                <div class="robot-head">
-                                    <div class="robot-core"></div>
-                                    <div class="circuit-board"></div>
-                                </div>
-                                <div class="code-screen">
-                                    <div class="code-line"></div>
-                                    <div class="code-line"></div>
-                                    <div class="code-line"></div>
-                                </div>
-                            </div>
-
-                            <!-- Human Figures -->
-                            <div class="human-figures">
-                                <div class="human-figure male">
-                                    <div class="figure-body"></div>
-                                    <div class="key blue-key"></div>
-                                </div>
-                                <div class="human-figure female">
-                                    <div class="figure-body"></div>
-                                    <div class="key green-key"></div>
-                                </div>
-                            </div>
-
-                            <!-- Brain Icon -->
-                            <div class="brain-icon">
-                                <div class="brain-shape"></div>
-                            </div>
-
-                            <!-- Geometric Elements -->
-                            <div class="geometric-elements">
-                                <div class="cube-stack">
-                                    <div class="cube"></div>
-                                    <div class="cube"></div>
-                                    <div class="cube"></div>
-                                </div>
-                                <div class="individual-cubes">
-                                    <div class="cube"></div>
-                                    <div class="cube"></div>
-                                </div>
-                                <div class="shield-icon"></div>
-                                <div class="floating-keys">
-                                    <div class="key blue-key"></div>
-                                    <div class="key green-key"></div>
-                                </div>
-                            </div>
-
-                            <!-- Smartphone -->
-                            <div class="smartphone">
-                                <div class="phone-body"></div>
-                                <div class="network-signals">
-                                    <div class="signal"></div>
-                                    <div class="signal"></div>
-                                    <div class="signal"></div>
-                                </div>
-                                <div class="data-flow">
-                                    <div class="data-cube"></div>
-                                    <div class="data-cube"></div>
-                                    <div class="data-cube"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="human-figures">
+          <div class="human-figure male">
+            <div class="figure-body"></div>
+            <div class="key blue-key"></div>
+          </div>
+          <div class="human-figure female">
+            <div class="figure-body"></div>
+            <div class="key green-key"></div>
+          </div>
         </div>
-    </nav>
+
+        <div class="brain-icon">
+          <div class="brain-shape"></div>
+        </div>
+
+        <div class="geometric-elements">
+          <div class="cube-stack">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+          </div>
+          <div class="individual-cubes">
+            <div class="cube"></div>
+            <div class="cube"></div>
+          </div>
+          <div class="shield-icon"></div>
+          <div class="floating-keys">
+            <div class="key blue-key"></div>
+            <div class="key green-key"></div>
+          </div>
+        </div>
+
+        <div class="smartphone">
+          <div class="phone-body"></div>
+          <div class="network-signals">
+            <div class="signal"></div>
+            <div class="signal"></div>
+            <div class="signal"></div>
+          </div>
+          <div class="data-flow">
+            <div class="data-cube"></div>
+            <div class="data-cube"></div>
+            <div class="data-cube"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    -->
+  </nav>
+  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
     <div class="main">
 
         <!-- Section 1: Why Us -->
@@ -5288,13 +5271,13 @@
         <section class="about-section-2 about-section-2responcive">
             <div class="about-section-2-content container">
                 <div class="about-section-2-image">
-                    <img src="assets/img/About Us/section2.png" alt="Technology Solutions">
+                    <img src="assets/img/About Us/section-2.png" alt="Technology Solutions">
                 </div>
                 <div class="about-section-2-text">
-                    <h2 class="hybrid-heading">
+                    <h2 class="hybrid-heading ">
                         <span class="hybrid-heading-part1">Smart Solutions That Keep Your Business Moving Forward</span>
                     </h2>
-                    <p>We help businesses work smarter by connecting systems, simplifying workflows, and creating
+                    <p class="p-0 ">We help businesses work smarter by connecting systems, simplifying workflows, and creating
                         smoother day-to-day operations that support steady and scalable growth.</p>
                     <ul class="features">
                         <li>
@@ -5335,7 +5318,7 @@
                 <div class="impact-slider-track">
                     <article class="impact-slide is-active">
                         <div class="impact-slide-media">
-                            <img src="assets/img/About Us/vision 1.png" alt="Team presenting growth insights">
+                            <img src="assets/img/About Us/vision-2.png" alt="Team presenting growth insights">
                         </div>
                         <div class="impact-slide-content">
                             <p class="eyebrow">Our Vision</p>
@@ -5349,7 +5332,7 @@
 
                     <article class="impact-slide">
                         <div class="impact-slide-media">
-                            <img src="assets/img/About Us/Mission.png" alt="Team celebrating milestone">
+                            <img src="assets/img/About Us/Mission-2.png" alt="Team celebrating milestone">
                         </div>
                         <div class="impact-slide-content">
                             <p class="eyebrow"> Our Mission</p>
@@ -5363,7 +5346,7 @@
 
                     <article class="impact-slide">
                         <div class="impact-slide-media">
-                            <img src="assets/img/About Us/approach.png" alt="Leaders planning social impact">
+                            <img src="assets/img/About Us/approach-2.png" alt="Leaders planning social impact">
                         </div>
                         <div class="impact-slide-content">
                             <p class="eyebrow">Our Approach</p>
@@ -5527,9 +5510,11 @@
           <a href="index.html" class="logo d-flex align-items-center ">
             <img src="assets/img/footer-logo2.png" alt="">
           </a>
-          <div class="footer-contact pt-3">
-            <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
-            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+          <div class="footer-contact pt-1">
+            <!-- <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
+            <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance, and build
+              smarter systems that support steady, measurable growth</p>
             <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
             <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
           </div>
@@ -5541,39 +5526,22 @@
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4 class="footer-dropdown-toggle">
-            Useful Links
-            <i class="bi bi-chevron-down footer-chevron"></i>
-          </h4>
-          <ul class="footer-dropdown-content">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Case Studies</a></li>
-            <li><a href="">Contact Us</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">Terms of Service</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-3 footer-links">
+        <!-- <div class="col-lg-3 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
             Our Solutions
             <i class="bi bi-chevron-down footer-chevron"></i>
           </h4>
           <ul class="footer-dropdown-content">
-            <li><a href="#">AI & Automation Solutions</a></li>
-            <li><a href="#">Software & App Development</a></li>
-            <li><a href="#">Data Analytics & Visualization</a></li>
-            <li><a href="#">NLP & Language Models</a></li>
-            <li><a href="#">BPO & E-commerce Services</a></li>
-            <li><a href="">UI/UX Design & Prototyping</a></li>
+            <li><a href="service.html">AI & Automation Solutions</a></li>
+            <li><a href="service.html">Software & App Development</a></li>
+            <li><a href="service.html">Data Analytics & Visualization</a></li>
+            <li><a href="service.html">NLP & Language Models</a></li>
+            <li><a href="service.html">BPO & E-commerce Services</a></li>
+            <li><a href="service.html">UI/UX Design & Prototyping</a></li>
           </ul>
-        </div>
+        </div> -->
 
-        <div class="col-lg-3 col-md-3 footer-links">
+        <!-- <div class="col-lg-3 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
             Industries We Serve
             <i class="bi bi-chevron-down footer-chevron"></i>
@@ -5586,6 +5554,52 @@
             <li><a href="#">Education & EdTech</a></li>
             <li><a href="">Real Estate & Smart Systems</a></li>
           </ul>
+        </div> -->
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Useful Links
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="Aboutus.html">About us</a></li>
+            <li><a href="Clients.html">Clients</a></li>
+            <!-- <li><a href="service.html">Services</a></li> -->
+            <!-- <li><a href="careers.html">Careers</a></li> -->
+            <!-- <li><a href="Clients.html">Case Studies</a></li> -->
+            <li><a href="contact.html">Contact Us</a></li>
+            <!-- <li><a href="#">Privacy Policy</a></li> -->
+            <!-- <li><a href="#">Terms of Service</a></li> -->
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Office Address 1
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <div class="footer-dropdown-content">
+            <div class="footer-contact">
+              <!-- <p><strong>Address:</strong></p> -->
+              <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+              <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Office Address 2
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <div class="footer-dropdown-content">
+            <div class="footer-contact">
+              <!-- <p><strong>Address:</strong></p> -->
+              <p>Sai enterprises,</p>
+              <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
+            </div>
+          </div>
         </div>
 
         <!-- <div class="col-lg-2 col-md-3 footer-links">
@@ -5610,7 +5624,7 @@
         <a href=""><i class="bi bi-instagram"></i></a>
         <a href=""><i class="bi bi-linkedin"></i></a>
       </div>
-      <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN
+      <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
           Technologies</strong> <span>All Rights
           Reserved</span></p>
     </div>
