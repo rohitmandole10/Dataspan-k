@@ -91,10 +91,14 @@ Marker
 
     /* blinking cursor animation */
     @keyframes blinkCursor {
-      0%, 50% {
+
+      0%,
+      50% {
         opacity: 1;
       }
-      51%, 100% {
+
+      51%,
+      100% {
         opacity: 0;
       }
     }
@@ -1022,50 +1026,7 @@ Marker
       }
     }
 
-    /* Workflow Section Improvements */
-    @media (max-width: 991px) {
-      .workflow-section {
-        padding: 60px 0;
-      }
-
-      .steps-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-      }
-
-      .step {
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.6);
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      }
-    }
-
-    @media (max-width: 575px) {
-      .workflow-section {
-        padding: 50px 0;
-      }
-
-      .steps-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 15px;
-      }
-
-      .step {
-        padding: 1.25rem;
-      }
-
-      .step-title {
-        font-size: 1.125rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .step-description {
-        font-size: 0.875rem;
-        line-height: 1.6;
-      }
-    }
+    /* Workflow Section Improvements - Now handled in main.css */
 
     /* Clients Section Improvements */
     @media (max-width: 991px) {
@@ -2754,7 +2715,8 @@ Marker
       }
 
       /* 4. Decrease gap between content in about us section for mobile */
-      .about-section .inner-column {
+      .about-section .about-content-wrapper,
+      .about-section .about-image-wrapper {
         gap: 1rem !important;
       }
 
@@ -2973,6 +2935,7 @@ Marker
         transform: scale(1);
       }
     }
+
   </style>
 
   <script src="https://unpkg.com/globe.gl"></script>
@@ -2999,81 +2962,6 @@ Marker
         <li class="nav-item">
           <a href="Aboutus.html" class="nav-link">About Us</a>
         </li>
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
-            Services
-            <!-- <i class="fas fa-chevron-down"></i> -->
-          </a>
-          <div class="mobile-services-menu" aria-label="Services categories">
-            <div class="mobile-services-meta">
-              <p>Explore our services</p>
-              <span>Tap a category to reveal detailed capabilities</span>
-            </div>
-            <div class="mobile-category-list">
-              <div class="category-item active" data-submenu="ai-automation">
-                <a href="service.html" class="category-link">AI & Automation</a>
-                <button class="category-toggle" type="button" aria-label="Expand AI & Automation services">
-                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="development-technology">
-                <a href="service.html#development" class="category-link">Development & Technology</a>
-                <button class="category-toggle" type="button" aria-label="Expand Development & Technology services">
-                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="design-branding">
-                <a href="service.html#design" class="category-link">Design & Branding</a>
-                <button class="category-toggle" type="button" aria-label="Expand Design & Branding services">
-                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="cloud-infrastructure">
-                <a href="service.html#cloud" class="category-link">Cloud & Infrastructure</a>
-                <button class="category-toggle" type="button" aria-label="Expand Cloud & Infrastructure services">
-                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="data-operations">
-                <a href="service.html#operations" class="category-link">Data & Operations</a>
-                <button class="category-toggle" type="button" aria-label="Expand Data & Operations services">
-                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="mobile-subcategories-container hidden" aria-live="polite">
-            <div class="subcategory-grid hidden" data-category="ai-automation">
-              <a href="service.html" class="subcategory-link subcategory-pill">AI & Machine Learning (ML)</a>
-              <a href="ocr.html" class="subcategory-link subcategory-pill">OCR (Optical Character Recognition)</a>
-              <a href="scraper-scripting.html" class="subcategory-link subcategory-pill">Scraper & Scripting</a>
-              <a href="navision-integration-automation.html" class="subcategory-link subcategory-pill">Navision
-                Integration & Automation</a>
-              <a href="esl-integration.html" class="subcategory-link subcategory-pill">ESL (Electronic Shelf Labels)
-                Integration</a>
-            </div>
-            <div class="subcategory-grid hidden" data-category="development-technology">
-              <a href="service.html#shopify" class="subcategory-link subcategory-pill">Shopify Development & Services</a>
-              <a href="service.html#web-mobile" class="subcategory-link subcategory-pill">Web & Mobile Development</a>
-              <a href="service-details.html#software-consulting" class="subcategory-link subcategory-pill">Software Development & Consulting</a>
-              <a href="service.html#ecommerce" class="subcategory-link subcategory-pill">E-Commerce & Marketplace Integration</a>
-            </div>
-            <div class="subcategory-grid hidden" data-category="design-branding">
-              <a href="service.html#uiux" class="subcategory-link subcategory-pill">UI/UX & Creative Services</a>
-              <a href="service.html#branding" class="subcategory-link subcategory-pill">Design & Branding</a>
-            </div>
-            <div class="subcategory-grid hidden" data-category="cloud-infrastructure">
-              <a href="service.html#hosting" class="subcategory-link subcategory-pill">Hosting & Cloud Services</a>
-              <a href="service.html#managed-hosting" class="subcategory-link subcategory-pill">Managed Hosting Solutions</a>
-              <a href="service.html#cloud-migration" class="subcategory-link subcategory-pill">Cloud Setup, Migration & Optimization</a>
-              <a href="service.html#server-monitoring" class="subcategory-link subcategory-pill">Server Monitoring, Backup & Security Management</a>
-            </div>
-            <div class="subcategory-grid hidden" data-category="data-operations">
-              <a href="service.html#analytics" class="subcategory-link subcategory-pill">Reporting & Analytics</a>
-              <a href="service.html#bpo" class="subcategory-link subcategory-pill">Back Office & BPO Solutions</a>
-            </div>
-          </div>
-        </li>
         <li class="nav-item">
           <a href="Clients.html" class="nav-link">Clients</a>
         </li>
@@ -3096,184 +2984,176 @@ Marker
     </div>
 
     <!-- Services Dropdown Menu -->
+    <!--
     <div class="dropdown-menu" id="services-dropdown">
         <div class="dropdown-container">
             <div class="dropdown-content">
-                <!-- Service Categories -->
+                Service Categories
                 <div class="service-categories">
-                    <div class="category-column">
-                        <div class="category-item active" data-submenu="ai-automation">
-                            <a href="#" class="category-link">AI & Automation</a>
-                        </div>
-                        <div class="category-item" data-submenu="development-technology">
-                            <a href="#" class="category-link">Development & Technology</a>
-                        </div>
-                        <div class="category-item" data-submenu="design-branding">
-                            <a href="#" class="category-link">Design & Branding</a>
-                        </div>
-                        <div class="category-item" data-submenu="cloud-infrastructure">
-                            <a href="#" class="category-link">Cloud & Infrastructure</a>
-                        </div>
-                        <div class="category-item" data-submenu="data-operations">
-                            <a href="#" class="category-link">Data & Operations</a>
-                        </div>
-                    </div>
-
-                    <!-- AI & Automation Subcategories -->
-                    <div class="subcategory-column" id="ai-automation-submenu">
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">AI & Machine Learning (ML)</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">OCR (Optical Character Recognition)</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Scraper & Scripting</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Navision Integration & Automation</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
-                        </div>
-                    </div>
-
-                    <!-- Development & Technology Subcategories -->
-                    <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Shopify Development & Services</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Web & Mobile Development</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Software Development & Consulting</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
-                        </div>
-                    </div>
-
-                    <!-- Design & Branding Subcategories -->
-                    <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Design & Branding</a>
-                        </div>
-                    </div>
-
-                    <!-- Cloud & Infrastructure Subcategories -->
-                    <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
-                        </div>
-                    </div>
-
-                    <!-- Data & Operations Subcategories -->
-                    <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Reporting & Analytics</a>
-                        </div>
-                        <div class="subcategory-item">
-                            <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Promotional Graphics Section -->
-                <div class="promo-section">
-                    <div class="tech-illustration">
-                        <!-- Robot/Server Unit -->
-                        <div class="robot-unit">
-                            <div class="robot-head">
-                                <div class="robot-core"></div>
-                                <div class="circuit-board"></div>
-                            </div>
-                            <div class="code-screen">
-                                <div class="code-line"></div>
-                                <div class="code-line"></div>
-                                <div class="code-line"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Human Figures -->
-                        <div class="human-figures">
-                            <div class="human-figure male">
-                                <div class="figure-body"></div>
-                                <div class="key blue-key"></div>
-                            </div>
-                            <div class="human-figure female">
-                                <div class="figure-body"></div>
-                                <div class="key green-key"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Brain Icon -->
-                        <div class="brain-icon">
-                            <div class="brain-shape"></div>
-                        </div>
-                        
-                        <!-- Geometric Elements -->
-                        <div class="geometric-elements">
-                            <div class="cube-stack">
-                                <div class="cube"></div>
-                                <div class="cube"></div>
-                                <div class="cube"></div>
-                            </div>
-                            <div class="individual-cubes">
-                                <div class="cube"></div>
-                                <div class="cube"></div>
-                            </div>
-                            <div class="shield-icon"></div>
-                            <div class="floating-keys">
-                                <div class="key blue-key"></div>
-                                <div class="key green-key"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Smartphone -->
-                        <div class="smartphone">
-                            <div class="phone-body"></div>
-                            <div class="network-signals">
-                                <div class="signal"></div>
-                                <div class="signal"></div>
-                                <div class="signal"></div>
-                            </div>
-                            <div class="data-flow">
-                                <div class="data-cube"></div>
-                                <div class="data-cube"></div>
-                                <div class="data-cube"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="category-column">
+        <div class="category-item active" data-submenu="ai-automation">
+          <a href="#" class="category-link">AI & Automation</a>
         </div>
+        <div class="category-item" data-submenu="development-technology">
+          <a href="#" class="category-link">Development & Technology</a>
+        </div>
+        <div class="category-item" data-submenu="design-branding">
+          <a href="#" class="category-link">Design & Branding</a>
+        </div>
+        <div class="category-item" data-submenu="cloud-infrastructure">
+          <a href="#" class="category-link">Cloud & Infrastructure</a>
+        </div>
+        <div class="category-item" data-submenu="data-operations">
+          <a href="#" class="category-link">Data & Operations</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="ai-automation-submenu">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">AI & Machine Learning (ML)</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">OCR (Optical Character Recognition)</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Scraper & Scripting</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Navision Integration & Automation</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Shopify Development & Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Web & Mobile Development</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Software Development & Consulting</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Design & Branding</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Reporting & Analytics</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+        </div>
+      </div>
     </div>
-</nav>
+
+    <div class="promo-section">
+      <div class="tech-illustration">
+        <div class="robot-unit">
+          <div class="robot-head">
+            <div class="robot-core"></div>
+            <div class="circuit-board"></div>
+          </div>
+          <div class="code-screen">
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+          </div>
+        </div>
+
+        <div class="human-figures">
+          <div class="human-figure male">
+            <div class="figure-body"></div>
+            <div class="key blue-key"></div>
+          </div>
+          <div class="human-figure female">
+            <div class="figure-body"></div>
+            <div class="key green-key"></div>
+          </div>
+        </div>
+
+        <div class="brain-icon">
+          <div class="brain-shape"></div>
+        </div>
+
+        <div class="geometric-elements">
+          <div class="cube-stack">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+          </div>
+          <div class="individual-cubes">
+            <div class="cube"></div>
+            <div class="cube"></div>
+          </div>
+          <div class="shield-icon"></div>
+          <div class="floating-keys">
+            <div class="key blue-key"></div>
+            <div class="key green-key"></div>
+          </div>
+        </div>
+
+        <div class="smartphone">
+          <div class="phone-body"></div>
+          <div class="network-signals">
+            <div class="signal"></div>
+            <div class="signal"></div>
+            <div class="signal"></div>
+          </div>
+          <div class="data-flow">
+            <div class="data-cube"></div>
+            <div class="data-cube"></div>
+            <div class="data-cube"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    -->
+  </nav>
   <div class="mobile-menu-backdrop" aria-hidden="true"></div>
 
   <main class="main">
 
     <!-- Hero Section -->
     <section id="hero" class="hero section">
-      <div class="container" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+      <div class="container" data-aos="fade-up" data-aos-delay="0" data-aos-duration="250" data-aos-offset="0"
         data-aos-easing="ease-out-cubic">
 
         <div class="row align-items-center">
           <div class="col-lg-6">
-            <div class="hero-content" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="0" data-aos-duration="250" data-aos-offset="0"
               data-aos-easing="ease-out-cubic">
               <!-- <div class="company-badge mb-4">
                 <i class="bi bi-gear-fill me-2"></i>
@@ -3291,22 +3171,23 @@ Marker
               <!-- </p> -->
 
               <p class="mb-4 mb-md-5">
-                Explore our unified digital solutions and intelligent workflows that streamline operations, strengthen performance, and keep your business ahead of the curve.
+                Explore our unified digital solutions and intelligent workflows that streamline operations, strengthen
+                performance, and keep your business ahead of the curve.
 
               </p>
 
-              <div class="hero-buttons">
+              <!-- <div class="hero-buttons">
                 <a href="#about" class="btn btn-primary me-0 me-sm-2 mx-1">Grow With Us</a>
-                <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
+                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
                   <i class="bi bi-play-circle me-1"></i>
                   Play Video
-                </a> -->
-              </div>
+                </a>
+              </div> -->
             </div>
           </div>
 
           <div class="col-lg-6">
-            <div class="hero-image" data-aos="zoom-out" data-aos-delay="0" data-aos-duration="600"
+            <div class="hero-image" data-aos="zoom-out" data-aos-delay="0" data-aos-duration="350" data-aos-offset="0"
               data-aos-easing="ease-out-cubic">
               <img src="assets/img/Ai icon 01.png" alt="Hero Image" class="img-fluid">
 
@@ -3333,10 +3214,6 @@ Marker
           let isDeleting = false;
 
           function type() {
-            if (count === texts.length) {
-              count = 0;
-            }
-
             currentText = texts[count];
 
             if (isDeleting) {
@@ -3347,21 +3224,21 @@ Marker
 
             document.getElementById("typing").textContent = letter;
 
-            let speed = isDeleting ? 50 : 100;
+            let speed = isDeleting ? 40 : 75;
 
             if (!isDeleting && letter.length === currentText.length) {
-              speed = 1500; // pause before deleting
+              speed = 900; // shorter pause before deleting
               isDeleting = true;
             } else if (isDeleting && letter.length === 0) {
               isDeleting = false;
-              count++;
-              speed = 500; // pause before typing next
+              count = (count + 1) % texts.length;
+              speed = 200; // quickly start the next word
             }
 
             setTimeout(type, speed);
           }
 
-          type();
+          requestAnimationFrame(type);
 
         </script>
 
@@ -3418,18 +3295,21 @@ Marker
 
     <!-- AI / Core Capabilities Highlight -->
 
-
     <!-- About Company Section -->
-    <section class="about-section">
-      <div class="container">
+    <section class="about-section ">
+      <div class="container  ">
         <div class="row">
-          <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
-            <div class="inner-column">
+          <div class="content-column col-lg-7 col-md-12 col-sm-12 order-2 ">
+            <div class="about-content-wrapper">
               <div class="sec-title">
                 <span class="title">About Us</span>
-                <h2>We enable smarter, scalable growth through technology and operational excellence</h2>
+                <h2>We enable smarter, scalable growth through development and operational excellence</h2>
               </div>
-              <div class="text">At Dataspan Technologies, we deliver connected, automated, and commerce-ready solutions that address end-to-end business needs. From intelligent software and AI capabilities to e-commerce management, marketplace integrations, workflow automation, and advanced data operations, we help organizations streamline processes, strengthen performance, and achieve measurable outcomes in an increasingly competitive digital economy.</div>
+              <div class="text">At Dataspan Technologies, we deliver connected, automated, and commerce-ready solutions
+                that address end-to-end business needs. From intelligent software and AI capabilities to e-commerce
+                management, marketplace integrations, workflow automation, and advanced data operations, we help
+                organizations streamline processes, strengthen performance, and achieve measurable outcomes in an
+                increasingly competitive digital economy.</div>
               <ul class="list-style-one">
                 <li>AI-driven operational intelligence</li>
                 <li>Data-centric performance insights</li>
@@ -3442,11 +3322,11 @@ Marker
           </div>
 
           <!-- Image Column -->
-          <div class="image-column col-lg-6 col-md-12 col-sm-12">
-            <div class="inner-column wow fadeInLeft">
-              <figure class="image-1"><a href="#" class="lightbox-image" data-fancybox="images"><img
+          <div class="image-column col-lg-5 col-md-12 col-sm-12  ">
+            <div class="about-image-wrapper wow fadeInLeft ">
+              <figure class="image-1"><a href="#" class="lightbox-image " data-fancybox="images"><img
                     src="assets/img/Home page-2/About us section/vertical.jpg" alt=""></a></figure>
-              <figure class="image-2"><a href="#" class="lightbox-image" data-fancybox="images"><img
+              <figure class="image-2"><a href="#" class="lightbox-image " data-fancybox="images"><img
                     src="assets/img/Home page-2/About us section/mini.jpg" alt=""></a></figure>
             </div>
           </div>
@@ -3466,8 +3346,8 @@ Marker
           grow, <br> streamline operations, and create lasting customer experiences.</p>
       </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="50">
-        <div class="row g-4">
+      <div class="container " data-aos="fade-up" data-aos-delay="50">
+        <div class="row g-4 ">
           <!-- First row: 2 boxes -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
             <div class="service-card ">
@@ -3494,7 +3374,8 @@ Marker
                 </div>
                 <div class="service-content flex-grow-1">
                   <h3>E-Commerce & POS Solutions</h3>
-                  <p>We build unified retail systems connecting online stores and POS platforms for seamless sales, inventory, and analytics.</p>
+                  <p>We build unified retail systems connecting online stores and POS platforms for seamless sales,
+                    inventory, and analytics.</p>
                   <div> <a href="service.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
@@ -3709,7 +3590,7 @@ Marker
     <section class="workflow-section">
       <div class="container section-title" data-aos="fade-up">
         <h2>
-          How Our <span class="highlight">Process</span>  Works
+          How Our <span class="highlight">Process</span> Works
         </h2>
         <p>
           Transforming business challenges into streamlined operations with a clear, strategic, and scalable process.
@@ -3720,7 +3601,8 @@ Marker
             <div class="circle">1</div>
             <div class="step-title">Understand & Evaluate</div>
             <div class="step-description">
-              We analyze workflows, identify operational gaps, and uncover opportunities for automation, optimization, and intelligent improvements.
+              We analyze workflows, identify operational gaps, and uncover opportunities for automation, optimization,
+              and intelligent improvements.
 
             </div>
           </div>
@@ -3728,7 +3610,8 @@ Marker
             <div class="circle">2</div>
             <div class="step-title">Plan & Design</div>
             <div class="step-description">
-              We craft tailored strategies, architectures, and technology plans aligned with your objectives to drive efficiency and scalability.
+              We craft tailored strategies, architectures, and technology plans aligned with your objectives to drive
+              efficiency and scalability.
 
             </div>
           </div>
@@ -3736,7 +3619,8 @@ Marker
             <div class="circle">3</div>
             <div class="step-title">Develop & Integrate</div>
             <div class="step-description">
-              We build and integrate smart software solutions that streamline processes, enhance operations, and connect seamlessly with existing systems.
+              We build and integrate smart software solutions that streamline processes, enhance operations, and connect
+              seamlessly with existing systems.
 
             </div>
           </div>
@@ -3744,21 +3628,24 @@ Marker
             <div class="circle">4</div>
             <div class="step-title">Test & Optimize</div>
             <div class="step-description">
-              We validate performance, security, and accuracy, ensuring every solution runs reliably and delivers measurable impact.
+              We validate performance, security, and accuracy, ensuring every solution runs reliably and delivers
+              measurable impact.
             </div>
           </div>
           <div class="step">
             <div class="circle">5</div>
             <div class="step-title"> Deploy & Stabilize</div>
             <div class="step-description">
-              We build and integrate smart software solutions that streamline processes, enhance operations, and connect with systems.
+              We build and integrate smart software solutions that streamline processes, enhance operations, and connect
+              with systems.
             </div>
           </div>
           <div class="step">
             <div class="circle">6</div>
             <div class="step-title">Scale & Innovate</div>
             <div class="step-description">
-              We monitor, enhance, and expand your systems to support long-term growth, continuous improvement, and future-ready innovation.
+              We monitor, enhance, and expand your systems to support long-term growth, continuous improvement, and
+              future-ready innovation.
             </div>
           </div>
         </div>
@@ -3802,7 +3689,8 @@ Marker
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Why Choose Dataspan Technologies?</h2>
-          <p>We combine intelligent engineering, automation, and scalable digital operations to deliver secure, performance-driven solutions that accelerate growth.
+          <p>We combine intelligent engineering, automation, and scalable digital operations to deliver secure,
+            performance-driven solutions that accelerate growth.
           </p>
         </div>
       </div>
@@ -3817,7 +3705,8 @@ Marker
           <div class="card-overlay">
             <div class="card-content">
               <h2 class="card-title">Innovative Tech Leadership</h2>
-              <p class="card-description">We merge AI, automation, cloud engineering, and modern development to create smarter systems that elevate operational performance.
+              <p class="card-description">We merge AI, automation, cloud engineering, and modern development to create
+                smarter systems that elevate operational performance.
               </p>
             </div>
           </div>
@@ -3833,7 +3722,8 @@ Marker
           <div class="card-overlay">
             <div class="card-content">
               <h2 class="card-title">Proven Multiplatform Expertise</h2>
-              <p class="card-description">From Shopify and marketplaces to AWS, Azure, and NAV, our cross-platform expertise ensures seamless, scalable integration.
+              <p class="card-description">From Shopify and marketplaces to AWS, Azure, and NAV, our cross-platform
+                expertise ensures seamless, scalable integration.
               </p>
             </div>
           </div>
@@ -3849,7 +3739,8 @@ Marker
           <div class="card-overlay">
             <div class="card-content">
               <h2 class="card-title">Performance-Driven Results</h2>
-              <p class="card-description">Our data-focused approach improves efficiency, strengthens operations, and delivers measurable outcomes that directly impact profitability.</p>
+              <p class="card-description">Our data-focused approach improves efficiency, strengthens operations, and
+                delivers measurable outcomes that directly impact profitability.</p>
             </div>
           </div>
           <button type="button" class="cta-circle-btn card-cta">Click Me</button>
@@ -3864,7 +3755,8 @@ Marker
           <div class="card-overlay">
             <div class="card-content">
               <h2 class="card-title">Trusted & secure</h2>
-              <p class="card-description">We protect your business with resilient infrastructure, strong security practices, and continuous monitoring that keeps everything running smoothly.</p>
+              <p class="card-description">We protect your business with resilient infrastructure, strong security
+                practices, and continuous monitoring that keeps everything running smoothly.</p>
             </div>
           </div>
           <button type="button" class="cta-circle-btn card-cta">Click Me</button>
@@ -3879,7 +3771,8 @@ Marker
           <div class="card-overlay">
             <div class="card-content">
               <h2 class="card-title">Tailored Partnership Approach</h2>
-              <p class="card-description">We shape every solution around your goals — combining strategy, technology, and operational insight to maximize long-term success.</p>
+              <p class="card-description">We shape every solution around your goals — combining strategy, technology,
+                and operational insight to maximize long-term success.</p>
             </div>
           </div>
           <button type="button" class="cta-circle-btn card-cta">Click Me</button>
@@ -4016,18 +3909,18 @@ Marker
               <div class="logo-item">
                 <img src="assets/img/Business Operations/semrush.png" alt="semrush" class="logo-img">
               </div>
-                <div class="logo-item">
-                  <img src="assets/img/Business Operations/asana.png" alt="asana" class="logo-img">
-                </div>
-                <div class="logo-item">
-                  <img src="assets/img/Business Operations/helliom 10.png" alt="helliom" class="logo-img">
-                </div>
-                <div class="logo-item">
-                  <img src="assets/img/Business Operations/illustrator.png" alt="illustrator" class="logo-img">
-                </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/asana.png" alt="asana" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/helliom 10.png" alt="helliom" class="logo-img">
+              </div>
+              <div class="logo-item">
+                <img src="assets/img/Business Operations/illustrator.png" alt="illustrator" class="logo-img">
               </div>
             </div>
           </div>
+        </div>
     </section><!-- /Clients Section -->
 
     <!-- Call to Action Section -->
@@ -4038,8 +3931,8 @@ Marker
             <h2>Shape the Future of Your Enterprise Today </h2>
             <p class="mb-4">Let AI revolutionize how your business thinks, adapts, and succeeds in the digital era.</p>
             <div class="cta-buttons">
-              <a href="contact.html" class="btn btn-primary me-2 mb-2">Get Started Today</a>
-              <a href="service.html" class="btn btn-outline-primary mb-2">Explore Our Services</a>
+              <a href="Aboutus.html" class="btn btn-primary me-2 mb-2">Get Started Today</a>
+              <!-- <a href="service.html" class="btn btn-outline-primary mb-2">Explore Our Services</a> -->
             </div>
           </div>
         </div>
@@ -4056,9 +3949,11 @@ Marker
           <a href="index.html" class="logo d-flex align-items-center ">
             <img src="assets/img/footer-logo2.png" alt="">
           </a>
-          <div class="footer-contact pt-3">
-            <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
-            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+          <div class="footer-contact pt-1">
+            <!-- <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
+            <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance, and build
+              smarter systems that support steady, measurable growth</p>
             <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
             <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
           </div>
@@ -4070,39 +3965,22 @@ Marker
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4 class="footer-dropdown-toggle">
-            Useful Links
-            <i class="bi bi-chevron-down footer-chevron"></i>
-          </h4>
-          <ul class="footer-dropdown-content">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Case Studies</a></li>
-            <li><a href="">Contact Us</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">Terms of Service</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-3 footer-links">
+        <!-- <div class="col-lg-3 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
             Our Solutions
             <i class="bi bi-chevron-down footer-chevron"></i>
           </h4>
           <ul class="footer-dropdown-content">
-            <li><a href="#">AI & Automation Solutions</a></li>
-            <li><a href="#">Software & App Development</a></li>
-            <li><a href="#">Data Analytics & Visualization</a></li>
-            <li><a href="#">NLP & Language Models</a></li>
-            <li><a href="#">BPO & E-commerce Services</a></li>
-            <li><a href="">UI/UX Design & Prototyping</a></li>
+            <li><a href="service.html">AI & Automation Solutions</a></li>
+            <li><a href="service.html">Software & App Development</a></li>
+            <li><a href="service.html">Data Analytics & Visualization</a></li>
+            <li><a href="service.html">NLP & Language Models</a></li>
+            <li><a href="service.html">BPO & E-commerce Services</a></li>
+            <li><a href="service.html">UI/UX Design & Prototyping</a></li>
           </ul>
-        </div>
+        </div> -->
 
-        <div class="col-lg-3 col-md-3 footer-links">
+        <!-- <div class="col-lg-3 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
             Industries We Serve
             <i class="bi bi-chevron-down footer-chevron"></i>
@@ -4115,6 +3993,52 @@ Marker
             <li><a href="#">Education & EdTech</a></li>
             <li><a href="">Real Estate & Smart Systems</a></li>
           </ul>
+        </div> -->
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Useful Links
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="Aboutus.html">About us</a></li>
+            <li><a href="Clients.html">Clients</a></li>
+            <!-- <li><a href="service.html">Services</a></li> -->
+            <!-- <li><a href="careers.html">Careers</a></li> -->
+            <!-- <li><a href="Clients.html">Case Studies</a></li> -->
+            <li><a href="contact.html">Contact Us</a></li>
+            <!-- <li><a href="#">Privacy Policy</a></li> -->
+            <!-- <li><a href="#">Terms of Service</a></li> -->
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Office Address 1
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <div class="footer-dropdown-content">
+            <div class="footer-contact">
+              <!-- <p><strong>Address:</strong></p> -->
+              <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+              <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Office Address 2
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <div class="footer-dropdown-content">
+            <div class="footer-contact">
+              <!-- <p><strong>Address:</strong></p> -->
+              <p>Sai enterprises,</p>
+              <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
+            </div>
+          </div>
         </div>
 
         <!-- <div class="col-lg-2 col-md-3 footer-links">
@@ -4139,7 +4063,7 @@ Marker
         <a href=""><i class="bi bi-instagram"></i></a>
         <a href=""><i class="bi bi-linkedin"></i></a>
       </div>
-      <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN
+      <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
           Technologies</strong> <span>All Rights
           Reserved</span></p>
     </div>
