@@ -1455,8 +1455,58 @@ Marker
         padding: 70px 0;
       }
 
+      .workflow-section .section-title {
+        margin-bottom: 3rem;
+      }
+
+      .workflow-section .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .workflow-section .section-title p {
+        font-size: 1.05rem;
+        padding: 0 20px;
+      }
+
       .steps-container {
-        gap: 2.5rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        padding: 0 1.5rem;
+        border-top: 1px solid rgba(221, 221, 221, 0.5);
+      }
+
+      .step {
+        padding: 1.5rem 1rem;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .step:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      .circle {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.1rem;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #b1ddf1, #227faa);
+        color: white;
+        box-shadow: 0 4px 12px rgba(34, 127, 170, 0.25);
+      }
+
+      .step-title {
+        font-size: 1.1rem;
+        margin-top: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .step-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
       }
 
       .why-choose-us {
@@ -1724,30 +1774,72 @@ Marker
       }
 
       .workflow-section .section-title {
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
       }
 
       .workflow-section .section-title h2 {
-        font-size: 2rem;
+        font-size: 1.875rem;
         text-align: center;
+        margin-bottom: 1rem;
       }
 
       .workflow-section .section-title p {
+        font-size: 0.98rem;
+        line-height: 1.6;
         text-align: center;
         max-width: 700px;
         margin: 0 auto;
+        padding: 0 15px;
       }
 
       .steps-container {
-        grid-template-columns: repeat(6, 1fr);
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1rem;
         max-width: 100%;
         margin: 0 auto;
+        border-top: none;
       }
 
       .step {
-        padding: 1.75rem;
+        padding: 1.5rem 1rem;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 12px;
+        box-shadow: none !important;
+        transition: all 0.3s ease;
         text-align: center;
+      }
+
+      .step:hover {
+        transform: translateY(-5px);
+        box-shadow: none !important;
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .circle {
+        margin: 0 auto 1rem auto;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.1rem;
+        background: linear-gradient(135deg, #b1ddf1, #227faa);
+        color: white;
+        box-shadow: 0 4px 15px rgba(34, 127, 170, 0.3);
+      }
+
+      .step-title {
+        font-size: 1.15rem;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+        color: var(--heading-color);
+      }
+
+      .step-description {
+        font-size: 0.9rem;
+        max-width: 100%;
+        line-height: 1.6;
+        color: color-mix(in srgb, var(--default-color), transparent 25%);
       }
 
       .why-choose-us {
@@ -1991,21 +2083,70 @@ Marker
       }
 
       .workflow-section {
-        padding: 50px 0;
+        padding: 40px 0;
       }
 
       .workflow-section .container {
         padding: 0 20px;
       }
 
+      .workflow-section .section-title {
+        margin-bottom: 2rem;
+      }
+
+      .workflow-section .section-title h2 {
+        font-size: 1.625rem;
+        margin-bottom: 0.75rem;
+        padding: 0 10px;
+      }
+
+      .workflow-section .section-title p {
+        font-size: 0.9rem;
+        padding: 0 15px;
+      }
+
       .steps-container {
+        display: grid;
         grid-template-columns: 1fr;
-        gap: 1.75rem;
-        max-width: 600px;
+        gap: 1.5rem;
+        padding: 0 15px;
+        max-width: 100%;
+        margin: 0 auto;
+        border-top: none;
       }
 
       .step {
-        padding: 1.5rem;
+        padding: 1.5rem 1.25rem;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .step:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .circle {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.1rem;
+        margin: 0 auto 1rem auto;
+        background: linear-gradient(135deg, #b1ddf1, #227faa);
+        color: white;
+        box-shadow: 0 4px 15px rgba(34, 127, 170, 0.3);
+      }
+
+      .step-title {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+      }
+
+      .step-description {
+        font-size: 0.875rem;
+        line-height: 1.6;
       }
 
       .why-choose-us {
@@ -2379,39 +2520,56 @@ Marker
         font-size: 1.625rem;
         text-align: center;
         margin-bottom: 0.75rem;
+        padding: 0 10px;
       }
 
       .workflow-section .section-title p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         line-height: 1.7;
         color: color-mix(in srgb, var(--default-color), transparent 20%);
         font-family: var(--default-font);
         text-align: center;
-        padding: 0 10px;
+        padding: 0 15px;
       }
 
       .steps-container {
+        display: grid;
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        padding: 0 10px;
+        padding: 0 15px;
         max-width: 100%;
+        margin: 0 auto;
+        border-top: none;
       }
 
       .step {
-        padding: 1.25rem;
+        padding: 1.5rem 1.25rem;
         margin-bottom: 0;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .step:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.7);
       }
 
       .circle {
-        width: 2.25rem;
-        height: 2.25rem;
-        font-size: 1rem;
-        margin-bottom: 0.75rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.1rem;
+        margin: 0 auto 1rem auto;
+        background: linear-gradient(135deg, #b1ddf1, #227faa);
+        color: white;
+        box-shadow: 0 4px 15px rgba(34, 127, 170, 0.3);
       }
 
       .step-title {
         font-size: 1.125rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
         text-align: center;
       }
 
@@ -3296,10 +3454,10 @@ Marker
     <!-- AI / Core Capabilities Highlight -->
 
     <!-- About Company Section -->
-    <section class="about-section ">
-      <div class="container  ">
+    <section class="about-section">
+      <div class="container">
         <div class="row">
-          <div class="content-column col-lg-7 col-md-12 col-sm-12 order-2 ">
+          <div class="content-column col-lg-7 col-md-12 col-sm-12 order-2">
             <div class="about-content-wrapper">
               <div class="sec-title">
                 <span class="title">About Us</span>
@@ -3322,16 +3480,15 @@ Marker
           </div>
 
           <!-- Image Column -->
-          <div class="image-column col-lg-5 col-md-12 col-sm-12  ">
-            <div class="about-image-wrapper wow fadeInLeft ">
-              <figure class="image-1"><a href="#" class="lightbox-image " data-fancybox="images"><img
+          <div class="image-column col-lg-5 col-md-12 col-sm-12">
+            <div class="about-image-wrapper wow fadeInLeft">
+              <figure class="image-1"><a href="#" class="lightbox-image" data-fancybox="images"><img
                     src="assets/img/Home page-2/About us section/vertical.jpg" alt=""></a></figure>
-              <figure class="image-2"><a href="#" class="lightbox-image " data-fancybox="images"><img
+              <figure class="image-2"><a href="#" class="lightbox-image" data-fancybox="images"><img
                     src="assets/img/Home page-2/About us section/mini.jpg" alt=""></a></figure>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </section><!-- /About Company Section -->
 
@@ -3339,18 +3496,18 @@ Marker
     <!-- Services Section -->
     <section id="services" class="services section light-background">
       <!-- Section Title -->
-      <div class="container section-title " data-aos="fade-up">
+      <div class="container section-title" data-aos="fade-up">
         <h2>Services</h2>
         <p style="padding-bottom: 20px;">We deliver innovative, reliable, and tailored
           solutions to help businesses
           grow, <br> streamline operations, and create lasting customer experiences.</p>
       </div><!-- End Section Title -->
 
-      <div class="container " data-aos="fade-up" data-aos-delay="50">
-        <div class="row g-4 ">
+      <div class="container" data-aos="fade-up" data-aos-delay="50">
+        <div class="row g-4">
           <!-- First row: 2 boxes -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
-            <div class="service-card ">
+            <div class="service-card">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-ai">
                   <i class="bi bi-cpu"></i>
@@ -3367,7 +3524,7 @@ Marker
           </div><!-- End Service Card -->
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
-            <div class="service-card ">
+            <div class="service-card">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-ecommerce">
                   <i class="bi bi-cart"></i>
@@ -3385,7 +3542,7 @@ Marker
 
           <!-- Second row: 3 boxes -->
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
-            <div class="service-card ">
+            <div class="service-card">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-ocr">
                   <i class="bi bi-file-text"></i>
@@ -3402,7 +3559,7 @@ Marker
           </div><!-- End Service Card -->
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-card ">
+            <div class="service-card">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-cloud">
                   <i class="bi bi-cloud"></i>
@@ -3419,7 +3576,7 @@ Marker
           </div><!-- End Service Card -->
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="250">
-            <div class="service-card ">
+            <div class="service-card">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-webdev">
                   <i class="bi bi-laptop"></i>
@@ -3439,11 +3596,11 @@ Marker
           <!-- Third row: 2 boxes -->
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-card ">
+            <div class="service-card">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-design-branding">
                   <i class="bi bi-palette"></i>
-                  <i class="bi bi-brush-fill brush-on-palette"></i>
+                  <i class="bi bi-brush brush-on-palette"></i>
                 </div>
                 <div class="service-content flex-grow-1">
                   <h3>Design & Branding</h3>
@@ -3457,7 +3614,7 @@ Marker
           </div><!-- End Service Card -->
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="350">
-            <div class="service-card ">
+            <div class="service-card">
               <div class="d-flex align-items-start gap-2">
                 <div class="icon flex-shrink-0 icon-bpo">
                   <i class="bi bi-gear"></i>
@@ -3634,7 +3791,7 @@ Marker
           </div>
           <div class="step">
             <div class="circle">5</div>
-            <div class="step-title"> Deploy & Stabilize</div>
+            <div class="step-title">Deploy & Stabilize</div>
             <div class="step-description">
               We build and integrate smart software solutions that streamline processes, enhance operations, and connect
               with systems.
@@ -3931,14 +4088,13 @@ Marker
             <h2>Shape the Future of Your Enterprise Today </h2>
             <p class="mb-4">Let AI revolutionize how your business thinks, adapts, and succeeds in the digital era.</p>
             <div class="cta-buttons">
-              <a href="Aboutus.html" class="btn btn-primary me-2 mb-2">Get Started Today</a>
+              <a href="contact.html" class="btn btn-primary me-2 mb-2">Get Started Today</a>
               <!-- <a href="service.html" class="btn btn-outline-primary mb-2">Explore Our Services</a> -->
             </div>
           </div>
         </div>
       </div>
     </section><!-- /Call to Action Section -->
-
   </main>
 
   <footer id="footer" class="footer section light-background">
@@ -3950,7 +4106,7 @@ Marker
             <img src="assets/img/footer-logo2.png" alt="">
           </a>
           <div class="footer-contact pt-1">
-            <!-- <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+            <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
             <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
             <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance, and build
               smarter systems that support steady, measurable growth</p>
@@ -3958,10 +4114,11 @@ Marker
             <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
+           
+            <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i class="bi bi-instagram"></i></a>
+            <a href="https://in.linkedin.com/company/dataspan-technologies"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
           </div>
         </div>
 
@@ -4021,7 +4178,7 @@ Marker
           <div class="footer-dropdown-content">
             <div class="footer-contact">
               <!-- <p><strong>Address:</strong></p> -->
-              <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+              <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
               <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
             </div>
           </div>
@@ -4035,7 +4192,7 @@ Marker
           <div class="footer-dropdown-content">
             <div class="footer-contact">
               <!-- <p><strong>Address:</strong></p> -->
-              <p>Sai enterprises,</p>
+              <p>Dataspan Technologies,</p>
               <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
             </div>
           </div>
