@@ -115,30 +115,182 @@
 
     .contact-form-container {
       margin-top: clamp(2rem, 4vw, 3rem);
-      background: #000B3C;
-      border-radius: 15px;
-      padding: clamp(2rem, 4vw, 3rem);
-      box-shadow: 0 20px 40px rgba(0, 11, 60, 0.3);
+      background: linear-gradient(135deg, #000B3C 0%, #001a5c 50%, #000B3C 100%);
+      border-radius: 20px;
+      padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
+      box-shadow: 0 30px 60px rgba(0, 11, 60, 0.5), 
+                  0 0 0 1px rgba(255, 255, 255, 0.08),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1);
       position: relative;
       z-index: 2;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .contact-form-container::before {
       content: '';
       position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, #E6FF00, #00BFFF, #E6FF00);
-      border-radius: 15px;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(135deg, #E6FF00, #4fc3f7, #00BFFF, #E6FF00);
+      border-radius: 24px;
       z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      opacity: 0.15;
+      transition: opacity 0.4s ease;
+      animation: gradientRotate 8s ease infinite;
+      background-size: 200% 200%;
+    }
+
+    @keyframes gradientRotate {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .contact-form-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(79, 195, 247, 0.15) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, rgba(230, 255, 0, 0.1) 0%, transparent 60%),
+                  radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.05) 0%, transparent 70%);
+      border-radius: 24px;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    .contact-form-container > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-title {
+      position: relative;
+      padding-bottom: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .form-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #4fc3f7, #E6FF00, #4fc3f7);
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(79, 195, 247, 0.4);
+      animation: shimmer 2s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
     }
 
     .php-email-form .row {
-      row-gap: 1.5rem;
+      row-gap: 0.5rem;
+    }
+
+    .form-floating {
+      margin-bottom: 0;
+    }
+
+    .form-check {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      padding: 0.75rem 1rem !important;
+      padding-left: 1rem !important;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 0.75rem !important;
+      backdrop-filter: blur(10px);
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      min-height: auto !important;
+    }
+
+    .form-check:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-check .form-check-label,
+    .form-check-label {
+      line-height: 1.5 !important;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      margin: 0 !important;
+      padding: 0 !important;
+      padding-left: 0 !important;
+      flex: 1;
+      min-width: 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      float: none !important;
+      text-align: left !important;
+    }
+
+    .form-check .form-check-input,
+    .form-check-input {
+      margin-top: 0.2em !important;
+      margin-bottom: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 1.2em !important;
+      height: 1.2em !important;
+      min-width: 1.2em !important;
+      max-width: 1.2em !important;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      background-color: transparent;
+      cursor: pointer;
+      flex-shrink: 0 !important;
+      flex-grow: 0 !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      box-sizing: border-box;
+      align-self: flex-start !important;
+      float: none !important;
+      vertical-align: baseline !important;
+    }
+
+    .form-check-input:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .form-check-input:checked {
+      background-color: #4fc3f7;
+      border-color: #4fc3f7;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    }
+
+    .form-check-input:focus {
+      box-shadow: 0 0 0 0.25rem rgba(79, 195, 247, 0.25);
+      outline: none;
+    }
+
+    .form-check-input:checked:focus {
+      box-shadow: 0 0 0 0.25rem rgba(79, 195, 247, 0.4);
     }
 
     .contact-form-container:hover::before {
@@ -150,136 +302,370 @@
     }
 
     .form-floating .form-control {
-      background: transparent;
+      background: rgba(255, 255, 255, 0.04);
       border: none;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 0;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px 10px 0 0;
       color: white;
       padding: 1rem 0.75rem 0.5rem 0.75rem;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.9rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-floating .form-control:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-bottom-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-1px);
     }
 
     .form-floating .form-control:focus {
-      background: transparent;
-      border-bottom-color: #adebf9;
-      box-shadow: none;
+      background: rgba(255, 255, 255, 0.1);
+      border-bottom-color: #4fc3f7;
+      box-shadow: 0 6px 20px rgba(79, 195, 247, 0.25),
+                  0 0 0 3px rgba(79, 195, 247, 0.1);
       color: white;
+      outline: none;
+      transform: translateY(-2px);
     }
 
     .form-floating .form-control:focus+label,
     .form-floating .form-control:not(:placeholder-shown)+label {
-      color: #2d2d2b;
-      transform: translateY(-1.5rem) scale(0.85);
+      color: #4fc3f7;
+      transform: translateY(-1.75rem) scale(0.85);
+      font-weight: 500;
     }
 
     .form-floating label {
-      color: rgba(255, 255, 255, 0.7);
-      transition: all 0.3s ease;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
+      font-size: 0.9rem;
+      padding: 1rem 0.75rem;
+      font-weight: 500;
+    }
+
+    .form-floating label .text-danger {
+      color: #ff6b6b !important;
+      font-weight: 600;
+      margin-left: 2px;
+    }
+
+    .form-floating textarea.form-control {
+      min-height: 75px;
+      padding-top: 1rem;
+      line-height: 1.5;
+      resize: vertical;
+    }
+
+    .form-floating textarea.form-control:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-bottom-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .form-floating textarea.form-control:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-bottom-color: #4fc3f7;
+      box-shadow: 0 6px 20px rgba(79, 195, 247, 0.25),
+                  0 0 0 3px rgba(79, 195, 247, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .form-floating textarea.form-control:focus+label,
+    .form-floating textarea.form-control:not(:placeholder-shown)+label {
+      transform: translateY(-1.75rem) scale(0.85);
+    }
+
+    /* Invalid field styling */
+    .form-control.is-invalid,
+    .form-select.is-invalid {
+      border-bottom-color: #ff6b6b !important;
+      background: rgba(255, 107, 107, 0.1) !important;
+    }
+
+    .form-control.is-invalid:focus,
+    .form-select.is-invalid:focus {
+      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2) !important;
+    }
+
+    .phone-input-wrapper {
+      position: relative;
+    }
+
+    .phone-input-group {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .country-code-prefix {
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: none !important;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 10px 0 0 0 !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      padding: 1.25rem 0.5rem 0.75rem 0.75rem !important;
+      min-width: 55px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 700;
+      font-size: 1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .phone-input-group .form-control {
+      border-left: none !important;
+      padding-left: 0.75rem !important;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 0 10px 0 0 !important;
+      backdrop-filter: blur(10px);
+    }
+
+    .phone-input-group:hover .country-code-prefix {
+      background: rgba(255, 255, 255, 0.06) !important;
+      border-bottom-color: rgba(255, 255, 255, 0.35) !important;
+      transform: translateY(-1px);
+    }
+
+    .phone-input-group:focus-within .country-code-prefix {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-bottom-color: #4fc3f7 !important;
+      color: #4fc3f7 !important;
+      box-shadow: 0 6px 20px rgba(79, 195, 247, 0.25),
+                  0 0 0 3px rgba(79, 195, 247, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .phone-input-group .form-control:focus {
+      border-bottom-color: #4fc3f7 !important;
+      box-shadow: 0 6px 20px rgba(79, 195, 247, 0.25),
+                  0 0 0 3px rgba(79, 195, 247, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .phone-input-wrapper .form-floating label {
+      left: 3.5rem;
+    }
+
+    .phone-input-wrapper .form-floating .form-control:focus+label,
+    .phone-input-wrapper .form-floating .form-control:not(:placeholder-shown)+label {
+      left: 3.5rem;
     }
 
     .form-select {
-      background: transparent;
+      background: rgba(255, 255, 255, 0.04);
       border: none;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 0;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px 10px 0 0;
       color: white;
       padding: 1rem 0.75rem 0.5rem 0.75rem;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.9rem;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 16px 12px;
+      padding-right: 2.5rem;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    .form-select:hover {
+      background: rgba(255, 255, 255, 0.06);
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 16px 12px;
+      border-bottom-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-1px);
     }
 
     .form-select:focus {
-      background: transparent;
-      border-bottom-color: #97c2f1;
-      box-shadow: none;
+      background: rgba(255, 255, 255, 0.1);
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%234fc3f7' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 16px 12px;
+      border-bottom-color: #4fc3f7;
+      box-shadow: 0 6px 20px rgba(79, 195, 247, 0.25),
+                  0 0 0 3px rgba(79, 195, 247, 0.1);
+      color: white;
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .form-select:invalid,
+    .form-select:not([value=""])[value=""] {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form-select:valid:not([value=""]),
+    .form-select:not(:invalid):not([value=""]) {
       color: white;
     }
 
     .form-select option {
       background: #000B3C;
       color: white;
+      padding: 0.5rem;
     }
 
-    .form-select {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-      background-size: 16px 12px;
-      padding-right: 2.5rem;
+    .form-select option:disabled {
+      color: rgba(255, 255, 255, 0.5);
+      font-style: italic;
+    }
+
+    .form-select option:first-child {
+      color: rgba(255, 255, 255, 0.5);
+      font-style: italic;
+    }
+
+    .form-floating .form-select:focus+label,
+    .form-floating .form-select.has-value+label,
+    .form-floating .form-select:not([value=""]):not(:invalid)+label,
+    .form-floating .form-select:valid+label {
+      color: #4fc3f7;
+      transform: translateY(-1.75rem) scale(0.85);
+      font-weight: 500;
+    }
+
+    .form-floating .form-select:invalid:not(:focus) {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form-floating .form-select:valid:not(:focus),
+    .form-floating .form-select.has-value {
+      color: white;
     }
 
     .loading,
     .error-message,
     .sent-message {
       display: none;
-      padding: 1rem;
-      margin-top: 1rem;
-      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 14px;
       text-align: center;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      font-weight: 600;
+      animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     .loading {
-      color: #adebf9;
-    }
-
-    .error-message {
-      background-color: rgba(220, 53, 69, 0.1);
-      color: #ff6b6b;
-      border: 1px solid rgba(220, 53, 69, 0.3);
-    }
-
-    .sent-message {
-      background-color: rgba(40, 167, 69, 0.1);
-      color: #51cf66;
-      border: 1px solid rgba(40, 167, 69, 0.3);
-    }
-
-    .form-check-input:checked {
-      background-color: #97c2f1;
-      border-color: #2e86d4;
-    }
-
-    .form-check-input:focus {
-      box-shadow: 0 0 0 0.25rem rgba(230, 255, 0, 0.25);
-    }
-
-    .btn-submit {
-      background: #368deb;
-      color: #000B3C;
-      border: none;
-      padding: 1rem 2rem;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      color: #4fc3f7;
+      background: linear-gradient(135deg, rgba(79, 195, 247, 0.15), rgba(79, 195, 247, 0.1));
+      border: 1px solid rgba(79, 195, 247, 0.3);
       position: relative;
       overflow: hidden;
     }
 
-    .btn-submit:hover {
-      background: #77c0df;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(230, 255, 0, 0.4);
-    }
-
-    .btn-submit:active {
-      transform: translateY(0);
-    }
-
-    .btn-submit::before {
+    .loading::before {
       content: '';
       position: absolute;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: loadingShimmer 1.5s infinite;
     }
 
-    .btn-submit:hover::before {
-      left: 100%;
+    @keyframes loadingShimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    .error-message {
+      background: linear-gradient(135deg, rgba(220, 53, 69, 0.2), rgba(220, 53, 69, 0.15));
+      color: #ff6b6b;
+      border: 1px solid rgba(220, 53, 69, 0.4);
+    }
+
+    .sent-message {
+      background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.15));
+      color: #66bb6a;
+      border: 1px solid rgba(76, 175, 80, 0.4);
+    }
+
+
+    .btn-submit,
+    button.btn-submit,
+    .btn.btn-submit {
+      background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 50%, #0288d1 100%) !important;
+      color: #000B3C !important;
+      border: none !important;
+      padding: 0.9rem 2rem !important;
+      font-weight: 700 !important;
+      font-size: 0.95rem !important;
+      border-radius: 12px !important;
+      transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3) !important;
+      letter-spacing: 0.5px !important;
+      text-transform: uppercase !important;
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-submit::before,
+    button.btn-submit::before,
+    .btn.btn-submit::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(135deg, #001a5c 0%, #000B3C 50%, #001a5c 100%);
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+      border-radius: 14px;
+    }
+
+    .btn-submit:hover,
+    button.btn-submit:hover,
+    .btn.btn-submit:hover {
+      color: #E6FF00 !important;
+      transform: translateY(-3px) scale(1.02) !important;
+      box-shadow: 0 6px 16px rgba(230, 255, 0, 0.3) !important;
+    }
+
+    .btn-submit:hover::before,
+    button.btn-submit:hover::before,
+    .btn.btn-submit:hover::before {
+      width: 100%;
+    }
+
+    .btn-submit:active,
+    button.btn-submit:active,
+    .btn.btn-submit:active {
+      transform: translateY(-1px) scale(0.98) !important;
+      box-shadow: 0 2px 8px rgba(79, 195, 247, 0.3) !important;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .btn-submit:focus,
+    button.btn-submit:focus,
+    .btn.btn-submit:focus {
+      outline: none !important;
+      box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3) !important;
     }
 
     .headquarters-section {
@@ -427,6 +813,13 @@
 
       .contact-form-container {
         margin-top: 0;
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+      }
+
+      .form-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
       }
 
       .contact-icon {
@@ -462,7 +855,16 @@
       }
 
       .php-email-form .row {
-        row-gap: 1rem;
+        row-gap: 0.75rem;
+      }
+    }
+
+    /* Ensure Country and Phone Number stay in one row on sm, md, lg screens */
+    @media (min-width: 576px) {
+      .php-email-form .row > div.col-sm-6 {
+        flex: 0 0 50%;
+        width: 50%;
+        max-width: 50%;
       }
     }
 
@@ -472,9 +874,19 @@
       }
 
       .contact-form-container {
-        padding: 1.5rem;
+        padding: 1.75rem 1.25rem;
         margin-top: 0.5rem;
-        border-radius: 10px;
+        border-radius: 15px;
+      }
+
+      .form-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+
+      .form-title::after {
+        width: 50px;
+        height: 2px;
       }
 
       .contact-hero {
@@ -527,6 +939,21 @@
       .form-select {
         padding: 0.875rem 0.5rem 0.5rem 0.5rem;
         font-size: 0.95rem;
+      }
+
+      .phone-input-wrapper .form-floating label {
+        left: 3rem;
+        font-size: 0.9rem;
+      }
+
+      .country-code-prefix {
+        padding: 0.875rem 0.4rem 0.5rem 0.5rem !important;
+        font-size: 0.95rem;
+        min-width: 45px;
+      }
+
+      .phone-input-group .form-control {
+        padding-left: 0.4rem !important;
       }
 
       .form-floating label {
@@ -596,7 +1023,7 @@
       }
 
       .contact-form-container {
-        padding: 1.25rem;
+        padding: 1.25rem 1rem;
         margin-top: 0.25rem;
         border-radius: 8px;
       }
@@ -614,6 +1041,21 @@
         font-size: 0.9rem;
       }
 
+      .phone-input-wrapper .form-floating label {
+        left: 2.75rem;
+        font-size: 0.85rem;
+      }
+
+      .country-code-prefix {
+        padding: 0.75rem 0.35rem 0.4rem 0.4rem !important;
+        font-size: 0.9rem;
+        min-width: 40px;
+      }
+
+      .phone-input-group .form-control {
+        padding-left: 0.35rem !important;
+      }
+
       .form-floating label {
         font-size: 0.85rem;
         padding: 0.75rem 0.5rem;
@@ -624,10 +1066,45 @@
         transform: translateY(-1.1rem) scale(0.8);
       }
 
+      .form-check {
+        padding: 0.75rem 0.875rem !important;
+        padding-left: 0.875rem !important;
+        gap: 0.625rem !important;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        display: flex !important;
+        align-items: flex-start !important;
+        min-height: auto !important;
+      }
+
       .form-check-label {
-        font-size: 0.8rem;
-        line-height: 1.4;
-        padding-left: 0.4rem;
+        font-size: 0.85rem;
+        line-height: 1.4 !important;
+        padding-left: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        min-width: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        float: none !important;
+        text-align: left !important;
+      }
+
+      .form-check-input {
+        margin-top: 0.1em !important;
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 1.15em !important;
+        height: 1.15em !important;
+        min-width: 1.15em !important;
+        max-width: 1.15em !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+        align-self: flex-start !important;
+        float: none !important;
+        vertical-align: baseline !important;
       }
 
       .btn-submit {
@@ -644,7 +1121,7 @@
       }
 
       .php-email-form .row {
-        row-gap: 0.875rem;
+        row-gap: 0.625rem;
       }
 
       .php-email-form .row > [class*="col-"] {
@@ -693,7 +1170,17 @@
       }
 
       .contact-form-container {
-        padding: 1rem;
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+      }
+
+      .form-title {
+        font-size: 1.3rem !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .form-title::after {
+        width: 40px;
       }
 
       .form-floating .form-control,
@@ -707,8 +1194,45 @@
         padding: 0.7rem 0.4rem;
       }
 
+      .form-check {
+        padding: 0.625rem 0.75rem !important;
+        padding-left: 0.75rem !important;
+        gap: 0.5rem !important;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        display: flex !important;
+        align-items: flex-start !important;
+        min-height: auto !important;
+      }
+
       .form-check-label {
         font-size: 0.75rem;
+        line-height: 1.35 !important;
+        min-width: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding-left: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        float: none !important;
+        text-align: left !important;
+      }
+
+      .form-check-input {
+        margin-top: 0.1em !important;
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 1.1em !important;
+        height: 1.1em !important;
+        min-width: 1.1em !important;
+        max-width: 1.1em !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+        align-self: flex-start !important;
+        float: none !important;
+        vertical-align: baseline !important;
       }
 
       .btn-submit {
@@ -983,54 +1507,41 @@
           </div>
           <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
             <div class="contact-form-container">
+              <!-- <h3 class="form-title text-white mb-4" style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem !important;">Get in Touch</h3> -->
               <form action="forms/contact.php" method="post" class="php-email-form">
                 <div class="row g-3">
                   <div class="col-md-6">
                     <div class="form-floating">
                       <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name"
                         required>
-                      <label for="firstName">First Name</label>
+                      <label for="firstName">First Name <span class="text-danger">*</span></label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
                       <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name"
                         required>
-                      <label for="lastName">Last Name</label>
+                      <label for="lastName">Last Name <span class="text-danger">*</span></label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
                       <input type="text" class="form-control" id="companyName" name="company_name"
                         placeholder="Company Name" required>
-                      <label for="companyName">Company Name</label>
+                      <label for="companyName">Company Name <span class="text-danger">*</span></label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
                       <input type="email" class="form-control" id="workEmail" name="work_email" placeholder="Work Email"
                         required>
-                      <label for="workEmail">Email</label>
+                      <label for="workEmail">Email <span class="text-danger">*</span></label>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input type="tel" class="form-control" id="phoneNumber" name="phone_number"
-                        placeholder="Phone Number" required>
-                      <label for="phoneNumber">Phone Number</label>
-                    </div>
-                  </div>
-                  <!-- <div class="col-md-6">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="jobTitle" name="job_title" placeholder="Job Title"
-                        required>
-                      <label for="jobTitle">Job Title</label>
-                    </div>
-                  </div> -->
-                  <div class="col-12">
+                  <div class="col-sm-6 col-md-6 col-lg-6">
                     <div class="form-floating">
                       <select class="form-select" id="country" name="country" required>
-                        <option value="">Select Country</option>
+                        <option value="" disabled selected>Select Country</option>
                         <option value="India">India</option>
                         <option value="United States">United States</option>
                         <option value="United Kingdom">United Kingdom</option>
@@ -1041,7 +1552,25 @@
                         <option value="Japan">Japan</option>
                         <option value="Other">Other</option>
                       </select>
-
+                      <!-- <label for="country">Country <span class="text-danger">*</span></label> -->
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="phone-input-wrapper">
+                      <div class="form-floating">
+                        <div class="input-group phone-input-group">
+                          <span class="input-group-text country-code-prefix" id="countryCode">+</span>
+                          <input type="tel" class="form-control" id="phoneNumber" name="phone_number"
+                            placeholder="" required>
+                        </div>
+                        <label for="phoneNumber">Phone Number <span class="text-danger">*</span></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-floating">
+                      <textarea class="form-control" id="message" name="message" placeholder="Message" style="height: 90px; resize: vertical;" ></textarea>
+                      <label for="message">Message <span class="text-danger"></span></label>
                     </div>
                   </div>
                   <div class="col-12">
@@ -1081,7 +1610,7 @@
             <h3 class="h4 fw-bold text-dark mb-4">India</h3>
             <address class="text-dark mb-4">
               <strong>DATASPAN Technologies</strong><br>
-              Shreeji Pride, CMEinfotech, Second Floor<br>
+              Shreeji Pride, Dataspan Technologies, Second Floor<br>
               Opp. Euphoria Fitness Club<br>
               Manohar Nagar, Govind Nagar<br>
               Nashik, Maharashtra 422001
@@ -1150,7 +1679,7 @@
             <img src="assets/img/footer-logo2.png" alt="">
           </a>
           <div class="footer-contact pt-1">
-            <!-- <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+            <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
             <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
             <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance, and build
               smarter systems that support steady, measurable growth</p>
@@ -1158,10 +1687,11 @@
             <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
+           
+            <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i class="bi bi-instagram"></i></a>
+            <a href="https://in.linkedin.com/company/dataspan-technologies"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
           </div>
         </div>
 
@@ -1221,7 +1751,7 @@
           <div class="footer-dropdown-content">
             <div class="footer-contact">
               <!-- <p><strong>Address:</strong></p> -->
-              <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+              <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
               <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
             </div>
           </div>
@@ -1235,7 +1765,7 @@
           <div class="footer-dropdown-content">
             <div class="footer-contact">
               <!-- <p><strong>Address:</strong></p> -->
-              <p>Sai enterprises,</p>
+              <p>Dataspan Technologies,</p>
               <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
             </div>
           </div>
@@ -1403,8 +1933,82 @@
         });
       });
 
-      // Enhanced form validation
+      // Country code mapping
+      const countryCodes = {
+        'India': '+91',
+        'United States': '+1',
+        'United Kingdom': '+44',
+        'Canada': '+1',
+        'Australia': '+61',
+        'Germany': '+49',
+        'France': '+33',
+        'Japan': '+81',
+        'Other': '+'
+      };
+
+      // Get form elements
+      const countrySelect = document.getElementById('country');
+      const countryCodeSpan = document.getElementById('countryCode');
+      const phoneInput = document.getElementById('phoneNumber');
       const form = document.querySelector('.php-email-form');
+
+      // Update country code based on selected country
+      if (countrySelect && countryCodeSpan) {
+        // Handle label animation for country select
+        const countryLabel = document.querySelector('label[for="country"]');
+        
+        function updateCountrySelectState() {
+          if (countrySelect.value && countrySelect.value !== '') {
+            countrySelect.classList.add('has-value');
+            if (countryLabel) {
+              countryLabel.style.transform = 'translateY(-1.75rem) scale(0.85)';
+              countryLabel.style.color = '#4fc3f7';
+            }
+          } else {
+            countrySelect.classList.remove('has-value');
+            if (countryLabel && document.activeElement !== countrySelect) {
+              countryLabel.style.transform = '';
+              countryLabel.style.color = '';
+            }
+          }
+        }
+
+        countrySelect.addEventListener('change', function () {
+          const selectedCountry = this.value;
+          const countryCode = countryCodes[selectedCountry] || '+';
+          countryCodeSpan.textContent = countryCode;
+          
+          // Update phone input placeholder
+          if (selectedCountry && selectedCountry !== 'Other') {
+            phoneInput.placeholder = '';
+          } else {
+            phoneInput.placeholder = 'Phone Number';
+          }
+          
+          // Update label state
+          updateCountrySelectState();
+        });
+
+        countrySelect.addEventListener('focus', function() {
+          if (countryLabel) {
+            countryLabel.style.transform = 'translateY(-1.75rem) scale(0.85)';
+            countryLabel.style.color = '#4fc3f7';
+          }
+        });
+
+        countrySelect.addEventListener('blur', function() {
+          updateCountrySelectState();
+        });
+
+        // Initialize country code on page load if country is pre-selected
+        if (countrySelect.value) {
+          const countryCode = countryCodes[countrySelect.value] || '+';
+          countryCodeSpan.textContent = countryCode;
+          updateCountrySelectState();
+        }
+      }
+
+      // Enhanced form validation
       if (form) {
         form.addEventListener('submit', function (e) {
           e.preventDefault();
@@ -1423,6 +2027,15 @@
           });
 
           if (isValid) {
+            // Combine country code with phone number
+            if (countryCodeSpan && phoneInput) {
+              const countryCode = countryCodeSpan.textContent;
+              const phoneNumber = phoneInput.value.trim();
+              if (phoneNumber && countryCode && countryCode !== '+') {
+                phoneInput.value = countryCode + ' ' + phoneNumber;
+              }
+            }
+
             // Show loading state
             const loading = form.querySelector('.loading');
             const errorMessage = form.querySelector('.error-message');
@@ -1437,6 +2050,10 @@
               loading.style.display = 'none';
               sentMessage.style.display = 'block';
               form.reset();
+              // Reset country code display
+              if (countryCodeSpan) {
+                countryCodeSpan.textContent = '+';
+              }
             }, 2000);
           }
         });
