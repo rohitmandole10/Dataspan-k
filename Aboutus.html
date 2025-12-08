@@ -407,18 +407,18 @@
         }
 
         .impact-prev {
-            left: clamp(10px, 2vw, 20px);
+            left: 20px;
         }
 
         .impact-next {
-            right: clamp(10px, 2vw, 20px);
+            right: 20px;
         }
 
         .impact-dots {
             display: flex;
             justify-content: center;
             gap: 10px;
-            padding: 18px 0 26px;
+            padding: 0 0 26px;
         }
 
         .impact-dot {
@@ -466,10 +466,103 @@
             }
         }
 
-        @media (max-width: 991px) {
+        /* Large screens (lg) - 992px to 1199px */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .impact-nav {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .impact-nav:hover {
+                transform: translateY(-50%) scale(1.05);
+            }
+
+            .impact-prev {
+                left: 15px;
+            }
+
+            .impact-next {
+                right: 15px;
+            }
+        }
+
+        /* Medium screens (md) - 768px to 991px */
+        @media (min-width: 768px) and (max-width: 991px) {
             .impact-slide {
                 grid-template-columns: 1fr;
                 text-align: center;
+            }
+
+            .impact-slide-media {
+                order: -1;
+            }
+
+            .impact-nav {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .impact-nav:hover {
+                transform: translateY(-50%) scale(1.05);
+            }
+
+            .impact-prev {
+                left: 15px;
+            }
+
+            .impact-next {
+                right: 15px;
+            }
+        }
+
+        /* Small screens (sm) - 576px to 767px */
+        @media (min-width: 576px) and (max-width: 767px) {
+            .impact-slider-section {
+                padding: 0 4%;
+                margin: 0;
+            }
+
+            .impact-slider-wrapper {
+                width: 100%;
+            }
+
+            .impact-slide {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .impact-slide-media {
+                order: -1;
+            }
+
+            .impact-nav {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .impact-nav:hover {
+                transform: translateY(-50%) scale(1.05);
+            }
+
+            .impact-prev {
+                left: 10px;
+            }
+
+            .impact-next {
+                right: 10px;
+            }
+        }
+
+        /* Extra small screens (xs) - below 576px */
+        @media (max-width: 575px) {
+            .impact-slider-wrapper {
+                border-radius: 20px;
+            }
+
+            .impact-slide {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 28px 20px 56px;
             }
 
             .impact-slide-media {
@@ -482,33 +575,16 @@
                 transform: translateY(0);
             }
 
+            .impact-nav:hover {
+                transform: translateY(0) scale(1.05);
+            }
+
             .impact-prev {
-                left: 20px;
+                left: 15px;
             }
 
             .impact-next {
-                right: 20px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .impact-slider-section {
-                padding: 0 4%;
-                margin: 0;
-            }
-
-            .impact-slider-wrapper {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 575px) {
-            .impact-slider-wrapper {
-                border-radius: 20px;
-            }
-
-            .impact-slide {
-                padding: 28px 20px 56px;
+                right: 15px;
             }
 
             .impact-slide-content .impact-cta {
@@ -2718,19 +2794,16 @@
             display: flex !important;
         }
 
-        /* Shimmer effect overlay - sweeps across card on hover */
+        /* Smooth hover overlay - subtle glow effect matching card colors */
         .people-section .people-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg,
-                    transparent 0%,
-                    rgba(255, 255, 255, 0.2) 50%,
-                    transparent 100%);
-            transition: left 0.6s ease;
+            background: rgba(255, 255, 255, 0);
+            transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1;
             pointer-events: none;
             border-radius: 100px 100px 0 0;
@@ -2741,8 +2814,17 @@
                     0% calc(100% - 50px));
         }
 
-        .people-section .people-card:hover::before {
-            left: 100%;
+        /* Overlay for cards 1, 3, 5 (accent blue) */
+        .people-section .row>div:nth-child(1) .people-card:hover::before,
+        .people-section .row>div:nth-child(3) .people-card:hover::before,
+        .people-section .row>div:nth-child(5) .people-card:hover::before {
+            background: rgba(13, 131, 253, 0.15);
+        }
+
+        /* Overlay for cards 2, 4 (heading blue-gray) */
+        .people-section .row>div:nth-child(2) .people-card:hover::before,
+        .people-section .row>div:nth-child(4) .people-card:hover::before {
+            background: rgba(45, 70, 94, 0.15);
         }
 
         /* Ensure content is above shimmer */
@@ -2781,7 +2863,7 @@
             left: 95% !important;
             width: 70px;
             height: 185px;
-            background: #0056CC;
+            background: #0d83fd;
             z-index: 1;
             pointer-events: none;
             transform: translateY(-50%) rotate(140deg);
@@ -2845,11 +2927,11 @@
             display: flex !important;
         }
 
-        /* Individual pill colors matching cards - dusky versions */
+        /* Individual pill colors matching cards - Theme colors */
         /* All pills have the same position relative to their shapes */
-        /* Pill between card 1 and 2 - matches card 1 (light blue) */
+        /* Pill between card 1 and 2 - matches card 1 (accent blue) */
         .people-section .cards-row>div:nth-child(1)::after {
-            background: #0077AA;
+            background: #0d83fd;
             opacity: 1 !important;
             visibility: visible !important;
             display: block !important;
@@ -2858,9 +2940,9 @@
             top: 55% !important;
         }
 
-        /* Pill between card 2 and 3 - matches card 2 (medium blue) */
+        /* Pill between card 2 and 3 - matches card 2 (heading blue-gray) */
         .people-section .cards-row>div:nth-child(2)::after {
-            background: #004488;
+            background: #2d465e;
             opacity: 1 !important;
             visibility: visible !important;
             display: block !important;
@@ -2868,9 +2950,9 @@
             top: 55% !important;
         }
 
-        /* Pill between card 3 and 4 - matches card 3 (light blue) */
+        /* Pill between card 3 and 4 - matches card 3 (accent blue) */
         .people-section .cards-row>div:nth-child(3)::after {
-            background: #0077AA;
+            background: #0d83fd;
             opacity: 1 !important;
             visibility: visible !important;
             display: block !important;
@@ -2878,9 +2960,9 @@
             top: 55% !important;
         }
 
-        /* Pill between card 4 and 5 - matches card 4 (medium blue) */
+        /* Pill between card 4 and 5 - matches card 4 (heading blue-gray) */
         .people-section .cards-row>div:nth-child(4)::after {
-            background: #004488;
+            background: #2d465e;
             opacity: 1 !important;
             visibility: visible !important;
             display: block !important;
@@ -2888,42 +2970,42 @@
             top: 55% !important;
         }
 
-        /* Alternating solid colors for badge shapes */
+        /* Alternating solid colors for badge shapes - Theme colors */
         .people-section .row>div:nth-child(1) .people-card {
-            background: #00B4FF;
+            background: linear-gradient(135deg, #0d83fd 0%, #2d9aff 100%);
             z-index: 5;
         }
 
         .people-section .row>div:nth-child(2) .people-card {
-            background: #0070FF;
+            background: linear-gradient(135deg, #2d465e 0%, #0a6dd4 100%);
             z-index: 4;
         }
 
         .people-section .row>div:nth-child(3) .people-card {
-            background: #00B4FF;
+            background: linear-gradient(135deg, #0d83fd 0%, #2d9aff 100%);
             z-index: 3;
         }
 
         .people-section .row>div:nth-child(4) .people-card {
-            background: #0070FF;
+            background: linear-gradient(135deg, #2d465e 0%, #0a6dd4 100%);
             z-index: 3;
         }
 
         .people-section .row>div:nth-child(5) .people-card {
-            background: #00B4FF;
+            background: linear-gradient(135deg, #0d83fd 0%, #2d9aff 100%);
             z-index: 2;
         }
 
-        /* Hover animation: lift up with enhanced effects - no shadows */
+        /* Hover animation: smooth lift with subtle shadow */
         .people-section .people-card:hover {
-            transform: translateY(-15px) scale(1.08);
-            box-shadow: none;
+            transform: translateY(-12px) scale(1.05);
             z-index: 10;
-            filter: brightness(1.15);
+            filter: brightness(1.1);
         }
 
         /* Text animates with slight lift and subtle shadow */
         .people-section .people-card:hover h4 {
+            color: #ffffff;
             transform: translateY(-3px);
             text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
         }
@@ -2933,15 +3015,19 @@
             text-shadow: 0 1px 8px rgba(255, 255, 255, 0.2);
         }
 
+        /* Hover effects for cards 1, 3, 5 (accent blue) */
         .people-section .row>div:nth-child(1) .people-card:hover,
         .people-section .row>div:nth-child(3) .people-card:hover,
         .people-section .row>div:nth-child(5) .people-card:hover {
-            background: #00C4FF;
+            background: linear-gradient(135deg, #2d9aff 0%, #4db3ff 100%);
+            box-shadow: 0 10px 30px rgba(13, 131, 253, 0.4);
         }
 
+        /* Hover effects for cards 2, 4 (heading blue-gray) */
         .people-section .row>div:nth-child(2) .people-card:hover,
         .people-section .row>div:nth-child(4) .people-card:hover {
-            background: #0080FF;
+            background: linear-gradient(135deg, #3d5670 0%, #1a7ee4 100%);
+            box-shadow: 0 10px 30px rgba(45, 70, 94, 0.4);
         }
 
         /* Card icon styling - removed icons for pill-shaped cards */
@@ -2952,7 +3038,8 @@
         /* Card title */
         .people-section .people-card h4 {
             font-size: 1.2rem;
-            font-weight: 700;
+            font-weight: 800;
+            color: #ffffff;
             margin-bottom: 12px;
             text-shadow: none;
             font-family: var(--heading-font);
@@ -3726,11 +3813,13 @@
                 width: 100%;
                 height: auto;
                 min-height: clamp(240px, 38vw, 300px);
-                padding: clamp(35px, 4.5vw, 50px) 0 clamp(90px, 11vw, 110px);
+                padding: clamp(35px, 4.5vw, 50px) clamp(20px, 4vw, 40px) clamp(90px, 11vw, 110px);
                 margin-left: 0;
                 margin-right: 0;
                 border-radius: 0;
                 box-shadow: none;
+                justify-content: center;
+                padding-left: clamp(20px, 4vw, 40px) !important;
             }
 
             .talent-section::before {
@@ -3743,6 +3832,16 @@
                 padding: 0 !important;
                 padding-left: 0 !important;
                 padding-right: 0 !important;
+            }
+
+            .talent-section .talent-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 100%;
+                margin: 0 auto;
             }
 
             .talent-section .talent-content h2 {
@@ -3768,7 +3867,7 @@
             }
 
             .talent-section .shapes {
-                right: -150px;
+                display: none !important;
             }
 
             .talent-section .shape {
@@ -3794,20 +3893,33 @@
                 height: auto;
                 min-height: clamp(280px, 50vw, 340px);
                 padding: clamp(30px, 4vw, 45px) clamp(3%, 4vw, 5%) clamp(80px, 10vw, 100px);
+                justify-content: center;
             }
 
             .talent-wrapper {
                 margin: clamp(18px, 2.2vw, 25px) 0;
             }
 
+            .talent-section .talent-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 100%;
+                margin: 0 auto;
+            }
+
             .talent-section .talent-content h2 {
                 font-size: clamp(1.5rem, 5.5vw, 1.85rem);
                 margin-bottom: clamp(14px, 1.8vw, 20px);
+                text-align: center;
             }
 
             .talent-section .talent-content p {
                 font-size: clamp(0.88rem, 2vw, 0.98rem);
                 margin-bottom: clamp(18px, 2.2vw, 25px);
+                text-align: center;
             }
 
             .talent-section .join-btn {
@@ -3817,7 +3929,7 @@
             }
 
             .talent-section .shapes {
-                right: -180px;
+                display: none !important;
             }
 
             .talent-section .shape {
@@ -5271,7 +5383,7 @@
         <section class="about-section-2 about-section-2responcive">
             <div class="about-section-2-content container">
                 <div class="about-section-2-image">
-                    <img src="assets/img/About Us/section-2.png" alt="Technology Solutions">
+                    <img src="assets/img/About Us/image_about-2.png" alt="Technology Solutions">
                 </div>
                 <div class="about-section-2-text">
                     <h2 class="hybrid-heading ">
@@ -5326,7 +5438,7 @@
                             <h3>Growth Without Barriers</h3>
                             <p>We envision businesses thriving confidently through simpler systems, smoother workflows,
                                 and enduring, sustainable progress.</p>
-                            <a href="#" class="impact-cta">Read the report <i class="bi bi-arrow-right"></i></a>
+                            <!-- <a href="#" class="impact-cta">Read the report <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </article>
 
@@ -5340,7 +5452,7 @@
                             <h3>Impact Through Clarity</h3>
                             <p>We create solutions that reduce complexity, strengthen operations, and help teams work
                                 confidently.</p>
-                            <a href="#" class="impact-cta">Explore the story <i class="bi bi-arrow-right"></i></a>
+                            <!-- <a href="#" class="impact-cta">Explore the story <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </article>
 
@@ -5354,7 +5466,7 @@
                             <h3>Solutions That Adapt</h3>
                             <p>We combine insight with smart tools to build solutions that evolve as businesses grow.
                             </p>
-                            <a href="#" class="impact-cta">See initiatives <i class="bi bi-arrow-right"></i></a>
+                            <!-- <a href="#" class="impact-cta">See initiatives <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </article>
                 </div>
@@ -5485,7 +5597,7 @@
                 <div class="talent-content">
                     <h2>Visionary Talent. <br> Boundless Solutions</h2>
                     <p>Ready to redefine the future together?</p>
-                    <a href="#" class="join-btn">Join us</a>
+                    <a href="contact.html" class="join-btn">Contact Us</a>
                 </div>
 
                 <!-- Decorative abstract shapes with continuous animations -->
@@ -5511,7 +5623,7 @@
             <img src="assets/img/footer-logo2.png" alt="">
           </a>
           <div class="footer-contact pt-1">
-            <!-- <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+            <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
             <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
             <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance, and build
               smarter systems that support steady, measurable growth</p>
@@ -5519,10 +5631,11 @@
             <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
+           
+            <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i class="bi bi-instagram"></i></a>
+            <a href="https://in.linkedin.com/company/dataspan-technologies"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
           </div>
         </div>
 
@@ -5582,7 +5695,7 @@
           <div class="footer-dropdown-content">
             <div class="footer-contact">
               <!-- <p><strong>Address:</strong></p> -->
-              <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+              <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
               <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
             </div>
           </div>
@@ -5596,7 +5709,7 @@
           <div class="footer-dropdown-content">
             <div class="footer-contact">
               <!-- <p><strong>Address:</strong></p> -->
-              <p>Sai enterprises,</p>
+              <p>Dataspan Technologies,</p>
               <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
             </div>
           </div>
