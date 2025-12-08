@@ -32,8 +32,8 @@
     <style>
         body {
             margin: 0;
-            background: #ffffff;
-            color: #212529;
+            background: var(--background-color);
+            color: var(--default-color);
             overflow-x: hidden;
         }
 
@@ -55,7 +55,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(138, 92, 246, 0.03) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(13, 131, 253, 0.03) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -72,9 +72,9 @@
         .main-content h1 {
             font-size: 1.75rem;
             font-weight: 900;
-            color: #2d465e;
+            color: var(--heading-color);
             line-height: 1.2;
-            background: linear-gradient(135deg, #2d465e 0%, #8A5CF6 100%);
+            background: linear-gradient(135deg, var(--heading-color) 0%, var(--accent-color) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -82,7 +82,7 @@
 
         .main-content p {
             font-size: 0.9rem;
-            color: #495057;
+            color: var(--default-color);
             line-height: 1.8;
             max-width: 800px;
             margin-left: auto;
@@ -91,8 +91,8 @@
 
         .know-more-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #8A5CF6 0%, #6B46C1 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #036ffd 100%);
+            color: var(--contrast-color);
             padding: 10px 24px;
             border-radius: 30px;
             font-size: 1rem;
@@ -101,7 +101,7 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(138, 92, 246, 0.3);
+            box-shadow: 0 4px 20px rgba(13, 131, 253, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -123,8 +123,8 @@
 
         .know-more-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(138, 92, 246, 0.5);
-            color: white;
+            box-shadow: 0 8px 30px rgba(13, 131, 253, 0.5);
+            color: var(--contrast-color);
             text-decoration: none;
         }
 
@@ -162,7 +162,7 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #F0E8FF 0%, #E8D5FF 100%);
+            background: linear-gradient(135deg, #E6F2FF 0%, #CCE5FF 100%);
             width: 140px;
             height: 140px;
             border-radius: 50%;
@@ -174,14 +174,14 @@
             padding: 18px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            box-shadow: 0 10px 30px rgba(138, 92, 246, 0.15);
+            box-shadow: 0 10px 30px rgba(13, 131, 253, 0.15);
             flex-shrink: 0;
             opacity: 0;
             transform: scale(0.3) translateZ(-300px) rotateY(20deg);
             transform-style: preserve-3d;
             z-index: 1;
             will-change: transform, opacity;
-            border: 3px solid rgba(138, 92, 246, 0.1);
+            border: 3px solid rgba(13, 131, 253, 0.1);
         }
 
         .stat-card::before {
@@ -192,7 +192,7 @@
             right: -3px;
             bottom: -3px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #8A5CF6, #6B46C1);
+            background: linear-gradient(135deg, var(--accent-color), #036ffd);
             opacity: 0;
             transition: opacity 0.3s;
             z-index: -1;
@@ -203,13 +203,13 @@
         }
 
         .stat-card.green {
-            background: linear-gradient(135deg, #E8FFEC 0%, #D4FFDC 100%);
-            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.15);
-            border-color: rgba(34, 197, 94, 0.1);
+            background: linear-gradient(135deg, #E0F7FA 0%, #B2EBF2 100%);
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.15);
+            border-color: rgba(0, 188, 212, 0.1);
         }
 
         .stat-card.green::before {
-            background: linear-gradient(135deg, #22C55E, #16A34A);
+            background: linear-gradient(135deg, #00BCD4, #0097A7);
         }
 
         .stat-card.animate-in {
@@ -231,20 +231,20 @@
 
         .stat-card:hover {
             transform: scale(1.1) translateZ(0);
-            box-shadow: 0 20px 50px rgba(138, 92, 246, 0.25);
+            box-shadow: 0 20px 50px rgba(13, 131, 253, 0.25);
         }
 
         .stat-card.green:hover {
-            box-shadow: 0 20px 50px rgba(34, 197, 94, 0.25);
+            box-shadow: 0 20px 50px rgba(0, 188, 212, 0.25);
         }
 
         .stat-number {
             font-size: 1.3rem;
             font-weight: 900;
-            color: #2d465e;
+            color: var(--heading-color);
             margin-bottom: 10px;
             line-height: 1;
-            background: linear-gradient(135deg, #2d465e 0%, #8A5CF6 100%);
+            background: linear-gradient(135deg, var(--heading-color) 0%, var(--accent-color) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -252,7 +252,7 @@
 
         .stat-text {
             font-size: 0.75rem;
-            color: #495057;
+            color: var(--default-color);
             font-weight: 600;
             line-height: 1.4;
         }
@@ -1348,22 +1348,20 @@
 
     <section class="global-reach-section">
       <div class="main-content">
-                <h1>We Have A Global Reach</h1>
-                <p>DATASPAN's software and systems are spearheading transformation in the global technology industry,
-                    paving the way for next-generation solutions that promise a smarter, more efficient, and connected
-                    world.</p>
-                <a href="#contact" class="know-more-btn">Know More ></a>
+                <h1>Trusted by Businesses Worldwide</h1>
+                <p>We help companies improve operations, enhance performance, and build reliable systems that support lasting growth.</p>
+                <a href="Aboutus.html" class="know-more-btn">Know More ></a>
             </div>
 
             <div class="globe-stats-container">
                 <div class="stats-column">
                     <div class="stat-card ">
-                        <div class="stat-number">20MN+</div>
-                        <div class="stat-text">Projects Delivered Successfully</div>
+                        <div class="stat-number">15+ </div>
+                        <div class="stat-text">Years of Expertise </div>
                     </div>
                     <div class="stat-card green left">
-                        <div class="stat-number">14+</div>
-                        <div class="stat-text">Development Centers Globally</div>
+                        <div class="stat-number">10+</div>
+                        <div class="stat-text">Countries We Serve</div>
                     </div>
                 </div>
 
@@ -1373,12 +1371,12 @@
 
                 <div class="stats-column">
                     <div class="stat-card green ">
-                        <div class="stat-number">25+</div>
-                        <div class="stat-text">Years Focus On Technology</div>
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-text">Support Across Regions</div>
                     </div>
                     <div class="stat-card right">
-                        <div class="stat-number">13K+</div>
-                        <div class="stat-text">Software Experts Passionate About Innovation</div>
+                        <div class="stat-number">98%</div>
+                        <div class="stat-text">Client Retention Rate</div>
                     </div>
                 </div>
             </div>
@@ -1408,7 +1406,8 @@
                       <path fill="currentColor" d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"></path>
                       <circle fill="white" cx="14" cy="14" r="4"></circle>
                     </svg>`;
-                        el.style.color = "#8A5CF6";
+                        // Use theme accent color
+                        el.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim() || '#0d83fd';
                         el.style.width = "20px";
                         el.className = 'myMarker';
                         el.setAttribute('data-tooltip', d.tooltip);
@@ -1524,7 +1523,7 @@
             <img src="assets/img/footer-logo2.png" alt="">
           </a>
           <div class="footer-contact pt-1">
-            <!-- <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+            <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
             <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
             <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance, and build
               smarter systems that support steady, measurable growth</p>
@@ -1532,10 +1531,11 @@
             <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
+           
+            <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i class="bi bi-instagram"></i></a>
+            <a href="https://in.linkedin.com/company/dataspan-technologies"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
           </div>
         </div>
 
@@ -1595,7 +1595,7 @@
           <div class="footer-dropdown-content">
             <div class="footer-contact">
               <!-- <p><strong>Address:</strong></p> -->
-              <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
+              <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
               <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
             </div>
           </div>
@@ -1609,7 +1609,7 @@
           <div class="footer-dropdown-content">
             <div class="footer-contact">
               <!-- <p><strong>Address:</strong></p> -->
-              <p>Sai enterprises,</p>
+              <p>Dataspan Technologies,</p>
               <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
             </div>
           </div>
