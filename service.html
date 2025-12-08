@@ -24,41 +24,80 @@
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/2c796478b6.css" crossorigin="anonymous">
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
     <style>
         /* Enhanced Hero Section */
+        #hero.hero.section {
+            background: linear-gradient(135deg, #0a4a6e 0%, #1e7ba8 50%, #2a9fd8 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 100px;
+        }
+
+        #hero.hero.section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        #hero.hero.section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-breadcrumbs {
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-breadcrumbs a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-breadcrumbs a:hover {
+            opacity: 0.8;
+        }
+
+        .hero-breadcrumbs span {
+            margin: 0 8px;
+            opacity: 0.7;
+        }
+
         .hero-title {
-            color: #05386e;
+            color: #ffffff;
             font-weight: 700;
             font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #05386e 0%, #227faa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            position: relative;
+            z-index: 1;
             animation: fadeInUp 1s ease-out;
         }
 
-        #typing {
-            color: #227faa;
-            display: inline-block;
-            border-right: 3px solid #227faa;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: blinkCursor 0.8s steps(1) infinite, fadeInUp 1.2s ease-out 0.5s both;
-            height: 60px;
-            text-align: center;
-            justify-content: center;
-            padding-right: 5px;
-            font-weight: 600;
-            background: linear-gradient(135deg, #227faa 0%, #09bef5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
 
         /* Enhanced animations */
         @keyframes blinkCursor {
@@ -108,6 +147,19 @@
         /* Hero section enhancements */
         .hero-content {
             animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content p {
+            color: #ffffff;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content p strong {
+            font-weight: 700;
         }
 
         .hero-image img {
@@ -119,16 +171,45 @@
             transform: scale(1.05) translateY(-5px);
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .hero-buttons .btn {
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(5, 56, 110, 0.2);
+            padding: 12px 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .hero-buttons .btn:hover {
+        .hero-buttons .btn-primary {
+            background: #ffffff;
+            color: #1e7ba8;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-buttons .btn-primary:hover {
+            background: #f0f0f0;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(5, 56, 110, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-buttons .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-buttons .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         .hero-buttons .btn::before {
@@ -146,147 +227,354 @@
             left: 100%;
         }
 
-        /* Enhanced second section */
-        .second {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
+        /* AI Development Statistics Infographic Styles */
+        .ai-stats-section {
+            padding: 60px 0;
+            background: #ffffff;
         }
 
-        .second::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .second .main-section {
+        .ai-stats-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 50px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            z-index: 1;
         }
 
-        .second .section-title {
-            font-weight: 800;
-            font-size: 3.5rem;
-            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .second .section-subtitle {
-            font-size: 1.125rem;
-            color: color-mix(in srgb, var(--default-color), transparent 20%);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            font-family: var(--default-font);
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .second .text-gradient {
-            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .ai-stats-title {
+            font-size: 2rem;
             font-weight: 700;
-        }
-
-        .second .info-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border-radius: 16px;
-            padding: 30px;
-            display: flex;
-            align-items: flex-start;
-            height: 100%;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease-out calc(var(--delay, 0) * 0.1s) both;
-        }
-
-        .second .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #030561, #09bef5);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .second .info-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .second .info-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .second .step-circle {
-            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
-            color: white;
-            font-weight: bold;
-            width: 50px;
-            height: 50px;
+            color: #333333;
             text-align: center;
-            line-height: 50px;
+            margin-bottom: 2.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .ai-highlight {
+            background: #fff9c4;
+            padding: 4px 12px;
+            border-radius: 4px;
+            color: #333333;
+            display: inline-block;
+        }
+
+        .ai-stat-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            height: 100%;
+            box-shadow: none;
+        }
+
+        .stat-circle {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            margin-right: 20px;
-            flex-shrink: 0;
-            box-shadow: 0 8px 20px rgba(3, 5, 97, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
+            border: 1px solid #e0e0e0;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
         }
 
-        .second .info-card:hover .step-circle {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 12px 30px rgba(3, 5, 97, 0.4);
-        }
-
-        .second .step-content .title {
+        .stat-number {
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 8px;
-            color: #1e293b;
-            font-size: 1.1rem;
+            color: #333333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
-        .second .step-content div:last-child {
-            color: #64748b;
+        .stat-content {
+            margin-top: 15px;
+        }
+
+        .stat-text {
+            color: #555555;
+            font-size: 0.95rem;
             line-height: 1.5;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
-        @media (max-width: 767px) {
-            .second .main-section {
-                padding: 40px 30px;
+        /* Responsive AI Stats */
+        @media (max-width: 768px) {
+            .ai-stats-title {
+                font-size: 1.5rem;
             }
 
-            .second .section-title {
+            .stat-circle {
+                width: 80px;
+                height: 80px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-text {
+                font-size: 0.85rem;
+            }
+
+            .ai-stat-card {
+                padding: 25px 15px;
+            }
+        }
+
+        /* Responsive Hero Styles */
+        @media (max-width: 768px) {
+            #hero.hero.section {
+                padding: 80px 0 60px;
+            }
+
+            .hero-title {
                 font-size: 2.5rem;
             }
 
-            .second .info-card {
-                flex-direction: row;
-                padding: 25px;
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Second section - Services Cards from CodePen */
+        .second {
+            background-color: #f6f9fc;
+            padding: 80px 0;
+        }
+
+        .row-services {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .container-services {
+            padding-inline: 2rem;
+            height: 100%;
+        }
+
+        .products-tile-container {
+            width: 100%;
+            display: flex;
+            min-width: 1000px;
+            height: 23.75rem;
+        }
+
+        .tile {
+            --padding-box: calc(3.75rem - 1.25rem);
+            width: 100%;
+            height: 100%;
+            border-radius: 32px;
+            padding: var(--padding-box);
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            color: #fff;
+            background-color: #000;
+            transition: flex-grow 0.4s cubic-bezier(0.38, 0.005, 0.215, 1),
+                margin 0.4s cubic-bezier(0.38, 0.005, 0.215, 1);
+        }
+
+        .tile:hover {
+            flex: 1.5;
+            cursor: pointer;
+        }
+
+        .tile:not(:last-child) {
+            margin-right: -10%;
+        }
+
+        .tile:not(:last-child):hover {
+            margin-right: -2%;
+        }
+
+        .tile-title {
+            --font-size-h2-sans: 40px;
+            max-width: 13rem;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            font-weight: 600;
+            font-size: var(--font-size-h2-sans);
+        }
+
+        .card-text {
+            max-width: 250px;
+            margin-top: 8px;
+        }
+
+        .tile:hover .icon-popup {
+            bottom: 30px;
+        }
+
+        .icon-popup {
+            font-size: 72px;
+            position: absolute;
+            bottom: -100px;
+            transition: bottom 1s cubic-bezier(0.08, 1.88, 0.54, 0.82);
+        }
+
+        .tile-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            opacity: 0.1;
+            transition: opacity 1s ease;
+            z-index: -1;
+        }
+
+        .tile:hover .tile-background {
+            opacity: 0;
+        }
+
+        .tile:nth-child(1) {
+            --text: #fff;
+            --primary: #af3766;
+            background-color: var(--primary);
+            z-index: 1;
+            color: var(--text);
+        }
+
+        .tile:nth-child(2) {
+            --text: #fff;
+            --primary: #6abde1;
+            background-color: var(--primary);
+            z-index: 2;
+            color: var(--text);
+        }
+
+        .tile:nth-child(3) {
+            --text: #fff;
+            --primary: #9cbe43;
+            background-color: var(--primary);
+            z-index: 3;
+            color: var(--text);
+        }
+
+        .tile:nth-child(4) {
+            --text: #b41924;
+            --primary: #fce4e5;
+            background-color: var(--primary);
+            z-index: 4;
+            color: var(--text);
+        }
+
+        .tile:nth-child(5) {
+            --text: #fff;
+            --primary: #000;
+            background-color: var(--primary);
+            z-index: 5;
+            color: var(--text);
+        }
+
+        .discover-btn {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            gap: 20px;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            width: 60px;
+            transition: all 400ms ease 100ms;
+            overflow: hidden;
+            cursor: pointer;
+            color: #000;
+        }
+
+        .discover-btn .text {
+            font-weight: 500;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .tile:hover .discover-btn {
+            width: 170px;
+        }
+
+        .discover-btn .text {
+            position: relative;
+            left: -100px;
+            transition: left 500ms ease;
+        }
+
+        .tile:hover .discover-btn .text {
+            left: 0;
+        }
+
+        .section-title-services {
+            width: 100%;
+            text-align: center;
+        }
+
+        .section-title-services h2 {
+            font-size: 32px;
+            margin-bottom: 60px;
+            margin-top: 60px;
+            font-weight: 600;
+        }
+
+        a.tile {
+            text-decoration: none !important;
+            color: white !important;
+        }
+
+        @media only screen and (max-width: 1064px) {
+            .products-tile-container {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                min-width: 0;
+                height: 100%;
+            }
+
+            .tile {
+                min-height: 300px;
+            }
+
+            .card-text {
+                max-width: 60%;
+            }
+
+            .discover-btn {
+                width: 170px;
+            }
+
+            .discover-btn .text {
+                left: 0;
+            }
+
+            .tile:hover {
+                flex: 1;
+                cursor: pointer;
+            }
+
+            .tile:not(:last-child) {
+                margin-right: 0;
+            }
+
+            .tile:not(:last-child):hover {
+                margin-right: 0;
+            }
+        }
+
+        @media only screen and (max-width: 540px) {
+            .tile:hover .icon-popup {
+                display: none;
             }
         }
 
@@ -519,141 +807,265 @@
             to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        /* Enhanced 5th section */
+        /* Enhanced 5th section - Technologies */
         .section5 {
-            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
-            position: relative;
-            overflow: hidden;
-            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
-            padding: 100px 0;
+            background: #ffffff;
+            padding: 80px 0;
         }
 
-        .section5::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
-            opacity: 0.3;
+        .technologies-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .section5 .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .section5 h1 {
-            color: #ffffff;
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 2rem;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .section5 .btn {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            color: #000000;
+        .technologies-title {
+            font-size: 2.5rem;
             font-weight: 700;
-            padding: 15px 35px;
-            border-radius: 12px;
-            border: none;
-            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #333333;
+            line-height: 1.2;
+        }
+
+        .tech-highlight {
+            background: #fff9c4;
+            padding: 4px 12px;
+            border-radius: 4px;
+            color: #333333;
+            display: inline-block;
+        }
+
+        .tech-blue {
+            color: #1e7ba8;
+        }
+
+        .technologies-description {
+            text-align: center;
+            color: #555555;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tech-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .tech-category-btn {
+            padding: 12px 24px;
+            border: 2px solid #e0e0e0;
+            background: #ffffff;
+            color: #333333;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+        }
+
+        .tech-category-btn:hover {
+            border-color: #1e7ba8;
+            color: #1e7ba8;
+        }
+
+        .tech-category-btn.active {
+            background: #1e7ba8;
+            color: #ffffff;
+            border-color: #1e7ba8;
+        }
+
+        .tech-cards-container {
+            min-height: 300px;
+        }
+
+        .tech-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .tech-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 30px 20px;
+            width: 180px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: #1e7ba8;
+        }
+
+        .tech-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Logo placeholders - simplified versions */
+        .scikit-learn-logo {
+            background: linear-gradient(135deg, #4a90e2 0%, #f7931e 100%);
             position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease-out 0.2s both;
+            border-radius: 12px;
         }
 
-        .section5 .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(251, 191, 36, 0.4);
-        }
-
-        .section5 .btn::before {
+        .scikit-learn-logo::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .section5 .btn:hover::before {
-            left: 100%;
-        }
-
-        .section5 .graphic-container {
-            position: relative;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .section5 .card-graphic {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transform: rotate(12deg);
-            transition: transform 0.3s ease;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .section5 .card-graphic:hover {
-            transform: rotate(15deg) scale(1.05);
-        }
-
-        .section5 .sparkle {
-            position: absolute;
-            background: linear-gradient(135deg, #030561, #09bef5);
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
             border-radius: 50%;
-            animation: sparkle 2s ease-in-out infinite;
+            top: 20%;
+            left: 20%;
         }
 
-        @keyframes sparkle {
+        .keras-logo {
+            background: #d00000;
+            border-radius: 12px;
+        }
 
-            0%,
-            100% {
-                opacity: 0;
-                transform: scale(0);
+        .keras-logo::before {
+            content: 'K';
+            color: white;
+            font-weight: bold;
+            font-size: 2.5rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .tensorflow-logo {
+            background: #ff6f00;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tensorflow-logo::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 40px solid rgba(255, 255, 255, 0.3);
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tensorflow-logo::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 35px solid rgba(255, 255, 255, 0.2);
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .r-logo {
+            background: #276dc3;
+            border-radius: 50%;
+        }
+
+        .r-logo::before {
+            content: 'R';
+            color: white;
+            font-weight: bold;
+            font-size: 2.5rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .python-logo {
+            background: linear-gradient(135deg, #3776ab 0%, #ffd43b 100%);
+            position: relative;
+            border-radius: 12px;
+        }
+
+        .python-logo::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background: linear-gradient(135deg, #ffd43b 0%, #3776ab 100%);
+            border-radius: 50% 0 50% 0;
+            top: 25%;
+            left: 25%;
+        }
+
+        .aws-logo, .azure-logo, .gcp-logo, .pandas-logo, .numpy-logo, .opencv-logo, .nltk-logo, .security-logo {
+            background: #f5f5f5;
+            border: 2px solid #e0e0e0;
+        }
+
+        .aws-logo::before, .azure-logo::before, .gcp-logo::before, .pandas-logo::before, .numpy-logo::before, .opencv-logo::before, .nltk-logo::before, .security-logo::before {
+            content: '?';
+            color: #999;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .tech-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333333;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .technologies-title {
+                font-size: 2rem;
             }
 
-            50% {
-                opacity: 1;
-                transform: scale(1);
+            .tech-category-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
-        }
 
-        /* Additional modern UI enhancements */
-        .modern-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 30px;
-            transition: all 0.3s ease;
-        }
+            .tech-card {
+                width: 150px;
+                padding: 25px 15px;
+            }
 
-        .modern-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
+            .tech-logo {
+                width: 80px;
+                height: 80px;
+            }
 
-        .gradient-text {
-            background: linear-gradient(135deg, #030561 0%, #09bef5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            .logo-placeholder {
+                width: 60px;
+                height: 60px;
+            }
         }
 
         /* Enhanced Responsive Design */
@@ -867,12 +1279,11 @@
         <li class="nav-item">
           <a href="Aboutus.html" class="nav-link">About Us</a>
         </li>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
             Services
-            <!-- <i class="fas fa-chevron-down"></i> -->
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="Clients.html" class="nav-link">Clients</a>
         </li>
@@ -895,119 +1306,165 @@
     </div>
 
     <!-- Services Dropdown Menu -->
+    <!--
     <div class="dropdown-menu" id="services-dropdown">
-      <div class="dropdown-container">
-        <div class="dropdown-content">
-          <!-- Service Categories -->
-          <div class="service-categories">
-            <div class="category-column">
-              <div class="category-item active" data-submenu="ai-automation">
-                <a href="service.html" class="category-link">AI & Automation</a>
-                <button class="category-toggle" aria-label="Toggle submenu">
-                  <span class="toggle-icon">+</span>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="development-technology">
-                <a href="#" class="category-link">Development & Technology</a>
-                <button class="category-toggle" aria-label="Toggle submenu">
-                  <span class="toggle-icon">+</span>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="design-branding">
-                <a href="#" class="category-link">Design & Branding</a>
-                <button class="category-toggle" aria-label="Toggle submenu">
-                  <span class="toggle-icon">+</span>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="cloud-infrastructure">
-                <a href="#" class="category-link">Cloud & Infrastructure</a>
-                <button class="category-toggle" aria-label="Toggle submenu">
-                  <span class="toggle-icon">+</span>
-                </button>
-              </div>
-              <div class="category-item" data-submenu="data-operations">
-                <a href="#" class="category-link">Data & Operations</a>
-                <button class="category-toggle" aria-label="Toggle submenu">
-                  <span class="toggle-icon">+</span>
-                </button>
-              </div>
-            </div>
+        <div class="dropdown-container">
+            <div class="dropdown-content">
+                Service Categories
+                <div class="service-categories">
+      <div class="category-column">
+        <div class="category-item active" data-submenu="ai-automation">
+          <a href="#" class="category-link">AI & Automation</a>
+        </div>
+        <div class="category-item" data-submenu="development-technology">
+          <a href="#" class="category-link">Development & Technology</a>
+        </div>
+        <div class="category-item" data-submenu="design-branding">
+          <a href="#" class="category-link">Design & Branding</a>
+        </div>
+        <div class="category-item" data-submenu="cloud-infrastructure">
+          <a href="#" class="category-link">Cloud & Infrastructure</a>
+        </div>
+        <div class="category-item" data-submenu="data-operations">
+          <a href="#" class="category-link">Data & Operations</a>
+        </div>
+      </div>
 
-            <!-- AI & Automation Subcategories -->
-            <div class="subcategory-column" id="ai-automation-submenu">
-              <div class="subcategory-item">
-                <a href="service.html" class="subcategory-link">AI & Machine Learning (ML)</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="ocr.html" class="subcategory-link">OCR (Optical Character Recognition)</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="scraper-scripting.html" class="subcategory-link">Scraper & Scripting</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="navision-integration-automation.html" class="subcategory-link">Navision Integration & Automation</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="esl-integration.html" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
-              </div>
-            </div>
+      <div class="subcategory-column" id="ai-automation-submenu">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">AI & Machine Learning (ML)</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">OCR (Optical Character Recognition)</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Scraper & Scripting</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Navision Integration & Automation</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+        </div>
+      </div>
 
-            <!-- Development & Technology Subcategories -->
-            <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Shopify Development & Services</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Web & Mobile Development</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Software Development & Consulting</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
-              </div>
-            </div>
+      <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Shopify Development & Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Web & Mobile Development</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Software Development & Consulting</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+        </div>
+      </div>
 
-            <!-- Design & Branding Subcategories -->
-            <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Design & Branding</a>
-              </div>
-            </div>
+      <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Design & Branding</a>
+        </div>
+      </div>
 
-            <!-- Cloud & Infrastructure Subcategories -->
-            <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
-              </div>
-            </div>
+      <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+        </div>
+      </div>
 
-            <!-- Data & Operations Subcategories -->
-            <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Reporting & Analytics</a>
-              </div>
-              <div class="subcategory-item">
-                <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
-              </div>
-            </div>
+      <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Reporting & Analytics</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="promo-section">
+      <div class="tech-illustration">
+        <div class="robot-unit">
+          <div class="robot-head">
+            <div class="robot-core"></div>
+            <div class="circuit-board"></div>
+          </div>
+          <div class="code-screen">
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+          </div>
+        </div>
+
+        <div class="human-figures">
+          <div class="human-figure male">
+            <div class="figure-body"></div>
+            <div class="key blue-key"></div>
+          </div>
+          <div class="human-figure female">
+            <div class="figure-body"></div>
+            <div class="key green-key"></div>
+          </div>
+        </div>
+
+        <div class="brain-icon">
+          <div class="brain-shape"></div>
+        </div>
+
+        <div class="geometric-elements">
+          <div class="cube-stack">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+          </div>
+          <div class="individual-cubes">
+            <div class="cube"></div>
+            <div class="cube"></div>
+          </div>
+          <div class="shield-icon"></div>
+          <div class="floating-keys">
+            <div class="key blue-key"></div>
+            <div class="key green-key"></div>
+          </div>
+        </div>
+
+        <div class="smartphone">
+          <div class="phone-body"></div>
+          <div class="network-signals">
+            <div class="signal"></div>
+            <div class="signal"></div>
+            <div class="signal"></div>
+          </div>
+          <div class="data-flow">
+            <div class="data-cube"></div>
+            <div class="data-cube"></div>
+            <div class="data-cube"></div>
           </div>
         </div>
       </div>
     </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    -->
   </nav>
+  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
     <div class="main">
         <!-- hero section -->
         <section id="hero" class="hero section">
@@ -1016,97 +1473,34 @@
 
                 <div class="row align-items-center">
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
-                            <!-- <div class="company-badge mb-4">
-                  <i class="bi bi-gear-fill me-2"></i>
-                  Working for your success
-                </div><br> -->
+                            <!-- Breadcrumbs -->
+                            <div class="hero-breadcrumbs">
+                                <a href="index.html">Home</a>
+                                <span>»</span>
+                                <a href="#">Technologies</a>
+                                <span>»</span>
+                                <span>AIML</span>
+                            </div>
 
-                            <h1 class="mb-4 hero-title"> Empowering Businesses with Intelligent <br>
-                                <span id="typing"></span>
-                            </h1>
-                            <!-- <p class="mb-4" id="typing"> -->
-                            <!-- Maecenas Vitae <br> -->
-                            <!-- <span class="accent-text">Vestibulum Ante</span> -->
-                            <!-- </p> -->
+                            <!-- Main Heading -->
+                            <h1 class="mb-4 hero-title">AIML Development Services</h1>
 
+                            <!-- Description Paragraph -->
                             <p class="mb-4 mb-md-5">
-                                Unlock the power of AI and custom software that automate operations, elevate
-                                experiences,
-                                and keep your
-                                business ahead of the curve.
+                                Experience cutting-edge AI development with Thinkitive. Our dedicated team of experts leverages the latest technology to create bespoke AI solutions that transform businesses. From predictive analytics to natural language processing, We can be your partner for <strong>innovation and success.</strong>
                             </p>
 
+                            <!-- Call to Action Buttons -->
                             <div class="hero-buttons">
-                                <a href="#about" class="btn btn-primary me-0 me-sm-2 mx-1">Grow With Us</a>
-                                <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
-                    <i class="bi bi-play-circle me-1"></i>
-                    Play Video
-                  </a> -->
+                                <a href="#contact" class="btn btn-primary">Book a Discovery Call</a>
+                                <a href="#contact" class="btn btn-secondary">Get Free Consultation</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-6">
-                        <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
-                            <img src="assets/img/Ai icon 01.png" alt="Hero Image" class="img-fluid">
-
-                            <!-- <div class="customers-badge">
-                  <div class="customer-avatars">
-                    <img src="assets/img/avatar-1.webp" alt="Customer 1" class="avatar">
-                    <img src="assets/img/avatar-2.webp" alt="Customer 2" class="avatar">
-                    <img src="assets/img/avatar-3.webp" alt="Customer 3" class="avatar">
-                    <img src="assets/img/avatar-4.webp" alt="Customer 4" class="avatar">
-                    <img src="assets/img/avatar-5.webp" alt="Customer 5" class="avatar">
-                    <span class="avatar more">12+</span>
-                  </div>
-                  <p class="mb-0 mt-2">12,000+ lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                </div> -->
-                        </div>
-                    </div>
                 </div>
-                <script>
-                    const texts = ["AI Solutions.", "Automation Tools.", "Smart Workflows.", "Process Optimization."];
-                    let count = 0;
-                    let index = 0;
-                    let currentText = "";
-                    let letter = "";
-                    let isDeleting = false;
-
-                    function type() {
-                        if (count === texts.length) {
-                            count = 0;
-                        }
-
-                        currentText = texts[count];
-
-                        if (isDeleting) {
-                            letter = currentText.slice(0, --index);
-                        } else {
-                            letter = currentText.slice(0, ++index);
-                        }
-
-                        document.getElementById("typing").textContent = letter;
-
-                        let speed = isDeleting ? 50 : 100;
-
-                        if (!isDeleting && letter.length === currentText.length) {
-                            speed = 1500; // pause before deleting
-                            isDeleting = true;
-                        } else if (isDeleting && letter.length === 0) {
-                            isDeleting = false;
-                            count++;
-                            speed = 500; // pause before typing next
-                        }
-
-                        setTimeout(type, speed);
-                    }
-
-                    type();
-
-                </script>
-
 
             </div>
 
@@ -1114,241 +1508,100 @@
 
         <section id="features" class="features section">
 
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>AI-Driven Capabilities Built for Growth</h2>
-                <!-- <p>"Empowering businesses with cutting-edge AI technologies to drive innovation, efficiency, and growth."</p> -->
-            </div><!-- End Section Title -->
-
-            <div class="container">
-
-                <div class="d-flex justify-content-center">
-
-                    <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
-
-                        <li class="nav-item">
-                            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
-                                <!-- <h4>Intelligent AI Workflows & Automation</h4> -->
-                                <h4>Intelligent AI Workflows & Automation</h4>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " data-bs-toggle="tab" data-bs-target="#features-tab-2">
-                                <h4>Generative AI Solutions(LLM)</h4>
-                            </a>
-                        </li><!-- End tab nav item -->
-
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                                <h4>NLP & Data Analytics</h4>
-                            </a><!-- End tab nav item -->
-
-                        </li>
-                        <!-- End tab nav item -->
-                    </ul>
-
+            <!-- AI Development Statistics Infographic -->
+            <div class="container ai-stats-section">
+                <div class="ai-stats-container">
+                    <h3 class="ai-stats-title">
+                        <span class="ai-highlight">AI Development</span> - Redefining the Business Landscape
+                    </h3>
+                    <div class="row g-4 mt-3">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="ai-stat-card">
+                                <div class="stat-circle">
+                                    <span class="stat-number" data-target="83" data-suffix="%">0%</span>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-text">Organizations find AI as a strategic priority</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="ai-stat-card">
+                                <div class="stat-circle">
+                                    <span class="stat-number" data-target="30" data-suffix="%">0%</span>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-text">Average cost savings with AI automation</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="ai-stat-card">
+                                <div class="stat-circle">
+                                    <span class="stat-number" data-target="25" data-suffix="x">0x</span>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-text">Faster decision-making with AI-powered tools</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="ai-stat-card">
+                                <div class="stat-circle">
+                                    <span class="stat-number" data-target="90" data-suffix="%">0%</span>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-text">Of enterprise-grade applications will use AI by 2026</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
-                    <div class="tab-pane fade active show" id="features-tab-1">
-                        <div class="row">
-                            <div
-                                class="col-lg-6 order-2 order-lg-1  mt-lg-0 d-flex flex-column justify-content-center align-top">
-                                <h3>Automate and optimize business processes using intelligent AI workflows.</h3>
-                                <!-- <p class="fst-italic">Great design is more than visuals — it's about usability. At Dataspan
-                        Technologies, our detailed UX audit identifies improvements that make digital products seamless and
-                        enjoyable.</p> -->
-                                <ul>
-                                    <li><i class="bi bi-check2-all"></i> <span><b>Automate Smarter:</b> Let AI handle
-                                            the routine
-                                            processes so your team can focus on growth.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span><b>Predict Faster:</b>Leverage AI-powered
-                                            analytics to
-                                            anticipate trends and drive smarter business strategies.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span><b>Integrate Seamlessly:</b> Connect
-                                            systems and workflows
-                                            effortlessly with intelligent, automated AI integration.</span></li>
-                                    <li><i class="bi bi-check2-all"></i><span><b>Scale Effortlessly:</b>Transform
-                                            operations with
-                                            intelligent, future-ready AI systems that continuously drive growth.
-                                        </span></li>
-                                </ul>
-                                <div class="hero-buttons">
-                                    <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
-                                    <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
-                          <i class="bi bi-play-circle me-1"></i>
-                          Play Video
-                        </a> -->
-                                </div>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center ">
-                                <img src="assets/img/automation-2.jfif" alt="" class="img-fluid ">
-                            </div>
-                        </div>
-                    </div><!-- End tab content item -->
-
-                    <div class="tab-pane fade " id="features-tab-2">
-                        <div class="row">
-                            <div
-                                class="col-lg-6 order-2 order-lg-1  mt-lg-0 d-flex flex-column justify-content-center align-top">
-                                <h3>Next-gen AI with custom LLMs enabling smarter, scalable business insights</h3>
-                                <!-- <p class="fst-italic">
-                        At Dataspan Technologies, we make digital transformation simple and effective. Our team helps you
-                        modernize technology, optimize processes, and build strategies that deliver lasting growth.
-                      </p> -->
-                                <ul>
-                                    <li><i class="bi bi-check2-all"></i> <span><b>Agentic & Conversational AI:</b>
-                                            Autonomous chatbots and
-                                            AI agents that reason, plan, and act.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span><b>Retrieval-Augmented Intelligence:</b>
-                                            Fuse real-time
-                                            data with generative AI for context-aware precision.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span><b>Custom LLM Development:</b> Finetune
-                                            AI models for
-                                            precise, scalable, domain-driven accuracy.</span></li>
-                                    <li><i class="bi bi-check2-all"></i><span><b>Seamless Integration:</b> Deploy AI
-                                            solutions across apps
-                                            and workflows to enhance decision-making and customer engagement.</span>
-                                    </li>
-                                </ul>
-                                <div class="hero-buttons">
-                                    <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
-                                    <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
-                          <i class="bi bi-play-circle me-1"></i>
-                          Play Video
-                        </a> -->
-                                </div>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center ">
-                                <img src="assets/img/llm-2.jfif" alt="" class="img-fluid ">
-                            </div>
-                        </div>
-                    </div><!-- End tab content item -->
-
-                    <div class="tab-pane fade" id="features-tab-3">
-                        <div class="row">
-                            <div
-                                class="col-lg-6 order-2 order-lg-1  mt-lg-0 d-flex flex-column justify-content-center align-top">
-                                <h3>Turn language data into insights that drive smarter, faster business decisions</h3>
-                                <!-- <p class="fst-italic">
-                        We go beyond providing services — we partner with you to drive progress. By combining cutting-edge
-                        technology and proven practices, Dataspan Technologies ensures your business continues to evolve.
-                      </p> -->
-                                <ul>
-                                    <li><i class="bi bi-check2-all"></i> <span><b>Text Intelligence:</b>Convert raw,
-                                            unstructured text
-                                            into clear, actionable insights.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span><b>Data Analytics:</b>Extract trends and
-                                            insights from raw
-                                            data to guide decisions.</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span><b>Entity Recognition &
-                                                Classification:</b> Identify and
-                                            classify key data points for efficient workflows.</span></li>
-                                    <li><i class="bi bi-check2-all"></i><span><b>AI-Powered Dashboards:</b>Turn complex
-                                            data into dynamic,
-                                            real-time dashboards that inspire intelligent decisions.</span></li>
-                                    <li><i class="bi bi-check2-all"></i><span><b>Scalable NLP Pipelines:</b>Deploy
-                                            adaptive AI models
-                                            across diverse domains with ease.</span></li>
-                                </ul>
-                                <div class="hero-buttons">
-                                    <a class="btn-getstarted btn-1 btn-primary" href="index.html#about">Explore Now</a>
-                                    <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
-                          <i class="bi bi-play-circle me-1"></i>
-                          Play Video
-                        </a> -->
-                                </div>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="assets/img/nlp-2.jfif" alt="" class="img-fluid">
-                            </div>
-                        </div>
-                    </div><!-- End tab content item -->
-
-                </div>
-
             </div>
 
         </section><!-- /Features Section -->
 
         <!-- second section -->
         <section class="second">
-            <div class="main-section text-center">
-                <h2 class="section-title">How KriraAI Powers AI Development</h2>
-                <p class="section-subtitle mt-2">
-                    From strategy to deployment, our AI experts build
-                    <span class="text-gradient">custom solutions</span> that drive real business impact.
-                </p>
-
-                <div class="row mt-5 g-4">
-                    <!-- CARD 1 -->
-                    <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100" style="--delay: 0;">
-                            <div class="step-circle">1</div>
-                            <div class="step-content text-start">
-                                <div class="title">Strategic Consultation</div>
-                                <div>We define your AI goals and use cases.</div>
-                            </div>
-                        </div>
+            <div class="row-services">
+                <div class="container-services">
+                    <div class="section-title-services">
+                        <h2>There's so much more at Dataspan</h2>
                     </div>
-
-                    <!-- CARD 2 -->
-                    <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100" style="--delay: 1;">
-                            <div class="step-circle">2</div>
-                            <div class="step-content text-start">
-                                <div class="title">Data Preparation</div>
-                                <div>We collect, clean, and organize your data.</div>
+                    <div class="products-tile-container">
+                        <a class="tile" href="#">
+                            <div class="tile-background"></div>
+                            <p class="tile-title">AI & Automation</p>
+                            <p class="card-text">Transform your business with intelligent AI workflows and automation solutions that streamline operations and boost productivity.</p>
+                            <div class="icon-popup"><i class="fa-duotone fa-robot"></i></div>
+                            <div class="discover-btn">
+                                <span class="text">discover</span>
+                                <span class="btn-icon"><i class="fa-solid fa-chevrons-right"></i></span>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- CARD 3 -->
-                    <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100" style="--delay: 2;">
-                            <div class="step-circle">3</div>
-                            <div class="step-content text-start">
-                                <div class="title">Model Development</div>
-                                <div>We design and train the right AI models.</div>
+                        </a>
+                        <a class="tile" href="#">
+                            <div class="tile-background"></div>
+                            <p class="tile-title">Generative AI</p>
+                            <p class="card-text">
+                                Leverage cutting-edge LLM technology to create intelligent chatbots, content generation, and AI-powered applications that understand context.
+                            </p>
+                            <div class="icon-popup"><i class="fa-duotone fa-brain"></i></div>
+                            <div class="discover-btn">
+                                <span class="text">discover</span>
+                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- CARD 4 -->
-                    <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100" style="--delay: 3;">
-                            <div class="step-circle">4</div>
-                            <div class="step-content text-start">
-                                <div class="title">Integration & Deployment</div>
-                                <div>We integrate AI into your existing systems.</div>
+                        </a>
+                        <a class="tile" href="#">
+                            <div class="tile-background"></div>
+                            <p class="tile-title">Data Analytics</p>
+                            <p class="card-text">Turn your data into actionable insights with advanced NLP and analytics solutions that drive smarter business decisions.</p>
+                            <div class="icon-popup"><i class="fa-duotone fa-chart-line"></i></div>
+                            <div class="discover-btn">
+                                <span class="text">discover</span>
+                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
                             </div>
-                        </div>
+                        </a>
                     </div>
-
-                    <!-- CARD 5 -->
-                    <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100" style="--delay: 4;">
-                            <div class="step-circle">5</div>
-                            <div class="step-content text-start">
-                                <div class="title">Performance Optimization</div>
-                                <div>We monitor and improve the solution over time.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CARD 6 -->
-                    <div class="col-lg-4 col-md-6 d-flex">
-                        <div class="info-card w-100" style="--delay: 5;">
-                            <div class="step-circle">6</div>
-                            <div class="step-content text-start">
-                                <div class="title">Training & Support</div>
-                                <div>Complete know-how sharing with 24/7 assistance.</div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -1712,44 +1965,115 @@
             </script>
         </section>
 
-        <!-- Enhanced 5th section -->
+        <!-- Enhanced 5th section - Technologies -->
         <section class="section5">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="text-center text-lg-start">
-                            <h1 class="mb-4">
-                                Ready to transform your business with<br>
-                                <span class="gradient-text">AI-powered solutions?</span>
-                            </h1>
-                            <p class="text-white-50 mb-4 fs-5">
-                                Join thousands of businesses already leveraging our cutting-edge AI technology to
-                                automate processes, enhance customer experiences, and drive growth.
-                            </p>
-                            <a href="contact.html" class="btn btn-lg">
-                                Get Started Today
-                            </a>
-                        </div>
+                <div class="technologies-section">
+                    <h2 class="technologies-title">
+                        <span class="tech-highlight">Technologies</span> Our <span class="tech-blue">AI Developers</span> Use
+                    </h2>
+                    <p class="technologies-description">
+                        As a leading artificial intelligence development company, Dataspan utilizes cutting-edge tools, frameworks, and technologies to deliver state-of-the-art solutions.
+                    </p>
+                    
+                    <div class="tech-categories">
+                        <button class="tech-category-btn active" data-category="languages">Languages & Frameworks</button>
+                        <button class="tech-category-btn" data-category="cloud">Cloud AI Platforms</button>
+                        <button class="tech-category-btn" data-category="data">Data Tools</button>
+                        <button class="tech-category-btn" data-category="vision">Computer Vision</button>
+                        <button class="tech-category-btn" data-category="nlp">NLP</button>
+                        <button class="tech-category-btn" data-category="security">Security</button>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="graphic-container text-center">
-                            <div class="position-relative d-inline-block">
-                                <div class="card-graphic p-4">
-                                    <div class="text-center">
-                                        <i class="bi bi-robot text-primary" style="font-size: 4rem;"></i>
-                                        <h4 class="mt-3 mb-2">AI Solutions</h4>
-                                        <p class="text-muted mb-0">Transform your business</p>
-                                    </div>
+
+                    <div class="tech-cards-container">
+                        <div class="tech-cards" id="languages-cards">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder scikit-learn-logo"></div>
                                 </div>
-                                <!-- Sparkles -->
-                                <div class="sparkle"
-                                    style="top: 20px; right: 20px; width: 8px; height: 8px; animation-delay: 0s;"></div>
-                                <div class="sparkle"
-                                    style="top: 60px; left: 20px; width: 6px; height: 6px; animation-delay: 0.5s;">
+                                <p class="tech-name">Scikit-learn</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder keras-logo"></div>
                                 </div>
-                                <div class="sparkle"
-                                    style="bottom: 40px; right: 40px; width: 10px; height: 10px; animation-delay: 1s;">
+                                <p class="tech-name">Keras</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder tensorflow-logo"></div>
                                 </div>
+                                <p class="tech-name">TensorFlow</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder r-logo"></div>
+                                </div>
+                                <p class="tech-name">R</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder python-logo"></div>
+                                </div>
+                                <p class="tech-name">Python</p>
+                            </div>
+                        </div>
+                        <div class="tech-cards" id="cloud-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder aws-logo"></div>
+                                </div>
+                                <p class="tech-name">AWS</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder azure-logo"></div>
+                                </div>
+                                <p class="tech-name">Azure</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder gcp-logo"></div>
+                                </div>
+                                <p class="tech-name">Google Cloud</p>
+                            </div>
+                        </div>
+                        <div class="tech-cards" id="data-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder pandas-logo"></div>
+                                </div>
+                                <p class="tech-name">Pandas</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder numpy-logo"></div>
+                                </div>
+                                <p class="tech-name">NumPy</p>
+                            </div>
+                        </div>
+                        <div class="tech-cards" id="vision-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder opencv-logo"></div>
+                                </div>
+                                <p class="tech-name">OpenCV</p>
+                            </div>
+                        </div>
+                        <div class="tech-cards" id="nlp-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder nltk-logo"></div>
+                                </div>
+                                <p class="tech-name">NLTK</p>
+                            </div>
+                        </div>
+                        <div class="tech-cards" id="security-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder security-logo"></div>
+                                </div>
+                                <p class="tech-name">Security Tools</p>
                             </div>
                         </div>
                     </div>
@@ -1759,76 +2083,108 @@
 
     </div>
 
-    <footer id="footer" class="footer section light-background">
+  <footer id="footer" class="footer section light-background">
 
-        <div class="container footer-top">
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center ">
-                        <img src="assets/img/footer-logo2.png" alt="">
-                    </a>
-                    <div class="footer-contact pt-3">
-                        <p>Shreeji Pride, CMEinfotech, Shreeji Pride, Second Floor, Opp.</p>
-                        <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
-                        <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
-                    </div>
-                    <div class="social-links d-flex mt-4">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center ">
+            <img src="assets/img/footer-logo2.png" alt="">
+          </a>
+          <div class="footer-contact pt-1">
+            <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
+            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
+            <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance, and build
+              smarter systems that support steady, measurable growth</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+            <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
+           
+            <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i class="bi bi-instagram"></i></a>
+            <a href="https://in.linkedin.com/company/dataspan-technologies"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
+          </div>
+        </div>
 
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4 class="footer-dropdown-toggle">
-                        Useful Links
-                        <i class="bi bi-chevron-down footer-chevron"></i>
-                    </h4>
-                    <ul class="footer-dropdown-content">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="">Contact Us</a></li>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Terms of Service</a></li>
-                    </ul>
-                </div>
+        <!-- <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Our Solutions
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="service.html">AI & Automation Solutions</a></li>
+            <li><a href="service.html">Software & App Development</a></li>
+            <li><a href="service.html">Data Analytics & Visualization</a></li>
+            <li><a href="service.html">NLP & Language Models</a></li>
+            <li><a href="service.html">BPO & E-commerce Services</a></li>
+            <li><a href="service.html">UI/UX Design & Prototyping</a></li>
+          </ul>
+        </div> -->
 
-                <div class="col-lg-3 col-md-3 footer-links">
-                    <h4 class="footer-dropdown-toggle">
-                        Our Solutions
-                        <i class="bi bi-chevron-down footer-chevron"></i>
-                    </h4>
-                    <ul class="footer-dropdown-content">
-                        <li><a href="#">AI & Automation Solutions</a></li>
-                        <li><a href="#">Software & App Development</a></li>
-                        <li><a href="#">Data Analytics & Visualization</a></li>
-                        <li><a href="#">NLP & Language Models</a></li>
-                        <li><a href="#">BPO & E-commerce Services</a></li>
-                        <li><a href="">UI/UX Design & Prototyping</a></li>
-                    </ul>
-                </div>
+        <!-- <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Industries We Serve
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="#">E-commerce & Retail</a></li>
+            <li><a href="#">Fintech & Banking</a></li>
+            <li><a href="#">Healthcare & MedTech</a></li>
+            <li><a href="#">Manufacturing & Supply Chain</a></li>
+            <li><a href="#">Education & EdTech</a></li>
+            <li><a href="">Real Estate & Smart Systems</a></li>
+          </ul>
+        </div> -->
 
-                <div class="col-lg-3 col-md-3 footer-links">
-                    <h4 class="footer-dropdown-toggle">
-                        Industries We Serve
-                        <i class="bi bi-chevron-down footer-chevron"></i>
-                    </h4>
-                    <ul class="footer-dropdown-content">
-                        <li><a href="#">E-commerce & Retail</a></li>
-                        <li><a href="#">Fintech & Banking</a></li>
-                        <li><a href="#">Healthcare & MedTech</a></li>
-                        <li><a href="#">Manufacturing & Supply Chain</a></li>
-                        <li><a href="#">Education & EdTech</a></li>
-                        <li><a href="">Real Estate & Smart Systems</a></li>
-                    </ul>
-                </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Useful Links
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="Aboutus.html">About us</a></li>
+            <li><a href="Clients.html">Clients</a></li>
+            <!-- <li><a href="service.html">Services</a></li> -->
+            <!-- <li><a href="careers.html">Careers</a></li> -->
+            <!-- <li><a href="Clients.html">Case Studies</a></li> -->
+            <li><a href="contact.html">Contact Us</a></li>
+            <!-- <li><a href="#">Privacy Policy</a></li> -->
+            <!-- <li><a href="#">Terms of Service</a></li> -->
+          </ul>
+        </div>
 
-                <!-- <div class="col-lg-2 col-md-3 footer-links">
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Office Address 1
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <div class="footer-dropdown-content">
+            <div class="footer-contact">
+              <!-- <p><strong>Address:</strong></p> -->
+              <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
+              <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Office Address 2
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <div class="footer-dropdown-content">
+            <div class="footer-contact">
+              <!-- <p><strong>Address:</strong></p> -->
+              <p>Dataspan Technologies,</p>
+              <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-2 col-md-3 footer-links">
           <h4>Nobis illum</h4>
           <ul>
             <li><a href="#">Ipsam</a></li>
@@ -1839,27 +2195,26 @@
           </ul>
         </div> -->
 
-            </div>
-        </div>
+      </div>
+    </div>
 
-        <div class="container copyright text-center m-0 p-0">
-            <!-- Social Links for Mobile View -->
-            <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
-                <a href=""><i class="bi bi-twitter-x"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-            <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">DATASPAN
-                    Technologies</strong> <span>All Rights
-                    Reserved</span></p>
-        </div>
+    <div class="container copyright text-center m-0 p-0">
+      <!-- Social Links for Mobile View -->
+      <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href=""><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-linkedin"></i></a>
+      </div>
+      <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
+          Technologies</strong> <span>All Rights
+          Reserved</span></p>
+    </div>
 
-    </footer>
-
-    <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+  </footer>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short "></i></a>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -1872,27 +2227,54 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
 
+    <!-- Initialize AOS with smooth animation settings -->
+    <script>
+      AOS.init({
+        duration: 500, // Smooth animation duration (0.5s)
+        easing: 'ease-out-cubic', // Smooth cubic easing for fluid motion
+        once: true, // Animate only once
+        offset: 0, // Trigger immediately when element enters viewport
+        delay: 0 // Base delay (individual delays are set via data-aos-delay)
+      });
+    </script>
+
     <!-- Footer Dropdown Toggle Script -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
+        const marqueeContents = document.querySelectorAll('.marquee-wrapper .marquee-content');
+        const whyChooseCards = document.querySelectorAll('#why-choose-us .card');
+        const CARD_BREAKPOINT = 991;
+
+        marqueeContents.forEach(content => {
+          if (content.dataset.loopInit === 'true') return;
+          content.dataset.loopInit = 'true';
+
+          const children = Array.from(content.children);
+          children.forEach(child => {
+            const clone = child.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            content.appendChild(clone);
+          });
+        });
+
         const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
-        
+
         // Add click handlers once
         footerDropdowns.forEach(toggle => {
-          toggle.addEventListener('click', function(e) {
+          toggle.addEventListener('click', function (e) {
             // Only work on mobile
             if (window.innerWidth < 768) {
               e.preventDefault();
               const footerLinks = this.closest('.footer-links');
               const isActive = footerLinks.classList.contains('active');
-              
+
               // Close all other dropdowns
               document.querySelectorAll('.footer-links').forEach(link => {
                 if (link !== footerLinks) {
                   link.classList.remove('active');
                 }
               });
-              
+
               // Toggle current dropdown
               if (isActive) {
                 footerLinks.classList.remove('active');
@@ -1902,20 +2284,133 @@
             }
           });
         });
-        
+
+        const clearCardStates = () => {
+          whyChooseCards.forEach(card => card.classList.remove('details-visible'));
+        };
+
+        const handleCardToggle = (card) => {
+          if (window.innerWidth > CARD_BREAKPOINT) return;
+          const isActive = card.classList.contains('details-visible');
+          clearCardStates();
+          if (!isActive) {
+            card.classList.add('details-visible');
+          }
+        };
+
+        whyChooseCards.forEach(card => {
+          card.addEventListener('click', function () {
+            handleCardToggle(card);
+          });
+        });
+
         // Handle window resize - remove active classes on desktop
         let resizeTimer;
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
           clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(function() {
+          resizeTimer = setTimeout(function () {
             if (window.innerWidth >= 768) {
               document.querySelectorAll('.footer-links').forEach(link => {
                 link.classList.remove('active');
               });
             }
+            if (window.innerWidth > CARD_BREAKPOINT) {
+              clearCardStates();
+            }
           }, 250);
         });
       });
+    </script>
+
+    <!-- AI Statistics Counter Animation -->
+    <script>
+      (function() {
+        const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+        let hasAnimated = false;
+
+        function animateNumber(element) {
+          const target = parseFloat(element.getAttribute('data-target'));
+          const suffix = element.getAttribute('data-suffix') || '';
+          const duration = 2000; // 2 seconds
+          const startTime = performance.now();
+          const startValue = 0;
+
+          function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function for smooth animation
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart);
+            
+            element.textContent = currentValue + suffix;
+
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              element.textContent = target + suffix;
+            }
+          }
+
+          requestAnimationFrame(update);
+        }
+
+        function checkIfInView() {
+          const statsSection = document.querySelector('.ai-stats-section');
+          if (!statsSection || hasAnimated) return;
+
+          const rect = statsSection.getBoundingClientRect();
+          const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          
+          // Trigger animation when section is in view (when top of section is in viewport)
+          if (rect.top >= 0 && rect.top <= windowHeight * 0.8) {
+            hasAnimated = true;
+            statNumbers.forEach(stat => {
+              animateNumber(stat);
+            });
+          }
+        }
+
+        // Check on scroll
+        window.addEventListener('scroll', checkIfInView);
+        
+        // Check on page load in case section is already in view
+        window.addEventListener('load', checkIfInView);
+        
+        // Initial check
+        checkIfInView();
+      })();
+    </script>
+
+    <!-- Technologies Section Tab Functionality -->
+    <script>
+      (function() {
+        const categoryButtons = document.querySelectorAll('.tech-category-btn');
+        const cardContainers = document.querySelectorAll('.tech-cards');
+
+        categoryButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+
+            // Remove active class from all buttons
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Hide all card containers
+            cardContainers.forEach(container => {
+              container.style.display = 'none';
+            });
+
+            // Show the selected category's cards
+            const selectedCards = document.getElementById(category + '-cards');
+            if (selectedCards) {
+              selectedCards.style.display = 'flex';
+            }
+          });
+        });
+      })();
     </script>
 
 </body>
