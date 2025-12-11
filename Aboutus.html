@@ -30,15 +30,15 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
     <style>
-
         /* Breadcrumb */
         .about-breadcrumb {
-            width: 100%;
-            margin: 0 auto clamp(20px, 2.5vw, 30px) auto;
-            padding: 0 clamp(60px, 6vw, 100px);
+            width: 80%;
+            margin: 0 auto;
             position: relative;
             z-index: 2;
             pointer-events: auto;
+            border-radius: 10px;
+            /* Optional: adds subtle rounding if background is used later */
         }
 
         .about-breadcrumb .breadcrumb {
@@ -50,6 +50,7 @@
             font-size: 0.95rem;
             color: color-mix(in srgb, var(--default-color), transparent 20%);
             font-weight: 500;
+            /* border: 5px solid blue; */
         }
 
         .about-breadcrumb .breadcrumb li {
@@ -83,8 +84,15 @@
             font-weight: 600;
         }
 
+        @media (max-width: 1199px) {
+            .about-breadcrumb {
+                width: 85%;
+            }
+        }
+
         @media (max-width: 767px) {
             .about-breadcrumb {
+                width: 95%;
                 margin-bottom: clamp(15px, 3vw, 22px);
             }
 
@@ -94,12 +102,32 @@
             }
         }
 
-        /* Responsive Images - Base Rule */
         .about-section-1-image img,
         .about-section-2-image img {
-            max-width: 100%;
+            max-width: 80%;
+            width: 80%;
             height: auto;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1199px) {
+
+            .about-section-1-image img,
+            .about-section-2-image img {
+                max-width: 85%;
+                width: 85%;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .about-section-1-image img,
+            .about-section-2-image img {
+                max-width: 95%;
+                width: 95%;
+            }
         }
 
         /* Smooth transitions for all interactive elements */
@@ -204,7 +232,7 @@
         .about-breadcrumb {
             position: relative;
             z-index: 1;
-            padding: clamp(15px, 2vw, 25px) clamp(20px, 4vw, 40px);
+            padding: 0 clamp(20px, 3vw, 40px) clamp(15px, 2vw, 25px);
         }
 
         .about-breadcrumb .breadcrumb {
@@ -303,7 +331,8 @@
 
         .impact-slider-track {
             display: flex;
-            transition: transform 0.7s cubic-bezier(.6, .05, .2, .94);
+            transition: transform 0.5s cubic-bezier(.6, .05, .2, .94);
+            /* speed control */
             will-change: transform;
         }
 
@@ -392,7 +421,7 @@
             border: none;
             background: linear-gradient(135deg, #0ea0ff, #05386e);
             color: #fff;
-            box-shadow: 0 15px 35px rgba(5, 56, 110, 0.35);
+            /* box-shadow: 0 15px 35px rgba(5, 56, 110, 0.35); */
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -403,7 +432,7 @@
 
         .impact-nav:hover {
             transform: translateY(-50%) scale(1.05);
-            box-shadow: 0 20px 40px rgba(5, 56, 110, 0.45);
+            /* box-shadow: 50% rgba(5, 56, 110, 0.45); */
         }
 
         .impact-prev {
@@ -419,6 +448,7 @@
             justify-content: center;
             gap: 10px;
             padding: 0 0 26px;
+            margin-top: -55px;
         }
 
         .impact-dot {
@@ -5155,50 +5185,74 @@
             }
         }
     </style>
+    <!-- Custom Override for about-section-2-image on XL+ screens -->
+    <style>
+        @media (min-width: 1200px) {
+            .about-section-2-image {
+                height: 100% !important;
+                min-height: 100% !important;
+                display: flex !important;
+                align-items: flex-end !important;
+                overflow: hidden !important;
+                padding: clamp(8px, 1.2vw, 15px) 0 !important;
+            }
+
+            .about-section-2-image img {
+                width: 100% !important;
+                height: 100% !important;
+                min-height: 100% !important;
+                max-width: 100% !important;
+                border-radius: 30 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                object-fit: cover !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="index-page">
 
-  <nav class="navbar">
-    <div class="nav-container">
-      <!-- Logo -->
-      <div class="nav-logo">
-        <a href="index.html" class="logo">
-          <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
-        </a>
-      </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+                </a>
+            </div>
 
-      <!-- Main Navigation -->
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="index.html#hero" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="Aboutus.html" class="nav-link">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a href="Clients.html" class="nav-link">Clients</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact Us</a>
-        </li>
-      </ul>
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#hero" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Aboutus.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Clients.html" class="nav-link">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
 
-      <!-- Mobile Menu Toggle Button -->
-      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-      <!-- Action Button 
+            <!-- Action Button 
             <div class="nav-action">
                 <button class="start-project-btn">Start Project</button>
             </div>-->
-    </div>
+        </div>
 
-    <!-- Services Dropdown Menu -->
-    <!--
+        <!-- Services Dropdown Menu -->
+        <!--
     <div class="dropdown-menu" id="services-dropdown">
         <div class="dropdown-container">
             <div class="dropdown-content">
@@ -5355,8 +5409,8 @@
     </div>
     </div>
     -->
-  </nav>
-  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+    </nav>
+    <div class="mobile-menu-backdrop" aria-hidden="true"></div>
     <div class="main">
 
         <!-- Section 1: Why Us -->
@@ -5383,13 +5437,14 @@
         <section class="about-section-2 about-section-2responcive">
             <div class="about-section-2-content container">
                 <div class="about-section-2-image">
-                    <img src="assets/img/About Us/Aboutus-2.png" alt="Technology Solutions">
+                    <img src="C:\Users\Administrator\Downloads\image (16).jfif" alt="Technology Solutions">
                 </div>
                 <div class="about-section-2-text">
                     <h2 class="hybrid-heading ">
                         <span class="hybrid-heading-part1">Smart Solutions That Keep Your Business Moving Forward</span>
                     </h2>
-                    <p class="p-0 ">We help businesses work smarter by connecting systems, simplifying workflows, and creating
+                    <p class="p-0 ">We help businesses work smarter by connecting systems, simplifying workflows, and
+                        creating
                         smoother day-to-day operations that support steady and scalable growth.</p>
                     <ul class="features">
                         <li>
@@ -5614,32 +5669,36 @@
 
     </div>
 
-  <footer id="footer" class="footer section light-background">
+    <footer id="footer" class="footer section light-background">
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center ">
-            <img src="assets/img/footer-logo2.png" alt="">
-          </a>
-          <div class="footer-contact pt-1">
-            <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center ">
+                        <img src="assets/img/footer-logo2.png" alt="">
+                    </a>
+                    <div class="footer-contact pt-1">
+                        <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
             <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
-            <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance, and build
-              smarter systems that support steady, measurable growth</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
-            <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
-           
-            <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i class="bi bi-instagram"></i></a>
-            <a href="https://in.linkedin.com/company/dataspan-technologies"><i class="bi bi-linkedin"></i></a>
-            <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
-          </div>
-        </div>
+                        <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance,
+                            and build
+                            smarter systems that support steady, measurable growth</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+                        <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+                    </div>
+                    <div class="social-links d-flex my-2">
+                        <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
 
-        <!-- <div class="col-lg-3 col-md-3 footer-links">
+                        <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://in.linkedin.com/company/dataspan-technologies"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i
+                                class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-3 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
             Our Solutions
             <i class="bi bi-chevron-down footer-chevron"></i>
@@ -5654,7 +5713,7 @@
           </ul>
         </div> -->
 
-        <!-- <div class="col-lg-3 col-md-3 footer-links">
+                <!-- <div class="col-lg-3 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
             Industries We Serve
             <i class="bi bi-chevron-down footer-chevron"></i>
@@ -5669,53 +5728,53 @@
           </ul>
         </div> -->
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4 class="footer-dropdown-toggle">
-            Useful Links
-            <i class="bi bi-chevron-down footer-chevron"></i>
-          </h4>
-          <ul class="footer-dropdown-content">
-            <li><a href="index.html#hero">Home</a></li>
-            <li><a href="Aboutus.html">About us</a></li>
-            <li><a href="Clients.html">Clients</a></li>
-            <!-- <li><a href="service.html">Services</a></li> -->
-            <!-- <li><a href="careers.html">Careers</a></li> -->
-            <!-- <li><a href="Clients.html">Case Studies</a></li> -->
-            <li><a href="contact.html">Contact Us</a></li>
-            <!-- <li><a href="#">Privacy Policy</a></li> -->
-            <!-- <li><a href="#">Terms of Service</a></li> -->
-          </ul>
-        </div>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Useful Links
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <ul class="footer-dropdown-content">
+                        <li><a href="index.html#hero">Home</a></li>
+                        <li><a href="Aboutus.html">About us</a></li>
+                        <li><a href="Clients.html">Clients</a></li>
+                        <!-- <li><a href="service.html">Services</a></li> -->
+                        <!-- <li><a href="careers.html">Careers</a></li> -->
+                        <!-- <li><a href="Clients.html">Case Studies</a></li> -->
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <!-- <li><a href="#">Privacy Policy</a></li> -->
+                        <!-- <li><a href="#">Terms of Service</a></li> -->
+                    </ul>
+                </div>
 
-        <div class="col-lg-3 col-md-3 footer-links">
-          <h4 class="footer-dropdown-toggle">
-            Office Address 1
-            <i class="bi bi-chevron-down footer-chevron"></i>
-          </h4>
-          <div class="footer-dropdown-content">
-            <div class="footer-contact">
-              <!-- <p><strong>Address:</strong></p> -->
-              <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
-              <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
-            </div>
-          </div>
-        </div>
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Office Address 1
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <div class="footer-dropdown-content">
+                        <div class="footer-contact">
+                            <!-- <p><strong>Address:</strong></p> -->
+                            <p>Shreeji Pride, Dataspan Technologies Pvt. Ltd. , Shreeji Pride, Second Floor, Opp.</p>
+                            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="col-lg-3 col-md-3 footer-links">
-          <h4 class="footer-dropdown-toggle">
-            Office Address 2
-            <i class="bi bi-chevron-down footer-chevron"></i>
-          </h4>
-          <div class="footer-dropdown-content">
-            <div class="footer-contact">
-              <!-- <p><strong>Address:</strong></p> -->
-              <p>Dataspan Technologies,</p>
-              <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
-            </div>
-          </div>
-        </div>
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Office Address 2
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <div class="footer-dropdown-content">
+                        <div class="footer-contact">
+                            <!-- <p><strong>Address:</strong></p> -->
+                            <p>Dataspan Technologies Pvt. Ltd. ,</p>
+                            <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- <div class="col-lg-2 col-md-3 footer-links">
+                <!-- <div class="col-lg-2 col-md-3 footer-links">
           <h4>Nobis illum</h4>
           <ul>
             <li><a href="#">Ipsam</a></li>
@@ -5726,23 +5785,23 @@
           </ul>
         </div> -->
 
-      </div>
-    </div>
+            </div>
+        </div>
 
-    <div class="container copyright text-center m-0 p-0">
-      <!-- Social Links for Mobile View -->
-      <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
-      <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
-          Technologies</strong> <span>All Rights
-          Reserved</span></p>
-    </div>
+        <div class="container copyright text-center m-0 p-0">
+            <!-- Social Links for Mobile View -->
+            <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+            <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
+                    Technologies</strong> <span>All Rights
+                    Reserved</span></p>
+        </div>
 
-  </footer>
+    </footer>
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
