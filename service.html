@@ -15,7 +15,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,10 +33,23 @@
     <style>
         /* Enhanced Hero Section */
         #hero.hero.section {
-            background: linear-gradient(135deg, #0a4a6e 0%, #1e7ba8 50%, #2a9fd8 100%);
+            background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 95%) 0%, color-mix(in srgb, var(--accent-color), transparent 90%) 50%, color-mix(in srgb, var(--accent-color), transparent 98%) 100%);
             position: relative;
             overflow: hidden;
-            padding: 120px 0 100px;
+            padding: clamp(100px, 10vw, 120px) 0 clamp(40px, 5vw, 60px) 0;
+            padding-top: clamp(100px, 10vw, 120px) !important;
+        }
+
+        #hero .container {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+        }
+
+        #hero .row {
+            margin: 0 !important;
+            width: 100%;
         }
 
         #hero.hero.section::before {
@@ -44,10 +59,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
-                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
-                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
-            opacity: 0.5;
+            background: radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--accent-color), transparent 92%), transparent 40%);
             pointer-events: none;
         }
 
@@ -58,44 +70,103 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+            opacity: 0.3;
             pointer-events: none;
         }
 
+        /* Breadcrumb */
         .hero-breadcrumbs {
-            color: #ffffff;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
+            width: 80%;
+            margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            pointer-events: auto;
+            border-radius: 10px;
+            /* Optional: adds subtle rounding if background is used later */
+            padding: 0 clamp(20px, 3vw, 40px) clamp(15px, 2vw, 25px);
         }
 
-        .hero-breadcrumbs a {
-            color: #ffffff;
+        .hero-breadcrumbs .breadcrumb {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 8px;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+            font-weight: 500;
+            /* border: 5px solid blue; */
+        }
+
+        .hero-breadcrumbs .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-breadcrumbs .breadcrumb li::after {
+            content: '›';
+            font-size: 0.85rem;
+            color: color-mix(in srgb, var(--default-color), transparent 40%);
+        }
+
+        .hero-breadcrumbs .breadcrumb li:last-child::after {
+            display: none;
+        }
+
+        .hero-breadcrumbs .breadcrumb a {
+            color: var(--accent-color);
             text-decoration: none;
-            transition: opacity 0.3s ease;
+            transition: color 0.2s ease;
         }
 
-        .hero-breadcrumbs a:hover {
-            opacity: 0.8;
+        .hero-breadcrumbs .breadcrumb a:hover {
+            color: color-mix(in srgb, var(--accent-color), transparent 20%);
         }
 
-        .hero-breadcrumbs span {
-            margin: 0 8px;
-            opacity: 0.7;
+        .hero-breadcrumbs .breadcrumb span {
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1199px) {
+            .hero-breadcrumbs {
+                width: 85%;
+            }
+
+            .hero-content {
+                width: 85% !important;
+                max-width: 85% !important;
+                padding: clamp(8px, 1.2vw, 15px) clamp(20px, 3vw, 40px);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-breadcrumbs {
+                width: 95%;
+                margin-bottom: clamp(15px, 3vw, 22px);
+            }
+
+            .hero-breadcrumbs .breadcrumb {
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+            }
         }
 
         .hero-title {
             color: #ffffff;
             font-weight: 700;
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-family: var(--heading-font);
             line-height: 1.2;
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
             animation: fadeInUp 1s ease-out;
+            text-align: center;
         }
 
 
@@ -149,13 +220,20 @@
             animation: fadeInUp 1s ease-out;
             position: relative;
             z-index: 1;
+            width: 80% !important;
+            max-width: 80% !important;
+            margin: 0 auto;
+            padding: clamp(8px, 1.2vw, 15px) clamp(20px, 3vw, 40px);
+            box-sizing: border-box;
         }
 
         .hero-content p {
             color: #ffffff;
-            font-size: 1.125rem;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            font-family: var(--default-font);
             line-height: 1.7;
             margin-bottom: 2rem;
+            text-align: center;
         }
 
         .hero-content p strong {
@@ -175,62 +253,53 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .hero-buttons .btn {
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            padding: 12px 30px;
+            padding: 0.75rem 2.5rem;
             font-weight: 600;
-            font-size: 1rem;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+            border-radius: 50px;
+            border: 2px solid;
+            font-family: var(--default-font);
         }
 
         .hero-buttons .btn-primary {
-            background: #ffffff;
-            color: #1e7ba8;
-            border-color: rgba(255, 255, 255, 0.5);
+            background-color: var(--accent-color);
+            color: var(--contrast-color);
+            border-color: var(--accent-color);
         }
 
         .hero-buttons .btn-primary:hover {
-            background: #f0f0f0;
+            background-color: color-mix(in srgb, var(--accent-color), black 20%);
+            border-color: color-mix(in srgb, var(--accent-color), black 20%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(13, 131, 253, 0.3);
         }
 
         .hero-buttons .btn-secondary {
-            background: transparent;
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--contrast-color);
+            border-color: var(--contrast-color);
+            backdrop-filter: blur(10px);
         }
 
         .hero-buttons .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background-color: var(--contrast-color);
+            color: var(--accent-color);
+            border-color: var(--contrast-color);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero-buttons .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .hero-buttons .btn:hover::before {
-            left: 100%;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
         }
 
         /* AI Development Statistics Infographic Styles */
         .ai-stats-section {
-            padding: 60px 0;
-            background: #ffffff;
+            padding: 30px 0;
+            background: var(--background-color);
         }
 
         .ai-stats-container {
@@ -241,23 +310,23 @@
         .ai-stats-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #333333;
+            color: var(--heading-color);
+            font-family: var(--heading-font);
             text-align: center;
-            margin-bottom: 2.5rem;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin-bottom: 1.5rem;
         }
 
         .ai-highlight {
-            background: #fff9c4;
+            background: color-mix(in srgb, var(--accent-color), transparent 90%);
             padding: 4px 12px;
             border-radius: 4px;
-            color: #333333;
+            color: var(--heading-color);
             display: inline-block;
         }
 
         .ai-stat-card {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
+            background: var(--surface-color);
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
             border-radius: 12px;
             padding: 30px 20px;
             text-align: center;
@@ -269,8 +338,8 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            border: 1px solid #e0e0e0;
-            background: #ffffff;
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+            background: var(--surface-color);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -280,8 +349,8 @@
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
-            color: #333333;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--heading-color);
+            font-family: var(--heading-font);
         }
 
         .stat-content {
@@ -289,11 +358,11 @@
         }
 
         .stat-text {
-            color: #555555;
+            color: var(--default-color);
             font-size: 0.95rem;
             line-height: 1.5;
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: var(--default-font);
         }
 
         /* Responsive AI Stats */
@@ -321,9 +390,17 @@
         }
 
         /* Responsive Hero Styles */
+        @media (max-width: 991px) {
+            #hero.hero.section {
+                padding: clamp(90px, 8vw, 110px) 0 clamp(35px, 4.5vw, 55px) 0;
+                padding-top: clamp(90px, 8vw, 110px) !important;
+            }
+        }
+
         @media (max-width: 768px) {
             #hero.hero.section {
-                padding: 80px 0 60px;
+                padding: clamp(80px, 7vw, 100px) 0 clamp(30px, 4vw, 45px) 0;
+                padding-top: clamp(80px, 7vw, 100px) !important;
             }
 
             .hero-title {
@@ -336,25 +413,29 @@
 
             .hero-buttons {
                 flex-direction: column;
+                gap: 0.75rem;
             }
 
             .hero-buttons .btn {
                 width: 100%;
+                max-width: 280px;
                 text-align: center;
+                padding: 0.65rem 1.75rem;
+                font-size: 0.95rem;
             }
         }
 
         /* Second section - Services Cards from CodePen */
         .second {
             background-color: #f6f9fc;
-            padding: 80px 0;
+            padding: 40px 0;
         }
 
         .row-services {
             width: 100%;
             max-width: 1320px;
             margin: 0 auto;
-            padding-bottom: 60px;
+            padding-bottom: 30px;
         }
 
         .container-services {
@@ -463,8 +544,8 @@
         }
 
         .tile:nth-child(4) {
-            --text: #b41924;
-            --primary: #fce4e5;
+            --text: #fff;
+            --primary: #6610f2;
             background-color: var(--primary);
             z-index: 4;
             color: var(--text);
@@ -472,9 +553,17 @@
 
         .tile:nth-child(5) {
             --text: #fff;
-            --primary: #000;
+            --primary: #fd7e14;
             background-color: var(--primary);
             z-index: 5;
+            color: var(--text);
+        }
+
+        .tile:nth-child(6) {
+            --text: #fff;
+            --primary: #20c997;
+            background-color: var(--primary);
+            z-index: 6;
             color: var(--text);
         }
 
@@ -502,6 +591,70 @@
             font-family: 'Sora', sans-serif;
         }
 
+        .products-tile-container.row-2 {
+            margin-top: 2rem;
+        }
+
+        .row-2 .tile:nth-child(1) {
+            --text: #fff;
+            --primary: #fd7e14;
+            background-color: var(--primary);
+            z-index: 1;
+            color: var(--text);
+        }
+
+        .row-2 .tile:nth-child(2) {
+            --text: #fff;
+            --primary: #20c997;
+            background-color: var(--primary);
+            z-index: 2;
+            color: var(--text);
+        }
+
+        .row-2 .tile:nth-child(3) {
+            --text: #fff;
+            --primary: #dc3545;
+            background-color: var(--primary);
+            z-index: 3;
+            color: var(--text);
+        }
+
+        .row-2 .tile:nth-child(4) {
+            background: linear-gradient(135deg, #0061ff 0%, #60efff 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            z-index: 4;
+        }
+
+        .cta-text {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .cta-button {
+            background-color: #fff;
+            color: #0061ff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
         .tile:hover .discover-btn {
             width: 170px;
         }
@@ -526,6 +679,8 @@
             margin-bottom: 60px;
             margin-top: 60px;
             font-weight: 600;
+            color: var(--heading-color);
+            font-family: var(--heading-font);
         }
 
         a.tile {
@@ -583,14 +738,14 @@
             margin: 0;
             background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #f8fafc 100%);
             overflow: hidden;
-            padding: 80px 0;
+            padding: 40px 0;
             position: relative;
             /* border: 5px solid red; */
         }
 
         .section4 .section-title-container {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 2;
         }
@@ -621,7 +776,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 radial-gradient(circle at 20% 30%, rgba(3, 5, 97, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(9, 190, 245, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 50% 50%, rgba(3, 5, 97, 0.03) 0%, transparent 70%);
@@ -629,8 +784,15 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
 
         .section4 .wrapper {
@@ -668,7 +830,7 @@
             -ms-overflow-style: none;
             -webkit-overflow-scrolling: touch;
             background: linear-gradient(135deg, #e8f0f5 0%, #d1e0e8 50%, #c4d4dd 100%);
-            box-shadow: 
+            box-shadow:
                 0 25px 80px rgba(0, 0, 0, 0.12),
                 0 0 0 1px rgba(255, 255, 255, 0.5);
         }
@@ -700,7 +862,7 @@
             pointer-events: auto;
             z-index: 10;
         }
-        
+
         .section4 .feature-item:not(.active) {
             opacity: 0.25;
         }
@@ -749,15 +911,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.4) 0%, 
-                rgba(248, 250, 252, 0.3) 50%,
-                rgba(255, 255, 255, 0.2) 100%);
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.4) 0%,
+                    rgba(248, 250, 252, 0.3) 50%,
+                    rgba(255, 255, 255, 0.2) 100%);
             position: relative;
             overflow: hidden;
             perspective: 1000px;
             transform-style: preserve-3d;
-            box-shadow: 
+            box-shadow:
                 0 25px 80px rgba(0, 0, 0, 0.12),
                 0 0 0 1px rgba(255, 255, 255, 0.5);
         }
@@ -785,8 +947,15 @@
         }
 
         @keyframes gradientFlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .section4 .number-box::after {
@@ -803,14 +972,19 @@
         }
 
         @keyframes rotateRing {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
         }
 
         /* Enhanced 5th section - Technologies */
         .section5 {
             background: #ffffff;
-            padding: 80px 0;
+            padding: 50px 0 10px 0px;
         }
 
         .technologies-section {
@@ -824,25 +998,27 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 1.5rem;
-            color: #333333;
+            color: var(--heading-color);
+            font-family: var(--heading-font);
             line-height: 1.2;
         }
 
         .tech-highlight {
-            background: #fff9c4;
+            background: color-mix(in srgb, var(--accent-color), transparent 90%);
             padding: 4px 12px;
             border-radius: 4px;
-            color: #333333;
+            color: var(--heading-color);
             display: inline-block;
         }
 
         .tech-blue {
-            color: #1e7ba8;
+            color: var(--accent-color);
         }
 
         .technologies-description {
             text-align: center;
-            color: #555555;
+            color: var(--default-color);
+            font-family: var(--default-font);
             font-size: 1.125rem;
             line-height: 1.7;
             margin-bottom: 3rem;
@@ -861,25 +1037,26 @@
 
         .tech-category-btn {
             padding: 12px 24px;
-            border: 2px solid #e0e0e0;
-            background: #ffffff;
-            color: #333333;
+            border: 2px solid color-mix(in srgb, var(--default-color), transparent 90%);
+            background: var(--surface-color);
+            color: var(--default-color);
             border-radius: 8px;
             font-size: 1rem;
             font-weight: 500;
+            font-family: var(--default-font);
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .tech-category-btn:hover {
-            border-color: #1e7ba8;
-            color: #1e7ba8;
+            border-color: var(--accent-color);
+            color: var(--accent-color);
         }
 
         .tech-category-btn.active {
-            background: #1e7ba8;
-            color: #ffffff;
-            border-color: #1e7ba8;
+            background: var(--accent-color);
+            color: var(--contrast-color);
+            border-color: var(--accent-color);
         }
 
         .tech-cards-container {
@@ -894,8 +1071,8 @@
         }
 
         .tech-card {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
+            background: var(--surface-color);
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
             border-radius: 16px;
             padding: 30px 20px;
             width: 180px;
@@ -907,7 +1084,7 @@
         .tech-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border-color: #1e7ba8;
+            border-color: var(--accent-color);
         }
 
         .tech-logo {
@@ -923,7 +1100,7 @@
             width: 80px;
             height: 80px;
             border-radius: 12px;
-            background: #f5f5f5;
+            background: color-mix(in srgb, var(--default-color), transparent 96%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -941,7 +1118,7 @@
             position: absolute;
             width: 60%;
             height: 60%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
             border-radius: 50%;
             top: 20%;
             left: 20%;
@@ -1023,14 +1200,28 @@
             left: 25%;
         }
 
-        .aws-logo, .azure-logo, .gcp-logo, .pandas-logo, .numpy-logo, .opencv-logo, .nltk-logo, .security-logo {
-            background: #f5f5f5;
-            border: 2px solid #e0e0e0;
+        .aws-logo,
+        .azure-logo,
+        .gcp-logo,
+        .pandas-logo,
+        .numpy-logo,
+        .opencv-logo,
+        .nltk-logo,
+        .security-logo {
+            background: color-mix(in srgb, var(--default-color), transparent 96%);
+            border: 2px solid color-mix(in srgb, var(--default-color), transparent 90%);
         }
 
-        .aws-logo::before, .azure-logo::before, .gcp-logo::before, .pandas-logo::before, .numpy-logo::before, .opencv-logo::before, .nltk-logo::before, .security-logo::before {
+        .aws-logo::before,
+        .azure-logo::before,
+        .gcp-logo::before,
+        .pandas-logo::before,
+        .numpy-logo::before,
+        .opencv-logo::before,
+        .nltk-logo::before,
+        .security-logo::before {
             content: '?';
-            color: #999;
+            color: color-mix(in srgb, var(--default-color), transparent 40%);
             font-size: 2rem;
             font-weight: bold;
         }
@@ -1038,7 +1229,8 @@
         .tech-name {
             font-size: 1rem;
             font-weight: 600;
-            color: #333333;
+            color: var(--default-color);
+            font-family: var(--default-font);
             margin: 0;
         }
 
@@ -1065,6 +1257,354 @@
             .logo-placeholder {
                 width: 60px;
                 height: 60px;
+            }
+        }
+
+        /* Section 6 - Interactive Chat Interface (Unscrambl Style) */
+        .section6 {
+            background: var(--background-color);
+            padding: 50px 0;
+            position: relative;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.02) 2px, rgba(0, 0, 0, 0.02) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 0, 0, 0.02) 2px, rgba(0, 0, 0, 0.02) 4px);
+        }
+
+        .chat-interface-wrapper {
+            padding: 0 0px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .chat-interface {
+            background: var(--surface-color);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow: hidden;
+            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            justify-content: center;
+        }
+
+        .message {
+            display: flex;
+            animation: fadeInUpSmooth 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            max-width: 90%;
+            margin-bottom: 5px;
+            transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .message.user {
+            align-self: flex-start;
+            align-items: flex-start;
+        }
+
+        .message.assistant {
+            align-self: flex-start;
+            align-items: flex-start;
+        }
+
+        @keyframes fadeInUpSmooth {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+
+            60% {
+                opacity: 0.8;
+                transform: translateY(-5px) scale(1.02);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .message-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--contrast-color);
+            font-size: 1rem;
+            background: var(--accent-color);
+        }
+
+        .message.user .message-avatar {
+            background: var(--accent-color);
+        }
+
+        .message.assistant .message-avatar {
+            background: var(--accent-color);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+            border-radius: 0;
+        }
+
+        .message-content {
+            background: var(--surface-color);
+            padding: 12px 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .message.user .message-content {
+            background: var(--surface-color);
+            color: var(--default-color);
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+        }
+
+        .message.assistant .message-content {
+            background: var(--surface-color);
+            color: var(--default-color);
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+        }
+
+        .message-text {
+            margin: 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            color: var(--default-color);
+            font-family: var(--default-font);
+        }
+
+        .chart-container {
+            margin-top: 12px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .chart-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--heading-color);
+            font-family: var(--heading-font);
+            margin-bottom: 12px;
+        }
+
+        .chart-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 90%) 0%, color-mix(in srgb, var(--accent-color), transparent 85%) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .chat-input-field {
+            margin-top: auto;
+        }
+
+        .chat-input-field input {
+            width: 100%;
+            padding: 14px 20px;
+            border: 2px solid color-mix(in srgb, var(--default-color), transparent 90%);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            background: var(--surface-color);
+            color: color-mix(in srgb, var(--default-color), transparent 40%);
+            font-family: var(--default-font);
+        }
+
+        /* Right Side - Marketing Content */
+        .marketing-content-wrapper {
+            padding: 0 40px;
+        }
+
+        .marketing-content {
+            max-width: 600px;
+        }
+
+        .marketing-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            font-family: var(--heading-font);
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .product-logos {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .qbo-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            font-family: var(--heading-font);
+        }
+
+        .plus-sign {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .teams-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--contrast-color);
+            background: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .marketing-description {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--default-color);
+            font-family: var(--default-font);
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-cta {
+            background: var(--accent-color);
+            color: var(--contrast-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary-cta:hover {
+            background: color-mix(in srgb, var(--accent-color), transparent 10%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 131, 253, 0.4);
+        }
+
+        .btn-secondary-cta {
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary-cta:hover {
+            background: var(--accent-color);
+            color: var(--contrast-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 131, 253, 0.4);
+        }
+
+        .typing-indicator {
+            display: inline-flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            animation: typingDot 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingDot {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 992px) {
+
+            .chat-interface-wrapper,
+            .marketing-content-wrapper {
+                padding: 0 0px;
+                margin-bottom: 40px;
+            }
+
+            .marketing-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section6 {
+                padding: 30px 0;
+            }
+
+            .chat-interface {
+                min-height: 400px;
+            }
+
+            .message {
+                max-width: 90%;
+            }
+
+            .marketing-title {
+                font-size: 2rem;
+            }
+
+            .marketing-description {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary-cta,
+            .btn-secondary-cta {
+                width: 100%;
+                text-align: center;
             }
         }
 
@@ -1262,51 +1802,51 @@
 </head>
 
 <body class="services">
-  <nav class="navbar">
-    <div class="nav-container">
-      <!-- Logo -->
-      <div class="nav-logo">
-        <a href="index.html" class="logo">
-          <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
-        </a>
-      </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+                </a>
+            </div>
 
-      <!-- Main Navigation -->
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="index.html#hero" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="Aboutus.html" class="nav-link">About Us</a>
-        </li>
-        <!-- <li class="nav-item dropdown">
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#hero" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Aboutus.html" class="nav-link">About Us</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
             Services
           </a>
         </li> -->
-        <li class="nav-item">
-          <a href="Clients.html" class="nav-link">Clients</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact Us</a>
-        </li>
-      </ul>
+                <li class="nav-item">
+                    <a href="Clients.html" class="nav-link">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
 
-      <!-- Mobile Menu Toggle Button -->
-      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-      <!-- Action Button 
+            <!-- Action Button 
             <div class="nav-action">
                 <button class="start-project-btn">Start Project</button>
             </div>-->
-    </div>
+        </div>
 
-    <!-- Services Dropdown Menu -->
-    <!--
+        <!-- Services Dropdown Menu -->
+        <!--
     <div class="dropdown-menu" id="services-dropdown">
         <div class="dropdown-container">
             <div class="dropdown-content">
@@ -1463,11 +2003,20 @@
     </div>
     </div>
     -->
-  </nav>
-  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+    </nav>
+    <div class="mobile-menu-backdrop" aria-hidden="true"></div>
     <div class="main">
         <!-- hero section -->
         <section id="hero" class="hero section">
+
+            <!-- Breadcrumbs -->
+            <div class="hero-breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><span>AI & Automation</span></li>
+                </ol>
+            </div>
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -1475,27 +2024,22 @@
 
                     <div class="col-lg-12">
                         <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
-                            <!-- Breadcrumbs -->
-                            <div class="hero-breadcrumbs">
-                                <a href="index.html">Home</a>
-                                <span>»</span>
-                                <a href="#">Technologies</a>
-                                <span>»</span>
-                                <span>AIML</span>
-                            </div>
 
                             <!-- Main Heading -->
-                            <h1 class="mb-4 hero-title">AIML Development Services</h1>
+                            <h1 class="mb-4 hero-title">Revolutionizing Data with AI-Powered Solutions</h1>
 
                             <!-- Description Paragraph -->
                             <p class="mb-4 mb-md-5">
-                                Experience cutting-edge AI development with Thinkitive. Our dedicated team of experts leverages the latest technology to create bespoke AI solutions that transform businesses. From predictive analytics to natural language processing, We can be your partner for <strong>innovation and success.</strong>
+                                We design, build, and deploy powerful AI and machine-learning solutions that enhance
+                                efficiency, automate workflows, and drive measurable results. From predictive analytics
+                                to NLP and custom LLM development, we help organizations unlock smarter, scalable, and
+                                future-ready capabilities.
                             </p>
 
                             <!-- Call to Action Buttons -->
                             <div class="hero-buttons">
-                                <a href="#contact" class="btn btn-primary">Book a Discovery Call</a>
-                                <a href="#contact" class="btn btn-secondary">Get Free Consultation</a>
+                                <a href="#contact" class="btn btn-primary">Start Your AI Project</a>
+                                <a href="#contact" class="btn btn-outline-primary">Get Free Consultation</a>
                             </div>
                         </div>
                     </div>
@@ -1518,40 +2062,40 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="ai-stat-card">
                                 <div class="stat-circle">
-                                    <span class="stat-number" data-target="83" data-suffix="%">0%</span>
+                                    <span class="stat-number" data-target="82" data-suffix="%">0%</span>
                                 </div>
                                 <div class="stat-content">
-                                    <p class="stat-text">Organizations find AI as a strategic priority</p>
+                                    <p class="stat-text">Businesses prioritize AI for competitive growth.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="ai-stat-card">
                                 <div class="stat-circle">
-                                    <span class="stat-number" data-target="30" data-suffix="%">0%</span>
+                                    <span class="stat-number" data-target="35" data-suffix="%">0%</span>
                                 </div>
                                 <div class="stat-content">
-                                    <p class="stat-text">Average cost savings with AI automation</p>
+                                    <p class="stat-text">Average cost reduction using AI automation.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="ai-stat-card">
                                 <div class="stat-circle">
-                                    <span class="stat-number" data-target="25" data-suffix="x">0x</span>
+                                    <span class="stat-number" data-target="20" data-suffix="x">0%</span>
                                 </div>
                                 <div class="stat-content">
-                                    <p class="stat-text">Faster decision-making with AI-powered tools</p>
+                                    <p class="stat-text">Faster decisions enabled by intelligent AI systems.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="ai-stat-card">
                                 <div class="stat-circle">
-                                    <span class="stat-number" data-target="90" data-suffix="%">0%</span>
+                                    <span class="stat-number" data-target="91" data-suffix="%">0%</span>
                                 </div>
                                 <div class="stat-content">
-                                    <p class="stat-text">Of enterprise-grade applications will use AI by 2026</p>
+                                    <p class="stat-text">Enterprise applications integrating AI by 2026.</p>
                                 </div>
                             </div>
                         </div>
@@ -1566,13 +2110,18 @@
             <div class="row-services">
                 <div class="container-services">
                     <div class="section-title-services">
-                        <h2>There's so much more at Dataspan</h2>
+                        <h3 class="ai-stats-title"> AI Solutions Built For Real Impact</h3>
+                        <p class="mb-4 mb-md-5">
+                            Driving automation, intelligence, and efficiency across all modern business operations.
+                        </p>
                     </div>
                     <div class="products-tile-container">
                         <a class="tile" href="#">
                             <div class="tile-background"></div>
-                            <p class="tile-title">AI & Automation</p>
-                            <p class="card-text">Transform your business with intelligent AI workflows and automation solutions that streamline operations and boost productivity.</p>
+                            <p class="tile-title">Predictive Analytics</p>
+                            <p class="card-text">Analyze patterns, forecast outcomes, and drive smarter decisions using
+                                machine learning models designed to optimize performance and reduce operational risks.
+                            </p>
                             <div class="icon-popup"><i class="fa-duotone fa-robot"></i></div>
                             <div class="discover-btn">
                                 <span class="text">discover</span>
@@ -1581,9 +2130,11 @@
                         </a>
                         <a class="tile" href="#">
                             <div class="tile-background"></div>
-                            <p class="tile-title">Generative AI</p>
+                            <p class="tile-title">Intelligent Recommendation Systems</p>
                             <p class="card-text">
-                                Leverage cutting-edge LLM technology to create intelligent chatbots, content generation, and AI-powered applications that understand context.
+                                Deliver personalized product or content suggestions powered by advanced algorithms that
+                                increase engagement, improve retention, and enhance overall customer experiences
+                                efficiently.
                             </p>
                             <div class="icon-popup"><i class="fa-duotone fa-brain"></i></div>
                             <div class="discover-btn">
@@ -1593,14 +2144,69 @@
                         </a>
                         <a class="tile" href="#">
                             <div class="tile-background"></div>
-                            <p class="tile-title">Data Analytics</p>
-                            <p class="card-text">Turn your data into actionable insights with advanced NLP and analytics solutions that drive smarter business decisions.</p>
+                            <p class="tile-title">Natural Language Processing</p>
+                            <p class="card-text">Automate text understanding, sentiment evaluation, and chatbot
+                                interactions using modern NLP techniques that transform unstructured language into
+                                actionable insights effortlessly.</p>
                             <div class="icon-popup"><i class="fa-duotone fa-chart-line"></i></div>
                             <div class="discover-btn">
                                 <span class="text">discover</span>
                                 <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
                             </div>
                         </a>
+                        <a class="tile" href="#">
+                            <div class="tile-background"></div>
+                            <p class="tile-title">Custom LLM Development</p>
+                            <p class="card-text">Build domain-specific large language models trained on your proprietary
+                                data to deliver accurate, reliable, and context-aware intelligence tailored for business
+                                operations.</p>
+                            <div class="icon-popup"><i class="fa-duotone fa-chart-line"></i></div>
+                            <div class="discover-btn">
+                                <span class="text">discover</span>
+                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="products-tile-container row-2">
+                        <a class="tile" href="#">
+                            <div class="tile-background"></div>
+                            <p class="tile-title">RAG-Based Intelligence</p>
+                            <p class="card-text">Combine retrieval systems with generation models to provide accurate,
+                                source-backed answers that enhance knowledge access, support operations, and streamline
+                                decision-making effectively.</p>
+                            <div class="icon-popup"><i class="fa-duotone fa-chart-line"></i></div>
+                            <div class="discover-btn">
+                                <span class="text">discover</span>
+                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
+                            </div>
+                        </a>
+                        <a class="tile" href="#">
+                            <div class="tile-background"></div>
+                            <p class="tile-title">AI Workflow Automation</p>
+                            <p class="card-text">Eliminate repetitive tasks with AI-driven automation designed to
+                                accelerate processes, reduce mistakes, improve throughput, and enhance operational
+                                efficiency across departments.</p>
+                            <div class="icon-popup"><i class="fa-duotone fa-chart-line"></i></div>
+                            <div class="discover-btn">
+                                <span class="text">discover</span>
+                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
+                            </div>
+                        </a>
+                        <a class="tile" href="#">
+                            <div class="tile-background"></div>
+                            <p class="tile-title">Data Strategy & Consulting</p>
+                            <p class="card-text">Develop comprehensive data strategies and governance frameworks that
+                                align
+                                with business goals, ensuring data quality, security, and scalability for future growth.
+                            </p>
+                            <div class="icon-popup"><i class="fa-duotone fa-database"></i></div>
+                            <div class="discover-btn">
+                                <span class="text">discover</span>
+                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
+                            </div>
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -1616,19 +2222,22 @@
                     <div class="feature-item active">
                         <div class="feature-content">
                             <h3>Expertise</h3>
-                            <p>Our team comprises experienced AI professionals with expertise in machine learning, deep learning, computer vision, and natural language processing.</p>
+                            <p>Our team comprises experienced AI professionals with expertise in machine learning, deep
+                                learning, computer vision, and natural language processing.</p>
                         </div>
-                        </div>
+                    </div>
                     <div class="feature-item">
                         <div class="feature-content">
                             <h3>Customized Solutions</h3>
-                            <p>We design AI solutions to meet your organization's specific needs and objectives, automating processes & enhancing user experience.</p>
+                            <p>We design AI solutions to meet your organization's specific needs and objectives,
+                                automating processes & enhancing user experience.</p>
                         </div>
                     </div>
                     <div class="feature-item">
                         <div class="feature-content">
                             <h3>Scalability</h3>
-                            <p>Our AI solutions grow with your business—whether early-stage startup or enterprise deployment.</p>
+                            <p>Our AI solutions grow with your business—whether early-stage startup or enterprise
+                                deployment.</p>
                         </div>
                     </div>
                     <div class="feature-item">
@@ -1654,7 +2263,7 @@
                             <h3>Results-Driven Approach</h3>
                             <p>We deliver measurable outcomes—efficiency, cost reduction & high user satisfaction.</p>
                         </div>
-                </div>
+                    </div>
                 </div>
                 <div class="number-box">
                     <div class="number">01</div>
@@ -1682,28 +2291,28 @@
                 // Function to smoothly center a feature item
                 function centerFeatureItem(item, index) {
                     if (!item || isScrolling) return;
-                    
+
                     isScrolling = true;
                     const itemOffsetTop = item.offsetTop;
                     const containerHeight = scrollContainer.clientHeight;
                     const itemHeight = item.offsetHeight;
-                    
+
                     const targetScroll = Math.max(0, itemOffsetTop - (containerHeight / 2) + (itemHeight / 2));
-                    
+
                     // Deactivate current feature
                     if (activeFeatureIndex >= 0 && featureItems[activeFeatureIndex]) {
                         featureItems[activeFeatureIndex].classList.remove('active');
                         deactivateFeature(featureItems[activeFeatureIndex]);
                     }
-                    
+
                     // Activate new feature
                     activeFeatureIndex = index;
                     item.classList.add('active');
-                    
+
                     // Change number and activate feature simultaneously
                     changeNumber(index);
                     activateFeature(item);
-                    
+
                     // Smooth scroll animation synchronized with number change
                     gsap.to(scrollContainer, {
                         scrollTop: targetScroll,
@@ -1711,9 +2320,9 @@
                         ease: "power3.out",
                         onComplete: () => {
                             // Allow next scroll after animation completes
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(() => {
-                        isScrolling = false;
+                            clearTimeout(scrollTimeout);
+                            scrollTimeout = setTimeout(() => {
+                                isScrolling = false;
                             }, 100);
                         }
                     });
@@ -1726,16 +2335,16 @@
                         e.preventDefault();
                         return;
                     }
-                    
+
                     const deltaY = e.deltaY;
                     const currentIndex = activeFeatureIndex >= 0 ? activeFeatureIndex : 0;
                     const isAtTop = currentIndex === 0;
                     const isAtBottom = currentIndex === featureItems.length - 1;
-                    
+
                     // Check if we can scroll within features
                     const canScrollDown = deltaY > 0 && !isAtBottom;
                     const canScrollUp = deltaY < 0 && !isAtTop;
-                    
+
                     if (canScrollDown) {
                         // Scroll down - move to next feature
                         e.preventDefault();
@@ -1786,7 +2395,7 @@
                                         deactivateFeature(f);
                                     }
                                 });
-                                
+
                                 activeFeatureIndex = index;
                                 item.classList.add("active");
                                 changeNumber(index);
@@ -1803,7 +2412,7 @@
                                         deactivateFeature(f);
                                     }
                                 });
-                                
+
                                 activeFeatureIndex = index;
                                 item.classList.add("active");
                                 changeNumber(index);
@@ -1841,15 +2450,15 @@
 
                     // Smooth animation for heading
                     if (h3) {
-                        gsap.fromTo(h3, 
+                        gsap.fromTo(h3,
                             { opacity: 0, y: 20, scale: 0.95 },
                             {
-                            opacity: 1,
-                            y: 0,
-                            scale: 1,
-                            duration: 0.7,
-                            delay: 0.2,
-                            ease: "back.out(1.2)"
+                                opacity: 1,
+                                y: 0,
+                                scale: 1,
+                                duration: 0.7,
+                                delay: 0.2,
+                                ease: "back.out(1.2)"
                             }
                         );
                     }
@@ -1859,11 +2468,11 @@
                         gsap.fromTo(p,
                             { opacity: 0, y: 15 },
                             {
-                            opacity: 1,
-                            y: 0,
-                            duration: 0.7,
-                            delay: 0.3,
-                            ease: "power3.out"
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.7,
+                                delay: 0.3,
+                                ease: "power3.out"
                             }
                         );
                     }
@@ -1876,8 +2485,8 @@
                         x: 60,
                         scale: 0.95,
                         duration: 0.6,
-                            ease: "power2.in"
-                        });
+                        ease: "power2.in"
+                    });
                 }
 
                 function changeNumber(index) {
@@ -1907,28 +2516,28 @@
                             numberEl.textContent = newNum;
                         }
                     })
-                    // Step 2: Rotate in the new number from opposite direction
-                    .fromTo(numberEl, {
-                        rotateX: -90 * direction,
-                        scale: 0.8,
-                        y: 30 * direction,
-                        opacity: 0
-                    }, {
-                        rotateX: 0,
-                        scale: 1.15,
-                        y: 0,
-                        opacity: 1,
-                        duration: 0.4,
-                        ease: "back.out(1.7)",
-                        filter: "drop-shadow(0 0 50px rgba(9, 190, 245, 0.6))"
-                    })
-                    // Step 3: Settle to final position
-                    .to(numberEl, {
-                        scale: 1,
-                        duration: 0.3,
-                        ease: "power2.out",
-                        filter: "drop-shadow(0 0 40px rgba(9, 190, 245, 0.3))"
-                    });
+                        // Step 2: Rotate in the new number from opposite direction
+                        .fromTo(numberEl, {
+                            rotateX: -90 * direction,
+                            scale: 0.8,
+                            y: 30 * direction,
+                            opacity: 0
+                        }, {
+                            rotateX: 0,
+                            scale: 1.15,
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.4,
+                            ease: "back.out(1.7)",
+                            filter: "drop-shadow(0 0 50px rgba(9, 190, 245, 0.6))"
+                        })
+                        // Step 3: Settle to final position
+                        .to(numberEl, {
+                            scale: 1,
+                            duration: 0.3,
+                            ease: "power2.out",
+                            filter: "drop-shadow(0 0 40px rgba(9, 190, 245, 0.3))"
+                        });
 
                     // Add a subtle glow pulse after animation
                     timeline.to(numberEl, {
@@ -1948,13 +2557,13 @@
                         firstItem.classList.add("active");
                         changeNumber(0);
                         activateFeature(firstItem);
-                        
+
                         // Center the first item smoothly
                         const itemOffsetTop = firstItem.offsetTop;
                         const containerHeight = scrollContainer.clientHeight;
                         const itemHeight = firstItem.offsetHeight;
                         const targetScroll = Math.max(0, itemOffsetTop - (containerHeight / 2) + (itemHeight / 2));
-                        
+
                         gsap.to(scrollContainer, {
                             scrollTop: targetScroll,
                             duration: 1,
@@ -1970,14 +2579,17 @@
             <div class="container">
                 <div class="technologies-section">
                     <h2 class="technologies-title">
-                        <span class="tech-highlight">Technologies</span> Our <span class="tech-blue">AI Developers</span> Use
+                        <span class="tech-highlight">Technologies</span> Our <span class="tech-blue">AI
+                            Developers</span> Use
                     </h2>
                     <p class="technologies-description">
-                        As a leading artificial intelligence development company, Dataspan utilizes cutting-edge tools, frameworks, and technologies to deliver state-of-the-art solutions.
+                        As a leading artificial intelligence development company, Dataspan utilizes cutting-edge tools,
+                        frameworks, and technologies to deliver state-of-the-art solutions.
                     </p>
-                    
+
                     <div class="tech-categories">
-                        <button class="tech-category-btn active" data-category="languages">Languages & Frameworks</button>
+                        <button class="tech-category-btn active" data-category="languages">Languages &
+                            Frameworks</button>
                         <button class="tech-category-btn" data-category="cloud">Cloud AI Platforms</button>
                         <button class="tech-category-btn" data-category="data">Data Tools</button>
                         <button class="tech-category-btn" data-category="vision">Computer Vision</button>
@@ -2051,8 +2663,44 @@
                                 </div>
                                 <p class="tech-name">NumPy</p>
                             </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder numpy-logo"></div>
+                                </div>
+                                <p class="tech-name">NumPy</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder numpy-logo"></div>
+                                </div>
+                                <p class="tech-name">NumPy</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder numpy-logo"></div>
+                                </div>
+                                <p class="tech-name">NumPy</p>
+                            </div>
                         </div>
                         <div class="tech-cards" id="vision-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder opencv-logo"></div>
+                                </div>
+                                <p class="tech-name">OpenCV</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder opencv-logo"></div>
+                                </div>
+                                <p class="tech-name">OpenCV</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder opencv-logo"></div>
+                                </div>
+                                <p class="tech-name">OpenCV</p>
+                            </div>
                             <div class="tech-card">
                                 <div class="tech-logo">
                                     <div class="logo-placeholder opencv-logo"></div>
@@ -2067,8 +2715,45 @@
                                 </div>
                                 <p class="tech-name">NLTK</p>
                             </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder nltk-logo"></div>
+                                </div>
+                                <p class="tech-name">NLTK</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder nltk-logo"></div>
+                                </div>
+                                <p class="tech-name">NLTK</p>
+                            </div>
+
                         </div>
                         <div class="tech-cards" id="security-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder security-logo"></div>
+                                </div>
+                                <p class="tech-name">Security Tools</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder security-logo"></div>
+                                </div>
+                                <p class="tech-name">Security Tools</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder security-logo"></div>
+                                </div>
+                                <p class="tech-name">Security Tools</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder security-logo"></div>
+                                </div>
+                                <p class="tech-name">Security Tools</p>
+                            </div>
                             <div class="tech-card">
                                 <div class="tech-logo">
                                     <div class="logo-placeholder security-logo"></div>
@@ -2081,34 +2766,96 @@
             </div>
         </section>
 
+        <!-- Section 6 - Interactive Chat Interface (Unscrambl Style) -->
+        <section class="section6">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Left Side - Chat Interface -->
+                    <div class="col-lg-6 chat-interface-wrapper">
+                        <div class="chat-interface">
+                            <div class="chat-messages" id="chatMessages">
+                                <!-- Messages will be dynamically added here -->
+                            </div>
+                            <div class="chat-input-field">
+                                <input type="text" id="chatInputField" placeholder="What is the status of leads?"
+                                    readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Marketing Content -->
+                    <div class="col-lg-6 marketing-content-wrapper">
+                        <div class="marketing-content">
+                            <h2 class="marketing-title">The best augmented analytics tool for your business</h2>
+                            <div class="product-logos">
+                                <span class="qbo-logo">Dataspan</span>
+                                <span class="plus-sign">+</span>
+                                <span class="teams-logo">AI</span>
+                            </div>
+                            <p class="marketing-description">
+                                Your very own self-serve AI-powered data analyst. Have a personal chat with our AI
+                                assistant, collaborate with your colleagues to create insights, or present directly in
+                                meetings. Our AI is never on a break. Accessible 24x7. Just ask!
+                            </p>
+                            <div class="cta-buttons">
+                                <a href="#contact" class="btn-primary-cta">Get Started Today</a>
+                                <a href="#contact" class="btn-secondary-cta">Request a Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="cta" class="call-to-action section">
+            <div class="container" data-aos="zoom-in">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2>Shape the Future of Your Enterprise Today </h2>
+                        <p class="mb-4">Let AI revolutionize how your business thinks, adapts, and succeeds in the
+                            digital era.</p>
+                        <div class="cta-buttons">
+                            <a href="contact.html" class="btn btn-primary me-2 mb-2">Get Started Today</a>
+                            <!-- <a href="service.html" class="btn btn-outline-primary mb-2">Explore Our Services</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Call to Action Section -->
+
     </div>
 
-  <footer id="footer" class="footer section light-background">
+    <footer id="footer" class="footer section light-background">
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center ">
-            <img src="assets/img/footer-logo2.png" alt="">
-          </a>
-          <div class="footer-contact pt-1">
-            <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center ">
+                        <img src="assets/img/footer-logo2.png" alt="">
+                    </a>
+                    <div class="footer-contact pt-1">
+                        <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
             <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
-            <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance, and build
-              smarter systems that support steady, measurable growth</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
-            <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
-           
-            <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i class="bi bi-instagram"></i></a>
-            <a href="https://in.linkedin.com/company/dataspan-technologies"><i class="bi bi-linkedin"></i></a>
-            <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
-          </div>
-        </div>
+                        <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance,
+                            and build
+                            smarter systems that support steady, measurable growth</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+                        <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+                    </div>
+                    <div class="social-links d-flex my-2">
+                        <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
 
-        <!-- <div class="col-lg-3 col-md-3 footer-links">
+                        <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://in.linkedin.com/company/dataspan-technologies"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i
+                                class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-3 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
             Our Solutions
             <i class="bi bi-chevron-down footer-chevron"></i>
@@ -2123,7 +2870,7 @@
           </ul>
         </div> -->
 
-        <!-- <div class="col-lg-3 col-md-3 footer-links">
+                <!-- <div class="col-lg-3 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
             Industries We Serve
             <i class="bi bi-chevron-down footer-chevron"></i>
@@ -2138,53 +2885,53 @@
           </ul>
         </div> -->
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4 class="footer-dropdown-toggle">
-            Useful Links
-            <i class="bi bi-chevron-down footer-chevron"></i>
-          </h4>
-          <ul class="footer-dropdown-content">
-            <li><a href="index.html#hero">Home</a></li>
-            <li><a href="Aboutus.html">About us</a></li>
-            <li><a href="Clients.html">Clients</a></li>
-            <!-- <li><a href="service.html">Services</a></li> -->
-            <!-- <li><a href="careers.html">Careers</a></li> -->
-            <!-- <li><a href="Clients.html">Case Studies</a></li> -->
-            <li><a href="contact.html">Contact Us</a></li>
-            <!-- <li><a href="#">Privacy Policy</a></li> -->
-            <!-- <li><a href="#">Terms of Service</a></li> -->
-          </ul>
-        </div>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Useful Links
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <ul class="footer-dropdown-content">
+                        <li><a href="index.html#hero">Home</a></li>
+                        <li><a href="Aboutus.html">About us</a></li>
+                        <li><a href="Clients.html">Clients</a></li>
+                        <!-- <li><a href="service.html">Services</a></li> -->
+                        <!-- <li><a href="careers.html">Careers</a></li> -->
+                        <!-- <li><a href="Clients.html">Case Studies</a></li> -->
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <!-- <li><a href="#">Privacy Policy</a></li> -->
+                        <!-- <li><a href="#">Terms of Service</a></li> -->
+                    </ul>
+                </div>
 
-        <div class="col-lg-3 col-md-3 footer-links">
-          <h4 class="footer-dropdown-toggle">
-            Office Address 1
-            <i class="bi bi-chevron-down footer-chevron"></i>
-          </h4>
-          <div class="footer-dropdown-content">
-            <div class="footer-contact">
-              <!-- <p><strong>Address:</strong></p> -->
-              <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
-              <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
-            </div>
-          </div>
-        </div>
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Office Address 1
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <div class="footer-dropdown-content">
+                        <div class="footer-contact">
+                            <!-- <p><strong>Address:</strong></p> -->
+                            <p>Shreeji Pride, Dataspan Technologies Pvt. Ltd. , Shreeji Pride, Second Floor, Opp.</p>
+                            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="col-lg-3 col-md-3 footer-links">
-          <h4 class="footer-dropdown-toggle">
-            Office Address 2
-            <i class="bi bi-chevron-down footer-chevron"></i>
-          </h4>
-          <div class="footer-dropdown-content">
-            <div class="footer-contact">
-              <!-- <p><strong>Address:</strong></p> -->
-              <p>Dataspan Technologies,</p>
-              <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
-            </div>
-          </div>
-        </div>
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Office Address 2
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <div class="footer-dropdown-content">
+                        <div class="footer-contact">
+                            <!-- <p><strong>Address:</strong></p> -->
+                            <p>Dataspan Technologies Pvt. Ltd. ,</p>
+                            <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- <div class="col-lg-2 col-md-3 footer-links">
+                <!-- <div class="col-lg-2 col-md-3 footer-links">
           <h4>Nobis illum</h4>
           <ul>
             <li><a href="#">Ipsam</a></li>
@@ -2195,26 +2942,26 @@
           </ul>
         </div> -->
 
-      </div>
-    </div>
+            </div>
+        </div>
 
-    <div class="container copyright text-center m-0 p-0">
-      <!-- Social Links for Mobile View -->
-      <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
-      <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
-          Technologies</strong> <span>All Rights
-          Reserved</span></p>
-    </div>
+        <div class="container copyright text-center m-0 p-0">
+            <!-- Social Links for Mobile View -->
+            <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+            <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
+                    Technologies</strong> <span>All Rights
+                    Reserved</span></p>
+        </div>
 
-  </footer>
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short "></i></a>
+    </footer>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short "></i></a>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -2229,188 +2976,482 @@
 
     <!-- Initialize AOS with smooth animation settings -->
     <script>
-      AOS.init({
-        duration: 500, // Smooth animation duration (0.5s)
-        easing: 'ease-out-cubic', // Smooth cubic easing for fluid motion
-        once: true, // Animate only once
-        offset: 0, // Trigger immediately when element enters viewport
-        delay: 0 // Base delay (individual delays are set via data-aos-delay)
-      });
+        AOS.init({
+            duration: 500, // Smooth animation duration (0.5s)
+            easing: 'ease-out-cubic', // Smooth cubic easing for fluid motion
+            once: true, // Animate only once
+            offset: 0, // Trigger immediately when element enters viewport
+            delay: 0 // Base delay (individual delays are set via data-aos-delay)
+        });
     </script>
 
     <!-- Footer Dropdown Toggle Script -->
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const marqueeContents = document.querySelectorAll('.marquee-wrapper .marquee-content');
-        const whyChooseCards = document.querySelectorAll('#why-choose-us .card');
-        const CARD_BREAKPOINT = 991;
+        document.addEventListener('DOMContentLoaded', function () {
+            const marqueeContents = document.querySelectorAll('.marquee-wrapper .marquee-content');
+            const whyChooseCards = document.querySelectorAll('#why-choose-us .card');
+            const CARD_BREAKPOINT = 991;
 
-        marqueeContents.forEach(content => {
-          if (content.dataset.loopInit === 'true') return;
-          content.dataset.loopInit = 'true';
+            marqueeContents.forEach(content => {
+                if (content.dataset.loopInit === 'true') return;
+                content.dataset.loopInit = 'true';
 
-          const children = Array.from(content.children);
-          children.forEach(child => {
-            const clone = child.cloneNode(true);
-            clone.setAttribute('aria-hidden', 'true');
-            content.appendChild(clone);
-          });
-        });
+                const children = Array.from(content.children);
+                children.forEach(child => {
+                    const clone = child.cloneNode(true);
+                    clone.setAttribute('aria-hidden', 'true');
+                    content.appendChild(clone);
+                });
+            });
 
-        const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
+            const footerDropdowns = document.querySelectorAll('.footer-dropdown-toggle');
 
-        // Add click handlers once
-        footerDropdowns.forEach(toggle => {
-          toggle.addEventListener('click', function (e) {
-            // Only work on mobile
-            if (window.innerWidth < 768) {
-              e.preventDefault();
-              const footerLinks = this.closest('.footer-links');
-              const isActive = footerLinks.classList.contains('active');
+            // Add click handlers once
+            footerDropdowns.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    // Only work on mobile
+                    if (window.innerWidth < 768) {
+                        e.preventDefault();
+                        const footerLinks = this.closest('.footer-links');
+                        const isActive = footerLinks.classList.contains('active');
 
-              // Close all other dropdowns
-              document.querySelectorAll('.footer-links').forEach(link => {
-                if (link !== footerLinks) {
-                  link.classList.remove('active');
+                        // Close all other dropdowns
+                        document.querySelectorAll('.footer-links').forEach(link => {
+                            if (link !== footerLinks) {
+                                link.classList.remove('active');
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        if (isActive) {
+                            footerLinks.classList.remove('active');
+                        } else {
+                            footerLinks.classList.add('active');
+                        }
+                    }
+                });
+            });
+
+            const clearCardStates = () => {
+                whyChooseCards.forEach(card => card.classList.remove('details-visible'));
+            };
+
+            const handleCardToggle = (card) => {
+                if (window.innerWidth > CARD_BREAKPOINT) return;
+                const isActive = card.classList.contains('details-visible');
+                clearCardStates();
+                if (!isActive) {
+                    card.classList.add('details-visible');
                 }
-              });
+            };
 
-              // Toggle current dropdown
-              if (isActive) {
-                footerLinks.classList.remove('active');
-              } else {
-                footerLinks.classList.add('active');
-              }
-            }
-          });
+            whyChooseCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    handleCardToggle(card);
+                });
+            });
+
+            // Handle window resize - remove active classes on desktop
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    if (window.innerWidth >= 768) {
+                        document.querySelectorAll('.footer-links').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                    }
+                    if (window.innerWidth > CARD_BREAKPOINT) {
+                        clearCardStates();
+                    }
+                }, 250);
+            });
         });
-
-        const clearCardStates = () => {
-          whyChooseCards.forEach(card => card.classList.remove('details-visible'));
-        };
-
-        const handleCardToggle = (card) => {
-          if (window.innerWidth > CARD_BREAKPOINT) return;
-          const isActive = card.classList.contains('details-visible');
-          clearCardStates();
-          if (!isActive) {
-            card.classList.add('details-visible');
-          }
-        };
-
-        whyChooseCards.forEach(card => {
-          card.addEventListener('click', function () {
-            handleCardToggle(card);
-          });
-        });
-
-        // Handle window resize - remove active classes on desktop
-        let resizeTimer;
-        window.addEventListener('resize', function () {
-          clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(function () {
-            if (window.innerWidth >= 768) {
-              document.querySelectorAll('.footer-links').forEach(link => {
-                link.classList.remove('active');
-              });
-            }
-            if (window.innerWidth > CARD_BREAKPOINT) {
-              clearCardStates();
-            }
-          }, 250);
-        });
-      });
     </script>
 
     <!-- AI Statistics Counter Animation -->
     <script>
-      (function() {
-        const statNumbers = document.querySelectorAll('.stat-number[data-target]');
-        let hasAnimated = false;
+        (function () {
+            const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+            let hasAnimated = false;
 
-        function animateNumber(element) {
-          const target = parseFloat(element.getAttribute('data-target'));
-          const suffix = element.getAttribute('data-suffix') || '';
-          const duration = 2000; // 2 seconds
-          const startTime = performance.now();
-          const startValue = 0;
+            function animateNumber(element) {
+                const target = parseFloat(element.getAttribute('data-target'));
+                const suffix = element.getAttribute('data-suffix') || '';
+                const duration = 2000; // 2 seconds
+                const startTime = performance.now();
+                const startValue = 0;
 
-          function update(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Easing function for smooth animation
-            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-            const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart);
-            
-            element.textContent = currentValue + suffix;
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
 
-            if (progress < 1) {
-              requestAnimationFrame(update);
-            } else {
-              element.textContent = target + suffix;
+                    // Easing function for smooth animation
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                    const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart);
+
+                    element.textContent = currentValue + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        element.textContent = target + suffix;
+                    }
+                }
+
+                requestAnimationFrame(update);
             }
-          }
 
-          requestAnimationFrame(update);
-        }
+            function checkIfInView() {
+                const statsSection = document.querySelector('.ai-stats-section');
+                if (!statsSection || hasAnimated) return;
 
-        function checkIfInView() {
-          const statsSection = document.querySelector('.ai-stats-section');
-          if (!statsSection || hasAnimated) return;
+                const rect = statsSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-          const rect = statsSection.getBoundingClientRect();
-          const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-          
-          // Trigger animation when section is in view (when top of section is in viewport)
-          if (rect.top >= 0 && rect.top <= windowHeight * 0.8) {
-            hasAnimated = true;
-            statNumbers.forEach(stat => {
-              animateNumber(stat);
-            });
-          }
-        }
+                // Trigger animation when section is in view (when top of section is in viewport)
+                if (rect.top >= 0 && rect.top <= windowHeight * 0.8) {
+                    hasAnimated = true;
+                    statNumbers.forEach(stat => {
+                        animateNumber(stat);
+                    });
+                }
+            }
 
-        // Check on scroll
-        window.addEventListener('scroll', checkIfInView);
-        
-        // Check on page load in case section is already in view
-        window.addEventListener('load', checkIfInView);
-        
-        // Initial check
-        checkIfInView();
-      })();
+            // Check on scroll
+            window.addEventListener('scroll', checkIfInView);
+
+            // Check on page load in case section is already in view
+            window.addEventListener('load', checkIfInView);
+
+            // Initial check
+            checkIfInView();
+        })();
     </script>
 
     <!-- Technologies Section Tab Functionality -->
     <script>
-      (function() {
-        const categoryButtons = document.querySelectorAll('.tech-category-btn');
-        const cardContainers = document.querySelectorAll('.tech-cards');
+        (function () {
+            const categoryButtons = document.querySelectorAll('.tech-category-btn');
+            const cardContainers = document.querySelectorAll('.tech-cards');
 
-        categoryButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const category = this.getAttribute('data-category');
 
-            // Remove active class from all buttons
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
 
-            // Add active class to clicked button
-            this.classList.add('active');
+                    // Add active class to clicked button
+                    this.classList.add('active');
 
-            // Hide all card containers
-            cardContainers.forEach(container => {
-              container.style.display = 'none';
+                    // Hide all card containers
+                    cardContainers.forEach(container => {
+                        container.style.display = 'none';
+                    });
+
+                    // Show the selected category's cards
+                    const selectedCards = document.getElementById(category + '-cards');
+                    if (selectedCards) {
+                        selectedCards.style.display = 'flex';
+                    }
+                });
             });
+        })();
+    </script>
 
-            // Show the selected category's cards
-            const selectedCards = document.getElementById(category + '-cards');
-            if (selectedCards) {
-              selectedCards.style.display = 'flex';
+    <!-- Section 6 - Chat Interface Auto-Play Functionality -->
+    <script>
+        (function () {
+            const chatMessages = document.getElementById('chatMessages');
+            let currentIndex = 0;
+            let isPlaying = false;
+            let currentQuestionElement = null;
+            let currentAnswerElement = null;
+
+            // Fixed 3 Q&A pairs
+            const qaPairs = [
+                {
+                    question: "What is the status of leads?",
+                    answer: "Your leads are performing well with consistent growth. Current conversion rate is 12% higher than last quarter.",
+                    hasChart: false
+                },
+                {
+                    question: "How can AI improve my business?",
+                    answer: "AI automates repetitive tasks, provides data-driven insights, enhances customer experience, and reduces operational costs by up to 30%.",
+                    hasChart: false
+                },
+                {
+                    question: "What's your development timeline?",
+                    answer: "Simple AI projects take 2-4 weeks. Complex solutions require 2-6 months. We provide detailed timelines during consultation.",
+                    hasChart: false
+                }
+            ];
+
+            function addMessage(text, isUser, chartData = null) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${isUser ? 'user' : 'assistant'}`;
+
+                const messageWrapper = document.createElement('div');
+                messageWrapper.style.display = 'flex';
+                messageWrapper.style.flexDirection = 'row';
+                messageWrapper.style.alignItems = 'flex-start';
+                messageWrapper.style.gap = '12px';
+
+                const avatar = document.createElement('div');
+                avatar.className = 'message-avatar';
+                avatar.textContent = isUser ? 'TT' : 'Q';
+
+                const contentWrapper = document.createElement('div');
+                contentWrapper.style.display = 'flex';
+                contentWrapper.style.flexDirection = 'column';
+                contentWrapper.style.gap = '4px';
+
+                // Add user name for user messages
+                if (isUser) {
+                    const userName = document.createElement('div');
+                    userName.className = 'user-name';
+                    userName.textContent = 'Tania Takada';
+                    userName.style.fontSize = '0.75rem';
+                    userName.style.color = '#666';
+                    userName.style.fontWeight = '500';
+                    contentWrapper.appendChild(userName);
+                }
+
+                const content = document.createElement('div');
+                content.className = 'message-content';
+
+                const textElement = document.createElement('p');
+                textElement.className = 'message-text';
+                textElement.textContent = text;
+
+                content.appendChild(textElement);
+
+                // Add chart if provided
+                if (chartData && !isUser) {
+                    const chartContainer = document.createElement('div');
+                    chartContainer.className = 'chart-container';
+
+                    const chartTitle = document.createElement('div');
+                    chartTitle.className = 'chart-title';
+                    chartTitle.textContent = chartData.title;
+                    chartContainer.appendChild(chartTitle);
+
+                    const chartPlaceholder = document.createElement('div');
+                    chartPlaceholder.className = 'chart-placeholder';
+
+                    // Create simple bar chart visualization
+                    const chartBars = document.createElement('div');
+                    chartBars.style.display = 'flex';
+                    chartBars.style.alignItems = 'flex-end';
+                    chartBars.style.justifyContent = 'space-around';
+                    chartBars.style.height = '150px';
+                    chartBars.style.gap = '6px';
+                    chartBars.style.padding = '8px 0';
+
+                    const maxValue = Math.max(...chartData.values);
+                    chartData.values.forEach((value, index) => {
+                        const barWrapper = document.createElement('div');
+                        barWrapper.style.display = 'flex';
+                        barWrapper.style.flexDirection = 'column';
+                        barWrapper.style.alignItems = 'center';
+                        barWrapper.style.flex = '1';
+
+                        const bar = document.createElement('div');
+                        const height = (value / maxValue) * 100;
+                        bar.style.width = '100%';
+                        bar.style.height = height + '%';
+                        bar.style.background = index % 2 === 0
+                            ? 'linear-gradient(to top, #6b46c1 0%, #8b5cf6 50%, #a78bfa 100%)'
+                            : 'linear-gradient(to top, #f97316 0%, #fb923c 50%, #fdba74 100%)';
+                        bar.style.borderRadius = '4px 4px 0 0';
+                        bar.style.minHeight = '20px';
+
+                        const label = document.createElement('div');
+                        label.textContent = chartData.months[index];
+                        label.style.fontSize = '0.75rem';
+                        label.style.color = '#666';
+                        label.style.marginTop = '8px';
+                        label.style.fontWeight = '500';
+
+                        barWrapper.appendChild(bar);
+                        barWrapper.appendChild(label);
+                        chartBars.appendChild(barWrapper);
+                    });
+
+                    chartPlaceholder.style.background = '#f8f9fa';
+                    chartPlaceholder.style.padding = '16px';
+                    chartPlaceholder.appendChild(chartBars);
+                    chartContainer.appendChild(chartPlaceholder);
+                    content.appendChild(chartContainer);
+                }
+
+                contentWrapper.appendChild(content);
+
+                // Both user and assistant messages: avatar first, then content (left-aligned)
+                messageWrapper.appendChild(avatar);
+                messageWrapper.appendChild(contentWrapper);
+
+                messageDiv.appendChild(messageWrapper);
+
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                return messageDiv;
             }
-          });
-        });
-      })();
+
+            function typeText(element, text, callback) {
+                element.textContent = '';
+                let index = 0;
+
+                function type() {
+                    if (index < text.length) {
+                        element.textContent += text.charAt(index);
+                        index++;
+                        setTimeout(type, 30); // Typing speed
+                    } else {
+                        if (callback) callback();
+                    }
+                }
+
+                type();
+            }
+
+            function showTypingIndicator() {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message assistant';
+                messageDiv.id = 'typingIndicator';
+
+                const avatar = document.createElement('div');
+                avatar.className = 'message-avatar';
+                avatar.textContent = 'AI';
+
+                const content = document.createElement('div');
+                content.className = 'message-content';
+
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'typing-indicator';
+                for (let i = 0; i < 3; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'typing-dot';
+                    typingDiv.appendChild(dot);
+                }
+
+                content.appendChild(typingDiv);
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(content);
+
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function removeTypingIndicator() {
+                const indicator = document.getElementById('typingIndicator');
+                if (indicator) {
+                    indicator.remove();
+                }
+            }
+
+            function clearAllMessages() {
+                chatMessages.innerHTML = '';
+            }
+
+            function typeInInput(text, callback) {
+                const inputField = document.getElementById('chatInputField');
+                inputField.value = '';
+                let index = 0;
+
+                function type() {
+                    if (index < text.length) {
+                        inputField.value += text.charAt(index);
+                        index++;
+                        setTimeout(type, 50); // Typing speed for input
+                    } else {
+                        if (callback) callback();
+                    }
+                }
+
+                type();
+            }
+
+            function removeMessage(element) {
+                if (element && element.parentNode) {
+                    element.style.transition = 'opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(30px) scale(0.95)';
+                    setTimeout(() => {
+                        if (element && element.parentNode) {
+                            element.remove();
+                        }
+                    }, 400);
+                }
+            }
+
+            function displayQA(index) {
+                if (isPlaying) return;
+                isPlaying = true;
+
+                const qa = qaPairs[index];
+
+                // Clear input field
+                const inputField = document.getElementById('chatInputField');
+                inputField.value = '';
+                inputField.placeholder = '';
+
+                // Type question in input field
+                typeInInput(qa.question, () => {
+                    // Wait a moment, then show question as message
+                    setTimeout(() => {
+                        // Remove previous question when new question appears (keep current answer visible)
+                        if (currentQuestionElement) {
+                            removeMessage(currentQuestionElement);
+                        }
+
+                        // Clear input field
+                        inputField.value = '';
+                        inputField.placeholder = 'What is the status of leads?';
+
+                        // Small delay to let previous question fade out, then show new question
+                        setTimeout(() => {
+                            // Display question as message
+                            currentQuestionElement = addMessage(qa.question, true);
+
+                            // Show answer quickly (no typing animation)
+                            setTimeout(() => {
+                                // Remove previous answer when new answer appears (keep current question visible)
+                                if (currentAnswerElement) {
+                                    removeMessage(currentAnswerElement);
+                                }
+
+                                // Small delay before showing new answer
+                                setTimeout(() => {
+                                    currentAnswerElement = addMessage(qa.answer, false, qa.hasChart ? qa.chartData : null);
+
+                                    // Now both current question and answer are visible together
+                                    // Wait before showing next Q&A
+                                    setTimeout(() => {
+                                        isPlaying = false;
+
+                                        // Move to next Q&A (loop back to first after last)
+                                        currentIndex = (currentIndex + 1) % qaPairs.length;
+
+                                        // Show next Q&A
+                                        setTimeout(() => {
+                                            displayQA(currentIndex);
+                                        }, 2000); // Wait 2 seconds before next Q&A
+                                    }, 2000); // Show answer for 2 seconds
+                                }, 100);
+                            }, 500); // Small delay before showing answer
+                        }, 300); // Wait for fade out
+                    }, 500); // Wait after typing completes
+                });
+            }
+
+            // Start the auto-play loop when page loads
+            setTimeout(() => {
+                displayQA(0);
+            }, 1000); // Start after 1 second delay
+        })();
     </script>
 
 </body>
