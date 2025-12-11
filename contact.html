@@ -16,7 +16,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -118,9 +120,9 @@
       background: linear-gradient(135deg, #000B3C 0%, #001a5c 50%, #000B3C 100%);
       border-radius: 20px;
       padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
-      box-shadow: 0 30px 60px rgba(0, 11, 60, 0.5), 
-                  0 0 0 1px rgba(255, 255, 255, 0.08),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      box-shadow: 0 30px 60px rgba(0, 11, 60, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
       position: relative;
       z-index: 2;
       backdrop-filter: blur(20px);
@@ -144,9 +146,17 @@
     }
 
     @keyframes gradientRotate {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .contact-form-container::after {
@@ -157,15 +167,15 @@
       right: 0;
       bottom: 0;
       background: radial-gradient(circle at 20% 30%, rgba(79, 195, 247, 0.15) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 70%, rgba(230, 255, 0, 0.1) 0%, transparent 60%),
-                  radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.05) 0%, transparent 70%);
+        radial-gradient(circle at 80% 70%, rgba(230, 255, 0, 0.1) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.05) 0%, transparent 70%);
       border-radius: 24px;
       z-index: 0;
       pointer-events: none;
       opacity: 0.8;
     }
 
-    .contact-form-container > * {
+    .contact-form-container>* {
       position: relative;
       z-index: 1;
     }
@@ -195,8 +205,15 @@
     }
 
     @keyframes shimmer {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
     }
 
     .php-email-form .row {
@@ -323,7 +340,7 @@
       background: rgba(255, 255, 255, 0.1);
       border-bottom-color: #4fc3f7;
       box-shadow: 0 6px 20px rgba(79, 195, 247, 0.25),
-                  0 0 0 3px rgba(79, 195, 247, 0.1);
+        0 0 0 3px rgba(79, 195, 247, 0.1);
       color: white;
       outline: none;
       transform: translateY(-2px);
@@ -367,7 +384,7 @@
       background: rgba(255, 255, 255, 0.1);
       border-bottom-color: #4fc3f7;
       box-shadow: 0 6px 20px rgba(79, 195, 247, 0.25),
-                  0 0 0 3px rgba(79, 195, 247, 0.1);
+        0 0 0 3px rgba(79, 195, 247, 0.1);
       transform: translateY(-2px);
     }
 
@@ -430,14 +447,14 @@
       border-bottom-color: #4fc3f7 !important;
       color: #4fc3f7 !important;
       box-shadow: 0 6px 20px rgba(79, 195, 247, 0.25),
-                  0 0 0 3px rgba(79, 195, 247, 0.1);
+        0 0 0 3px rgba(79, 195, 247, 0.1);
       transform: translateY(-2px);
     }
 
     .phone-input-group .form-control:focus {
       border-bottom-color: #4fc3f7 !important;
       box-shadow: 0 6px 20px rgba(79, 195, 247, 0.25),
-                  0 0 0 3px rgba(79, 195, 247, 0.1);
+        0 0 0 3px rgba(79, 195, 247, 0.1);
       transform: translateY(-2px);
     }
 
@@ -489,7 +506,7 @@
       background-size: 16px 12px;
       border-bottom-color: #4fc3f7;
       box-shadow: 0 6px 20px rgba(79, 195, 247, 0.25),
-                  0 0 0 3px rgba(79, 195, 247, 0.1);
+        0 0 0 3px rgba(79, 195, 247, 0.1);
       color: white;
       outline: none;
       transform: translateY(-2px);
@@ -559,6 +576,7 @@
         opacity: 0;
         transform: translateY(-15px) scale(0.95);
       }
+
       to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -585,8 +603,13 @@
     }
 
     @keyframes loadingShimmer {
-      0% { left: -100%; }
-      100% { left: 100%; }
+      0% {
+        left: -100%;
+      }
+
+      100% {
+        left: 100%;
+      }
     }
 
     .error-message {
@@ -613,8 +636,8 @@
       font-size: 0.95rem !important;
       border-radius: 12px !important;
       transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                  box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
       position: relative;
       box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3) !important;
       letter-spacing: 0.5px !important;
@@ -636,15 +659,15 @@
       background: linear-gradient(135deg, #001a5c 0%, #000B3C 50%, #001a5c 100%);
       transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: -1;
-      border-radius: 14px;
+      border-radius: 11px;
     }
 
     .btn-submit:hover,
     button.btn-submit:hover,
     .btn.btn-submit:hover {
-      color: #E6FF00 !important;
+      color: #ffffff !important;
       transform: translateY(-3px) scale(1.02) !important;
-      box-shadow: 0 6px 16px rgba(230, 255, 0, 0.3) !important;
+      box-shadow: 0 6px 16px rgba(203, 203, 204, 0.3) !important;
     }
 
     .btn-submit:hover::before,
@@ -861,7 +884,7 @@
 
     /* Ensure Country and Phone Number stay in one row on sm, md, lg screens */
     @media (min-width: 576px) {
-      .php-email-form .row > div.col-sm-6 {
+      .php-email-form .row>div.col-sm-6 {
         flex: 0 0 50%;
         width: 50%;
         max-width: 50%;
@@ -869,6 +892,9 @@
     }
 
     @media (max-width: 768px) {
+      .contact-hero{
+        padding-top:80px !important;
+      }
       .contact-page .main {
         padding-top: 0;
       }
@@ -998,7 +1024,7 @@
         margin-right: 0;
       }
 
-      .php-email-form .row > [class*="col-"] {
+      .php-email-form .row>[class*="col-"] {
         padding-left: 0.75rem;
         padding-right: 0.75rem;
       }
@@ -1124,7 +1150,7 @@
         row-gap: 0.625rem;
       }
 
-      .php-email-form .row > [class*="col-"] {
+      .php-email-form .row>[class*="col-"] {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
       }
@@ -1560,8 +1586,8 @@
                       <div class="form-floating">
                         <div class="input-group phone-input-group">
                           <span class="input-group-text country-code-prefix" id="countryCode">+</span>
-                          <input type="tel" class="form-control" id="phoneNumber" name="phone_number"
-                            placeholder="" required>
+                          <input type="tel" class="form-control" id="phoneNumber" name="phone_number" placeholder=""
+                            required>
                         </div>
                         <label for="phoneNumber">Phone Number <span class="text-danger">*</span></label>
                       </div>
@@ -1569,7 +1595,8 @@
                   </div>
                   <div class="col-12">
                     <div class="form-floating">
-                      <textarea class="form-control" id="message" name="message" placeholder="Message" style="height: 90px; resize: vertical;" ></textarea>
+                      <textarea class="form-control" id="message" name="message" placeholder="Message"
+                        style="height: 90px; resize: vertical;"></textarea>
                       <label for="message">Message <span class="text-danger"></span></label>
                     </div>
                   </div>
@@ -1577,7 +1604,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="marketingConsent" name="marketing_consent">
                       <label class="form-check-label text-white" for="marketingConsent">
-                        Yes, we'd like to receive marketing communications about DATASPAN Technologies' products,
+                        Yes, we'd like to receive marketing communications about Dataspan Technologies products,
                         services, and events. I can unsubscribe at any time.
                       </label>
                     </div>
@@ -1629,10 +1656,7 @@
           </div>
           <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
             <div class="map-container">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.123456789!2d73.7890123!3d19.9876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddc1234567890%3A0xabcdef1234567890!2sShreeji%20Pride%2C%20Manohar%20Nagar%2C%20Govind%20Nagar%2C%20Nashik%2C%20Maharashtra%20422001!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29997.276397580987!2d73.75490196796123!3d19.980814916996003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeb4b3af610bb%3A0xc2aad4a9505c8168!2sCMEInfotech!5e0!3m2!1sen!2sin!4v1765269337602!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
@@ -1658,7 +1682,7 @@
       <div class="container" data-aos="zoom-in">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
-            <h2>Empower intelligence with Technology  </h2>
+            <h2>Empower intelligence with Technology </h2>
             <p class="mb-4">Develop strategic vision, embrace opportunities, and lead your business with confidence.</p>
             <div class="cta-buttons">
               <a href="contact.html" class="btn btn-primary me-2 mb-2">Start Your Project</a>
@@ -1686,9 +1710,9 @@
             <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
             <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
           </div>
-          <div class="social-links d-flex mt-4">
+          <div class="social-links d-flex my-2">
             <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
-           
+
             <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i class="bi bi-instagram"></i></a>
             <a href="https://in.linkedin.com/company/dataspan-technologies"><i class="bi bi-linkedin"></i></a>
             <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
@@ -1751,7 +1775,7 @@
           <div class="footer-dropdown-content">
             <div class="footer-contact">
               <!-- <p><strong>Address:</strong></p> -->
-              <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
+              <p>Shreeji Pride, Dataspan Technologies Pvt. Ltd. , Shreeji Pride, Second Floor, Opp.</p>
               <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
             </div>
           </div>
@@ -1765,7 +1789,7 @@
           <div class="footer-dropdown-content">
             <div class="footer-contact">
               <!-- <p><strong>Address:</strong></p> -->
-              <p>Dataspan Technologies,</p>
+              <p>Dataspan Technologies Pvt. Ltd. ,</p>
               <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
             </div>
           </div>
@@ -1787,12 +1811,12 @@
 
     <div class="container copyright text-center m-0 p-0">
       <!-- Social Links for Mobile View -->
-      <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+      <!-- <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
         <a href=""><i class="bi bi-twitter-x"></i></a>
         <a href=""><i class="bi bi-facebook"></i></a>
         <a href=""><i class="bi bi-instagram"></i></a>
         <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
+      </div> -->
       <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
           Technologies</strong> <span>All Rights
           Reserved</span></p>
@@ -1956,7 +1980,7 @@
       if (countrySelect && countryCodeSpan) {
         // Handle label animation for country select
         const countryLabel = document.querySelector('label[for="country"]');
-        
+
         function updateCountrySelectState() {
           if (countrySelect.value && countrySelect.value !== '') {
             countrySelect.classList.add('has-value');
@@ -1977,26 +2001,26 @@
           const selectedCountry = this.value;
           const countryCode = countryCodes[selectedCountry] || '+';
           countryCodeSpan.textContent = countryCode;
-          
+
           // Update phone input placeholder
           if (selectedCountry && selectedCountry !== 'Other') {
             phoneInput.placeholder = '';
           } else {
             phoneInput.placeholder = 'Phone Number';
           }
-          
+
           // Update label state
           updateCountrySelectState();
         });
 
-        countrySelect.addEventListener('focus', function() {
+        countrySelect.addEventListener('focus', function () {
           if (countryLabel) {
             countryLabel.style.transform = 'translateY(-1.75rem) scale(0.85)';
             countryLabel.style.color = '#4fc3f7';
           }
         });
 
-        countrySelect.addEventListener('blur', function() {
+        countrySelect.addEventListener('blur', function () {
           updateCountrySelectState();
         });
 
