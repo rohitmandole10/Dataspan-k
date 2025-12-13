@@ -1798,6 +1798,339 @@
                 padding: 20px !important;
             }
         }
+
+        /* How It Works Section Styles */
+        .how-it-works-section {
+            background: var(--background-color);
+            padding: 80px 0;
+        }
+
+        .how-it-works-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .how-it-works-header {
+            margin-bottom: 40px;
+        }
+
+        .how-it-works-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            font-family: var(--heading-font);
+            margin-bottom: 10px;
+        }
+
+        .how-it-works-subtitle {
+            font-size: 1rem;
+            color: var(--default-color);
+            font-family: var(--default-font);
+            margin: 0;
+        }
+
+        /* Capability Tabs */
+        .capability-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .capability-tab {
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+            background: var(--surface-color);
+            color: var(--default-color);
+            font-size: 0.95rem;
+            font-weight: 500;
+            font-family: var(--default-font);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .capability-tab:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .capability-tab.active {
+            background: var(--accent-color);
+            color: var(--contrast-color);
+            border-color: var(--accent-color);
+        }
+
+        /* Content Wrapper */
+        .capability-content-wrapper {
+            background: color-mix(in srgb, var(--accent-color), transparent 95%);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+        }
+
+        .capability-content {
+            display: none;
+        }
+
+        .capability-content.active {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        /* Content Left */
+        .content-left {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .content-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            font-family: var(--heading-font);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-accordion {
+            display: inline-block;
+        }
+
+        .accordion-icon {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+        }
+
+        .content-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--default-color);
+            font-family: var(--default-font);
+            margin-bottom: 20px;
+        }
+
+        .content-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--default-color);
+            font-family: var(--default-font);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .content-features li i {
+            color: var(--accent-color);
+            font-size: 6px;
+            margin-top: 8px;
+        }
+
+        /* Content Right - Diagram */
+        .content-right {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .diagram-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            font-family: var(--heading-font);
+            margin-bottom: 20px;
+        }
+
+        .diagram-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--surface-color);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+        }
+
+        .diagram-source {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .source-box {
+            background: color-mix(in srgb, var(--accent-color), transparent 90%);
+            border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+            border-radius: 8px;
+            padding: 15px;
+            min-width: 100px;
+        }
+
+        .source-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 8px;
+            font-family: var(--default-font);
+        }
+
+        .source-items {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .source-item {
+            font-size: 0.8rem;
+            color: var(--default-color);
+            background: var(--surface-color);
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+            font-family: var(--default-font);
+        }
+
+        .database-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color), #8b5cf6 50%) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--contrast-color);
+            font-size: 1.5rem;
+        }
+
+        .diagram-arrow {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .arrow-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, color-mix(in srgb, var(--accent-color), transparent 60%) 0%, color-mix(in srgb, var(--accent-color), transparent 60%) 90%, transparent 90%);
+            background-size: 10px 2px;
+            position: relative;
+        }
+
+        .arrow-line::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 8px solid color-mix(in srgb, var(--accent-color), transparent 60%);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+
+        .diagram-destination {
+            display: flex;
+            align-items: center;
+        }
+
+        .delphix-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #06b6d4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--contrast-color);
+            font-size: 1.25rem;
+        }
+
+        /* Tab-specific box colors */
+        .maintain-box {
+            background: color-mix(in srgb, #fcd34d, transparent 80%);
+            border-color: #fcd34d;
+        }
+
+        .maintain-box .source-label {
+            color: #d97706;
+        }
+
+        .deliver-box {
+            background: color-mix(in srgb, #86efac, transparent 80%);
+            border-color: #86efac;
+        }
+
+        .deliver-box .source-label {
+            color: #16a34a;
+        }
+
+        .enable-box {
+            background: color-mix(in srgb, #f9a8d4, transparent 80%);
+            border-color: #f9a8d4;
+        }
+
+        .enable-box .source-label {
+            color: #db2777;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .capability-content.active {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .content-left,
+            .content-right {
+                max-width: 100%;
+            }
+
+            .how-it-works-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .how-it-works-section {
+                padding: 60px 0;
+            }
+
+            .capability-content-wrapper {
+                padding: 25px;
+            }
+
+            .capability-tabs {
+                gap: 8px;
+            }
+
+            .capability-tab {
+                padding: 8px 18px;
+                font-size: 0.9rem;
+            }
+
+            .diagram-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .diagram-arrow {
+                transform: rotate(90deg);
+                width: 60px;
+            }
+
+            .how-it-works-title {
+                font-size: 1.75rem;
+            }
+        }
     </style>
 </head>
 
@@ -2206,7 +2539,371 @@
                                 <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
                             </div>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Enhanced 5th section - Technologies -->
+        <section class="section5">
+            <div class="container">
+                <div class="technologies-section">
+                    <h2 class="technologies-title">
+                        <span class="tech-highlight">Technologies</span> Powering Our <span class="tech-blue">AI
+                            Solutions</span>
+                    </h2>
+                    <p class="technologies-description">
+                        We leverage proven frameworks, cloud platforms, and modern tools to build scalable, efficient,
+                        and high-performance AI and machine-learning systems.
+                    </p>
+
+                    <div class="tech-categories">
+                        <button class="tech-category-btn active" data-category="languages">Languages &
+                            Frameworks</button>
+                        <button class="tech-category-btn" data-category="cloud">Cloud AI Platforms</button>
+                        <!-- <button class="tech-category-btn" data-category="data">Data Tools</button> -->
+                        <button class="tech-category-btn" data-category="vision">NLP Technologies</button>
+                        <button class="tech-category-btn" data-category="nlp">Integration & Automation Tools</button>
+                        <button class="tech-category-btn" data-category="security">Security & Deployment</button>
+                    </div>
+
+                    <div class="tech-cards-container">
+                        <div class="tech-cards" id="languages-cards">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder scikit-learn-logo"></div>
+                                </div>
+                                <p class="tech-name">Python</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder keras-logo"></div>
+                                </div>
+                                <p class="tech-name">JavaScript</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder tensorflow-logo"></div>
+                                </div>
+                                <p class="tech-name">TensorFlow</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder r-logo"></div>
+                                </div>
+                                <p class="tech-name">PyTorch</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder python-logo"></div>
+                                </div>
+                                <p class="tech-name">Scikit-learn</p>
+                            </div>
+                        </div>
+                        <div class="tech-cards" id="cloud-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder aws-logo"></div>
+                                </div>
+                                <p class="tech-name">AWS AI/ML</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder azure-logo"></div>
+                                </div>
+                                <p class="tech-name">Google Cloud AI</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder gcp-logo"></div>
+                                </div>
+                                <p class="tech-name">Microsoft Azure AI</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder gcp-logo"></div>
+                                </div>
+                                <p class="tech-name">IBM Watson</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder gcp-logo"></div>
+                                </div>
+                                <p class="tech-name">Amazon SageMaker</p>
+                            </div>
+                        </div>
+                        <div class="tech-cards" id="vision-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder pandas-logo"></div>
+                                </div>
+                                <p class="tech-name">NLTK</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder numpy-logo"></div>
+                                </div>
+                                <p class="tech-name">Hugging Face Transformers</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder numpy-logo"></div>
+                                </div>
+                                <p class="tech-name">OpenAI GPT</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder numpy-logo"></div>
+                                </div>
+                                <p class="tech-name">BERT</p>
+                            </div>
+
+                        </div>
+                        <div class="tech-cards" id="nlp-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder opencv-logo"></div>
+                                </div>
+                                <p class="tech-name">Zapier</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder opencv-logo"></div>
+                                </div>
+                                <p class="tech-name">Apache Airflow</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder opencv-logo"></div>
+                                </div>
+                                <p class="tech-name">FastAPI</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder opencv-logo"></div>
+                                </div>
+                                <p class="tech-name">REST APIs</p>
+                            </div>
+                        </div>
+                        <div class="tech-cards" id="security-cards" style="display: none;">
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder nltk-logo"></div>
+                                </div>
+                                <p class="tech-name">Docker</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder nltk-logo"></div>
+                                </div>
+                                <p class="tech-name">Kubernetes</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder nltk-logo"></div>
+                                </div>
+                                <p class="tech-name">GitHub</p>
+                            </div>
+                            <div class="tech-card">
+                                <div class="tech-logo">
+                                    <div class="logo-placeholder nltk-logo"></div>
+                                </div>
+                                <p class="tech-name">Firebase Authentication</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works-section">
+            <div class="container">
+                <div class="how-it-works-header">
+                    <h2 class="how-it-works-title">How Delphix Data Virtualization & Delivery Works</h2>
+                    <p class="how-it-works-subtitle">Key Capabilities of Delphix</p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="capability-tabs">
+                    <button class="capability-tab active" data-tab="sync">Sync</button>
+                    <button class="capability-tab" data-tab="maintain">Maintain</button>
+                    <button class="capability-tab" data-tab="deliver">Deliver</button>
+                    <button class="capability-tab" data-tab="enable">Enable</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="capability-content-wrapper">
+                    <!-- Sync Tab Content -->
+                    <div class="capability-content active" id="sync-content">
+                        <div class="content-left">
+                            <h3 class="content-title">Sync with Production Sources</h3>
+                            <div class="content-accordion">
+                                <div class="accordion-icon"><i class="fas fa-chevron-up"></i></div>
+                            </div>
+                            <p class="content-description">The DevOps Data Platform connects with enterprise
+                                applications, captures existing production data, and stays synchronized with production
+                                sources as they change over time.</p>
+                            <ul class="content-features">
+                                <li><i class="fas fa-circle"></i> Use Delphix engines on cloud or on-premises.</li>
+                                <li><i class="fas fa-circle"></i> Deploy additional engines for scale-out performance.
+                                </li>
+                                <li><i class="fas fa-circle"></i> Support 1,000s of apps across clouds.</li>
+                            </ul>
+                        </div>
+                        <div class="content-right">
+                            <h4 class="diagram-title">Connect to Production Sources</h4>
+                            <div class="diagram-container">
+                                <div class="diagram-source">
+                                    <div class="source-box">
+                                        <span class="source-label">PROD</span>
+                                        <div class="source-items">
+                                            <div class="source-item">App Server</div>
+                                            <div class="source-item">DB Server</div>
+                                        </div>
+                                    </div>
+                                    <div class="database-icon">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                </div>
+                                <div class="diagram-arrow">
+                                    <div class="arrow-line"></div>
+                                </div>
+                                <div class="diagram-destination">
+                                    <div class="delphix-icon">
+                                        <i class="fas fa-cloud"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maintain Tab Content -->
+                    <div class="capability-content" id="maintain-content">
+                        <div class="content-left">
+                            <h3 class="content-title">Maintain Data Integrity</h3>
+                            <div class="content-accordion">
+                                <div class="accordion-icon"><i class="fas fa-chevron-up"></i></div>
+                            </div>
+                            <p class="content-description">Automatically maintain data quality, apply masking policies,
+                                and ensure compliance with regulatory requirements across all environments.</p>
+                            <ul class="content-features">
+                                <li><i class="fas fa-circle"></i> Automated data masking for sensitive information.</li>
+                                <li><i class="fas fa-circle"></i> Version control for all data changes.</li>
+                                <li><i class="fas fa-circle"></i> Compliance with GDPR, HIPAA, and other regulations.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-right">
+                            <h4 class="diagram-title">Data Integrity Management</h4>
+                            <div class="diagram-container">
+                                <div class="diagram-source">
+                                    <div class="source-box maintain-box">
+                                        <span class="source-label">DATA</span>
+                                        <div class="source-items">
+                                            <div class="source-item">Masking</div>
+                                            <div class="source-item">Versioning</div>
+                                        </div>
+                                    </div>
+                                    <div class="database-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="diagram-arrow">
+                                    <div class="arrow-line"></div>
+                                </div>
+                                <div class="diagram-destination">
+                                    <div class="delphix-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deliver Tab Content -->
+                    <div class="capability-content" id="deliver-content">
+                        <div class="content-left">
+                            <h3 class="content-title">Deliver Virtual Data</h3>
+                            <div class="content-accordion">
+                                <div class="accordion-icon"><i class="fas fa-chevron-up"></i></div>
+                            </div>
+                            <p class="content-description">Provision virtual copies of production data to development,
+                                testing, and analytics teams in minutes instead of days or weeks.</p>
+                            <ul class="content-features">
+                                <li><i class="fas fa-circle"></i> Self-service data provisioning for teams.</li>
+                                <li><i class="fas fa-circle"></i> 90% reduction in storage requirements.</li>
+                                <li><i class="fas fa-circle"></i> Instant rollback and refresh capabilities.</li>
+                            </ul>
+                        </div>
+                        <div class="content-right">
+                            <h4 class="diagram-title">Virtual Data Delivery</h4>
+                            <div class="diagram-container">
+                                <div class="diagram-source">
+                                    <div class="source-box deliver-box">
+                                        <span class="source-label">VIRT</span>
+                                        <div class="source-items">
+                                            <div class="source-item">Dev Team</div>
+                                            <div class="source-item">QA Team</div>
+                                        </div>
+                                    </div>
+                                    <div class="database-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                </div>
+                                <div class="diagram-arrow">
+                                    <div class="arrow-line"></div>
+                                </div>
+                                <div class="diagram-destination">
+                                    <div class="delphix-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enable Tab Content -->
+                    <div class="capability-content" id="enable-content">
+                        <div class="content-left">
+                            <h3 class="content-title">Enable DevOps Workflows</h3>
+                            <div class="content-accordion">
+                                <div class="accordion-icon"><i class="fas fa-chevron-up"></i></div>
+                            </div>
+                            <p class="content-description">Integrate with CI/CD pipelines and DevOps tools to automate
+                                data delivery as part of your software development lifecycle.</p>
+                            <ul class="content-features">
+                                <li><i class="fas fa-circle"></i> API-first architecture for automation.</li>
+                                <li><i class="fas fa-circle"></i> Integration with Jenkins, GitLab, and more.</li>
+                                <li><i class="fas fa-circle"></i> Automated test data management.</li>
+                            </ul>
+                        </div>
+                        <div class="content-right">
+                            <h4 class="diagram-title">DevOps Integration</h4>
+                            <div class="diagram-container">
+                                <div class="diagram-source">
+                                    <div class="source-box enable-box">
+                                        <span class="source-label">CI/CD</span>
+                                        <div class="source-items">
+                                            <div class="source-item">Pipeline</div>
+                                            <div class="source-item">Automation</div>
+                                        </div>
+                                    </div>
+                                    <div class="database-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                </div>
+                                <div class="diagram-arrow">
+                                    <div class="arrow-line"></div>
+                                </div>
+                                <div class="diagram-destination">
+                                    <div class="delphix-icon">
+                                        <i class="fas fa-infinity"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2572,198 +3269,6 @@
                     }, 200);
                 }
             </script>
-        </section>
-
-        <!-- Enhanced 5th section - Technologies -->
-        <section class="section5">
-            <div class="container">
-                <div class="technologies-section">
-                    <h2 class="technologies-title">
-                        <span class="tech-highlight">Technologies</span> Our <span class="tech-blue">AI
-                            Developers</span> Use
-                    </h2>
-                    <p class="technologies-description">
-                        As a leading artificial intelligence development company, Dataspan utilizes cutting-edge tools,
-                        frameworks, and technologies to deliver state-of-the-art solutions.
-                    </p>
-
-                    <div class="tech-categories">
-                        <button class="tech-category-btn active" data-category="languages">Languages &
-                            Frameworks</button>
-                        <button class="tech-category-btn" data-category="cloud">Cloud AI Platforms</button>
-                        <button class="tech-category-btn" data-category="data">Data Tools</button>
-                        <button class="tech-category-btn" data-category="vision">Computer Vision</button>
-                        <button class="tech-category-btn" data-category="nlp">NLP</button>
-                        <button class="tech-category-btn" data-category="security">Security</button>
-                    </div>
-
-                    <div class="tech-cards-container">
-                        <div class="tech-cards" id="languages-cards">
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder scikit-learn-logo"></div>
-                                </div>
-                                <p class="tech-name">Scikit-learn</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder keras-logo"></div>
-                                </div>
-                                <p class="tech-name">Keras</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder tensorflow-logo"></div>
-                                </div>
-                                <p class="tech-name">TensorFlow</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder r-logo"></div>
-                                </div>
-                                <p class="tech-name">R</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder python-logo"></div>
-                                </div>
-                                <p class="tech-name">Python</p>
-                            </div>
-                        </div>
-                        <div class="tech-cards" id="cloud-cards" style="display: none;">
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder aws-logo"></div>
-                                </div>
-                                <p class="tech-name">AWS</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder azure-logo"></div>
-                                </div>
-                                <p class="tech-name">Azure</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder gcp-logo"></div>
-                                </div>
-                                <p class="tech-name">Google Cloud</p>
-                            </div>
-                        </div>
-                        <div class="tech-cards" id="data-cards" style="display: none;">
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder pandas-logo"></div>
-                                </div>
-                                <p class="tech-name">Pandas</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder numpy-logo"></div>
-                                </div>
-                                <p class="tech-name">NumPy</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder numpy-logo"></div>
-                                </div>
-                                <p class="tech-name">NumPy</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder numpy-logo"></div>
-                                </div>
-                                <p class="tech-name">NumPy</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder numpy-logo"></div>
-                                </div>
-                                <p class="tech-name">NumPy</p>
-                            </div>
-                        </div>
-                        <div class="tech-cards" id="vision-cards" style="display: none;">
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder opencv-logo"></div>
-                                </div>
-                                <p class="tech-name">OpenCV</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder opencv-logo"></div>
-                                </div>
-                                <p class="tech-name">OpenCV</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder opencv-logo"></div>
-                                </div>
-                                <p class="tech-name">OpenCV</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder opencv-logo"></div>
-                                </div>
-                                <p class="tech-name">OpenCV</p>
-                            </div>
-                        </div>
-                        <div class="tech-cards" id="nlp-cards" style="display: none;">
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder nltk-logo"></div>
-                                </div>
-                                <p class="tech-name">NLTK</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder nltk-logo"></div>
-                                </div>
-                                <p class="tech-name">NLTK</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder nltk-logo"></div>
-                                </div>
-                                <p class="tech-name">NLTK</p>
-                            </div>
-
-                        </div>
-                        <div class="tech-cards" id="security-cards" style="display: none;">
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder security-logo"></div>
-                                </div>
-                                <p class="tech-name">Security Tools</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder security-logo"></div>
-                                </div>
-                                <p class="tech-name">Security Tools</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder security-logo"></div>
-                                </div>
-                                <p class="tech-name">Security Tools</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder security-logo"></div>
-                                </div>
-                                <p class="tech-name">Security Tools</p>
-                            </div>
-                            <div class="tech-card">
-                                <div class="tech-logo">
-                                    <div class="logo-placeholder security-logo"></div>
-                                </div>
-                                <p class="tech-name">Security Tools</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- Section 6 - Interactive Chat Interface (Unscrambl Style) -->
@@ -3154,6 +3659,37 @@
                     const selectedCards = document.getElementById(category + '-cards');
                     if (selectedCards) {
                         selectedCards.style.display = 'flex';
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <!-- How It Works Section Tab Functionality -->
+    <script>
+        (function () {
+            const capabilityTabs = document.querySelectorAll('.capability-tab');
+            const capabilityContents = document.querySelectorAll('.capability-content');
+
+            capabilityTabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    const tabName = this.getAttribute('data-tab');
+
+                    // Remove active class from all tabs
+                    capabilityTabs.forEach(t => t.classList.remove('active'));
+
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+
+                    // Hide all content sections
+                    capabilityContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    // Show the selected content
+                    const selectedContent = document.getElementById(tabName + '-content');
+                    if (selectedContent) {
+                        selectedContent.classList.add('active');
                     }
                 });
             });
