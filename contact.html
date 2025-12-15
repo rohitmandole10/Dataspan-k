@@ -459,12 +459,15 @@
     }
 
     .phone-input-wrapper .form-floating label {
-      left: 3.5rem;
+      left: 4.5rem;
+      opacity: 0;
+      transform: translateY(0.5rem);
     }
 
-    .phone-input-wrapper .form-floating .form-control:focus+label,
-    .phone-input-wrapper .form-floating .form-control:not(:placeholder-shown)+label {
-      left: 3.5rem;
+    .phone-input-wrapper .form-floating .form-control:focus+label {
+      opacity: 1;
+      transform: translateY(-1.5rem);
+      left: 4.5rem;
     }
 
     .form-select {
@@ -892,9 +895,10 @@
     }
 
     @media (max-width: 768px) {
-      .contact-hero{
-        padding-top:80px !important;
+      .contact-hero {
+        padding-top: 80px !important;
       }
+
       .contact-page .main {
         padding-top: 0;
       }
@@ -1591,6 +1595,7 @@
                         </div>
                         <label for="phoneNumber">Phone Number <span class="text-danger">*</span></label>
                       </div>
+                      <div class="error-message" id="country-error">Please select a country first.</div>
                     </div>
                   </div>
                   <div class="col-12">
@@ -1656,7 +1661,10 @@
           </div>
           <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
             <div class="map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29997.276397580987!2d73.75490196796123!3d19.980814916996003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeb4b3af610bb%3A0xc2aad4a9505c8168!2sCMEInfotech!5e0!3m2!1sen!2sin!4v1765269337602!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29997.276397580987!2d73.75490196796123!3d19.980814916996003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeb4b3af610bb%3A0xc2aad4a9505c8168!2sCMEInfotech!5e0!3m2!1sen!2sin!4v1765269337602!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
@@ -1751,7 +1759,7 @@
 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
-            Useful Links
+            MENU
             <i class="bi bi-chevron-down footer-chevron"></i>
           </h4>
           <ul class="footer-dropdown-content">
@@ -1769,7 +1777,7 @@
 
         <div class="col-lg-3 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
-            Office Address 1
+            BRANCH-1
             <i class="bi bi-chevron-down footer-chevron"></i>
           </h4>
           <div class="footer-dropdown-content">
@@ -1783,7 +1791,7 @@
 
         <div class="col-lg-3 col-md-3 footer-links">
           <h4 class="footer-dropdown-toggle">
-            Office Address 2
+            BRANCH-2
             <i class="bi bi-chevron-down footer-chevron"></i>
           </h4>
           <div class="footer-dropdown-content">
@@ -1811,12 +1819,13 @@
 
     <div class="container copyright text-center m-0 p-0">
       <!-- Social Links for Mobile View -->
-      <!-- <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
-      </div> -->
+      <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+        <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
+
+        <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i class="bi bi-instagram"></i></a>
+        <a href="https://in.linkedin.com/company/dataspan-technologies"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
+      </div>
       <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
           Technologies</strong> <span>All Rights
           Reserved</span></p>
@@ -1970,11 +1979,30 @@
         'Other': '+'
       };
 
+      // Phone number length limits by country
+      const phoneLengths = {
+        'India': 10,
+        'United States': 10,
+        'United Kingdom': 11,
+        'Canada': 10,
+        'Australia': 9,
+        'Germany': 11,
+        'France': 9,
+        'Japan': 11,
+        'Other': 15
+      };
+
       // Get form elements
       const countrySelect = document.getElementById('country');
       const countryCodeSpan = document.getElementById('countryCode');
       const phoneInput = document.getElementById('phoneNumber');
       const form = document.querySelector('.php-email-form');
+
+      // Initially disable phone input until country is selected
+      if (phoneInput) {
+        phoneInput.disabled = true;
+        // phoneInput.placeholder = 'Select a country first';
+      }
 
       // Update country code based on selected country
       if (countrySelect && countryCodeSpan) {
@@ -2002,12 +2030,20 @@
           const countryCode = countryCodes[selectedCountry] || '+';
           countryCodeSpan.textContent = countryCode;
 
-          // Update phone input placeholder
-          if (selectedCountry && selectedCountry !== 'Other') {
+          // Enable phone input and update placeholder
+          if (selectedCountry && selectedCountry !== '') {
+            phoneInput.disabled = false;
             phoneInput.placeholder = '';
+            document.getElementById('country-error').style.display = 'none';
           } else {
-            phoneInput.placeholder = 'Phone Number';
+            phoneInput.disabled = true;
+            phoneInput.placeholder = '';
+            document.getElementById('country-error').style.display = 'block';
           }
+
+          // Update phone input max length based on country
+          const maxLength = phoneLengths[selectedCountry] || 15;
+          phoneInput.maxLength = maxLength;
 
           // Update label state
           updateCountrySelectState();
@@ -2023,6 +2059,14 @@
         countrySelect.addEventListener('blur', function () {
           updateCountrySelectState();
         });
+
+        // Restrict phone input to numbers only
+        if (phoneInput) {
+          phoneInput.addEventListener('input', function (e) {
+            // Remove any non-numeric characters
+            this.value = this.value.replace(/[^0-9]/g, '');
+          });
+        }
 
         // Initialize country code on page load if country is pre-selected
         if (countrySelect.value) {
@@ -2049,6 +2093,19 @@
               field.classList.remove('is-invalid');
             }
           });
+
+          // Validate phone number length
+          if (phoneInput && countrySelect) {
+            const selectedCountry = countrySelect.value;
+            const maxLength = phoneLengths[selectedCountry] || 15;
+            const phoneValue = phoneInput.value.trim();
+            if (phoneValue.length > maxLength) {
+              phoneInput.classList.add('is-invalid');
+              isValid = false;
+            } else {
+              phoneInput.classList.remove('is-invalid');
+            }
+          }
 
           if (isValid) {
             // Combine country code with phone number
