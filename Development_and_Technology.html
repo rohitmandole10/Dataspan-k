@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>DATASPAN Technologies</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/brand.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/2c796478b6.css" crossorigin="anonymous">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        :root {
+            --section-padding: clamp(40px, 8vw, 100px);
+        }
+
+        /* Enhanced Hero Section */
+        #hero.hero.section {
+            background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 95%) 0%, color-mix(in srgb, var(--accent-color), transparent 90%) 50%, color-mix(in srgb, var(--accent-color), transparent 98%) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: var(--section-padding) 0;
+            padding-top: clamp(100px, 12vw, 150px) !important;
+        }
+
+        #hero .container {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+        }
+
+        #hero .row {
+            margin: 0 !important;
+            width: 100%;
+        }
+
+        #hero.hero.section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--accent-color), transparent 92%), transparent 40%);
+            pointer-events: none;
+        }
+
+        #hero.hero.section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Breadcrumb */
+        .hero-breadcrumbs {
+            width: 80%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            pointer-events: auto;
+            border-radius: 10px;
+            /* Optional: adds subtle rounding if background is used later */
+            padding: 0 clamp(20px, 3vw, 40px) clamp(15px, 2vw, 25px);
+        }
+
+        .hero-breadcrumbs .breadcrumb {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 8px;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+            font-weight: 500;
+            /* border: 5px solid blue; */
+        }
+
+        .hero-breadcrumbs .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-breadcrumbs .breadcrumb li::after {
+            content: '›';
+            font-size: 0.85rem;
+            color: color-mix(in srgb, var(--default-color), transparent 40%);
+        }
+
+        .hero-breadcrumbs .breadcrumb li:last-child::after {
+            display: none;
+        }
+
+        .hero-breadcrumbs .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .hero-breadcrumbs .breadcrumb a:hover {
+            color: color-mix(in srgb, var(--accent-color), transparent 20%);
+        }
+
+        .hero-breadcrumbs .breadcrumb span {
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1199px) {
+            .hero-breadcrumbs {
+                width: 85%;
+            }
+
+            .hero-content {
+                width: 85% !important;
+                max-width: 85% !important;
+                padding: clamp(8px, 1.2vw, 15px) clamp(20px, 3vw, 40px);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-breadcrumbs {
+                width: 95%;
+                margin-bottom: clamp(15px, 3vw, 22px);
+            }
+
+            .hero-breadcrumbs .breadcrumb {
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+            }
+        }
+
+        .hero-title {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            font-family: var(--heading-font);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+
+        /* Enhanced animations */
+        @keyframes blinkCursor {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Hero section enhancements */
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 1;
+            width: 80% !important;
+            max-width: 80% !important;
+            margin: 0 auto;
+            padding: clamp(8px, 1.2vw, 15px) clamp(20px, 3vw, 40px);
+            box-sizing: border-box;
+        }
+
+        .hero-content p {
+            color: #ffffff;
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            font-family: var(--default-font);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero-content p strong {
+            font-weight: 700;
+        }
+
+        .hero-image img {
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-buttons .btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            padding: 0.75rem 2.5rem;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 50px;
+            border: 2px solid;
+            font-family: var(--default-font);
+        }
+
+        .hero-buttons .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--contrast-color);
+            border-color: var(--accent-color);
+        }
+
+        .hero-buttons .btn-primary:hover {
+            background-color: color-mix(in srgb, var(--accent-color), black 20%);
+            border-color: color-mix(in srgb, var(--accent-color), black 20%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 131, 253, 0.3);
+        }
+
+        .hero-buttons .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--contrast-color);
+            border-color: var(--contrast-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-buttons .btn-secondary:hover {
+            background-color: var(--contrast-color);
+            color: var(--accent-color);
+            border-color: var(--contrast-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* ===============================
+        The AI agent workforce section
+        =============================== */
+
+        .ai-stats-section {
+            padding: var(--section-padding) 24px;
+            background: #ffffff;
+        }
+
+        .ai-stats-container {
+            max-width: 1200px;
+            margin: auto;
+            background: #148cee2d;
+            border-radius: 24px;
+            padding: 60px 70px;
+
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* LEFT CONTENT */
+
+        .ai-stats-content h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.1;
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .ai-stats-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            max-width: 520px;
+        }
+
+        /* RIGHT STATS GRID */
+
+        .ai-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px 40px;
+        }
+
+        .stat-item {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .percent {
+            font-size: 32px;
+            font-weight: 700;
+            margin-left: 2px;
+        }
+
+        .stat-item p {
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        /* ===============================
+   RESPONSIVE
+   =============================== */
+
+        @media (max-width: 900px) {
+            .ai-stats-container {
+                grid-template-columns: 1fr;
+                padding: 50px 30px;
+            }
+
+            .ai-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-stats-content h2 {
+                font-size: 36px;
+            }
+        }
+
+        /* Seldon Helps Businesses section */
+        .feature-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            height: 100%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .feature-card .icon {
+            font-size: 28px;
+            color: #4f46e5;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .feature-card h5 {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .cta-card {
+            height: 100%;
+            padding: 32px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #0f766e, #1d4ed8);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cta-card h4 {
+            font-weight: 600;
+        }
+
+        .cta-card .btn {
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
+
+        /* scroll-images section ---------------------------------------------------------------------- */
+        /* :root {
+      --header-height: 140px;
+    } */
+
+        /* body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+    } */
+
+        /* MAIN SECTION */
+        .case-study-section {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            background: #000;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            /* border: 5px solid yellow; */
+            padding: 10px 0px 0px 0px;
+        }
+
+
+        /* FIXED HEADER */
+        .case-study-section .case-header {
+            padding: var(--section-padding) 15px 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .case-study-section .case-header h1 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #fff;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .case-study-section .case-header p {
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        /* SCROLLABLE SLIDES AREA */
+        .slides-wrapper {
+            flex: 1;
+            overflow: hidden;
+            /* border: 5px solid red; */
+        }
+
+        .case-study-section .scroll-container {
+            height: 80%;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            /* border: 5px solid red; */
+            overflow-x: hidden;
+            /* border: 5px solid rgb(0, 255, 55); */
+        }
+
+        .case-study-section .slide {
+            height: 100%;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        /* LEFT CONTENT */
+        .case-study-section .tag {
+            color: #1e90ff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .case-study-section .desc {
+            color: #ffffff;
+            max-width: 400px;
+            font-size: 14px;
+        }
+
+        .case-study-section .stats {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .case-study-section .stats h2 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .case-study-section .stats span {
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        .case-study-section .divider {
+            width: 1px;
+            height: 45px;
+            background: #444;
+            margin: 0 30px;
+        }
+
+        /* RIGHT IMAGE */
+        .case-study-section .image-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .case-study-section .image-card {
+            background: #000000;
+            border-radius: 30px;
+            padding: 30px;
+        }
+
+        .case-study-section .image-card img {
+            max-height: 350px;
+            border-radius: 20px;
+        }
+
+        /* SCROLLBAR */
+        .case-study-section .scroll-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .case-study-section .scroll-container::-webkit-scrollbar-thumb {
+            background: #1e90ff !important;
+            border-radius: 10px !important;
+        }
+
+        /* full width image */
+
+        .integration-section {
+            height: 70vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Heading area */
+        .integration-header {
+            /* padding: 40px 20px 20px; */
+            text-align: center;
+        }
+
+        .integration-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 800;
+            color: #111;
+            padding: var(--section-padding) 24px 20px;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        /* Image container takes remaining height */
+        .integration-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .integration-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* use cover if you want crop */
+        }
+
+        /* ================================================================================ */
+        .ai-partnership-section {
+            padding: var(--section-padding) 0;
+            background: #fff;
+        }
+
+        .ai-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            align-items: center;
+        }
+
+        /* LEFT */
+        .ai-left h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .ai-left p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 420px;
+        }
+
+        /* RIGHT GRID */
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 120px);
+            gap: 0;
+            /* IMPORTANT */
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            background: #fafafa;
+        }
+
+        /* CARD */
+        .ai-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #c66a00;
+            background: linear-gradient(135deg, #fde7c6, #f9b356);
+            cursor: pointer;
+        }
+
+        /* BLANK CARD */
+        .ai-card.blank {
+            background: #e5e7eb;
+            cursor: default;
+        }
+
+        /* ACTIVE STATE ONLY (NO ANIMATION) */
+        .ai-card.active {
+            background: linear-gradient(135deg, #fbd28a, #f39c12);
+        }
+
+        /* REMOVE ALL HOVER EFFECTS */
+        .ai-card:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .ai-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* RESPONSIVE ENHANCEMENTS */
+        @media (max-width: 1200px) {
+
+            .hero-content,
+            .hero-breadcrumbs {
+                width: 90% !important;
+                max-width: 90% !important;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .ai-stats-container {
+                grid-template-columns: 1fr;
+                padding: 40px 24px;
+                gap: 40px;
+            }
+
+            .ai-stats-content {
+                text-align: center;
+            }
+
+            .ai-stats-content p {
+                margin: 0 auto;
+            }
+
+            .ai-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-section {
+                height: auto;
+                min-height: auto;
+                padding-bottom: 40px;
+            }
+
+            .case-study-section .scroll-container {
+                height: auto;
+                overflow: visible;
+            }
+
+            .case-study-section .slide {
+                flex-direction: column;
+                padding: 40px 20px;
+                gap: 30px;
+                text-align: center;
+                height: auto;
+                scroll-snap-align: none;
+                border-bottom: 1px solid #333;
+            }
+
+            .case-study-section .desc {
+                max-width: 100%;
+            }
+
+            .case-study-section .divider {
+                display: none;
+            }
+
+            .case-study-section .stats {
+                flex-direction: row;
+                gap: 20px 40px;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: 30px;
+            }
+
+            .case-study-section .image-box {
+                width: 100%;
+            }
+
+            .case-study-section .image-card img {
+                max-height: 300px;
+                width: auto;
+                max-width: 100%;
+            }
+
+            /* Reset scroll snap for mobile */
+            .case-study-section .scroll-container {
+                scroll-snap-type: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #hero.hero.section {
+                padding-top: 100px !important;
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                padding: 0;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .ai-stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stat-item {
+                text-align: center;
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 12px;
+            }
+
+            .ai-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 cols on mobile */
+            }
+
+            .integration-section {
+                height: 40vh;
+            }
+
+            .ai-card {
+                font-size: 12px;
+                padding: 10px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ai-grid {
+                grid-template-columns: 1fr;
+                /* 1 col on very small screens */
+            }
+        }
+    </style>
+</head>
+
+<body class="services">
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+                </a>
+            </div>
+
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#hero" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Aboutus.html" class="nav-link">About Us</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
+            Services
+          </a>
+        </li> -->
+                <li class="nav-item">
+                    <a href="Clients.html" class="nav-link">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Action Button 
+            <div class="nav-action">
+                <button class="start-project-btn">Start Project</button>
+            </div>-->
+        </div>
+
+        <!-- Services Dropdown Menu -->
+        <!--
+    <div class="dropdown-menu" id="services-dropdown">
+        <div class="dropdown-container">
+            <div class="dropdown-content">
+                Service Categories
+                <div class="service-categories">
+      <div class="category-column">
+        <div class="category-item active" data-submenu="ai-automation">
+          <a href="#" class="category-link">AI & Automation</a>
+        </div>
+        <div class="category-item" data-submenu="development-technology">
+          <a href="#" class="category-link">Development & Technology</a>
+        </div>
+        <div class="category-item" data-submenu="design-branding">
+          <a href="#" class="category-link">Design & Branding</a>
+        </div>
+        <div class="category-item" data-submenu="cloud-infrastructure">
+          <a href="#" class="category-link">Cloud & Infrastructure</a>
+        </div>
+        <div class="category-item" data-submenu="data-operations">
+          <a href="#" class="category-link">Data & Operations</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="ai-automation-submenu">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">AI & Machine Learning (ML)</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">OCR (Optical Character Recognition)</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Scraper & Scripting</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Navision Integration & Automation</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Shopify Development & Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Web & Mobile Development</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Software Development & Consulting</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Design & Branding</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Reporting & Analytics</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="promo-section">
+      <div class="tech-illustration">
+        <div class="robot-unit">
+          <div class="robot-head">
+            <div class="robot-core"></div>
+            <div class="circuit-board"></div>
+          </div>
+          <div class="code-screen">
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+          </div>
+        </div>
+
+        <div class="human-figures">
+          <div class="human-figure male">
+            <div class="figure-body"></div>
+            <div class="key blue-key"></div>
+          </div>
+          <div class="human-figure female">
+            <div class="figure-body"></div>
+            <div class="key green-key"></div>
+          </div>
+        </div>
+
+        <div class="brain-icon">
+          <div class="brain-shape"></div>
+        </div>
+
+        <div class="geometric-elements">
+          <div class="cube-stack">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+          </div>
+          <div class="individual-cubes">
+            <div class="cube"></div>
+            <div class="cube"></div>
+          </div>
+          <div class="shield-icon"></div>
+          <div class="floating-keys">
+            <div class="key blue-key"></div>
+            <div class="key green-key"></div>
+          </div>
+        </div>
+
+        <div class="smartphone">
+          <div class="phone-body"></div>
+          <div class="network-signals">
+            <div class="signal"></div>
+            <div class="signal"></div>
+            <div class="signal"></div>
+          </div>
+          <div class="data-flow">
+            <div class="data-cube"></div>
+            <div class="data-cube"></div>
+            <div class="data-cube"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    -->
+    </nav>
+    <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+    <div class="main">
+        <!-- hero section -->
+        <section id="hero" class="hero section">
+
+            <!-- Breadcrumbs -->
+            <div class="hero-breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><span>AI & Automation</span></li>
+                </ol>
+            </div>
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row align-items-center">
+
+                    <div class="col-lg-12">
+                        <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+
+                            <!-- Main Heading -->
+                            <h1 class="mb-4 hero-title">Revolutionizing Data with AI-Powered Solutions</h1>
+
+                            <!-- Description Paragraph -->
+                            <p class="mb-4 mb-md-5">
+                                We design, build, and deploy powerful AI and machine-learning solutions that enhance
+                                efficiency, automate workflows, and drive measurable results. From predictive analytics
+                                to NLP and custom LLM development, we help organizations unlock smarter, scalable, and
+                                future-ready capabilities.
+                            </p>
+
+                            <!-- Call to Action Buttons -->
+                            <div class="hero-buttons">
+                                <a href="#contact" class="btn btn-primary">Start Your AI Project</a>
+                                <a href="#contact" class="btn btn-outline-primary">Get Free Consultation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- The AI agent workforce section -->
+        <section class="ai-stats-section" id="ai-stats">
+            <div class="ai-stats-container">
+
+                <!-- LEFT CONTENT -->
+                <div class="ai-stats-content">
+                    <h2>The AI agent workforce is already here</h2>
+
+                    <p>
+                        Shadow IT has evolved into Shadow AI. With agents operating as rogue pilots,
+                        the risk isn’t coming—it could already be inside your perimeter.
+                    </p>
+                </div>
+
+                <!-- RIGHT STATS -->
+                <div class="ai-stats-grid">
+
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="91">0</span><span class="percent">%</span>
+                        <p>of organizations are already using AI agents*</p>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="80">0</span><span class="percent">%</span>
+                        <p>experienced unintended agent behavior**</p>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="44">0</span><span class="percent">%</span>
+                        <p>have no governance in place**</p>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="23">0</span><span class="percent">%</span>
+                        <p>report credential exposure via agents**</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Seldon Helps Businesses section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row g-4 align-items-start">
+                    <!-- Cards -->
+                    <div class="col-12">
+                        <div class="row g-4">
+
+                            <div class="col-lg-3">
+                                <h2 class="fw-bold">
+                                    Seldon Helps Businesses in<br>
+                                    <span class="text-primary">Real Time</span>
+                                </h2>
+                                <p class="text-muted mt-3">
+                                    Seldon’s LLM Module supports a wide range of
+                                    <strong>data-critical use cases</strong> designed to improve
+                                    business operations and customer relations.
+                                </p>
+                            </div>
+                            <!-- Card -->
+                            <div class="col-md-3">
+                                <div class="feature-card">
+                                    <i class="bi bi-headset icon"></i>
+                                    <h5>Customer Support</h5>
+                                    <p>
+                                        Power chatbots and virtual assistants to handle routine
+                                        customer queries, provide 24/7 support, and reduce workloads.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="feature-card">
+                                    <i class="bi bi-bar-chart-line icon"></i>
+                                    <h5>Sentiment Analysis</h5>
+                                    <p>
+                                        Detect and track sentiment trends across customer interactions
+                                        to drive better decisions.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="feature-card">
+                                    <i class="bi bi-code-slash icon"></i>
+                                    <h5>Coding Copilots</h5>
+                                    <p>
+                                        Generate code, translate languages, debug, write docs,
+                                        and offer autocomplete suggestions.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="feature-card">
+                                    <i class="bi bi-pencil icon"></i>
+                                    <h5>Content Creation</h5>
+                                    <p>
+                                        Generate high-quality text, images, or videos for marketing
+                                        and product descriptions.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="feature-card">
+                                    <i class="bi bi-person-check icon"></i>
+                                    <h5>Recommendation</h5>
+                                    <p>
+                                        Increase conversion through personalized recommendations
+                                        across commerce and enterprise apps.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="feature-card">
+                                    <i class="bi bi-file-earmark-text icon"></i>
+                                    <h5>Text Extraction & Summarization</h5>
+                                    <p>
+                                        Extract relevant data automatically and condense long
+                                        documents into summaries.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- CTA Card -->
+                            <div class="col-md-3">
+                                <div class="cta-card">
+                                    <h4>
+                                        Talk with a expert to streamline your complex GenAI projects
+                                    </h4>
+                                    <a href="#" class="btn btn-light mt-3">Book a Demo</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="ai-partnership-section">
+            <div class="container">
+                <div class="ai-layout">
+
+                    <!-- LEFT CONTENT -->
+                    <div class="ai-left">
+                        <h2 id="ai-title">
+                            Hands-on partnership<br>with AI experts
+                        </h2>
+                        <p id="ai-desc">
+                            Our team partners closely with you across the entire AI lifecycle,
+                            helping move high-value AI use cases into production.
+                        </p>
+                    </div>
+
+                    <!-- RIGHT: 3x3 GRID -->
+                    <div class="ai-grid">
+
+                        <!-- ROW 1 -->
+                        <div class="ai-card active" data-title="Hands-on partnership with AI experts"
+                            data-desc="Contextual AI’s team of AI experts partners closely with you at every step of the agent development process, helping your enterprise rapidly meet the performance requirements needed to move your highest value use cases into production. Our deep commitment to AI research (https://contextual.ai/research/) also ensures your enterprise remains at the forefront of AI innovation.">
+                            PLAN
+                        </div>
+
+                        <div class="ai-card blank"></div>
+
+                        <div class="ai-card" data-title="Secure, seamless integration"
+                            data-desc="The Contextual AI Platform provides broad support for all of your enterprise data, including multimodal documents, structured databases and data warehouses, and popular SaaS applications. The platform also provides a comprehensive of security features and capabilities to safeguard your data, enforce proper access permissions, and maintain regulatory compliance.">
+                            BUILD
+                        </div>
+
+                        <!-- ROW 2 -->
+                        <div class="ai-card blank"></div>
+
+                        <div class="ai-card" data-title="Unmatched AI performance"
+                            data-desc="The Contextual AI Platform outperforms competing enterprise AI systems built with leading frontier models, including Claude Sonnet and ChatGPT, helping you move quickly from demo to production. Specialized RAG agents built with our platform deliver exceptional end-to-end accuracy on technical, complex, and knowledge intensive workloads, such as product design, QA testing, and automated customer support.">
+                            DEPLOY
+                        </div>
+
+                        <div class="ai-card blank"></div>
+
+                        <!-- ROW 3 -->
+                        <div class="ai-card" data-title="Reach production in weeks, not months"
+                            data-desc="Accelerate your time to value with hands-on partnership from leading AI experts for every stage of the agent development process">
+                            OPERATE
+                        </div>
+
+                        <div class="ai-card blank"></div>
+
+                        <div class="ai-card blank"></div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="integration-section">
+
+            <!-- FIXED HEADING -->
+            <div class="integration-header">
+                <h2>One secure, intelligent platform with 1,500+ app integrations</h2>
+            </div>
+
+            <!-- FULL HEIGHT IMAGE -->
+            <div class="integration-image">
+                <img src="https://assets.box.com/sites/default/files/styles/1800xauto/public/2025-03/9-image_one_secure_intelligent_platform_with_1500_app_integrations.jpg?itok=EpbynzZP"
+                    alt="App Integrations">
+            </div>
+
+        </section>
+
+        <section class="case-study-section">
+
+            <!-- FIXED HEADING -->
+            <div class="case-header">
+                <h1>Case Study To Showcase Our Excellence In Mobile App Development</h1>
+                <p>Explore how our customers benefit from our AI-powered mobile application development service.</p>
+            </div>
+
+            <!-- SCROLLABLE SLIDES -->
+            <div class="slides-wrapper ">
+                <div class="scroll-container container">
+
+                    <!-- SLIDE 1 -->
+                    <div class="slide row">
+                        <div class="col-lg-6">
+                            <p class="tag">Case Study</p>
+                            <h5>Sorise, UAE</h5>
+                            <p class="desc">An AI-powered mobile app to transform the educational landscape.</p>
+
+                            <h6 class="mt-3">Result</h6>
+
+                            <div class="stats">
+                                <div>
+                                    <h2>10K+</h2>
+                                    <span>App downloads</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div>
+                                    <h2>85%</h2>
+                                    <span>ROI</span>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary mt-3">Unlock Free Consultation</button>
+                        </div>
+
+                        <div class="col-lg-6 image-box">
+                            <div class="image-card">
+                                <img
+                                    src="https://www.techgropse.com/common/images/mobile-app-development/saudi-arabia.webp">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 2 -->
+                    <div class="slide row">
+                        <div class="col-lg-6">
+                            <p class="tag">Case Study</p>
+                            <h5>Sorise, UAE</h5>
+                            <p class="desc">An AI-powered mobile app to transform the educational landscape.</p>
+
+                            <h6 class="mt-3">Result</h6>
+
+                            <div class="stats">
+                                <div>
+                                    <h2>10K+</h2>
+                                    <span>App downloads</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div>
+                                    <h2>85%</h2>
+                                    <span>ROI</span>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary mt-3">Unlock Free Consultation</button>
+                        </div>
+                        <div class="col-lg-6 image-box">
+                            <div class="image-card">
+                                <img
+                                    src="https://www.techgropse.com/common/images/mobile-app-development/star-importer-usa.webp">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 3 -->
+                    <div class="slide row">
+                        <div class="col-lg-6">
+                            <p class="tag">Case Study</p>
+                            <h5>Sorise, UAE</h5>
+                            <p class="desc">An AI-powered mobile app to transform the educational landscape.</p>
+
+                            <h6 class="mt-3">Result</h6>
+
+                            <div class="stats">
+                                <div>
+                                    <h2>10K+</h2>
+                                    <span>App downloads</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div>
+                                    <h2>85%</h2>
+                                    <span>ROI</span>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary mt-3">Unlock Free Consultation</button>
+                        </div>
+                        <div class="col-lg-6 image-box">
+                            <div class="image-card">
+                                <img
+                                    src="https://www.techgropse.com/common/images/mobile-app-development/saudi-enaya-saudi-arabia.webp">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 4 -->
+                    <div class="slide row">
+                        <div class="col-lg-6">
+                            <p class="tag">Case Study</p>
+                            <h5>Sorise, UAE</h5>
+                            <p class="desc">An AI-powered mobile app to transform the educational landscape.</p>
+
+                            <h6 class="mt-3">Result</h6>
+
+                            <div class="stats">
+                                <div>
+                                    <h2>10K+</h2>
+                                    <span>App downloads</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div>
+                                    <h2>85%</h2>
+                                    <span>ROI</span>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary mt-3">Unlock Free Consultation</button>
+                        </div>
+                        <div class="col-lg-6 image-box">
+                            <div class="image-card">
+                                <img
+                                    src="https://www.techgropse.com/common/images/mobile-app-development/passport-journey-usa.webp">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 5 -->
+                    <div class="slide row">
+                        <div class="col-lg-6">
+                            <p class="tag">Case Study</p>
+                            <h5>Sorise, UAE</h5>
+                            <p class="desc">An AI-powered mobile app to transform the educational landscape.</p>
+
+                            <h6 class="mt-3">Result</h6>
+
+                            <div class="stats">
+                                <div>
+                                    <h2>10K+</h2>
+                                    <span>App downloads</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div>
+                                    <h2>85%</h2>
+                                    <span>ROI</span>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary mt-3">Unlock Free Consultation</button>
+                        </div>
+                        <div class="col-lg-6 image-box">
+                            <div class="image-card">
+                                <img src="https://www.techgropse.com/common/images/mobile-app-development/Sorise.webp">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Call to Action Section -->
+        <section id="cta" class="call-to-action section">
+            <div class="container" data-aos="zoom-in">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2>Shape the Future of Your Enterprise Today </h2>
+                        <p class="mb-4">Let AI revolutionize how your business thinks, adapts, and succeeds in the
+                            digital era.</p>
+                        <div class="cta-buttons">
+                            <a href="contact.html" class="btn btn-primary me-2 mb-2">Get Started Today</a>
+                            <!-- <a href="service.html" class="btn btn-outline-primary mb-2">Explore Our Services</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Call to Action Section -->
+    </div>
+
+    <footer id="footer" class="footer section light-background">
+
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center ">
+                        <img src="assets/img/footer-logo2.png" alt="">
+                    </a>
+                    <div class="footer-contact pt-1">
+                        <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
+            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
+                        <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance,
+                            and build
+                            smarter systems that support steady, measurable growth</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+                        <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+                    </div>
+                    <div class="social-links d-flex my-2">
+                        <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
+
+                        <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://in.linkedin.com/company/dataspan-technologies"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i
+                                class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Our Solutions
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="service.html">AI & Automation Solutions</a></li>
+            <li><a href="service.html">Software & App Development</a></li>
+            <li><a href="service.html">Data Analytics & Visualization</a></li>
+            <li><a href="service.html">NLP & Language Models</a></li>
+            <li><a href="service.html">BPO & E-commerce Services</a></li>
+            <li><a href="service.html">UI/UX Design & Prototyping</a></li>
+          </ul>
+        </div> -->
+
+                <!-- <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Industries We Serve
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="#">E-commerce & Retail</a></li>
+            <li><a href="#">Fintech & Banking</a></li>
+            <li><a href="#">Healthcare & MedTech</a></li>
+            <li><a href="#">Manufacturing & Supply Chain</a></li>
+            <li><a href="#">Education & EdTech</a></li>
+            <li><a href="">Real Estate & Smart Systems</a></li>
+          </ul>
+        </div> -->
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Useful Links
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <ul class="footer-dropdown-content">
+                        <li><a href="index.html#hero">Home</a></li>
+                        <li><a href="Aboutus.html">About us</a></li>
+                        <li><a href="Clients.html">Clients</a></li>
+                        <!-- <li><a href="service.html">Services</a></li> -->
+                        <!-- <li><a href="careers.html">Careers</a></li> -->
+                        <!-- <li><a href="Clients.html">Case Studies</a></li> -->
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <!-- <li><a href="#">Privacy Policy</a></li> -->
+                        <!-- <li><a href="#">Terms of Service</a></li> -->
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Office Address 1
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <div class="footer-dropdown-content">
+                        <div class="footer-contact">
+                            <!-- <p><strong>Address:</strong></p> -->
+                            <p>Shreeji Pride, Dataspan Technologies Pvt. Ltd. , Shreeji Pride, Second Floor, Opp.</p>
+                            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Office Address 2
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <div class="footer-dropdown-content">
+                        <div class="footer-contact">
+                            <!-- <p><strong>Address:</strong></p> -->
+                            <p>Dataspan Technologies Pvt. Ltd. ,</p>
+                            <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nobis illum</h4>
+          <ul>
+            <li><a href="#">Ipsam</a></li>
+            <li><a href="#">Laudantium dolorum</a></li>
+            <li><a href="#">Dinera</a></li>
+            <li><a href="#">Trodelas</a></li>
+            <li><a href="#">Flexo</a></li>
+          </ul>
+        </div> -->
+
+            </div>
+        </div>
+
+        <div class="container copyright text-center m-0 p-0">
+            <!-- Social Links for Mobile View -->
+            <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+            <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
+                    Technologies</strong> <span>All Rights
+                    Reserved</span></p>
+        </div>
+
+    </footer>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short "></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Initialize AOS with smooth animation settings -->
+    <script>
+        AOS.init({
+            duration: 500, // Smooth animation duration (0.5s)
+            easing: 'ease-out-cubic', // Smooth cubic easing for fluid motion
+            once: true, // Animate only once
+            offset: 0, // Trigger immediately when element enters viewport
+            delay: 0 // Base delay (individual delays are set via data-aos-delay)
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll(".stat-number");
+            let hasAnimated = false;
+
+            const animateCounters = () => {
+                if (hasAnimated) return;
+                hasAnimated = true;
+
+                counters.forEach(counter => {
+                    const target = +counter.dataset.target;
+                    let current = 0;
+                    const increment = Math.ceil(target / 60);
+
+                    const update = () => {
+                        current += increment;
+                        if (current > target) current = target;
+                        counter.textContent = current;
+
+                        if (current < target) {
+                            requestAnimationFrame(update);
+                        }
+                    };
+
+                    update();
+                });
+            };
+
+            const observer = new IntersectionObserver(
+                entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                        }
+                    });
+                },
+                { threshold: 0.4 }
+            );
+
+            observer.observe(document.getElementById("ai-stats"));
+        });
+    </script>
+
+    <script>
+        const caseSection = document.querySelector('.case-study-section');
+        const caseContainer = document.querySelector('.case-scroll-container');
+        const caseSlides = document.querySelectorAll('.case-slide');
+
+        let index = 0;
+        let locked = false;
+
+        caseSection.addEventListener('wheel', (e) => {
+            if (!caseContainer) return;
+
+            e.preventDefault();
+            if (locked) return;
+
+            if (e.deltaY > 0 && index < caseSlides.length - 1) index++;
+            if (e.deltaY < 0 && index > 0) index--;
+
+            locked = true;
+            caseSlides[index].scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => locked = false, 700);
+        }, { passive: false });
+    </script>
+
+    <script>
+        const cards = document.querySelectorAll('.ai-card:not(.blank)');
+        const title = document.getElementById('ai-title');
+        const desc = document.getElementById('ai-desc');
+
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+
+                title.textContent = card.dataset.title;
+                desc.textContent = card.dataset.desc;
+            });
+        });
+    </script>
+
+</body>

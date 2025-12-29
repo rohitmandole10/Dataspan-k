@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>DATASPAN Technologies</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/brand.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/2c796478b6.css" crossorigin="anonymous">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        :root {
+            --section-padding: clamp(40px, 8vw, 100px);
+        }
+
+        /* Enhanced Hero Section */
+        #hero.hero.section {
+            background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 95%) 0%, color-mix(in srgb, var(--accent-color), transparent 90%) 50%, color-mix(in srgb, var(--accent-color), transparent 98%) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: var(--section-padding) 0;
+            padding-top: clamp(100px, 12vw, 150px) !important;
+        }
+
+        #hero .container {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+        }
+
+        #hero .row {
+            margin: 0 !important;
+            width: 100%;
+        }
+
+        #hero.hero.section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--accent-color), transparent 92%), transparent 40%);
+            pointer-events: none;
+        }
+
+        #hero.hero.section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Breadcrumb */
+        .hero-breadcrumbs {
+            width: 80%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            pointer-events: auto;
+            border-radius: 10px;
+            /* Optional: adds subtle rounding if background is used later */
+            padding: 0 clamp(20px, 3vw, 40px) clamp(15px, 2vw, 25px);
+        }
+
+        .hero-breadcrumbs .breadcrumb {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 8px;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+            font-weight: 500;
+            /* border: 5px solid blue; */
+        }
+
+        .hero-breadcrumbs .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-breadcrumbs .breadcrumb li::after {
+            content: '›';
+            font-size: 0.85rem;
+            color: color-mix(in srgb, var(--default-color), transparent 40%);
+        }
+
+        .hero-breadcrumbs .breadcrumb li:last-child::after {
+            display: none;
+        }
+
+        .hero-breadcrumbs .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .hero-breadcrumbs .breadcrumb a:hover {
+            color: color-mix(in srgb, var(--accent-color), transparent 20%);
+        }
+
+        .hero-breadcrumbs .breadcrumb span {
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1199px) {
+            .hero-breadcrumbs {
+                width: 85%;
+            }
+
+            .hero-content {
+                width: 85% !important;
+                max-width: 85% !important;
+                padding: clamp(8px, 1.2vw, 15px) clamp(20px, 3vw, 40px);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-breadcrumbs {
+                width: 95%;
+                margin-bottom: clamp(15px, 3vw, 22px);
+            }
+
+            .hero-breadcrumbs .breadcrumb {
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+            }
+        }
+
+        .hero-title {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            font-family: var(--heading-font);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+
+        /* Enhanced animations */
+        @keyframes blinkCursor {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Hero section enhancements */
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 1;
+            width: 80% !important;
+            max-width: 80% !important;
+            margin: 0 auto;
+            padding: clamp(8px, 1.2vw, 15px) clamp(20px, 3vw, 40px);
+            box-sizing: border-box;
+        }
+
+        .hero-content p {
+            color: #ffffff;
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            font-family: var(--default-font);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero-content p strong {
+            font-weight: 700;
+        }
+
+        .hero-image img {
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-buttons .btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            padding: 0.75rem 2.5rem;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 50px;
+            border: 2px solid;
+            font-family: var(--default-font);
+        }
+
+        .hero-buttons .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--contrast-color);
+            border-color: var(--accent-color);
+        }
+
+        .hero-buttons .btn-primary:hover {
+            background-color: color-mix(in srgb, var(--accent-color), black 20%);
+            border-color: color-mix(in srgb, var(--accent-color), black 20%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 131, 253, 0.3);
+        }
+
+        .hero-buttons .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--contrast-color);
+            border-color: var(--contrast-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-buttons .btn-secondary:hover {
+            background-color: var(--contrast-color);
+            color: var(--accent-color);
+            border-color: var(--contrast-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* ===============================
+        The AI agent workforce section
+        =============================== */
+
+        .ai-stats-section {
+            padding: var(--section-padding) 24px;
+            background: #ffffff;
+        }
+
+        .ai-stats-container {
+            max-width: 1200px;
+            margin: auto;
+            background: #148cee2d;
+            border-radius: 24px;
+            padding: 60px 70px;
+
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* LEFT CONTENT */
+
+        .ai-stats-content h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.1;
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .ai-stats-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            max-width: 520px;
+        }
+
+        /* RIGHT STATS GRID */
+
+        .ai-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px 40px;
+        }
+
+        .stat-item {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .percent {
+            font-size: 32px;
+            font-weight: 700;
+            margin-left: 2px;
+        }
+
+        .stat-item p {
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        /* ===============================
+   RESPONSIVE
+   =============================== */
+
+        @media (max-width: 900px) {
+            .ai-stats-container {
+                grid-template-columns: 1fr;
+                padding: 50px 30px;
+            }
+
+            .ai-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-stats-content h2 {
+                font-size: 36px;
+            }
+        }
+
+        /* Seldon Helps Businesses section */
+        .feature-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            height: 100%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .feature-card .icon {
+            font-size: 28px;
+            color: #4f46e5;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .feature-card h5 {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .cta-card {
+            height: 100%;
+            padding: 32px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #0f766e, #1d4ed8);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cta-card h4 {
+            font-weight: 600;
+        }
+
+        .cta-card .btn {
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
+
+        /* scroll-images section ---------------------------------------------------------------------- */
+        /* :root {
+      --header-height: 140px;
+    } */
+
+        /* body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+    } */
+
+        /* MAIN SECTION */
+        .case-study-section {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            background: #000;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            /* border: 5px solid yellow; */
+            padding: 10px 0px 0px 0px;
+        }
+
+
+        /* FIXED HEADER */
+        .case-study-section .case-header {
+            padding: var(--section-padding) 15px 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .case-study-section .case-header h1 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #fff;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .case-study-section .case-header p {
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        /* SCROLLABLE SLIDES AREA */
+        .slides-wrapper {
+            flex: 1;
+            overflow: hidden;
+            /* border: 5px solid red; */
+        }
+
+        .case-study-section .scroll-container {
+            height: 80%;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            /* border: 5px solid red; */
+            overflow-x: hidden;
+            /* border: 5px solid rgb(0, 255, 55); */
+        }
+
+        .case-study-section .slide {
+            height: 100%;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        /* LEFT CONTENT */
+        .case-study-section .tag {
+            color: #1e90ff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .case-study-section .desc {
+            color: #ffffff;
+            max-width: 400px;
+            font-size: 14px;
+        }
+
+        .case-study-section .stats {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .case-study-section .stats h2 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .case-study-section .stats span {
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        .case-study-section .divider {
+            width: 1px;
+            height: 45px;
+            background: #444;
+            margin: 0 30px;
+        }
+
+        /* RIGHT IMAGE */
+        .case-study-section .image-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .case-study-section .image-card {
+            background: #000000;
+            border-radius: 30px;
+            padding: 30px;
+        }
+
+        .case-study-section .image-card img {
+            max-height: 350px;
+            border-radius: 20px;
+        }
+
+        /* SCROLLBAR */
+        .case-study-section .scroll-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .case-study-section .scroll-container::-webkit-scrollbar-thumb {
+            background: #1e90ff !important;
+            border-radius: 10px !important;
+        }
+
+        /* full width image */
+
+        .integration-section {
+            height: 70vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Heading area */
+        .integration-header {
+            /* padding: 40px 20px 20px; */
+            text-align: center;
+        }
+
+        .integration-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 800;
+            color: #111;
+            padding: var(--section-padding) 24px 20px;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        /* Image container takes remaining height */
+        .integration-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .integration-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* use cover if you want crop */
+        }
+
+        /* ================================================================================ */
+        .ai-partnership-section {
+            padding: var(--section-padding) 0;
+            background: #fff;
+        }
+
+        .ai-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            align-items: center;
+        }
+
+        /* LEFT */
+        .ai-left h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .ai-left p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 420px;
+        }
+
+        /* RIGHT GRID */
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 120px);
+            gap: 0;
+            /* IMPORTANT */
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            background: #fafafa;
+        }
+
+        /* CARD */
+        .ai-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #c66a00;
+            background: linear-gradient(135deg, #fde7c6, #f9b356);
+            cursor: pointer;
+        }
+
+        /* BLANK CARD */
+        .ai-card.blank {
+            background: #e5e7eb;
+            cursor: default;
+        }
+
+        /* ACTIVE STATE ONLY (NO ANIMATION) */
+        .ai-card.active {
+            background: linear-gradient(135deg, #fbd28a, #f39c12);
+        }
+
+        /* REMOVE ALL HOVER EFFECTS */
+        .ai-card:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .ai-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* RESPONSIVE ENHANCEMENTS */
+        @media (max-width: 1200px) {
+
+            .hero-content,
+            .hero-breadcrumbs {
+                width: 90% !important;
+                max-width: 90% !important;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .ai-stats-container {
+                grid-template-columns: 1fr;
+                padding: 40px 24px;
+                gap: 40px;
+            }
+
+            .ai-stats-content {
+                text-align: center;
+            }
+
+            .ai-stats-content p {
+                margin: 0 auto;
+            }
+
+            .ai-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-section {
+                height: auto;
+                min-height: auto;
+                padding-bottom: 40px;
+            }
+
+            .case-study-section .scroll-container {
+                height: auto;
+                overflow: visible;
+            }
+
+            .case-study-section .slide {
+                flex-direction: column;
+                padding: 40px 20px;
+                gap: 30px;
+                text-align: center;
+                height: auto;
+                scroll-snap-align: none;
+                border-bottom: 1px solid #333;
+            }
+
+            .case-study-section .desc {
+                max-width: 100%;
+            }
+
+            .case-study-section .divider {
+                display: none;
+            }
+
+            .case-study-section .stats {
+                flex-direction: row;
+                /* Keep row */
+                gap: 30px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .case-study-section .image-box {
+                width: 100%;
+            }
+
+            .case-study-section .image-card img {
+                max-height: 300px;
+                width: auto;
+                max-width: 100%;
+            }
+
+            /* Reset scroll snap for mobile */
+            .case-study-section .scroll-container {
+                scroll-snap-type: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #hero.hero.section {
+                padding-top: 100px !important;
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                padding: 0;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .ai-stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stat-item {
+                text-align: center;
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 12px;
+            }
+
+            .ai-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 cols on mobile */
+            }
+
+            .integration-section {
+                height: 40vh;
+            }
+
+            .integration-header h2 {
+                font-size: 20px;
+            }
+
+            .ai-card {
+                font-size: 12px;
+                padding: 10px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ai-grid {
+                grid-template-columns: 1fr;
+                /* 1 col on very small screens */
+            }
+        }
+
+        /* ROI Section Styles */
+        .roi-section {
+            padding: var(--section-padding) 0;
+            background-color: #ffffff;
+        }
+
+        .roi-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+            color: var(--accent-color);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .roi-content h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--heading-color);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .roi-content p {
+            font-size: 18px;
+            color: #4b5563;
+            max-width: 550px;
+            line-height: 1.6;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .roi-card {
+            background-color: #f9fafb;
+            padding: 40px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .roi-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .roi-stat {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .roi-label {
+            font-size: 16px;
+            color: #4b5563;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .roi-sub-label {
+            font-size: 14px;
+            color: #9ca3af;
+            display: block;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 991px) {
+            .roi-grid {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .roi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-card {
+                padding: 30px;
+            }
+        }
+
+        /* Exclusive Services Section Styles */
+        .section-services {
+            font-family: "Poppins", sans-serif;
+            background-color: #e6edf7;
+            color: #202020;
+            padding: var(--section-padding) 0;
+        }
+
+        .section-services .header-section {
+            margin-bottom: 34px;
+        }
+
+        .section-services .header-section .title {
+            position: relative;
+            padding-bottom: 14px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            font-size: 32px;
+        }
+
+        .section-services .header-section .title:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        .section-services .header-section .title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(30px);
+            width: 10px;
+            height: 3px;
+            background-color: var(--heading-color);
+            border-radius: 3px;
+        }
+
+        .section-services .header-section .description {
+            font-size: 14px;
+            color: #282828;
+        }
+
+        .section-services .single-service {
+            position: relative;
+            margin-top: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 40px 30px;
+            overflow: hidden;
+            height: calc(100% - 30px);
+        }
+
+        .section-services .single-service .content {
+            position: relative;
+            z-index: 20;
+        }
+
+        .section-services .single-service .circle-before {
+            position: absolute;
+            top: 0;
+            right: 0px;
+            transform: translate(40%, -40%);
+            width: 150px;
+            height: 150px;
+            background-color: var(--accent-color);
+            border: 6px solid var(--heading-color);
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: 10;
+            transition: all .6s;
+        }
+
+        .section-services .single-service:hover .circle-before {
+            width: 100%;
+            height: 100%;
+            transform: none;
+            border: 0;
+            border-radius: 0;
+            opacity: 1;
+        }
+
+        .section-services .single-service .icon {
+            display: inline-block;
+            margin-bottom: 26px;
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-color);
+            border-radius: 5px;
+            line-height: 70px;
+            text-align: center;
+            color: #fff;
+            font-size: 30px;
+            transition: all .3s;
+        }
+
+        .section-services .single-service:hover .icon {
+            background-color: #fff;
+            color: var(--accent-color);
+        }
+
+        .section-services .single-service .title {
+            margin-bottom: 18px;
+            font-weight: 700;
+            font-size: 23px;
+            transition: color .3s;
+        }
+
+        .section-services .single-service:hover .title {
+            color: #fff;
+        }
+
+        .section-services .single-service .description {
+            margin-bottom: 20px;
+            font-size: 14px;
+            transition: color .3s;
+        }
+
+        .section-services .single-service:hover .description {
+            color: #fff;
+        }
+
+        .section-services .single-service a {
+            position: relative;
+            font-size: 18px;
+            color: #202020;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color .3s;
+        }
+
+        .section-services .single-service:hover a {
+            color: #fff;
+        }
+
+        .section-services .single-service a:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: var(--accent-color);
+            transition: background-color .3s;
+        }
+
+        .section-services .single-service:hover a:after {
+            background-color: #fff;
+        }
+
+        /* Data Insights Section Styles */
+        .data-insights-section {
+            padding: 20px 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            border-radius: 24px;
+            margin: 30px 15%;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .data-insights-section .header-section {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .data-insights-section .header-section h2 {
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .insight-tabs {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 100px;
+            display: inline-flex;
+            gap: 3px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .insight-tabs button {
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .insight-tabs button:hover {
+            color: #ffffff;
+        }
+
+        .insight-tabs button.active {
+            background: var(--accent-color);
+            color: #ffffff;
+            box-shadow: 0 10px 20px rgba(13, 131, 253, 0.3);
+        }
+
+        .insight-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .insight-content.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .insight-text {
+            padding-left: 40px;
+            padding-top: 20px;
+        }
+
+        .insight-text h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+        }
+
+        .insight-text ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .insight-text ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            line-height: 1.3;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .insight-text ul li::before {
+            content: "\f058";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 14px;
+            color: var(--accent-color);
+        }
+
+        .insight-text ul li strong {
+            display: inline;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .discover-more {
+            background: var(--accent-color);
+            color: #ffffff;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .discover-more:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(13, 131, 253, 0.3);
+            color: #ffffff;
+        }
+
+        .insight-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .insight-image img {
+            width: 70%;
+            margin: 0 auto;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 991px) {
+            .insight-content.active {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .insight-text {
+                order: 2;
+            }
+
+            .insight-image {
+                order: 1;
+            }
+
+            .data-insights-section {
+                border-radius: 0;
+                margin: 30px -15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .insight-tabs {
+                flex-direction: column;
+                border-radius: 25px;
+                width: 100%;
+            }
+
+            .insight-tabs button {
+                width: 100%;
+            }
+        }
+
+        /* Connectivity Section */
+        .connectivity-section {
+            padding: 40px 0;
+            background: #ffffff;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .connectivity-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+        }
+
+        .connectivity-section .description {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #64748b;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .view-connectors-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            color: var(--heading-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .view-connectors-btn:hover {
+            background: #f8fafc;
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .connectivity-scroll-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+        }
+
+        .connectivity-scroll-container::before,
+        .connectivity-scroll-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .connectivity-scroll-container::before {
+            left: 0;
+            background: linear-gradient(to right, #ffffff, transparent);
+        }
+
+        .connectivity-scroll-container::after {
+            right: 0;
+            background: linear-gradient(to left, #ffffff, transparent);
+        }
+
+        .connectivity-scroll-track {
+            display: flex;
+            gap: 50px;
+            width: max-content;
+            animation: scroll-right 40s linear infinite;
+        }
+
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .hex-wrapper {
+            width: 100px;
+            height: 115px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hex-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1;
+        }
+
+        .hex-border {
+            position: absolute;
+            width: 104px;
+            height: 119px;
+            background: #e2e8f0;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: 0;
+        }
+
+        .hex-wrapper i,
+        .hex-wrapper img {
+            font-size: 2.8rem;
+            z-index: 2;
+            color: #1e293b;
+            transition: transform 0.3s ease;
+        }
+
+        .hex-wrapper:hover i,
+        .hex-wrapper:hover img {
+            transform: scale(1.1);
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .connectivity-scroll-track {
+                gap: 30px;
+            }
+
+            .hex-wrapper {
+                width: 80px;
+                height: 92px;
+            }
+
+            .hex-border {
+                width: 84px;
+                height: 96px;
+            }
+
+            .hex-wrapper i {
+                font-size: 2rem;
+            }
+        }
+
+        /* Build Smarter Section */
+        .build-smarter-section {
+            padding: 60px 0;
+            background: #ffffff;
+        }
+
+        .build-smarter-card {
+            background: #005d76;
+            border-radius: 40px;
+            padding: 60px;
+            color: #ffffff;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 93, 118, 0.2);
+        }
+
+        .build-smarter-text h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .build-smarter-text p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .btn-demo-video {
+            display: inline-block;
+            padding: 14px 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-demo-video:hover {
+            background: #ffffff;
+            color: #005d76;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .build-smarter-image {
+            text-align: center;
+        }
+
+        .build-smarter-image img {
+            max-width: 110%;
+            margin-left: -5%;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+        }
+
+        @media (max-width: 991px) {
+            .build-smarter-card {
+                padding: 40px;
+                text-align: center;
+            }
+
+            .build-smarter-text h2 {
+                margin-bottom: 20px;
+            }
+
+            .build-smarter-image img {
+                max-width: 100%;
+                margin: 40px 0 0 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="services">
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="https://dataspantechnologies.com" class="logo">
+                    <img src="assets/img/brand3.png" alt="Dataspan Technologies Logo" class="logo-image" />
+                </a>
+            </div>
+
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="https://dataspantechnologies.com" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Aboutus.html" class="nav-link">About Us</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-dropdown="services">
+            Services
+          </a>
+        </li> -->
+                <li class="nav-item">
+                    <a href="Clients.html" class="nav-link">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Action Button 
+            <div class="nav-action">
+                <button class="start-project-btn">Start Project</button>
+            </div>-->
+        </div>
+
+        <!-- Services Dropdown Menu -->
+        <!--
+    <div class="dropdown-menu" id="services-dropdown">
+        <div class="dropdown-container">
+            <div class="dropdown-content">
+                Service Categories
+                <div class="service-categories">
+      <div class="category-column">
+        <div class="category-item active" data-submenu="ai-automation">
+          <a href="#" class="category-link">AI & Automation</a>
+        </div>
+        <div class="category-item" data-submenu="development-technology">
+          <a href="#" class="category-link">Development & Technology</a>
+        </div>
+        <div class="category-item" data-submenu="design-branding">
+          <a href="#" class="category-link">Design & Branding</a>
+        </div>
+        <div class="category-item" data-submenu="cloud-infrastructure">
+          <a href="#" class="category-link">Cloud & Infrastructure</a>
+        </div>
+        <div class="category-item" data-submenu="data-operations">
+          <a href="#" class="category-link">Data & Operations</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="ai-automation-submenu">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">AI & Machine Learning (ML)</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">OCR (Optical Character Recognition)</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Scraper & Scripting</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Navision Integration & Automation</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">ESL (Electronic Shelf Labels) Integration</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="development-technology-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Shopify Development & Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Web & Mobile Development</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Software Development & Consulting</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">E-Commerce & Marketplace Integration</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="design-branding-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">UI/UX & Creative Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Design & Branding</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="cloud-infrastructure-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Hosting & Cloud Services</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Managed Hosting Solutions</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Cloud Setup, Migration & Optimization</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Server Monitoring, Backup & Security Management</a>
+        </div>
+      </div>
+
+      <div class="subcategory-column" id="data-operations-submenu" style="display: none;">
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Reporting & Analytics</a>
+        </div>
+        <div class="subcategory-item">
+          <a href="#" class="subcategory-link">Back Office & BPO Solutions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="promo-section">
+      <div class="tech-illustration">
+        <div class="robot-unit">
+          <div class="robot-head">
+            <div class="robot-core"></div>
+            <div class="circuit-board"></div>
+          </div>
+          <div class="code-screen">
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+          </div>
+        </div>
+
+        <div class="human-figures">
+          <div class="human-figure male">
+            <div class="figure-body"></div>
+            <div class="key blue-key"></div>
+          </div>
+          <div class="human-figure female">
+            <div class="figure-body"></div>
+            <div class="key green-key"></div>
+          </div>
+        </div>
+
+        <div class="brain-icon">
+          <div class="brain-shape"></div>
+        </div>
+
+        <div class="geometric-elements">
+          <div class="cube-stack">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+          </div>
+          <div class="individual-cubes">
+            <div class="cube"></div>
+            <div class="cube"></div>
+          </div>
+          <div class="shield-icon"></div>
+          <div class="floating-keys">
+            <div class="key blue-key"></div>
+            <div class="key green-key"></div>
+          </div>
+        </div>
+
+        <div class="smartphone">
+          <div class="phone-body"></div>
+          <div class="network-signals">
+            <div class="signal"></div>
+            <div class="signal"></div>
+            <div class="signal"></div>
+          </div>
+          <div class="data-flow">
+            <div class="data-cube"></div>
+            <div class="data-cube"></div>
+            <div class="data-cube"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    -->
+    </nav>
+    <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+    <div class="main">
+        <!-- hero section -->
+        <section id="hero" class="hero section">
+
+            <!-- Breadcrumbs -->
+            <div class="hero-breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="https://dataspantechnologies.com">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><span>AI & Automation</span></li>
+                </ol>
+            </div>
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row align-items-center">
+
+                    <div class="col-lg-12">
+                        <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+
+                            <!-- Main Heading -->
+                            <h1 class="mb-4 hero-title">Revolutionizing Data with AI-Powered Solutions</h1>
+
+                            <!-- Description Paragraph -->
+                            <p class="mb-4 mb-md-5">
+                                We design, build, and deploy powerful AI and machine-learning solutions that enhance
+                                efficiency, automate workflows, and drive measurable results. From predictive analytics
+                                to NLP and custom LLM development, we help organizations unlock smarter, scalable, and
+                                future-ready capabilities.
+                            </p>
+
+                            <!-- Call to Action Buttons -->
+                            <div class="hero-buttons">
+                                <a href="#contact" class="btn btn-primary">Start Your AI Project</a>
+                                <a href="#contact" class="btn btn-outline-primary">Get Free Consultation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Proven ROI Section -->
+        <section id="roi" class="roi-section">
+            <div class="container" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 roi-content">
+                        <span class="roi-badge">Why DUVO delivers results</span>
+                        <h2>Proven ROI across large-scale retail deployments</h2>
+                        <p>Real results from retail and FMCG enterprises who've transformed their operations with DUVO's
+                            intelligent AI workers.</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="roi-grid">
+                            <div class="roi-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="roi-stat"><span class="counter" data-target="88">0</span>%</div>
+                                <div class="roi-label">lower processing costs <span class="roi-sub-label">(from $19 to
+                                        $2.36)</span></div>
+                            </div>
+                            <div class="roi-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="roi-stat"><span class="counter" data-target="82">0</span>%</div>
+                                <div class="roi-label">faster cycle times <span class="roi-sub-label">(from 17.4 days to
+                                        3.1 days)</span></div>
+                            </div>
+                            <div class="roi-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="roi-stat"><span class="counter" data-target="95">0</span>%</div>
+                                <div class="roi-label">fewer duplicate payments</div>
+                            </div>
+                            <div class="roi-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="roi-stat"><span class="counter" data-target="10">0</span>x</div>
+                                <div class="roi-label">Deployment in weeks, not months</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Proven ROI Section -->
+
+        <!-- START SECTION SERVICES -->
+        <section class="section-services">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-md-10 col-lg-8" data-aos="fade-up">
+                        <div class="header-section">
+                            <h2 class="title">Exclusive Services</h2>
+                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+                                malesuada fermentum purus, eu volutpat nisi laoreet id. Phasellus fringilla accumsan
+                                metus, at tempor est hendrerit et.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Single Service -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="single-service">
+                            <div class="content">
+                                <span class="icon">
+                                    <i class="fab fa-battle-net"></i>
+                                </span>
+                                <h3 class="title">Global coverage</h3>
+                                <p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis,
+                                    justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel
+                                    velit.</p>
+                                <a href="#" class="learn-more">Learn More</a>
+                            </div>
+                            <span class="circle-before"></span>
+                        </div>
+                    </div>
+                    <!-- / End Single Service -->
+                    <!-- Single Service -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="single-service">
+                            <div class="content">
+                                <span class="icon">
+                                    <i class="fab fa-asymmetrik"></i>
+                                </span>
+                                <h3 class="title">It Management</h3>
+                                <p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis,
+                                    justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel
+                                    velit.</p>
+                                <a href="#" class="learn-more">Learn More</a>
+                            </div>
+                            <span class="circle-before"></span>
+                        </div>
+                    </div>
+                    <!-- / End Single Service -->
+                    <!-- Single Service -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="single-service">
+                            <div class="content">
+                                <span class="icon">
+                                    <i class="fab fa-artstation"></i>
+                                </span>
+                                <h3 class="title">Software Development</h3>
+                                <p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis,
+                                    justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel
+                                    velit.</p>
+                                <a href="#" class="learn-more">Learn More</a>
+                            </div>
+                            <span class="circle-before"></span>
+                        </div>
+                    </div>
+                    <!-- / End Single Service -->
+                    <!-- Single Service -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="single-service">
+                            <div class="content">
+                                <span class="icon">
+                                    <i class="fab fa-500px"></i>
+                                </span>
+                                <h3 class="title">Brand Strategy</h3>
+                                <p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis,
+                                    justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel
+                                    velit.</p>
+                                <a href="#" class="learn-more">Learn More</a>
+                            </div>
+                            <span class="circle-before"></span>
+                        </div>
+                    </div>
+                    <!-- / End Single Service -->
+                    <!-- Single Service -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="single-service">
+                            <div class="content">
+                                <span class="icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </span>
+                                <h3 class="title">Business Consulting</h3>
+                                <p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis,
+                                    justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel
+                                    velit.</p>
+                                <a href="#" class="learn-more">Learn More</a>
+                            </div>
+                            <span class="circle-before"></span>
+                        </div>
+                    </div>
+                    <!-- / End Single Service -->
+                    <!-- Single Service -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                        <div class="single-service">
+                            <div class="content">
+                                <span class="icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </span>
+                                <h3 class="title">Website Design</h3>
+                                <p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis,
+                                    justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel
+                                    velit.</p>
+                                <a href="#" class="learn-more">Learn More</a>
+                            </div>
+                            <span class="circle-before"></span>
+                        </div>
+                    </div>
+                    <!-- / End Single Service -->
+                </div>
+            </div>
+        </section>
+        <!-- / END SECTION SERVICES -->
+
+        <!-- Data Insights Section -->
+        <section id="data-insights" class="data-insights-section">
+            <div class="container" data-aos="fade-up">
+                <div class="header-section">
+                    <h2>Transform raw data into business insights</h2>
+                    <div class="insight-tabs">
+                        <button class="tab-btn" data-target="connectivity">Data Connectivity</button>
+                        <button class="tab-btn" data-target="transformation">Data Transformation</button>
+                        <button class="tab-btn active" data-target="automation">Automation & Management</button>
+                    </div>
+                </div>
+
+                <!-- Automation & Management Tab -->
+                <div id="automation" class="insight-content active row align-items-start">
+                    <div class="col-lg-5 insight-text" data-aos="fade-right">
+                        <h3>Automation & Management</h3>
+                        <ul>
+                            <li><strong>Business Logic.</strong> Unify pipeline steps and manage extraction, loading,
+                                and transformation.</li>
+                            <li><strong>Pipeline Observability.</strong> Monitor and diagnose pipelines in real-time.
+                            </li>
+                            <li><strong>Scheduling.</strong> Automate and schedule data pipelines flexibly based on
+                                custom parameters.</li>
+                            <li><strong>DataOps.</strong> Integrate with tools like GitHub and existing DevOps
+                                procedures.</li>
+                            <li><strong>Matillion Lineage.</strong> Optimize data pipelines with the ability to trace
+                                data from its source to its target.</li>
+                        </ul>
+                        <a href="contact.html" class="discover-more">Get Started Now <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="col-lg-7 insight-image" data-aos="fade-left">
+                        <img src="assets/img/pipeline-dashboard.png" alt="Pipeline dashboard preview">
+                    </div>
+                </div>
+
+                <!-- Placeholder for Connectivity Tab -->
+                <div id="connectivity" class="insight-content row align-items-start">
+                    <div class="col-lg-5 insight-text">
+                        <h3>Data Connectivity</h3>
+                        <ul>
+                            <li><strong>Universal Access.</strong> Connect to any data source, from cloud apps to legacy
+                                databases.</li>
+                            <li><strong>Cloud Native.</strong> Scalable connections built for modern cloud environments.
+                            </li>
+                            <li><strong>Real-time Sync.</strong> Streaming data connectivity for immediate business
+                                impact.</li>
+                        </ul>
+                        <a href="contact.html" class="discover-more">Connect Your Data <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="col-lg-7 insight-image">
+                        <img src="assets/img/pipeline-dashboard.png" alt="Data Connectivity preview">
+                    </div>
+                </div>
+
+                <!-- Placeholder for Transformation Tab -->
+                <div id="transformation" class="insight-content row align-items-start">
+                    <div class="col-lg-5 insight-text">
+                        <h3>Data Transformation</h3>
+                        <ul>
+                            <li><strong>Visual Workflow.</strong> Design complex transformations with an intuitive
+                                drag-and-drop interface.</li>
+                            <li><strong>High Performance.</strong> Push transformations down to your cloud data
+                                warehouse.</li>
+                            <li><strong>Reusable Components.</strong> Build once, use everywhere for consistent data
+                                logic.</li>
+                        </ul>
+                        <a href="contact.html" class="discover-more">Transform Faster <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="col-lg-7 insight-image">
+                        <img src="assets/img/pipeline-dashboard.png" alt="Data Transformation preview">
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Data Insights Section -->
+
+        <!-- Universal Connectivity Section -->
+        <section id="connectivity-track" class="connectivity-section">
+            <div class="container" data-aos="fade-up">
+                <h2>Universal <span>connectivity</span></h2>
+                <p class="description">Get started instantly with over 150 pre-built data connectors. Create your own
+                    custom connector to pull data via REST API, or ask us to build a Flex Connector and we'll deliver in
+                    days.</p>
+                <div class="text-center">
+                    <a href="contact.html" class="view-connectors-btn">View all connectors</a>
+                </div>
+
+                <div class="connectivity-scroll-container">
+                    <div class="connectivity-scroll-track">
+                        <!-- Icon Set 1 -->
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fas fa-database" style="color: #00758f;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-salesforce" style="color: #00a1e0;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-github" style="color: #333;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-python" style="color: #3776ab;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-aws" style="color: #ff9900;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-google" style="color: #4285f4;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-slack" style="color: #4a154b;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-hubspot" style="color: #ff7a59;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-jira" style="color: #0052cc;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-confluence" style="color: #172b4d;"></i>
+                        </div>
+
+                        <!-- Duplicate for Seamless Scroll -->
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fas fa-database" style="color: #00758f;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-salesforce" style="color: #00a1e0;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-github" style="color: #333;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-python" style="color: #3776ab;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-aws" style="color: #ff9900;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-google" style="color: #4285f4;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-slack" style="color: #4a154b;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-hubspot" style="color: #ff7a59;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-jira" style="color: #0052cc;"></i>
+                        </div>
+                        <div class="hex-wrapper">
+                            <div class="hex-border"></div>
+                            <div class="hex-bg"></div><i class="fab fa-confluence" style="color: #172b4d;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Universal Connectivity Section -->
+
+
+        <!-- Build Smarter Section -->
+        <section id="build-smarter" class="build-smarter-section">
+            <div class="container" data-aos="fade-up">
+                <div class="build-smarter-card">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 build-smarter-text" data-aos="fade-right" data-aos-delay="100">
+                            <h2>Build smarter, and reduce the tedious manual work</h2>
+                            <p>Move from manual to autonomous pipeline building. Visually design pipelines with almost
+                                no manual effort. Maia connects sources, defines transformations, and orchestrates
+                                workflows automatically for you.</p>
+                            <a href="#" class="btn-demo-video">Watch the on-demand demo video</a>
+                        </div>
+                        <div class="col-lg-6 build-smarter-image" data-aos="fade-left" data-aos-delay="200">
+                            <img src="assets/img/build-pipeline.png" alt="Build Smarter Illustration" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Build Smarter Section -->
+
+
+        <!-- Call to Action Section -->
+        <section id="cta" class="call-to-action section">
+            <div class="container" data-aos="zoom-in">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2>Shape the Future of Your Enterprise Today </h2>
+                        <p class="mb-4">Let AI revolutionize how your business thinks, adapts, and succeeds in the
+                            digital era.</p>
+                        <div class="cta-buttons">
+                            <a href="contact.html" class="btn btn-primary me-2 mb-2">Get Started Today</a>
+                            <!-- <a href="service.html" class="btn btn-outline-primary mb-2">Explore Our Services</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Call to Action Section -->
+    </div>
+
+    <footer id="footer" class="footer section light-background">
+
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="https://dataspantechnologies.com" class="logo d-flex align-items-center ">
+                        <img src="assets/img/footer-logo2.png" alt="">
+                    </a>
+                    <div class="footer-contact pt-1">
+                        <!-- <p>Shreeji Pride, Dataspan Technologies, Shreeji Pride, Second Floor, Opp.</p>
+            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p> -->
+                        <p>We work with businesses to simplify digital operations, <br>strengthen eCommerce performance,
+                            and build
+                            smarter systems that support steady, measurable growth</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+91 97649 97022</span></p>
+                        <p><strong>Email:</strong> <span>info@dataspantechnologies.com</span></p>
+                    </div>
+                    <div class="social-links d-flex my-2">
+                        <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
+
+                        <a href="https://www.instagram.com/dataspantechnologies_pvt.ltd/#"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://in.linkedin.com/company/dataspan-technologies"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://www.facebook.com/share/17XXofdr8i/?mibextid=wwXIfr"><i
+                                class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Our Solutions
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="service.html">AI & Automation Solutions</a></li>
+            <li><a href="service.html">Software & App Development</a></li>
+            <li><a href="service.html">Data Analytics & Visualization</a></li>
+            <li><a href="service.html">NLP & Language Models</a></li>
+            <li><a href="service.html">BPO & E-commerce Services</a></li>
+            <li><a href="service.html">UI/UX Design & Prototyping</a></li>
+          </ul>
+        </div> -->
+
+                <!-- <div class="col-lg-3 col-md-3 footer-links">
+          <h4 class="footer-dropdown-toggle">
+            Industries We Serve
+            <i class="bi bi-chevron-down footer-chevron"></i>
+          </h4>
+          <ul class="footer-dropdown-content">
+            <li><a href="#">E-commerce & Retail</a></li>
+            <li><a href="#">Fintech & Banking</a></li>
+            <li><a href="#">Healthcare & MedTech</a></li>
+            <li><a href="#">Manufacturing & Supply Chain</a></li>
+            <li><a href="#">Education & EdTech</a></li>
+            <li><a href="">Real Estate & Smart Systems</a></li>
+          </ul>
+        </div> -->
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Useful Links
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <ul class="footer-dropdown-content">
+                        <li><a href="https://dataspantechnologies.com">Home</a></li>
+                        <li><a href="Aboutus.html">About us</a></li>
+                        <li><a href="Clients.html">Clients</a></li>
+                        <!-- <li><a href="service.html">Services</a></li> -->
+                        <!-- <li><a href="careers.html">Careers</a></li> -->
+                        <!-- <li><a href="Clients.html">Case Studies</a></li> -->
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <!-- <li><a href="#">Privacy Policy</a></li> -->
+                        <!-- <li><a href="#">Terms of Service</a></li> -->
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Office Address 1
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <div class="footer-dropdown-content">
+                        <div class="footer-contact">
+                            <!-- <p><strong>Address:</strong></p> -->
+                            <p>Shreeji Pride, Dataspan Technologies Pvt. Ltd. , Shreeji Pride, Second Floor, Opp.</p>
+                            <p>Euphoria Fitness Club, Manohar Nagar, Govind Nagar, Nashik, Maharashtra 422001</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 footer-links">
+                    <h4 class="footer-dropdown-toggle">
+                        Office Address 2
+                        <i class="bi bi-chevron-down footer-chevron"></i>
+                    </h4>
+                    <div class="footer-dropdown-content">
+                        <div class="footer-contact">
+                            <!-- <p><strong>Address:</strong></p> -->
+                            <p>Dataspan Technologies Pvt. Ltd. ,</p>
+                            <p>SNO.98 Gilankar Nagar college stop near SP Classes, Malegaon 423203</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nobis illum</h4>
+          <ul>
+            <li><a href="#">Ipsam</a></li>
+            <li><a href="#">Laudantium dolorum</a></li>
+            <li><a href="#">Dinera</a></li>
+            <li><a href="#">Trodelas</a></li>
+            <li><a href="#">Flexo</a></li>
+          </ul>
+        </div> -->
+
+            </div>
+        </div>
+
+        <div class="container copyright text-center m-0 p-0">
+            <!-- Social Links for Mobile View -->
+            <div class="social-links social-links-mobile d-flex justify-content-center mt-2">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+            <p class="mt-2">© <span>Copyright</span> <strong class="px-1 sitename">Dataspan
+                    Technologies</strong> <span>All Rights
+                    Reserved</span></p>
+        </div>
+
+    </footer>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short "></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Initialize AOS with smooth animation settings -->
+    <script>
+        AOS.init({
+            duration: 500, // Smooth animation duration (0.5s)
+            easing: 'ease-out-cubic', // Smooth cubic easing for fluid motion
+            once: true, // Animate only once
+            offset: 0, // Trigger immediately when element enters viewport
+            delay: 0 // Base delay (individual delays are set via data-aos-delay)
+        });
+    </script>
+
+
+    <!-- Counter Animation JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // Increased steps for slower animation
+
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const increment = target / speed;
+
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 15); // Increased delay between steps
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            };
+
+            const observerOptions = {
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+
+            // Data Insights Tab Logic
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.insight-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.getAttribute('data-target');
+
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    btn.classList.add('active');
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+        });
+    </script>
+
+
+</body>
