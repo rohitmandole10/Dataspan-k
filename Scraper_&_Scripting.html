@@ -422,99 +422,7 @@
             box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
         }
 
-        /* AI Development Statistics Infographic Styles */
-        .ai-stats-section {
-            padding: 30px 0;
-            background: var(--background-color);
-        }
 
-        .ai-stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .ai-stats-title {
-            font-size: clamp(1.75rem, 5vw, 2.5rem);
-            font-weight: 800;
-            color: var(--heading-color);
-            font-family: var(--heading-font);
-            text-align: center;
-            margin-bottom: 2rem;
-            letter-spacing: -0.01em;
-        }
-
-        .ai-highlight {
-            background: color-mix(in srgb, var(--accent-color), transparent 90%);
-            padding: 4px 12px;
-            border-radius: 4px;
-            color: var(--heading-color);
-            display: inline-block;
-        }
-
-        .ai-stat-card {
-            background: var(--surface-color);
-            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-            border-radius: 12px;
-            padding: 30px 20px;
-            text-align: center;
-            height: 100%;
-            box-shadow: none;
-        }
-
-        .stat-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-            background: var(--surface-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--heading-color);
-            font-family: var(--heading-font);
-        }
-
-        .stat-content {
-            margin-top: 15px;
-        }
-
-        .stat-text {
-            color: var(--default-color);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin: 0;
-            font-family: var(--default-font);
-        }
-
-        /* Responsive AI Stats */
-        @media (max-width: 768px) {
-            .ai-stats-title {
-                font-size: 1.5rem;
-            }
-
-            .stat-circle {
-                width: 80px;
-                height: 80px;
-            }
-
-            .stat-number {
-                font-size: 1.5rem;
-            }
-
-            .stat-text {
-                font-size: 0.85rem;
-            }
-
-            .ai-stat-card {
-                padding: 25px 15px;
-            }
-        }
 
         /* Responsive Hero Styles */
         @media (max-width: 991px) {
@@ -570,251 +478,7 @@
             height: 100%;
         }
 
-        .products-tile-container {
-            width: 100%;
-            display: flex;
-            min-width: 1000px;
-            height: 23.75rem;
-        }
 
-        .tile {
-            --padding-box: calc(3.75rem - 1.25rem);
-            width: 100%;
-            height: 80%;
-            border-radius: 32px;
-            padding: var(--padding-box);
-            position: relative;
-            overflow: hidden;
-            flex: 1;
-            color: #fff;
-            background-color: #000;
-            transition: flex-grow 0.4s cubic-bezier(0.38, 0.005, 0.215, 1),
-                margin 0.4s cubic-bezier(0.38, 0.005, 0.215, 1);
-        }
-
-        .tile:hover {
-            flex: 1.5;
-            cursor: pointer;
-        }
-
-        .tile:not(:last-child) {
-            margin-right: -10%;
-        }
-
-        .tile:not(:last-child):hover {
-            margin-right: -2%;
-        }
-
-        .tile-title {
-            --font-size-h2-sans: 28px;
-            max-width: 13rem;
-            line-height: 1;
-            letter-spacing: -0.02em;
-            font-weight: 600;
-            font-size: var(--font-size-h2-sans);
-        }
-
-        .card-text {
-            max-width: 250px;
-            margin-top: 8px;
-        }
-
-        .tile:hover .icon-popup {
-            bottom: 30px;
-        }
-
-        .icon-popup {
-            font-size: 72px;
-            position: absolute;
-            bottom: -100px;
-            transition: bottom 1s cubic-bezier(0.08, 1.88, 0.54, 0.82);
-        }
-
-        .tile-background {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: #333;
-            opacity: 0.1;
-            transition: opacity 1s ease;
-            z-index: -1;
-        }
-
-        .tile:hover .tile-background {
-            opacity: 0;
-        }
-
-        .tile:nth-child(1) {
-            --text: #fff;
-            --primary: #af3766;
-            background-color: var(--primary);
-            z-index: 1;
-            color: var(--text);
-        }
-
-        .tile:nth-child(2) {
-            --text: #fff;
-            --primary: #6abde1;
-            background-color: var(--primary);
-            z-index: 2;
-            color: var(--text);
-        }
-
-        .tile:nth-child(3) {
-            --text: #fff;
-            --primary: #9cbe43;
-            background-color: var(--primary);
-            z-index: 3;
-            color: var(--text);
-        }
-
-        .tile:nth-child(4) {
-            --text: #fff;
-            --primary: #6610f2;
-            background-color: var(--primary);
-            z-index: 4;
-            color: var(--text);
-        }
-
-        .tile:nth-child(5) {
-            --text: #fff;
-            --primary: #fd7e14;
-            background-color: var(--primary);
-            z-index: 5;
-            color: var(--text);
-        }
-
-        .tile:nth-child(6) {
-            --text: #fff;
-            --primary: #20c997;
-            background-color: var(--primary);
-            z-index: 6;
-            color: var(--text);
-        }
-
-        .discover-btn {
-            position: absolute;
-            bottom: 30px;
-            right: 40px;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: end;
-            gap: 20px;
-            background-color: #fff;
-            padding: 10px 20px;
-            border-radius: 9999px;
-            width: 60px;
-            transition: all 400ms ease 100ms;
-            overflow: hidden;
-            cursor: pointer;
-            color: #000;
-        }
-
-        .discover-btn .text {
-            font-weight: 500;
-            font-family: 'Sora', sans-serif;
-        }
-
-        /* .products-tile-container.row-2 {
-            margin-top: 2rem;
-        } */
-
-        .row-2 .tile:nth-child(1) {
-            --text: #fff;
-            --primary: #fd7e14;
-            background-color: var(--primary);
-            z-index: 1;
-            color: var(--text);
-        }
-
-        .row-2 .tile:nth-child(2) {
-            --text: #fff;
-            --primary: #20c997;
-            background-color: var(--primary);
-            z-index: 2;
-            color: var(--text);
-        }
-
-        .row-2 .tile:nth-child(3) {
-            --text: #fff;
-            --primary: #dc3545;
-            background-color: var(--primary);
-            z-index: 3;
-            color: var(--text);
-        }
-
-        .row-2 .tile:nth-child(4) {
-            background: linear-gradient(135deg, #0061ff 0%, #60efff 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 40px;
-            z-index: 4;
-        }
-
-        .cta-text {
-            font-size: 28px;
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-
-        .cta-button {
-            background-color: #fff;
-            color: #0061ff;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 16px;
-            border: none;
-            width: 100%;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
-
-        .tile:hover .discover-btn {
-            width: 170px;
-        }
-
-        .discover-btn .text {
-            position: relative;
-            left: -100px;
-            transition: left 500ms ease;
-        }
-
-        .tile:hover .discover-btn .text {
-            left: 0;
-        }
-
-        .section-title-services {
-            width: 100%;
-            text-align: center;
-        }
-
-        .section-title-services h2 {
-            font-size: clamp(1.75rem, 5vw, 2.5rem);
-            margin-bottom: clamp(30px, 6vw, 60px);
-            margin-top: clamp(30px, 6vw, 60px);
-            font-weight: 800;
-            color: var(--heading-color);
-            font-family: var(--heading-font);
-            letter-spacing: -0.01em;
-        }
-
-        a.tile {
-            text-decoration: none !important;
-            color: white !important;
-        }
 
         @media only screen and (max-width: 1064px) {
             .products-tile-container {
@@ -1610,49 +1274,6 @@
             margin-bottom: 40px;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary-cta {
-            background: var(--accent-color);
-            color: var(--contrast-color);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-primary-cta:hover {
-            background: color-mix(in srgb, var(--accent-color), transparent 10%);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(13, 131, 253, 0.4);
-        }
-
-        .btn-secondary-cta {
-            background: transparent;
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-secondary-cta:hover {
-            background: var(--accent-color);
-            color: var(--contrast-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(13, 131, 253, 0.4);
-        }
 
         .typing-indicator {
             display: inline-flex;
@@ -1723,16 +1344,6 @@
 
             .marketing-description {
                 font-size: 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn-primary-cta,
-            .btn-secondary-cta {
-                width: 100%;
-                text-align: center;
             }
         }
 
@@ -2004,10 +1615,23 @@
             display: none;
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .capability-content.active {
             display: flex;
             gap: 60px;
             align-items: flex-start;
+            animation: fadeInUp 0.5s ease-out forwards;
         }
 
         /* Content Left */
@@ -2576,11 +2200,6 @@
             .marketing-description {
                 text-align: center;
             }
-
-            .product-logos,
-            .cta-buttons {
-                justify-content: center;
-            }
         }
 
         @media (max-width: 480px) {
@@ -2812,7 +2431,7 @@
                 <ol class="breadcrumb">
                     <li><a href="https://dataspantechnologies.com">Home</a></li>
                     <li><a href="#">Services</a></li>
-                    <li><span>AI & Automation</span></li>
+                    <li><span>Scraper & Scripting</span></li>
                 </ol>
             </div>
 
@@ -2835,7 +2454,7 @@
                             <!-- Call to Action Buttons -->
                             <div class="hero-buttons">
                                 <a href="#contact" class="btn btn-primary">Start Scraping Project</a>
-                                <a href="#contact" class="btn btn-outline-primary">Get Free Consultation</a>
+                                <!-- <a href="#contact" class="btn btn-outline-primary">Get Free Consultation</a> -->
                             </div>
                         </div>
                     </div>
@@ -2889,7 +2508,7 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="ai-stat-card">
                                 <div class="stat-circle">
-                                    <span class="stat-number" data-target="24" data-suffix="/">0%</span>
+                                    <span class="stat-number" data-target="24" data-suffix=" / 7">0%</span>
                                 </div>
                                 <div class="stat-content">
                                     <p class="stat-text">Automated data monitoring and updates</p>
@@ -2918,10 +2537,7 @@
                             <p class="card-text">Collect structured information from pages, listings, tables, and
                                 dynamic elements.</p>
                             <div class="icon-popup"><i class="fa-duotone fa-chart-line-up"></i></div>
-                            <div class="discover-btn">
-                                <span class="text">discover</span>
-                                <span class="btn-icon"><i class="fa-solid fa-chevrons-right"></i></span>
-                            </div>
+
                         </a>
                         <a class="tile" href="#">
                             <div class="tile-background"></div>
@@ -2929,10 +2545,7 @@
                             <p class="card-text">Handle JavaScript-rendered sites using headless browsers and smart
                                 waiting strategies.</p>
                             <div class="icon-popup"><i class="fa-duotone fa-brain-circuit"></i></div>
-                            <div class="discover-btn">
-                                <span class="text">discover</span>
-                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
-                            </div>
+
                         </a>
                         <a class="tile" href="#">
                             <div class="tile-background"></div>
@@ -2940,10 +2553,7 @@
                             <p class="card-text">Bypass blocks with rotating proxies, headers, throttling, and
                                 fingerprint management.</p>
                             <div class="icon-popup"><i class="fa-duotone fa-file-lines"></i></div>
-                            <div class="discover-btn">
-                                <span class="text">discover</span>
-                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
-                            </div>
+
                         </a>
                         <a class="tile" href="#">
                             <div class="tile-background"></div>
@@ -2951,10 +2561,7 @@
                             <p class="card-text">Run automated crawlers on schedules for updates and change detection.
                             </p>
                             <div class="icon-popup"><i class="fa-duotone fa-microchip-ai"></i></div>
-                            <div class="discover-btn">
-                                <span class="text">discover</span>
-                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
-                            </div>
+
                         </a>
 
                     </div>
@@ -2964,10 +2571,7 @@
                             <p class="tile-title">API Data Delivery</p>
                             <p class="card-text">Expose scraped data via secure APIs or push pipelines downstream.</p>
                             <div class="icon-popup"><i class="fa-duotone fa-books"></i></div>
-                            <div class="discover-btn">
-                                <span class="text">discover</span>
-                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
-                            </div>
+
                         </a>
                         <a class="tile" href="#">
                             <div class="tile-background"></div>
@@ -2975,10 +2579,7 @@
                             <p class="card-text">Python-based scripts tailored to unique sites, logic, volumes, and
                                 formats.</p>
                             <div class="icon-popup"><i class="fa-duotone fa-gears"></i></div>
-                            <div class="discover-btn">
-                                <span class="text">discover</span>
-                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
-                            </div>
+
                         </a>
                         <a class="tile" href="#">
                             <div class="tile-background"></div>
@@ -2986,10 +2587,7 @@
                             <p class="card-text">Normalize, deduplicate, validate, and enrich datasets before storage or
                                 analytics.</p>
                             <div class="icon-popup"><i class="fa-duotone fa-database"></i></div>
-                            <div class="discover-btn">
-                                <span class="text">discover</span>
-                                <span class="btn-icon"><i class="fa-duotone fa-chevrons-right"></i></span>
-                            </div>
+
                         </a>
 
                         <!-- ADD THIS AFTER EXISTING TILES -->
@@ -3882,7 +3480,7 @@
                         <h2>Turn Web Data Into Competitive Advantage</h2>
                         <p class="mb-4">Automate data collection from multiple websites, reduce manual effort, and gain
                             reliable insights with scalable scraping solutions.</p>
-                        <div class="cta-buttons">
+                        <div class="cta-buttons justify-content-center">
                             <a href="contact.html" class="btn btn-primary me-2 mb-2">Start Your Project</a>
                             <!-- <a href="service.html" class="btn btn-outline-primary mb-2">Explore Our Services</a> -->
                         </div>
@@ -4232,29 +3830,61 @@
         (function () {
             const capabilityTabs = document.querySelectorAll('.capability-tab');
             const capabilityContents = document.querySelectorAll('.capability-content');
+            let currentIndex = 0;
+            let intervalId;
+            const AUTO_SWITCH_INTERVAL = 5000; // 5 seconds
 
-            capabilityTabs.forEach(tab => {
-                tab.addEventListener('click', function () {
-                    const tabName = this.getAttribute('data-tab');
+            function activateTab(index) {
+                // Remove active class from all tabs and contents
+                capabilityTabs.forEach(t => t.classList.remove('active'));
+                capabilityContents.forEach(c => c.classList.remove('active'));
 
-                    // Remove active class from all tabs
-                    capabilityTabs.forEach(t => t.classList.remove('active'));
+                // Activate new tab
+                const tab = capabilityTabs[index];
+                if (tab) {
+                    tab.classList.add('active');
 
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-
-                    // Hide all content sections
-                    capabilityContents.forEach(content => {
-                        content.classList.remove('active');
-                    });
-
-                    // Show the selected content
+                    // Activate content
+                    const tabName = tab.getAttribute('data-tab');
                     const selectedContent = document.getElementById(tabName + '-content');
                     if (selectedContent) {
                         selectedContent.classList.add('active');
                     }
+                    currentIndex = index;
+                }
+            }
+
+            function nextTab() {
+                let nextIndex = (currentIndex + 1) % capabilityTabs.length;
+                activateTab(nextIndex);
+            }
+
+            function startAutoSwitch() {
+                clearInterval(intervalId);
+                intervalId = setInterval(nextTab, AUTO_SWITCH_INTERVAL);
+            }
+
+            function stopAutoSwitch() {
+                clearInterval(intervalId);
+            }
+
+            capabilityTabs.forEach((tab, index) => {
+                tab.addEventListener('click', function () {
+                    activateTab(index);
+                    // Reset timer on manual interaction
+                    startAutoSwitch();
                 });
             });
+
+            // Start auto-switching
+            startAutoSwitch();
+
+            // Pause on hover over the container
+            const wrapper = document.querySelector('.how-it-works-section .container');
+            if (wrapper) {
+                wrapper.addEventListener('mouseenter', stopAutoSwitch);
+                wrapper.addEventListener('mouseleave', startAutoSwitch);
+            }
         })();
     </script>
 
